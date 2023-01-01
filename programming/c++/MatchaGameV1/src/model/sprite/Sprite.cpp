@@ -60,8 +60,6 @@ void Sprite::setPosn(float x, float y) {
 void Sprite::updateSheet(STATE state, int delta) {
     SpriteSheet* sheet = getSheet(state);
     int oldFrameNum = sheet->getCurrFr();
-    std::cout << "oldFrameNum: " << oldFrameNum << std::endl;
-    std::cout << "delta: " << delta << std::endl;
     sheet->setFrameNum(oldFrameNum + delta);
 }
 

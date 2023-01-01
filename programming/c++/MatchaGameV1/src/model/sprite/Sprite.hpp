@@ -21,7 +21,6 @@ public:
         stateDir = d;
         sheetMap = map;
     };
-    
     ~Sprite();
     
     // getters
@@ -40,15 +39,15 @@ public:
     
     // draw & updates
     void update();                            // update sprite based on curr state
-    void updateSheet(STATE state, int delta); // update sheet
     void resetSheet(STATE state);             // reset sheet frame
+    void updateSheet(STATE state, int delta); // update sheet
     void handleInput(SDL_Event const &event); // update state of sprite given events
     void drawSprite(SDL_Surface* windowSrfc); // draws sprite on the given srfc
 
 private:
     NAME name;                                     // unique sprite name
     Posn posn;                                     // (x,y). defaults to (0,0)
-    float frameSpeed = 1;                          // default = 1
+    float frameSpeed = 1;                          // rate of change in sprite posn
     STATE state;                                   // whatever state sprite is in
     DIRECTION stateDir;                            // direction sprite faces
     NameStateSheetMap* sheetMap;                   // map for accessing sheets

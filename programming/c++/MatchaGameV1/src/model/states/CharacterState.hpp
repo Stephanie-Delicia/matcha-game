@@ -15,6 +15,7 @@ class CharacterState : SpriteState {
 public:
     void handleInput(Sprite* sprite, SDL_Event const &input);
     void update(Sprite* sprite);
+    void setState(STATE state);
     
 private:
     STATE currState = NONE;

@@ -37,6 +37,11 @@
 		C2F78ECA2DC07D8700B7B8F9 /* SDL3_image.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2A313C82D95C8F7004173D5 /* SDL3_image.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ECB2DC0895600B7B8F9 /* CommandTest.cpp */; };
 		C2F78ECE2DC0896600B7B8F9 /* StateTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */; };
+		C2F78ED82DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ED62DC32B4700B7B8F9 /* ScreenModel.cpp */; };
+		C2F78ED92DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ED62DC32B4700B7B8F9 /* ScreenModel.cpp */; };
+		C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */; };
+		C2F78EDF2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */; };
+		C2F78EE32DC3FE3000B7B8F9 /* GameModelTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EE22DC3FE3000B7B8F9 /* GameModelTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +104,15 @@
 		C2F78EBC2DC006BF00B7B8F9 /* IdleCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IdleCommand.hpp; sourceTree = "<group>"; };
 		C2F78ECB2DC0895600B7B8F9 /* CommandTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandTest.cpp; sourceTree = "<group>"; };
 		C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateTest.cpp; sourceTree = "<group>"; };
+		C2F78ED12DC2CC0800B7B8F9 /* GameModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		C2F78ED32DC2CC3000B7B8F9 /* GameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		C2F78ED42DC2CC3D00B7B8F9 /* GameController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		C2F78ED52DC2D02100B7B8F9 /* SCREEN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCREEN.h; sourceTree = "<group>"; };
+		C2F78ED62DC32B4700B7B8F9 /* ScreenModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenModel.cpp; sourceTree = "<group>"; };
+		C2F78ED72DC32B4700B7B8F9 /* ScreenModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScreenModel.hpp; sourceTree = "<group>"; };
+		C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenNavigator.cpp; sourceTree = "<group>"; };
+		C2F78EDD2DC3F08B00B7B8F9 /* ScreenNavigator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScreenNavigator.hpp; sourceTree = "<group>"; };
+		C2F78EE22DC3FE3000B7B8F9 /* GameModelTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameModelTest.cpp; sourceTree = "<group>"; };
 		C2FE94C22DAD90AC004F99B8 /* NameStateSheetMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NameStateSheetMap.cpp; sourceTree = "<group>"; };
 		C2FE94C32DAD90AC004F99B8 /* NameStateSheetMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameStateSheetMap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,10 +142,11 @@
 		C20003212DB94A430074364D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C2F78EE22DC3FE3000B7B8F9 /* GameModelTest.cpp */,
+				C2F78EE12DC3FDFF00B7B8F9 /* sprite */,
+				C2F78EE02DC3FDF200B7B8F9 /* screen */,
 				C2F78ED02DC15C8100B7B8F9 /* state */,
 				C2F78ECF2DC15C7000B7B8F9 /* command */,
-				C20003242DB967FC0074364D /* SpriteTest.cpp */,
-				C20003262DB9680F0074364D /* SpriteSheetTest.cpp */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -147,12 +162,11 @@
 		C26E70EF2D95CADC00DE5378 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C2F78EC22DC0539000B7B8F9 /* states */,
+				C2F78ED12DC2CC0800B7B8F9 /* GameModel.h */,
+				C2F78EDB2DC3CCF200B7B8F9 /* sprite */,
+				C2F78EDA2DC3CA2900B7B8F9 /* screen */,
 				C2F78EBF2DC0533500B7B8F9 /* commands */,
-				C26E70F42D95CB0A00DE5378 /* Sprite.cpp */,
-				C26E70F52D95CB0A00DE5378 /* Sprite.hpp */,
-				C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */,
-				C26E70F82D95CB1D00DE5378 /* SpriteSheet.hpp */,
+				C2F78EC22DC0539000B7B8F9 /* states */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 		C26E70F02D95CAE200DE5378 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C2F78ED32DC2CC3000B7B8F9 /* GameView.h */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -168,6 +183,7 @@
 		C26E70F12D95CAE700DE5378 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				C2F78ED42DC2CC3D00B7B8F9 /* GameController.h */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -178,6 +194,7 @@
 				C26E70FB2D95CBF500DE5378 /* STATE.h */,
 				C26E70FC2D95CC2300DE5378 /* NAME.h */,
 				C26E70FE2D95CC6B00DE5378 /* DIRECTION.h */,
+				C2F78ED52DC2D02100B7B8F9 /* SCREEN.h */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -194,8 +211,11 @@
 		C26E70FF2D95CD9300DE5378 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C2F78EA32DBC46BE00B7B8F9 /* json.hpp */,
 				C26E71002D95CDA900DE5378 /* Posn.cpp */,
 				C26E71012D95CDA900DE5378 /* Posn.hpp */,
+				C26E70F32D95CAF200DE5378 /* data */,
+				C26E70F22D95CAEB00DE5378 /* enum */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -203,13 +223,10 @@
 		C26E71052D96480000DE5378 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				C2F78EA32DBC46BE00B7B8F9 /* json.hpp */,
 				C26E70FF2D95CD9300DE5378 /* utils */,
-				C26E70F32D95CAF200DE5378 /* data */,
-				C26E70F22D95CAEB00DE5378 /* enum */,
-				C26E70F12D95CAE700DE5378 /* controller */,
-				C26E70F02D95CAE200DE5378 /* view */,
 				C26E70EF2D95CADC00DE5378 /* model */,
+				C26E70F02D95CAE200DE5378 /* view */,
+				C26E70F12D95CAE700DE5378 /* controller */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -262,6 +279,8 @@
 				C2F78E9E2DBBECCA00B7B8F9 /* utils */,
 				C20003332DB97EF20074364D /* data */,
 				C20003212DB94A430074364D /* model */,
+				C2F78EE42DC3FE3E00B7B8F9 /* view */,
+				C2F78EE52DC3FE4100B7B8F9 /* controller */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -311,6 +330,58 @@
 				C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */,
 			);
 			path = state;
+			sourceTree = "<group>";
+		};
+		C2F78EDA2DC3CA2900B7B8F9 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				C2F78ED62DC32B4700B7B8F9 /* ScreenModel.cpp */,
+				C2F78ED72DC32B4700B7B8F9 /* ScreenModel.hpp */,
+				C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */,
+				C2F78EDD2DC3F08B00B7B8F9 /* ScreenNavigator.hpp */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		C2F78EDB2DC3CCF200B7B8F9 /* sprite */ = {
+			isa = PBXGroup;
+			children = (
+				C26E70F42D95CB0A00DE5378 /* Sprite.cpp */,
+				C26E70F52D95CB0A00DE5378 /* Sprite.hpp */,
+				C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */,
+				C26E70F82D95CB1D00DE5378 /* SpriteSheet.hpp */,
+			);
+			path = sprite;
+			sourceTree = "<group>";
+		};
+		C2F78EE02DC3FDF200B7B8F9 /* screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		C2F78EE12DC3FDFF00B7B8F9 /* sprite */ = {
+			isa = PBXGroup;
+			children = (
+				C20003242DB967FC0074364D /* SpriteTest.cpp */,
+				C20003262DB9680F0074364D /* SpriteSheetTest.cpp */,
+			);
+			path = sprite;
+			sourceTree = "<group>";
+		};
+		C2F78EE42DC3FE3E00B7B8F9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C2F78EE52DC3FE4100B7B8F9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,8 +478,10 @@
 				C26E70F92D95CB1D00DE5378 /* SpriteSheet.cpp in Sources */,
 				C26E70F62D95CB0B00DE5378 /* Sprite.cpp in Sources */,
 				C2F78EA22DBBFB2100B7B8F9 /* NameStateSheetMap.cpp in Sources */,
+				C2F78ED82DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2F78EAF2DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,
 				C2F78EBD2DC006BF00B7B8F9 /* IdleCommand.cpp in Sources */,
+				C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,
 				C2F78EC32DC0562600B7B8F9 /* main.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 			);
@@ -419,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F78E9D2DBBECAD00B7B8F9 /* Posn.cpp in Sources */,
+				C2F78ED92DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */,
 				C2F78E992DBBEC7A00B7B8F9 /* SpriteSheet.cpp in Sources */,
 				C2F78E952DBBEC6500B7B8F9 /* SpriteSheetTest.cpp in Sources */,
@@ -428,7 +502,9 @@
 				C2F78EB92DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C2F78E932DBBEC5E00B7B8F9 /* SpriteTest.cpp in Sources */,
 				C2F78E962DBBEC6E00B7B8F9 /* main.cpp in Sources */,
+				C2F78EE32DC3FE3000B7B8F9 /* GameModelTest.cpp in Sources */,
 				C2F78ECE2DC0896600B7B8F9 /* StateTest.cpp in Sources */,
+				C2F78EDF2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,
 				C2F78EA52DBD5E4C00B7B8F9 /* PosnTest.cpp in Sources */,
 				C2F78EA12DBBF2D700B7B8F9 /* NameStateSheetMapTest.cpp in Sources */,
 				C2F78EB02DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,

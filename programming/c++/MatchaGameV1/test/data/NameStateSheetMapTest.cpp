@@ -63,21 +63,28 @@ TEST_CASE( "NameStateSheetMap is instantiated.", "[DB]" ) {
     SECTION( "Reading in a JSON." ) {
         std::cout << "NameStateSheetMap reading in a JSON.\n";
         // map should initially be empty
-        // CHECK_THROWS(jsonMap.getSpriteSheet(WINNIE, WALKING));
+        CHECK_THROWS(jsonMap.getSpriteSheet(WINNIE, WALKING));
+        CHECK_THROWS(jsonMap.getSpriteSheet(WINNIE, IDLE));
         
-        // read from json file
+        // read from json file. includes walking and idle sheet for WINNIE.
         jsonMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testSpriteSheetData.json");
         
         // check if sheet is present
-//        SpriteSheet* accessedJSONSheet = jsonMap.getSpriteSheet(WINNIE, WALKING);
-//        REQUIRE( accessedJSONSheet->getCurrFr() ==  0 );
-//        
-//        // mutate
-//        accessedJSONSheet->setFrameNum(4);
-//        REQUIRE( accessedJSONSheet->getCurrFr() ==  4 );
-//        
-//        // check if mutated in map as well
-//        accessedJSONSheet = jsonMap.getSpriteSheet(WINNIE, WALKING);
-//        REQUIRE( accessedJSONSheet->getCurrFr() ==  4 );
+        SpriteSheet* jsonWalkingSheet = jsonMap.getSpriteSheet(WINNIE, WALKING);
+        REQUIRE( jsonWalkingSheet->getCurrFr() ==  0 );
+        SpriteSheet* jsonIdleSheet = jsonMap.getSpriteSheet(WINNIE, IDLE);
+        REQUIRE( jsonIdleSheet->getCurrFr() ==  0 );
+
+        // mutate
+        jsonWalkingSheet->setFrameNum(4);
+        REQUIRE( jsonWalkingSheet->getCurrFr() ==  4 );
+        jsonIdleSheet->setFrameNum(2);
+        REQUIRE( jsonIdleSheet->getCurrFr() ==  0 );
+
+        // reaccess and check if mutated in map as well
+        jsonWalkingSheet = jsonMap.getSpriteSheet(WINNIE, WALKING);
+        REQUIRE( jsonWalkingSheet->getCurrFr() ==  4 );
+        jsonIdleSheet = jsonMap.getSpriteSheet(WINNIE, IDLE);
+        REQUIRE( jsonIdleSheet->getCurrFr() ==  0 );
     }
 }
