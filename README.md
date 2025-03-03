@@ -28,6 +28,17 @@ Ok, I did not follow this timeline at all and just made a bunch of characters in
 ![all chars](https://github.com/user-attachments/assets/60a1b4eb-71c3-4c74-b617-d601d95dd1f3)
 
 
+IT IS TIME TO BE STRICTER.
+- Mar 5th: Have one drink (downscaled and upscaled) done.
+- Mar 7th: Have exterior of cafe done. (Cafe, Sky, and either plants or street light)
+- Mar 9th: Have table and chair done.
+- Mar 11th: Have animations for Feyisola walking, Winnie sitting, and everybody else walking done.
+- Mar 13th: Pick a language (I am between Java and C++) to have this in. I think most likely Java for me, but yeah. Then try to demo a char walking around.
+- Mar 15th: Winnie running animation? I think Winnie will be the only one to be able to run.
+- Mar 17th: Design interior of cafe.
+- Mar 19th: Figure out how you want the close-up section of the game to be (when you are making the drink). Will it be show on a table? What are the specifics there?
+
+
 
 
 
