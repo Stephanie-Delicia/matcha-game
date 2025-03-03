@@ -37,6 +37,14 @@ IT IS TIME TO BE STRICTER.
 - Mar 15th: Winnie running animation? I think Winnie will be the only one to be able to run.
 - Mar 17th: Design interior of cafe.
 - Mar 19th: Figure out how you want the close-up section of the game to be (when you are making the drink). Will it be show on a table? What are the specifics there?
+- Mar 21st: Figure out how to trigger key events. So once you do something, it triggers a cutscene or dialogue.
+- Mar 23rd: Design bamboo whisk, chasen, and powder container. Need animations for these too for the gameplay.
+- Mar 25th: Probably follow up on last task.
+- Mar 27th: Code gameplay -> Mixing the matcha, adding milk, y yeah.
+- Mar 29th: Figure out game incentives. Is there a level up system? How can you make drinks better?
+- Mar 31st: Yeah, just misc. The first two customers will be Leroy and Feyisola. Uhhh yeah. maybe after certain progress, the game just cuts to a demo screen LOL
+
+A game like this has a lot of expand on. Story-wise, setting-wise, the leveling system, new ingredients/drinks, venue/decor. I think having all of the above working before adding more would be a really good base.
 
 
 
