@@ -19,3 +19,17 @@ Priorities:
 - Feb 23rd: Street light?
 - Feb 24th: Figure out how to have char move in environment.
 - Feb 25th: Work on game plot. Game objectives.
+
+
+# Update: March 3rd
+
+Ok, I did not follow this timeline at all and just made a bunch of characters instead. I did brainstorm a bit of gameplay, but more of an overarching view, not of the specifics.
+
+![all chars](https://github.com/user-attachments/assets/60a1b4eb-71c3-4c74-b617-d601d95dd1f3)
+
+
+
+
+
+
+
