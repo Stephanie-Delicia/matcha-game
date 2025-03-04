@@ -3,6 +3,7 @@ Personal project. I like matcha. So I want to make a game on making matcha.
 
 Currently working on the visuals. Quick mock up below.
 ![example_background3](https://github.com/user-attachments/assets/40b0cd50-95d2-4821-94d8-823ad6aae65a)
+![background_test](https://github.com/user-attachments/assets/1a657d71-5f3f-4c3e-957a-4660e4879f06)
 
 
 
@@ -25,7 +26,8 @@ Priorities:
 
 Ok, I did not follow this timeline at all and just made a bunch of characters instead. I did brainstorm a bit of gameplay, but more of an overarching view, not of the specifics.
 
-![all chars](https://github.com/user-attachments/assets/60a1b4eb-71c3-4c74-b617-d601d95dd1f3)
+
+![all chars](https://github.com/user-attachments/assets/4af68262-7933-44dc-9fca-febaed2bedf7)
 
 
 IT IS TIME TO BE STRICTER.
