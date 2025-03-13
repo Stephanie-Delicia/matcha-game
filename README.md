@@ -40,7 +40,7 @@ IT IS TIME TO BE STRICTER.
 - Mar 25th: Figure out how to trigger key events. So once you do something, it triggers a cutscene or dialogue.
 - Mar 27th: Code gameplay -> Mixing the matcha, adding milk, y yeah.
 - Mar 29th: Figure out game incentives. Is there a level up system? How can you make drinks better?
-- Mar 31st: Yeah, just misc. The first two customers will be Leroy and Feyisola. Uhhh yeah. maybe after certain progress, the game just cuts to a demo screen LOL
+- Mar 31st: Yeah, just misc. The first two customers will be Timothy and Feyisola. Uhhh yeah. maybe after certain progress, the game just cuts to a demo screen LOL
 
 A game like this has a lot of expand on. Story-wise, setting-wise, the leveling system, new ingredients/drinks, venue/decor. I think having all of the above working before adding more would be a really good base.
 
