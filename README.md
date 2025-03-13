@@ -45,6 +45,18 @@ IT IS TIME TO BE STRICTER.
 A game like this has a lot of expand on. Story-wise, setting-wise, the leveling system, new ingredients/drinks, venue/decor. I think having all of the above working before adding more would be a really good base.
 
 
+# Update: March 13th
+
+I am using XCode for writing and running c++. I am using the SDL3 library for graphics. Have only gotten a background to load, but it's something. I have to figure out how I will organize my code.
+
+-> Look into game states for switching between the startup menu and gameplay.
+-> Move Winnie around with a basic controller.
+-> UML design?
+-> Look into what fundamental concepts of c++ I SHOULD be aware of, like pointers and memory management.
+![background_test](https://github.com/user-attachments/assets/57379b41-1428-4f22-bce3-4559b9361f61)
+
+
+
 
 
 
