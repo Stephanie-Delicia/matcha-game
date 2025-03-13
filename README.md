@@ -31,17 +31,13 @@ Ok, I did not follow this timeline at all and just made a bunch of characters in
 
 
 IT IS TIME TO BE STRICTER.
-- Mar 5th: Have one drink (downscaled and upscaled) done.
-- Mar 7th: Have exterior of cafe done. (Cafe, Sky, and either plants or street light)
-- Mar 9th: Have table and chair done.
-- Mar 11th: Have animations for Feyisola walking, Winnie sitting, and everybody else walking done.
-- Mar 13th: Pick a language (I am between Java and C++) to have this in. I think most likely Java for me, but yeah. Then try to demo a char walking around.
-- Mar 15th: Winnie running animation? I think Winnie will be the only one to be able to run.
-- Mar 17th: Design interior of cafe.
-- Mar 19th: Figure out how you want the close-up section of the game to be (when you are making the drink). Will it be show on a table? What are the specifics there?
-- Mar 21st: Figure out how to trigger key events. So once you do something, it triggers a cutscene or dialogue.
+- Mar 13th: C++ chosen. Want to learn about C++, so screw it. I'll use Java or JavaScript for the next project. 
+- Mar 15th: (1) One drink. Small. (2) Exterior of Cafe. (3) Pearl walking.
+- Mar 17th: (1) Same drink, but large for closer gameplay. Deisgn matcha materials to be used. Figure out how you want the close-up section of the game to be (when you are making the drink). Will it be show on a table? What are the specifics there?
+- Mar 19th: (1) Sky clouds. (2) Outside table. (3) Outside chair.
+- Mar 21st: Have animations for Feyisola walking, Winnie sitting, and everybody else walking done. 
 - Mar 23rd: Design bamboo whisk, chasen, and powder container. Need animations for these too for the gameplay.
-- Mar 25th: Probably follow up on last task.
+- Mar 25th: Figure out how to trigger key events. So once you do something, it triggers a cutscene or dialogue.
 - Mar 27th: Code gameplay -> Mixing the matcha, adding milk, y yeah.
 - Mar 29th: Figure out game incentives. Is there a level up system? How can you make drinks better?
 - Mar 31st: Yeah, just misc. The first two customers will be Leroy and Feyisola. Uhhh yeah. maybe after certain progress, the game just cuts to a demo screen LOL
