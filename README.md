@@ -55,8 +55,9 @@ I am using XCode for writing and running c++. I am using the SDL3 library for gr
 -> Look into what fundamental concepts of c++ I SHOULD be aware of, like pointers and memory management.
 ![background_test](https://github.com/user-attachments/assets/57379b41-1428-4f22-bce3-4559b9361f61)
 
+# Update: March 20th
 
-
+I have a very simple program that is able to just load a background, but I think implementing a controller to move a single char should be painless. I am just considering now that I should also have some class that pre-loads textures and such since I don't want think like pathnames to be present in major classes. I think major classes should refer to enums when they want a specific background, char., etc. texture. 
 
 
 
