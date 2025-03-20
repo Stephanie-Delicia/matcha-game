@@ -23,7 +23,7 @@ SimpleGameView::SimpleGameView() {
     renderer = SDL_CreateRenderer(window, NULL);
 
     // surface pointer for basic background
-    background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/textures/backgrounds/calm_background.png");
+    background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
     if (background_surface == NULL) {
             printf("Error with loading surface: %s\n", SDL_GetError());
         }

@@ -8,26 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C28CFA612D8B3B2D005C185A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C28CFA5F2D8B3B2D005C185A /* main.cpp */; };
-		C2ABFB162D8B407E00F4A2C6 /* SDL3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CFA6A2D8B3BE9005C185A /* SDL3.xcframework */; };
-		C2ABFB172D8B407E00F4A2C6 /* SDL3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C28CFA6A2D8B3BE9005C185A /* SDL3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C2ABFB182D8B408100F4A2C6 /* SDL3_image.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28CFA662D8B3BBE005C185A /* SDL3_image.xcframework */; };
-		C2ABFB192D8B408100F4A2C6 /* SDL3_image.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C28CFA662D8B3BBE005C185A /* SDL3_image.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2ABFB1D2D8B4D9100F4A2C6 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB1B2D8B4D9100F4A2C6 /* Sprite.cpp */; };
 		C2ABFB202D8B4DB100F4A2C6 /* SimpleGameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB1E2D8B4DB100F4A2C6 /* SimpleGameModel.cpp */; };
 		C2ABFB232D8B4DC100F4A2C6 /* SimpleGameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB212D8B4DC100F4A2C6 /* SimpleGameView.cpp */; };
 		C2ABFB262D8B4DD300F4A2C6 /* SimpleController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB242D8B4DD300F4A2C6 /* SimpleController.cpp */; };
 		C2ABFB2E2D8B67E000F4A2C6 /* global_vars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB2D2D8B67E000F4A2C6 /* global_vars.cpp */; };
+		C2ABFB342D8BBF7800F4A2C6 /* SDL3_image.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */; };
+		C2ABFB352D8BBF7800F4A2C6 /* SDL3_image.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2ABFB382D8BBF8900F4A2C6 /* SDL3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */; };
+		C2ABFB392D8BBF8900F4A2C6 /* SDL3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C28CFA692D8B3BBF005C185A /* Embed Frameworks */ = {
+		C2ABFB362D8BBF7800F4A2C6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2ABFB172D8B407E00F4A2C6 /* SDL3.xcframework in Embed Frameworks */,
-				C2ABFB192D8B408100F4A2C6 /* SDL3_image.xcframework in Embed Frameworks */,
+				C2ABFB352D8BBF7800F4A2C6 /* SDL3_image.xcframework in Embed Frameworks */,
+				C2ABFB392D8BBF8900F4A2C6 /* SDL3.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +51,9 @@
 		C2ABFB252D8B4DD300F4A2C6 /* SimpleController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleController.hpp; sourceTree = "<group>"; };
 		C2ABFB2B2D8B5FDC00F4A2C6 /* global_vars.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = global_vars.hpp; sourceTree = "<group>"; };
 		C2ABFB2D2D8B67E000F4A2C6 /* global_vars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = global_vars.cpp; sourceTree = "<group>"; };
+		C2ABFB2F2D8BBF3200F4A2C6 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SDL3.xcframework; sourceTree = SOURCE_ROOT; };
+		C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3_image.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3_image.xcframework; sourceTree = "<group>"; };
+		C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ABFB162D8B407E00F4A2C6 /* SDL3.xcframework in Frameworks */,
-				C2ABFB182D8B408100F4A2C6 /* SDL3_image.xcframework in Frameworks */,
+				C2ABFB342D8BBF7800F4A2C6 /* SDL3_image.xcframework in Frameworks */,
+				C2ABFB382D8BBF8900F4A2C6 /* SDL3.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 		C28CFA4E2D8B3AE9005C185A /* MatchaGameSimple */ = {
 			isa = PBXGroup;
 			children = (
+				C2ABFB2F2D8BBF3200F4A2C6 /* SDL3.xcframework */,
 				C28CFA642D8B3B6B005C185A /* controller */,
 				C28CFA632D8B3B5A005C185A /* view */,
 				C28CFA622D8B3B4E005C185A /* model */,
@@ -130,6 +134,8 @@
 		C28CFA652D8B3BBE005C185A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */,
+				C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */,
 				C28CFA6A2D8B3BE9005C185A /* SDL3.xcframework */,
 				C28CFA662D8B3BBE005C185A /* SDL3_image.xcframework */,
 			);
@@ -146,7 +152,7 @@
 				C28CFA482D8B3AE9005C185A /* Sources */,
 				C28CFA492D8B3AE9005C185A /* Frameworks */,
 				C28CFA4A2D8B3AE9005C185A /* Resources */,
-				C28CFA692D8B3BBF005C185A /* Embed Frameworks */,
+				C2ABFB362D8BBF7800F4A2C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
