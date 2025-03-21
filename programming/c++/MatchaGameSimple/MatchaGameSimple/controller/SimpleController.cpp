@@ -4,3 +4,15 @@
 //  You can only move a char left or right, within the screen bounds.
 
 #include "SimpleController.hpp"
+
+SimpleController::SimpleController() {
+    // TODO:
+}
+
+SimpleController::~SimpleController() {
+    // TODO:
+}
+
+void SimpleController::charMove(SDL_Event events) {
+    // TODO:
+}
