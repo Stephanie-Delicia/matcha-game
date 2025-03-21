@@ -1,12 +1,7 @@
-//
-//  global_vars.cpp
-//  MatchaGameSimple
-//
-//  Created by Stephanie Martinez on 3/19/25.
-//
-
 #include <stdio.h>
 #include "global_vars.hpp"
+
+// Defining global constants. More info in global_vars.h.
 
 const char* GAME_TITLE = "Matcha Game";
 const float SCREEN_WIDTH = 640.00;

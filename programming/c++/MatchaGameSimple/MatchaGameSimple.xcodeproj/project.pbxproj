@@ -17,6 +17,12 @@
 		C2ABFB352D8BBF7800F4A2C6 /* SDL3_image.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2ABFB382D8BBF8900F4A2C6 /* SDL3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */; };
 		C2ABFB392D8BBF8900F4A2C6 /* SDL3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2ABFB3C2D8C9D6400F4A2C6 /* SDL3.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2ABFB3B2D8C9D6400F4A2C6 /* SDL3.xcframework */; };
+		C2ABFB3E2D8C9D8D00F4A2C6 /* CHARS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB3D2D8C9D8D00F4A2C6 /* CHARS.cpp */; };
+		C2ABFB402D8C9DD300F4A2C6 /* BACKGROUNDS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB3F2D8C9DD300F4A2C6 /* BACKGROUNDS.cpp */; };
+		C2ABFB442D8D14B900F4A2C6 /* SHEETS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB432D8D14B900F4A2C6 /* SHEETS.cpp */; };
+		C2ABFB482D8D157100F4A2C6 /* BackroundSrfcData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB462D8D157100F4A2C6 /* BackroundSrfcData.cpp */; };
+		C2ABFB4B2D8D158B00F4A2C6 /* SpriteSheetData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB492D8D158B00F4A2C6 /* SpriteSheetData.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,9 +57,16 @@
 		C2ABFB252D8B4DD300F4A2C6 /* SimpleController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SimpleController.hpp; sourceTree = "<group>"; };
 		C2ABFB2B2D8B5FDC00F4A2C6 /* global_vars.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = global_vars.hpp; sourceTree = "<group>"; };
 		C2ABFB2D2D8B67E000F4A2C6 /* global_vars.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = global_vars.cpp; sourceTree = "<group>"; };
-		C2ABFB2F2D8BBF3200F4A2C6 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SDL3.xcframework; sourceTree = SOURCE_ROOT; };
 		C2ABFB332D8BBF7800F4A2C6 /* SDL3_image.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3_image.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3_image.xcframework; sourceTree = "<group>"; };
 		C2ABFB372D8BBF8800F4A2C6 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3.xcframework; sourceTree = "<group>"; };
+		C2ABFB3B2D8C9D6400F4A2C6 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3.xcframework; path = ../../../../../../../../../Library/Frameworks/SDL3.xcframework; sourceTree = "<group>"; };
+		C2ABFB3D2D8C9D8D00F4A2C6 /* CHARS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CHARS.cpp; sourceTree = "<group>"; };
+		C2ABFB3F2D8C9DD300F4A2C6 /* BACKGROUNDS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BACKGROUNDS.cpp; sourceTree = "<group>"; };
+		C2ABFB432D8D14B900F4A2C6 /* SHEETS.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SHEETS.cpp; sourceTree = "<group>"; };
+		C2ABFB462D8D157100F4A2C6 /* BackroundSrfcData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BackroundSrfcData.cpp; sourceTree = "<group>"; };
+		C2ABFB472D8D157100F4A2C6 /* BackroundSrfcData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BackroundSrfcData.hpp; sourceTree = "<group>"; };
+		C2ABFB492D8D158B00F4A2C6 /* SpriteSheetData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheetData.cpp; sourceTree = "<group>"; };
+		C2ABFB4A2D8D158B00F4A2C6 /* SpriteSheetData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteSheetData.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2ABFB342D8BBF7800F4A2C6 /* SDL3_image.xcframework in Frameworks */,
+				C2ABFB3C2D8C9D6400F4A2C6 /* SDL3.xcframework in Frameworks */,
 				C2ABFB382D8BBF8900F4A2C6 /* SDL3.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,7 +103,9 @@
 		C28CFA4E2D8B3AE9005C185A /* MatchaGameSimple */ = {
 			isa = PBXGroup;
 			children = (
-				C2ABFB2F2D8BBF3200F4A2C6 /* SDL3.xcframework */,
+				C2ABFB3B2D8C9D6400F4A2C6 /* SDL3.xcframework */,
+				C2ABFB452D8D152C00F4A2C6 /* data */,
+				C2ABFB3A2D8C9CEC00F4A2C6 /* enums */,
 				C28CFA642D8B3B6B005C185A /* controller */,
 				C28CFA632D8B3B5A005C185A /* view */,
 				C28CFA622D8B3B4E005C185A /* model */,
@@ -140,6 +156,27 @@
 				C28CFA662D8B3BBE005C185A /* SDL3_image.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2ABFB3A2D8C9CEC00F4A2C6 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				C2ABFB3D2D8C9D8D00F4A2C6 /* CHARS.cpp */,
+				C2ABFB3F2D8C9DD300F4A2C6 /* BACKGROUNDS.cpp */,
+				C2ABFB432D8D14B900F4A2C6 /* SHEETS.cpp */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		C2ABFB452D8D152C00F4A2C6 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C2ABFB462D8D157100F4A2C6 /* BackroundSrfcData.cpp */,
+				C2ABFB472D8D157100F4A2C6 /* BackroundSrfcData.hpp */,
+				C2ABFB492D8D158B00F4A2C6 /* SpriteSheetData.cpp */,
+				C2ABFB4A2D8D158B00F4A2C6 /* SpriteSheetData.hpp */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +247,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ABFB442D8D14B900F4A2C6 /* SHEETS.cpp in Sources */,
+				C2ABFB482D8D157100F4A2C6 /* BackroundSrfcData.cpp in Sources */,
 				C2ABFB2E2D8B67E000F4A2C6 /* global_vars.cpp in Sources */,
+				C2ABFB4B2D8D158B00F4A2C6 /* SpriteSheetData.cpp in Sources */,
 				C2ABFB262D8B4DD300F4A2C6 /* SimpleController.cpp in Sources */,
 				C2ABFB1D2D8B4D9100F4A2C6 /* Sprite.cpp in Sources */,
+				C2ABFB402D8C9DD300F4A2C6 /* BACKGROUNDS.cpp in Sources */,
+				C2ABFB3E2D8C9D8D00F4A2C6 /* CHARS.cpp in Sources */,
 				C2ABFB202D8B4DB100F4A2C6 /* SimpleGameModel.cpp in Sources */,
 				C2ABFB232D8B4DC100F4A2C6 /* SimpleGameView.cpp in Sources */,
 				C28CFA612D8B3B2D005C185A /* main.cpp in Sources */,

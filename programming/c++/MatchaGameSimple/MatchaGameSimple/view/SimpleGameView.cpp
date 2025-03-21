@@ -1,5 +1,3 @@
-// Class for a simple game view.
-
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
 #include <SDL3_image/SDL_image.h>
@@ -7,15 +5,16 @@
 #include "SimpleGameView.hpp"
 #include "global_vars.hpp"
 
+// Class for a simple game view.
+
 SimpleGameView::SimpleGameView() {
     // window pointer
     window = SDL_CreateWindow(GAME_TITLE,         // window title
                               SCREEN_WIDTH,       // in pixels
                               SCREEN_HEIGHT,      // in pixels
                               SDL_WINDOW_OPENGL); // on macOS
-    // Check that the window was successfully created
     if (window == NULL) {
-        // In the case that the window could not be made...
+        // If the window could not be made
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Could not create window: %s\n", SDL_GetError());
     }
     
@@ -44,8 +43,8 @@ void SimpleGameView::openGame() {
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
     SDL_RenderPresent(renderer);
     
-    // for opening window
-    SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL3
+    // for opening window, initializing SDL3
+    SDL_Init(SDL_INIT_VIDEO);
     
     while (!exitGame) {
         SDL_Event event;
@@ -55,8 +54,7 @@ void SimpleGameView::openGame() {
             }
         }
 
-        // Rendering an image of my choosing
-        // Do game logic, present a frame, etc.
+        // Game logic
     }
 
     // Close and destroy the window

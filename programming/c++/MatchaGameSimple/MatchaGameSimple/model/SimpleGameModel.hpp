@@ -1,13 +1,12 @@
-//
-//  SimpleGameModel.hpp
-//  MatchaGameSimple
-//
-//  Created by Stephanie Martinez on 3/19/25.
-//
+#include <iostream>
+#include <memory>
+#include <SDL3/SDL.h>
 
-#ifndef SimpleGameModel_hpp
-#define SimpleGameModel_hpp
+// Class definition for a simple game view. View only displays one background for entire game.
 
-#include <stdio.h>
-
-#endif /* SimpleGameModel_hpp */
+class SimpleGameModel {
+    public:
+        SimpleGameModel();
+        ~SimpleGameModel();
+    // TODO: add private params as needed
+};
