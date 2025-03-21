@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL3/SDL.h>
-// #include "SimpleGameModel.hpp"
+#include "SimpleGameModel.hpp"
 // Class definition for a simple controller used for walking a char.
 
 class SimpleController {
@@ -12,6 +12,5 @@ class SimpleController {
         void charMove(SDL_Event events); // Interpret user input for moving a char. (Also determine if the input makes sense)
     
     private:
-        // SimpleGameModel model;  // Simple controller for only walking a char
-        // SimpleGameView view;   // Simple view
+        SimpleGameModel model;  // Simple controller for only walking a char
 };
