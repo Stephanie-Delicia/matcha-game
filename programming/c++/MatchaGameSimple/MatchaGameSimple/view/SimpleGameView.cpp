@@ -20,15 +20,18 @@ SimpleGameView::SimpleGameView() {
     
     // renderer pointer
     renderer = SDL_CreateRenderer(window, NULL);
-
+    
     // surface pointer for basic background
     background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
     if (background_surface == NULL) {
             printf("Error with loading surface: %s\n", SDL_GetError());
         }
     
-    // bool for if user exits game window
-    exitGame = false;
+    // texture pointer
+    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
+    SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
+    SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
+    SDL_RenderPresent(renderer);
 }
 
 SimpleGameView::~SimpleGameView() {
@@ -36,30 +39,33 @@ SimpleGameView::~SimpleGameView() {
     SDL_DestroyWindow(window);
 }
 
-void SimpleGameView::openGame() {
-    // texture pointer
-    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
-    SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
-    SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
-    SDL_RenderPresent(renderer);
-    
-    // for opening window, initializing SDL3
+void SimpleGameView::initializeSDL() {
+    // initializing SDL3
     SDL_Init(SDL_INIT_VIDEO);
-    
-    while (!exitGame) {
-        SDL_Event event;
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_EVENT_QUIT) {
-                exitGame = true;
-            }
-        }
+}
 
-        // Game logic
-    }
-
+void SimpleGameView::destroyWindow() {
     // Close and destroy the window
     SDL_DestroyWindow(window);
+}
 
+void SimpleGameView::quitSDL() {
     // Clean up
     SDL_Quit();
+}
+
+SDL_Event SimpleGameView::getEvents() {
+    return events;
+}
+
+SDL_Window* SimpleGameView::getWindow() {
+    return window;
+}
+
+SDL_Renderer* SimpleGameView::getRenderer() {
+    return renderer;
+}
+
+SDL_Surface* SimpleGameView::getBackgroundSrfc() {
+    return background_surface;
 }
