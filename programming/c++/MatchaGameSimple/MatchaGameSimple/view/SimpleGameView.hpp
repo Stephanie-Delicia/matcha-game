@@ -1,5 +1,5 @@
-#include <iostream>
-#include <memory>
+#pragma once
+
 #include <SDL3/SDL.h>
 #include "SimpleController.hpp"
 
@@ -13,7 +13,7 @@ class SimpleGameView {
         void openGame(); // opens SDL game window. uses controller to interpret player inputs.
     
     private:
-        SimpleController;                // Simple controller for only walking a char
+        SimpleController controller;                // Simple controller for only walking a char
         SDL_Event events;                // player events
         SDL_Window* window;              // SDL game window
         SDL_Renderer* renderer;          // renderer

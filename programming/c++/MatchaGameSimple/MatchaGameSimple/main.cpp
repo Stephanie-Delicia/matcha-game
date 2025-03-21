@@ -4,6 +4,7 @@
 #include <SDL3/SDL_render.h>
 #include "global_vars.hpp"
 #include "SimpleGameView.hpp"
+#include "SimpleController.hpp"
 
 // Using SDL3 to create a simple program for moving a sprite around.
 
