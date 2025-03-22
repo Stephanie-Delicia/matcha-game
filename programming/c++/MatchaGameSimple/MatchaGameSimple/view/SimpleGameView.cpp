@@ -2,10 +2,14 @@
 #include <SDL3/SDL_main.h>
 #include <SDL3_image/SDL_image.h>
 #include <SDL3/SDL_render.h>
+#include <SDL3/SDL_pixels.h>
 #include "SimpleGameView.hpp"
 #include "global_vars.hpp"
+#include "Sprite.hpp"
+#include <iostream>
 
 // Class for a simple game view.
+// TODO:for some reason, the sprite position does change, but i cannot render them onto the screen!
 
 SimpleGameView::SimpleGameView() {
     // window pointer
@@ -31,6 +35,16 @@ SimpleGameView::SimpleGameView() {
     SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
+    // SDL_RenderPresent(renderer);
+    
+    SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
+    if (background_surface == NULL) {
+            printf("Error with loading surface: %s\n", SDL_GetError());
+        }
+    SDL_Texture* winnie_texture = SDL_CreateTextureFromSurface(renderer, winnie_surface);
+    SDL_FRect winnie_dest = {180, 180, 54, 70}; // { x, y, w, h }
+    SDL_RenderTexture(renderer, winnie_texture, NULL, &winnie_dest);
+    
     SDL_RenderPresent(renderer);
 }
 
@@ -52,6 +66,21 @@ void SimpleGameView::destroyWindow() {
 void SimpleGameView::quitSDL() {
     // Clean up
     SDL_Quit();
+}
+
+void SimpleGameView::drawChar(Sprite sprite) {
+    // std::cout << "We get to here in view.";
+    SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
+    SDL_Texture* char_text = SDL_CreateTextureFromSurface(renderer, winnie_surface);
+
+    // Render the texture at a specific location
+    SDL_FRect destRect = {sprite.getXPosn(),
+        sprite.getYPosn(),
+        54,
+        70}; // x, y, width, height
+    SDL_RenderClear(renderer); // clears the renderer
+    SDL_RenderTexture(renderer, char_text, NULL, &destRect);
+    SDL_RenderPresent(renderer);
 }
 
 SDL_Event SimpleGameView::getEvents() {

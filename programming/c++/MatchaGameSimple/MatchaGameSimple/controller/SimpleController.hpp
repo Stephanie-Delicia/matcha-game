@@ -10,9 +10,9 @@ class SimpleController {
         SimpleController(SimpleGameModel m, SimpleGameView v);
         ~SimpleController();
     
-        void openGame();                 // opens SDL game window. uses controller to interpret player inputs.
-        void charMove(SDL_Event events); // Interpret user input for moving a char. (Also determine if the input makes sense)
-    
+        void openGame();                        // opens SDL game window. uses controller to interpret player inputs.
+        void updateCharDir(SDL_Event const &event); // Interpret user input for moving a char. (Also determine if the input makes sense)
+        void updateCharPosn(double delta_time);
     private:
         SimpleGameModel model;       // Simple model
         SimpleGameView view;         // Simple controller for only walking a char

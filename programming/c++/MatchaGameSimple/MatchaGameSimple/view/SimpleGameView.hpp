@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SDL3/SDL.h>
+#include "Sprite.hpp"
 
 // Class definition for a simple game view. View only displays one background for entire game.
 // View has a model.
@@ -13,6 +14,7 @@ class SimpleGameView {
         void initializeSDL(); // initialized SDL3
         void destroyWindow();
         void quitSDL();
+        void drawChar(Sprite sprite);
         SDL_Event getEvents();
         SDL_Window* getWindow();
         SDL_Renderer* getRenderer();

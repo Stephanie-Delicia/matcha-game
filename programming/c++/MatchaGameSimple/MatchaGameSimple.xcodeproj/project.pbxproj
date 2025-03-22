@@ -23,6 +23,7 @@
 		C2ABFB442D8D14B900F4A2C6 /* SHEETS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB432D8D14B900F4A2C6 /* SHEETS.cpp */; };
 		C2ABFB482D8D157100F4A2C6 /* BackroundSrfcData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB462D8D157100F4A2C6 /* BackroundSrfcData.cpp */; };
 		C2ABFB4B2D8D158B00F4A2C6 /* SpriteSheetData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB492D8D158B00F4A2C6 /* SpriteSheetData.cpp */; };
+		C2ABFB4E2D8DDAFB00F4A2C6 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ABFB4C2D8DDAFA00F4A2C6 /* SpriteSheet.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +68,9 @@
 		C2ABFB472D8D157100F4A2C6 /* BackroundSrfcData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BackroundSrfcData.hpp; sourceTree = "<group>"; };
 		C2ABFB492D8D158B00F4A2C6 /* SpriteSheetData.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheetData.cpp; sourceTree = "<group>"; };
 		C2ABFB4A2D8D158B00F4A2C6 /* SpriteSheetData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteSheetData.hpp; sourceTree = "<group>"; };
+		C2ABFB4C2D8DDAFA00F4A2C6 /* SpriteSheet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
+		C2ABFB4D2D8DDAFA00F4A2C6 /* SpriteSheet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SpriteSheet.hpp; sourceTree = "<group>"; };
+		C2ABFB512D8DE31200F4A2C6 /* DIRECTION.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIRECTION.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				C2ABFB1C2D8B4D9100F4A2C6 /* Sprite.hpp */,
 				C2ABFB1E2D8B4DB100F4A2C6 /* SimpleGameModel.cpp */,
 				C2ABFB1F2D8B4DB100F4A2C6 /* SimpleGameModel.hpp */,
+				C2ABFB4C2D8DDAFA00F4A2C6 /* SpriteSheet.cpp */,
+				C2ABFB4D2D8DDAFA00F4A2C6 /* SpriteSheet.hpp */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -164,6 +170,7 @@
 				C2ABFB3D2D8C9D8D00F4A2C6 /* CHARS.cpp */,
 				C2ABFB3F2D8C9DD300F4A2C6 /* BACKGROUNDS.cpp */,
 				C2ABFB432D8D14B900F4A2C6 /* SHEETS.cpp */,
+				C2ABFB512D8DE31200F4A2C6 /* DIRECTION.h */,
 			);
 			path = enums;
 			sourceTree = "<group>";
@@ -247,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ABFB4E2D8DDAFB00F4A2C6 /* SpriteSheet.cpp in Sources */,
 				C2ABFB442D8D14B900F4A2C6 /* SHEETS.cpp in Sources */,
 				C2ABFB482D8D157100F4A2C6 /* BackroundSrfcData.cpp in Sources */,
 				C2ABFB2E2D8B67E000F4A2C6 /* global_vars.cpp in Sources */,
