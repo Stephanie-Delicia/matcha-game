@@ -14,10 +14,15 @@
 #include "Sprite.hpp"
 #include <iostream>
 
-SimpleController::SimpleController(SimpleGameModel m, SimpleGameView v) {
+SimpleController::SimpleController(SimpleGameModel& m, SimpleGameView& v) {
+    // Pass by reference, we want to mutate the original model and view.
     // set given model and view
-    model = m;
-    view = v;
+    model = &m; // access pointer
+    std::cout << "\n before controller constr. ";
+    view = &v;
+    std::cout << "\n view add: " << &view;
+    std::cout << "\n v add: " << &v;
+    std::cout << "\n after controller constr. ";
     exitGame = false;
 }
 
@@ -28,7 +33,7 @@ SimpleController::~SimpleController() {
 void SimpleController::openGame() {
     
     // initialize SDL from the view
-    view.initializeSDL();
+    view->initializeSDL();
     
     while (!exitGame) {
         SDL_Event event;
@@ -43,51 +48,51 @@ void SimpleController::openGame() {
                     break;
             }
         }
-        
-        view.drawChar(model.getSprite());
+        std::cout << "\n view addressn in controller: "  << &view << " ";
+        view->drawChar(model->getSprite());
     }
 
     // Close and destroy the window
-    view.destroyWindow();
+    view->destroyWindow();
 
     // Clean up
-    view.quitSDL();
+    view->quitSDL();
 }
 
 void SimpleController::updateCharDir(SDL_Event const &event) {
-    std::cout << "event.type: "  << event.type << " ";
-    std::cout << "SDL_EVENT_KEY_DOWN: "  << SDL_EVENT_KEY_DOWN << " ";
+//    std::cout << "event.type: "  << event.type << " ";
+//    std::cout << "SDL_EVENT_KEY_DOWN: "  << SDL_EVENT_KEY_DOWN << " ";
     switch (event.type)
     {
         case SDL_EVENT_KEY_DOWN: {
             const bool *keys = SDL_GetKeyboardState(nullptr);
-            std::cout << "keys[SDL_SCANCODE_RIGHT]: " << keys[SDL_SCANCODE_RIGHT] << " ";
+//            std::cout << "keys[SDL_SCANCODE_RIGHT]: " << keys[SDL_SCANCODE_RIGHT] << " ";
             if (keys[SDL_SCANCODE_UP] == 1)
             {
-                model.updateCharDir(DIRECTION::UP);
+                model->updateCharDir(DIRECTION::UP);
             }
             else if (keys[SDL_SCANCODE_DOWN] == 1)
             {
-                model.updateCharDir(DIRECTION::DOWN);
+                model->updateCharDir(DIRECTION::DOWN);
             }
             else if (keys[SDL_SCANCODE_LEFT] == 1)
             {
-                model.updateCharDir(DIRECTION::LEFT);
+                model->updateCharDir(DIRECTION::LEFT);
             }
             else if (keys[SDL_SCANCODE_RIGHT] == 1)
             {
-                std::cout << "We get to here.";
-                model.updateCharDir(DIRECTION::RIGHT);
-                std::cout << "New dir in init read: " << model.getCharDir() << " ";
-                updateCharPosn(1.0/60.0);
-                std::cout << "(1.0/60.0): " << 1.0/60.0 << " ";
-                std::cout << "Char x posn: " << model.getCharXPosn() << " ";
-                std::cout << "Char y posn: " << model.getCharYPosn() << " ";
+//                std::cout << "We get to here.";
+                model->updateCharDir(DIRECTION::RIGHT);
+//                std::cout << "New dir in init read: " << model.getCharDir() << " ";
+                updateCharPosn(0.9);
+//                std::cout << "(1.0/60.0): " << 1.0/60.0 << " ";
+//                std::cout << "Char x posn: " << model.getCharXPosn() << " ";
+//                std::cout << "Char y posn: " << model.getCharYPosn() << " ";
             }
             break;
         }
         case SDL_EVENT_KEY_UP: {
-            model.updateCharDir(DIRECTION::NONE);
+            model->updateCharDir(DIRECTION::NONE);
             break;
         }
     }
@@ -95,5 +100,5 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
 
 void SimpleController::updateCharPosn(double delta_time)
 {
-    model.updateCharPosn(delta_time);
+    model->updateCharPosn(delta_time);
 }

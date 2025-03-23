@@ -24,6 +24,7 @@ SimpleGameView::SimpleGameView() {
     
     // renderer pointer
     renderer = SDL_CreateRenderer(window, NULL);
+    std::cout << "\n ren. address in init(): "  << &renderer << " ";
     
     // surface pointer for basic background
     background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
@@ -35,17 +36,18 @@ SimpleGameView::SimpleGameView() {
     SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
-    // SDL_RenderPresent(renderer);
     
     SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
     if (background_surface == NULL) {
             printf("Error with loading surface: %s\n", SDL_GetError());
         }
     SDL_Texture* winnie_texture = SDL_CreateTextureFromSurface(renderer, winnie_surface);
-    SDL_FRect winnie_dest = {180, 180, 54, 70}; // { x, y, w, h }
+    SDL_FRect winnie_dest = {0, 266, 54, 70}; // { x, y, w, h }
     SDL_RenderTexture(renderer, winnie_texture, NULL, &winnie_dest);
     
     SDL_RenderPresent(renderer);
+    SDL_RenderClear(renderer);
+    std::cout << "\n  #2: ren. address in init(): "  << &renderer << " ";
 }
 
 SimpleGameView::~SimpleGameView() {
@@ -69,18 +71,19 @@ void SimpleGameView::quitSDL() {
 }
 
 void SimpleGameView::drawChar(Sprite sprite) {
-    // std::cout << "We get to here in view.";
+    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
+    SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
+    SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
+    
+    std::cout << "We get to here in view.";
     SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
     SDL_Texture* char_text = SDL_CreateTextureFromSurface(renderer, winnie_surface);
 
     // Render the texture at a specific location
-    SDL_FRect destRect = {sprite.getXPosn(),
-        sprite.getYPosn(),
-        54,
-        70}; // x, y, width, height
-    SDL_RenderClear(renderer); // clears the renderer
+    SDL_FRect destRect = {sprite.getXPosn(), sprite.getYPosn(), 54, 70}; // x, y, width, height
     SDL_RenderTexture(renderer, char_text, NULL, &destRect);
     SDL_RenderPresent(renderer);
+    SDL_RenderClear(renderer); // clears the renderer
 }
 
 SDL_Event SimpleGameView::getEvents() {
