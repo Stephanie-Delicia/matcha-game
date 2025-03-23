@@ -24,7 +24,7 @@ SimpleGameView::SimpleGameView() {
     
     // renderer pointer
     renderer = SDL_CreateRenderer(window, NULL);
-    std::cout << "\n ren. address in init(): "  << &renderer << " ";
+    // std::cout << "\n ren. address in init(): "  << &renderer << " ";
     
     // surface pointer for basic background
     background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
@@ -47,7 +47,7 @@ SimpleGameView::SimpleGameView() {
     
     SDL_RenderPresent(renderer);
     SDL_RenderClear(renderer);
-    std::cout << "\n  #2: ren. address in init(): "  << &renderer << " ";
+    // std::cout << "\n  #2: ren. address in init(): "  << &renderer << " ";
 }
 
 SimpleGameView::~SimpleGameView() {
@@ -75,7 +75,7 @@ void SimpleGameView::drawChar(Sprite sprite) {
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
     
-    std::cout << "We get to here in view.";
+    // std::cout << "We get to here in view.";
     SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
     SDL_Texture* char_text = SDL_CreateTextureFromSurface(renderer, winnie_surface);
 

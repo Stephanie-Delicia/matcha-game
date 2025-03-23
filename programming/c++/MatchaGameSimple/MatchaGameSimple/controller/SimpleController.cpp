@@ -18,11 +18,11 @@ SimpleController::SimpleController(SimpleGameModel& m, SimpleGameView& v) {
     // Pass by reference, we want to mutate the original model and view.
     // set given model and view
     model = &m; // access pointer
-    std::cout << "\n before controller constr. ";
+    // std::cout << "\n before controller constr. ";
     view = &v;
-    std::cout << "\n view add: " << &view;
-    std::cout << "\n v add: " << &v;
-    std::cout << "\n after controller constr. ";
+    // std::cout << "\n view add: " << &view;
+    // std::cout << "\n v add: " << &v;
+    // std::cout << "\n after controller constr. ";
     exitGame = false;
 }
 
@@ -48,7 +48,7 @@ void SimpleController::openGame() {
                     break;
             }
         }
-        std::cout << "\n view addressn in controller: "  << &view << " ";
+        // std::cout << "\n view addressn in controller: "  << &view << " ";
         view->drawChar(model->getSprite());
     }
 
@@ -78,14 +78,12 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
             else if (keys[SDL_SCANCODE_LEFT] == 1)
             {
                 model->updateCharDir(DIRECTION::LEFT);
+                updateCharPosn(1);
             }
             else if (keys[SDL_SCANCODE_RIGHT] == 1)
             {
-//                std::cout << "We get to here.";
                 model->updateCharDir(DIRECTION::RIGHT);
-//                std::cout << "New dir in init read: " << model.getCharDir() << " ";
-                updateCharPosn(0.9);
-//                std::cout << "(1.0/60.0): " << 1.0/60.0 << " ";
+                updateCharPosn(1);
 //                std::cout << "Char x posn: " << model.getCharXPosn() << " ";
 //                std::cout << "Char y posn: " << model.getCharYPosn() << " ";
             }

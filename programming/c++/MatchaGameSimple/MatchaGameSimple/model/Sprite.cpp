@@ -14,20 +14,20 @@ Sprite::Sprite(){
     rect_posn.w = 54;
     
     m_x = 0.0;
-    m_y = 64;
+    m_y = 266;
     direction = DIRECTION::NONE; // not moving yet
 }
 
 void Sprite::setDirection(DIRECTION dir) {
-    std::cout << "dir: " << dir << " ";
+    // std::cout << "dir: " << dir << " ";
     direction = dir;
 }
 
 void Sprite::update(float delta_time)
 {
-    std::cout << "direction: " << direction << " ";
-    std::cout << "DIRECTION::RIGHT: " << DIRECTION::RIGHT << " ";
-    std::cout << "dir in char update: " << direction << " ";
+    // std::cout << "direction: " << direction << " ";
+    // std::cout << "DIRECTION::RIGHT: " << DIRECTION::RIGHT << " ";
+    // std::cout << "dir in char update: " << direction << " ";
     switch(direction)
     {
         case DIRECTION::NONE:
@@ -46,10 +46,10 @@ void Sprite::update(float delta_time)
             m_x = m_x - (5.0 * delta_time);
             break;
         case DIRECTION::RIGHT:
-            std::cout << "Shift char to right" << " ";
-            std::cout << "m_x before: " << m_x << " ";
+            // std::cout << "Shift char to right" << " ";
+            // std::cout << "m_x before: " << m_x << " ";
             m_x = m_x + (5.0 * delta_time);
-            std::cout << "m_x after: " << m_x << " ";
+            // std::cout << "m_x after: " << m_x << " ";
             break;
     }
 
