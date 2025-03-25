@@ -34,8 +34,8 @@ void SpriteSheet::updateFrame() {
 }
 
 SDL_Rect SpriteSheet::getCurrFrameRect() {
-    SDL_Rect srcRect = {static_cast<int> ((rectWidth / numFrames) * currFrame),
-        static_cast<int>(rectHeight),
+    SDL_Rect srcRect = {static_cast<int> (rectWidth * currFrame),
+        0,
         static_cast<int>(rectWidth),
         static_cast<int>(rectHeight)};
     std::cout << "\n currFrame in getCurrFrameRect: " << currFrame;
