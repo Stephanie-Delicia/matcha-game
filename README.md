@@ -59,6 +59,20 @@ I am using XCode for writing and running c++. I am using the SDL3 library for gr
 
 I have a very simple program that is able to just load a background, but I think implementing a controller to move a single char should be painless. I am just considering now that I should also have some class that pre-loads textures and such since I don't want things like pathnames to be present in major classes. I think major classes should refer to enums when they want a specific background, char., etc. texture. 
 
+# Update: March 25th
+Walking can now be done. Learned about pointers, not to instantiate objects in constructors, that was my bad. Declaring objects also automatically uses the default constructor!! But I now have a program where the user can walk Winnie in the left or right directions. Implemented using the MVC design pattern, I just have a SimpleMatchaGame project folder with a SimpleGameModel, SimpleGameView, and SimpleController classes. Programming wise, my main goal rn is to clean up the code implement a cleaner way to pre-load the textures without having to do so during gameplay. I am also thinking of abstracting the current classes to make the program more modular overall. For ex., separate controllers - one for walking, another for other types of input. Having a data structure that contains the animation sheets for every sprite, rather than burdening the sheet class with a bunch of sheets. I should also work on:
+- clean code
+- abstract data pre-loading and other classes
+- create textures for environment and finish animations for other sprites
+- Determine gameplay
+
+From all of this, I see that I have underestimated the time it takes to just get Winnie to walk properly, lol. But it's a good basis!
+
+
+https://github.com/user-attachments/assets/d573b9a3-2fee-4721-bc0d-69e511860703
+
+
+
 
 
 
