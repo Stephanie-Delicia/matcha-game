@@ -16,7 +16,8 @@ SpriteSheet::SpriteSheet(int numF, int cF, float width, float height) {
     std::cout << "\n currFrame in SpriteSheet constructor : " << currFrame;
     std::cout << "\n currFrame in SpriteSheet constructor using function: " << getCurrFrame();
     std::cout << "\n numFrames in SpriteSheet constructor: " << numFrames;
-    sheetSrfc = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/winnie_walk.png");
+    sheetSrfcLeft = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/winnie_walk_left.png");
+    sheetSrfcRight = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/winnie_walk_right.png");
     std::cout << "\n spriteSheet address in this constructor: " << this << "\n";
 }
 
@@ -24,8 +25,12 @@ SpriteSheet::~SpriteSheet() {
     // TODO:
 }
 
-SDL_Surface* SpriteSheet::getSheetSrfc() {
-    return sheetSrfc; // JTLYK, this is a COPY, not the object itself, not that that is super important for this function.
+SDL_Surface* SpriteSheet::getSheetSrfcLeft() {
+    return sheetSrfcLeft; // JTLYK, this is a COPY, not the object itself, not that that is super important for this function.
+}
+
+SDL_Surface* SpriteSheet::getSheetSrfcRight() {
+    return sheetSrfcRight; // JTLYK, this is a COPY, not the object itself, not that that is super important for this function.
 }
 
 void SpriteSheet::updateFrame() {

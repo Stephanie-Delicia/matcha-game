@@ -10,7 +10,8 @@ class SpriteSheet {
     public:
         SpriteSheet(int numF, int cF, float width, float height);
         ~SpriteSheet();
-        SDL_Surface* getSheetSrfc();
+        SDL_Surface* getSheetSrfcLeft();
+        SDL_Surface* getSheetSrfcRight();
         void updateFrame();
         void resetFrame();
         int getNumFrames();
@@ -24,5 +25,6 @@ class SpriteSheet {
         int currFrame;      // returns the current frame that is drawn on the window
         float rectWidth;    // width of each frame
         float rectHeight;       // height of each frame
-        SDL_Surface* sheetSrfc; // sheet as an SDL surface
+        SDL_Surface* sheetSrfcLeft; // sheet as an SDL surface
+        SDL_Surface* sheetSrfcRight; // sheet as an SDL surface
 };

@@ -9,7 +9,7 @@
 #include "SpriteSheet.hpp"
 #include <iostream>
 #include <cmath>
-
+#include "DIRECTION.h"
 // Class for a simple game view.
 // TODO:for some reason, the sprite position does change, but i cannot render them onto the screen!
 
@@ -65,26 +65,10 @@ void SimpleGameView::quitSDL() {
 }
 
 void SimpleGameView::drawChar(Sprite* sprite) {
-    // SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
-    // SDL_RenderPresent(renderer);
-    // std::cout << "We get to here in view."; OLD:
-//    SDL_Surface* winnie_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
-//    SDL_Texture* char_text = SDL_CreateTextureFromSurface(renderer, winnie_surface);
-
-    // Render the texture at a specific location
-//    SDL_FRect destRect = {sprite.getXPosn(), sprite.getYPosn(), 54, 70}; // x, y, width, height
-//    SDL_RenderTexture(renderer, char_text, NULL, &destRect);
-//    SDL_RenderPresent(renderer);
-//    SDL_RenderClear(renderer); // clears the renderer
-    //std::cout << "\n sprite add in view draw function: " << sprite;
-    //std::cout << "\n spriteSheet address in view draw function: " << sprite->getSpriteSheet() << "\n";
-    // Get sheet
-    // BLITZ TF OUT OF IT
-    // just get the src rect from function
-    
     SpriteSheet* sheetPtr = sprite->getSpriteSheet();
-    SDL_Surface* sheetSrfc = sheetPtr->getSheetSrfc();    
-    // ERROR HERE:
+    SDL_Surface* sheetSrfcLeft = sheetPtr->getSheetSrfcLeft();
+    SDL_Surface* sheetSrfcRight = sheetPtr->getSheetSrfcRight();
+
     std::cout << "\n currFrame in drawChar: " << sheetPtr->getCurrFrame();
     std::cout << "\n sprite location in drawChar: " << sprite->getXPosn() << ", " << sprite->getYPosn();
     SDL_Rect srcRect = sheetPtr->getCurrFrameRect();
@@ -101,7 +85,13 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     std::cout << "\n destRect h: " << destRect.h;
     std::cout << "\n destRect w: " << destRect.w;
     std::cout << "\n sheet frames total: " << sheetPtr->getNumFrames();
-    int success = SDL_BlitSurface(sheetSrfc, &srcRect, temp_surface, &destRect);
+    int success = 1;
+    if (sprite->getDirection() == LEFT) {
+        success = SDL_BlitSurface(sheetSrfcLeft, &srcRect, temp_surface, &destRect);
+    }
+    else if (sprite->getDirection() == RIGHT) {
+        success = SDL_BlitSurface(sheetSrfcRight, &srcRect, temp_surface, &destRect);
+    }
     if (success < 1) {
         fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
     }
@@ -109,9 +99,13 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, temp_surface);
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
+    if (sprite->getDirection() == NONE) {
+        SDL_Surface* idleSprite = sprite->getSrfc();
+        SDL_Texture* idleTexture = SDL_CreateTextureFromSurface(renderer, idleSprite);
+        SDL_FRect newDestRect =  {(float)destRect.x, (float)destRect.y, (float)destRect.w, (float)destRect.h};
+        SDL_RenderTexture(renderer, idleTexture, NULL, &newDestRect);
+    }
     SDL_RenderPresent(renderer);
-    // SDL_UpdateWindowSurface(window);
-    
     
     //
     SDL_RenderClear(renderer);

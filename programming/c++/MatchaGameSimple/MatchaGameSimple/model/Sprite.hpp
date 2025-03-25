@@ -16,17 +16,17 @@ class Sprite {
         void setDirection(DIRECTION dir);
         void updateSpreadSheetFrameNum();
         void resetSpreadSheetFrameNum();
-        SDL_Surface* getSrfc();
+        SDL_Surface* getSrfc(); // the idle surface
         DIRECTION getDirection();
         float getXPosn();
         float getYPosn();
         SpriteSheet* getSpriteSheet();
     
     private:
-        SpriteSheet*  spriteSheet;
+        SpriteSheet* spriteSheet;
         DIRECTION    direction;
         SDL_Surface* sprite_srfc;
-        SDL_FRect     rect_posn;
-        float       m_x;
-        float       m_y;
+        SDL_FRect    rect_posn;
+        float        m_x;
+        float        m_y;
 };
