@@ -8,7 +8,8 @@
 #include "SpriteSheet.hpp"
 
 Sprite::Sprite(SpriteSheet& ss) {
-    sprite_srfc = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle.png");
+    spriteSrfcLeft = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle_left.png");
+    spriteSrfcRight = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/idle_right.png");
     rect_posn.x = 0;
     rect_posn.y = 0;
     rect_posn.h = 70;
@@ -17,6 +18,7 @@ Sprite::Sprite(SpriteSheet& ss) {
     m_x = 0.0;
     m_y = 266;
     direction = DIRECTION::NONE; // not moving yet
+    idleDir = DIRECTION::LEFT;
     
     spriteSheet = &ss;
     std::cout << "\n sheet frames total in sprite constructor: " << spriteSheet->getNumFrames();
@@ -26,8 +28,15 @@ Sprite::Sprite(SpriteSheet& ss) {
 }
 
 void Sprite::setDirection(DIRECTION dir) {
-    // std::cout << "dir: " << dir << " ";
     direction = dir;
+}
+
+void Sprite::setIdleDir(DIRECTION dir) {
+    idleDir = dir;
+}
+
+DIRECTION Sprite::getIdleDir() {
+    return idleDir;
 }
 
 void Sprite::update(float delta_time)
@@ -84,9 +93,14 @@ float Sprite::getYPosn()
     return m_y;
 }
 
-SDL_Surface* Sprite::getSrfc()
+SDL_Surface* Sprite::getIdleLeft()
 {
-    return sprite_srfc;
+    return spriteSrfcLeft;
+}
+
+SDL_Surface* Sprite::getIdleRight()
+{
+    return spriteSrfcRight;
 }
 
 SpriteSheet* Sprite::getSpriteSheet()

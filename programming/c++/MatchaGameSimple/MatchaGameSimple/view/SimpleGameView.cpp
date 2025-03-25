@@ -100,10 +100,18 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
     if (sprite->getDirection() == NONE) {
-        SDL_Surface* idleSprite = sprite->getSrfc();
-        SDL_Texture* idleTexture = SDL_CreateTextureFromSurface(renderer, idleSprite);
-        SDL_FRect newDestRect =  {(float)destRect.x, (float)destRect.y, (float)destRect.w, (float)destRect.h};
-        SDL_RenderTexture(renderer, idleTexture, NULL, &newDestRect);
+        if (sprite->getIdleDir() == LEFT) {
+            SDL_Surface* idleSprite = sprite->getIdleLeft();
+            SDL_Texture* idleTexture = SDL_CreateTextureFromSurface(renderer, idleSprite);
+            SDL_FRect newDestRect =  {(float)destRect.x, (float)destRect.y, (float)destRect.w, (float)destRect.h};
+            SDL_RenderTexture(renderer, idleTexture, NULL, &newDestRect);
+        }
+        else if (sprite->getIdleDir() == RIGHT) {
+            SDL_Surface* idleSprite = sprite->getIdleRight();
+            SDL_Texture* idleTexture = SDL_CreateTextureFromSurface(renderer, idleSprite);
+            SDL_FRect newDestRect =  {(float)destRect.x, (float)destRect.y, (float)destRect.w, (float)destRect.h};
+            SDL_RenderTexture(renderer, idleTexture, NULL, &newDestRect);
+        }
     }
     SDL_RenderPresent(renderer);
     

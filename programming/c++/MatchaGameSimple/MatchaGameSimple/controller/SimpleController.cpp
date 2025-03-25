@@ -81,12 +81,14 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
             else if (keys[SDL_SCANCODE_LEFT] == 1)
             {
                 model->updateCharDir(DIRECTION::LEFT);
+                model->getSprite()->setIdleDir(DIRECTION::LEFT);
                 updateCharPosn(1);
                 model->getSprite()->updateSpreadSheetFrameNum();
             }
             else if (keys[SDL_SCANCODE_RIGHT] == 1)
             {
                 model->updateCharDir(DIRECTION::RIGHT);
+                model->getSprite()->setIdleDir(DIRECTION::RIGHT);
                 updateCharPosn(1);
                 model->getSprite()->updateSpreadSheetFrameNum();
                 std::cout << "Char x posn: " << model->getCharXPosn() << " ";
