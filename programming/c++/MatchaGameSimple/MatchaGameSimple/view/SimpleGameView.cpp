@@ -30,10 +30,10 @@ SimpleGameView::SimpleGameView() {
     
     // surface pointer for basic background
     background_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
+    temp_surface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/calm_background.png");
     if (background_surface == NULL) {
             printf("Error with loading surface: %s\n", SDL_GetError());
         }
-    
     // texture pointer
 //    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
 //    SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
@@ -81,6 +81,7 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     // Get sheet
     // BLITZ TF OUT OF IT
     // just get the src rect from function
+    
     SpriteSheet* sheetPtr = sprite->getSpriteSheet();
     SDL_Surface* sheetSrfc = sheetPtr->getSheetSrfc();    
     // ERROR HERE:
@@ -100,12 +101,12 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     std::cout << "\n destRect h: " << destRect.h;
     std::cout << "\n destRect w: " << destRect.w;
     std::cout << "\n sheet frames total: " << sheetPtr->getNumFrames();
-    int success = SDL_BlitSurface(sheetSrfc, &srcRect, background_surface, &destRect);
+    int success = SDL_BlitSurface(sheetSrfc, &srcRect, temp_surface, &destRect);
     if (success < 1) {
         fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
     }
     
-    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, background_surface);
+    SDL_Texture* backgroundTexture = SDL_CreateTextureFromSurface(renderer, temp_surface);
     SDL_FRect backgroundDest = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT}; // { x, y, w, h }
     SDL_RenderTexture(renderer, backgroundTexture, NULL, &backgroundDest);
     SDL_RenderPresent(renderer);
@@ -114,6 +115,7 @@ void SimpleGameView::drawChar(Sprite* sprite) {
     
     //
     SDL_RenderClear(renderer);
+    SDL_BlitSurface(background_surface, &destRect, temp_surface, &destRect);
 }
 
 SDL_Event SimpleGameView::getEvents() {

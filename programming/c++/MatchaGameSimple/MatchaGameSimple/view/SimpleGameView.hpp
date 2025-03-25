@@ -25,4 +25,5 @@ class SimpleGameView {
         SDL_Window* window;              // SDL game window
         SDL_Renderer* renderer;          // renderer
         SDL_Surface* background_surface; // background for game window
+        SDL_Surface* temp_surface;
 };
