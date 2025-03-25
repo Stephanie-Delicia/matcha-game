@@ -15,6 +15,7 @@ class Sprite {
         void update(float delta_time);
         void setDirection(DIRECTION dir);
         void updateSpreadSheetFrameNum();
+        void resetSpreadSheetFrameNum();
         SDL_Surface* getSrfc();
         DIRECTION getDirection();
         float getXPosn();

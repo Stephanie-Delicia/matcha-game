@@ -12,6 +12,7 @@ class SpriteSheet {
         ~SpriteSheet();
         SDL_Surface* getSheetSrfc();
         void updateFrame();
+        void resetFrame();
         int getNumFrames();
         int getCurrFrame();
         float getRectWidth();

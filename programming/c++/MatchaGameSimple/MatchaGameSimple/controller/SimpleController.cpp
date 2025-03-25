@@ -82,6 +82,7 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
             {
                 model->updateCharDir(DIRECTION::LEFT);
                 updateCharPosn(1);
+                model->getSprite()->updateSpreadSheetFrameNum();
             }
             else if (keys[SDL_SCANCODE_RIGHT] == 1)
             {
@@ -94,6 +95,7 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
         }
         case SDL_EVENT_KEY_UP: {
             model->updateCharDir(DIRECTION::NONE);
+            model->getSprite()->resetSpreadSheetFrameNum();
             break;
         }
     }

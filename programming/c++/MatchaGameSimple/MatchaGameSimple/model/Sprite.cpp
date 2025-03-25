@@ -69,6 +69,11 @@ void Sprite::updateSpreadSheetFrameNum()
     spriteSheet->updateFrame();
 }
 
+void Sprite::resetSpreadSheetFrameNum()
+{
+    spriteSheet->resetFrame();
+}
+
 float Sprite::getXPosn()
 {
     return m_x;

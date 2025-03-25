@@ -33,6 +33,10 @@ void SpriteSheet::updateFrame() {
     currFrame = currFrame % numFrames;
 }
 
+void SpriteSheet::resetFrame() {
+    currFrame = 0;
+}
+
 SDL_Rect SpriteSheet::getCurrFrameRect() {
     SDL_Rect srcRect = {static_cast<int> (rectWidth * currFrame),
         0,
