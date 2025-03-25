@@ -14,7 +14,7 @@ class SimpleGameView {
         void initializeSDL(); // initialized SDL3
         void destroyWindow();
         void quitSDL();
-        void drawChar(Sprite sprite);
+        void drawChar(Sprite* sprite);
         SDL_Event getEvents();
         SDL_Window* getWindow();
         SDL_Renderer* getRenderer();

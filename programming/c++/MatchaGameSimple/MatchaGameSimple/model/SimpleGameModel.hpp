@@ -6,7 +6,7 @@
 
 class SimpleGameModel {
     public:
-        SimpleGameModel();
+        SimpleGameModel(Sprite& s);
         ~SimpleGameModel();
     
         void updateCharPosn(float delta_time);
@@ -14,8 +14,9 @@ class SimpleGameModel {
         DIRECTION getCharDir();
         float getCharXPosn();
         float getCharYPosn();
-        Sprite getSprite();
+        Sprite* getSprite();
+        int numFrames;
     
     private:
-        Sprite mainChar;
+        Sprite* mainChar;
 };

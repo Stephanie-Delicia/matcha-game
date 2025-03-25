@@ -23,6 +23,9 @@ SimpleController::SimpleController(SimpleGameModel& m, SimpleGameView& v) {
     // std::cout << "\n view add: " << &view;
     // std::cout << "\n v add: " << &v;
     // std::cout << "\n after controller constr. ";
+    std::cout << "\n numFrames in controller constructor: " << model->getSprite()->getSpriteSheet()->getNumFrames();
+    std::cout << "\n sprite add in controller constructor: " << model->getSprite();
+    std::cout << "\n spriteSheet add in controller constructor: " << model->getSprite()->getSpriteSheet();
     exitGame = false;
 }
 
@@ -84,8 +87,8 @@ void SimpleController::updateCharDir(SDL_Event const &event) {
             {
                 model->updateCharDir(DIRECTION::RIGHT);
                 updateCharPosn(1);
-//                std::cout << "Char x posn: " << model.getCharXPosn() << " ";
-//                std::cout << "Char y posn: " << model.getCharYPosn() << " ";
+                model->getSprite()->updateSpreadSheetFrameNum();
+                std::cout << "Char x posn: " << model->getCharXPosn() << " ";
             }
             break;
         }
