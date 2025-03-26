@@ -71,6 +71,14 @@ From all of this, I see that I have underestimated the time it takes to just get
 
 https://github.com/user-attachments/assets/d573b9a3-2fee-4721-bc0d-69e511860703
 
+# Update: March 26th
+For considerations:
+- State pattern for the main char
+- Methods for pre-loading data and improving data accessibility
+- Scrolling on a 2-d platformer
+- Changing screens in a game
+- How to do “movie” cutscenes. How to display triggered dialogues.
+
 
 
 
