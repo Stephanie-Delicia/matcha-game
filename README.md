@@ -79,6 +79,12 @@ For considerations:
 - Changing screens in a game
 - How to do “movie” cutscenes. How to display triggered dialogues.
 
+# Update: April 4th
+Goals
+- Design mini drink
+- Implement state pattern for chars
+- Implement method to do "cutscenes"
+- Design chasen and bowl
 
 
 
