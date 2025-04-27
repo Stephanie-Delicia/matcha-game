@@ -1,0 +1,12 @@
+{
+  "Winnie":
+    {
+      "Name": "Winnie",
+      "State": "Walking",
+      "FilePathL": "winnie_walk_left.png",
+      "FilePathR": "winnie_walk_right.png",
+      "TotalFrames": 8,
+      "Width": 432.00,
+      "Height": 70.00
+    }
+}
