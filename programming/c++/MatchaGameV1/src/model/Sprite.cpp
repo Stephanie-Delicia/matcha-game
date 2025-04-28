@@ -6,6 +6,7 @@
 #include "STATE.h"
 #include "Posn.hpp"
 #include "SpriteSheet.hpp"
+#include "SpriteState.hpp"
 
 /*
  A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
@@ -55,97 +56,22 @@ void Sprite::setPosn(float x, float y) {
     posn.setY(y);
 }
 
-void Sprite::updateSheet(SpriteSheet sheet, int newFrameNum) {
-    sheet.setFrameNum(newFrameNum);
+void Sprite::updateSheet(STATE state, int delta) {
+    SpriteSheet* sheet = getSheet(state);
+    int oldFrameNum = sheet->getCurrFr();
+    sheet->setFrameNum(oldFrameNum + delta);
+}
+
+void Sprite::resetSheet(STATE state) {
+    getSheet(state)->setFrameNum(0);
 }
 
 void Sprite::handleInput(SDL_Event const &event) {
-    switch (event.type)
-    {
-        case SDL_EVENT_KEY_DOWN: {
-            const bool *keys = SDL_GetKeyboardState(nullptr);
-            if (keys[SDL_SCANCODE_UP] == 1)
-            {
-                setState(STATE::IDLE);
-                setDir(DIRECTION::UP);
-            }
-            else if (keys[SDL_SCANCODE_DOWN] == 1)
-            {
-                setState(STATE::IDLE);
-                setDir(DIRECTION::DOWN);
-            }
-            else if (keys[SDL_SCANCODE_LEFT] == 1)
-            {
-                setState(STATE::WALKING);
-                setDir(DIRECTION::LEFT);
-            }
-            else if (keys[SDL_SCANCODE_RIGHT] == 1)
-            {
-                setState(STATE::WALKING);
-                setDir(DIRECTION::RIGHT);
-            }
-            break;
-        }
-        case SDL_EVENT_KEY_UP: {
-            // reset last state sheet
-            // updateSheet(getSheet(state), 0); // reset to first frame
-            setState(STATE::IDLE);
-            break;
-        }
-    }
+    stateHandler.handleInput(this, &event);
 }
 
 void Sprite::update() {
-    switch (state)
-    {
-        case STATE::IDLE : {
-            break;
-        }
-            
-        case STATE::WALKING : {
-            switch (stateDir)
-            {
-                case DIRECTION::LEFT: {
-                    // give command the name, state, and framerate
-                    // updateSheet(getSheet(state), getSheet(state).getCurrFr() + 1);
-                    setPosn(posn.getX() - frameSpeed, posn.getY());
-                }
-                    
-                case DIRECTION::RIGHT: {
-                    // updateSheet(getSheet(state), getSheet(state).getCurrFr() + 1);
-                    setPosn(posn.getX() + frameSpeed, posn.getY());
-                }
-                case UP: {
-                    
-                    break;
-                }
-                case DOWN: {
-                    
-                    break;
-                }
-            }
-            break;
-        }
-            
-        case STATE::RUNNING: {
-            break;
-        }
-            
-        case STATE::NONE: {
-            // NONE
-            break;
-        }
-            
-        case STATE::BLINKING: {
-            // NONE
-            break;
-        }
-            
-        case STATE::DRINKING: {
-            // NONE
-            break;
-        }
-    }
+    stateHandler.update(this);
 }
 
 void Sprite::drawSprite(SDL_Surface *windowSrfc) {

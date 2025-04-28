@@ -4,8 +4,8 @@
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_pixels.h>
 #include <cmath>
-#include "SpriteSheet.hpp"
 #include <string>
+#include "SpriteSheet.hpp"
 
 SpriteSheet::SpriteSheet(std::string filePathL,
                          std::string filePathR,
