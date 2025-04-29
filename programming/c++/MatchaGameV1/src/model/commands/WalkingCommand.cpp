@@ -3,18 +3,19 @@
 #include "SpriteSheet.hpp"
 #include "NameStateSheetMap.hpp"
 #include "StateCommand.hpp"
+#include "Sprite.hpp"
 
 /*
  A class representing the command for handling the walking state for a sprite.
  */
 
-WalkingCommand::WalkingCommand() {
-}
+//WalkingCommand::WalkingCommand() {
+//}
+//
+//WalkingCommand::~WalkingCommand() {
+//}
 
-WalkingCommand::~WalkingCommand() {
-}
-
-void WalkingCommand::update(Sprite *sprite) {
+void WalkingCommand::update(Sprite* sprite) {
     DIRECTION stateDir = sprite->getStateDir();
     Posn posn = sprite->getPosn();
     float frameSpeed = sprite->getFrameSpeed();

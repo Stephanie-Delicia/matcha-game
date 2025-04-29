@@ -6,7 +6,7 @@
 #include "STATE.h"
 #include "Posn.hpp"
 #include "SpriteSheet.hpp"
-#include "SpriteState.hpp"
+#include "CharacterState.hpp"
 
 /*
  A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
@@ -67,10 +67,12 @@ void Sprite::resetSheet(STATE state) {
 }
 
 void Sprite::handleInput(SDL_Event const &event) {
-    stateHandler.handleInput(this, &event);
+    CharacterState stateHandler = CharacterState();
+    stateHandler.handleInput(this, event);
 }
 
 void Sprite::update() {
+    CharacterState stateHandler = CharacterState();
     stateHandler.update(this);
 }
 

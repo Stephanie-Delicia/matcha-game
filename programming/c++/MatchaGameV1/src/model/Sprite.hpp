@@ -1,30 +1,25 @@
 #pragma once
 #include <map>
 #include <SDL3/SDL.h>
-
 #include "NAME.h"
 #include "DIRECTION.h"
 #include "STATE.h"
-
 #include "Posn.hpp"
 #include "SpriteSheet.hpp"
 #include "NameStateSheetMap.hpp"
-#include "SpriteState.hpp"
 
 /*
  A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
  */
 
 class Sprite {
-    
 public:
-    Sprite(NAME n, Posn p, DIRECTION d, STATE s, NameStateSheetMap* map, SpriteState spriteState) {
+    Sprite(NAME n, Posn p, DIRECTION d, STATE s, NameStateSheetMap* map) {
         name = n;
         posn = p;
         state = s;
         stateDir = d;
         sheetMap = map;
-        stateHandler = spriteState;
     };
     
     ~Sprite();
@@ -56,6 +51,5 @@ private:
     float frameSpeed = 1;                          // default = 1
     STATE state;                                   // whatever state sprite is in
     DIRECTION stateDir;                            // direction sprite faces
-    SpriteState stateHandler;                      // class for handling updates and inputs given state
     NameStateSheetMap* sheetMap;                   // map for accessing sheets
 };

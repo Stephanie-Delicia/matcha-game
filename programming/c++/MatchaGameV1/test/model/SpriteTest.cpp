@@ -6,6 +6,7 @@
 #include "DIRECTION.h"
 #include "Posn.hpp"
 #include "NameStateSheetMap.hpp"
+#include "SpriteState.hpp"
 
 // Test file for Sprite class. A Sprite represents a char.
 
@@ -21,6 +22,7 @@
 TEST_CASE( "All Sprite parameters are consistent when sprite is instantiated.", "[Sprite]" ) {
     NameStateSheetMap sheetMap;
     sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/spriteSheetData.json");
+
     Sprite testSprite = Sprite(WINNIE, Posn(0, 0), LEFT, WALKING, &sheetMap);
     
     SECTION( "Create a sprite." ) {
