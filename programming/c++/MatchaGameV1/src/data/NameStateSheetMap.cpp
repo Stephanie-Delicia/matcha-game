@@ -43,29 +43,19 @@ void NameStateSheetMap::readJSON(std::string filepath) {
     for (auto i = nameStrMap.begin(); i != nameStrMap.end(); i++) {
         // i returns key value pair
         std::string name = i->first;
-        std::cout << "Name: " << i->first << std::endl;
-        std::cout << "nameStrMap[name]: " << nameStrMap[name] << std::endl;
         int sheet = 0;
         for (auto j = data[name].begin(); j != data[name].end(); j++) {
             // recur through each sheet data instance in json for this name
-            std::cout << "sheet data: " << data[name][sheet] << std::endl;
-            std::cout << "FilePathL: " << data[name][sheet]["FilePathL"] << std::endl;
-            std::cout << "FilePathR: " << data[name][sheet]["FilePathR"] << std::endl;
-            std::cout << "TotalFrames: " << data[name][sheet]["TotalFrames"] << std::endl;
-            std::cout << "Width: " << data[name][sheet]["Width"] << std::endl;
-            std::cout << "Height: " << data[name][sheet]["Height"] << std::endl;
-            std::cout << "State: " << data[name][sheet]["State"] << std::endl;
-            sheet++;
             // WARNING: This object, since it is created with [NEW], won't be deleted until explicitly done so! Be wary and ensure it is deleted down the line.
             SpriteSheet* newSheet = new SpriteSheet((std::string) data[name][sheet]["FilePathL"],
                                                     (std::string) data[name][sheet]["FilePathR"],
                                                     (int)         data[name][sheet]["TotalFrames"],
                                                     (float)       data[name][sheet]["Width"],
                                                     (float)       data[name][sheet]["Height"]);
-            std::cout << "Success." << std::endl;
             addSpriteSheet(nameStrMap[name],
                            stateStrMap[data[name][sheet]["State"]],
                            newSheet);
+            sheet++;
         }
     }
 }

@@ -24,11 +24,13 @@ void WalkingCommand::update(Sprite* sprite) {
         case DIRECTION::LEFT: {
             sprite->setPosn(x - frameSpeed, y); // update sprite posn
             sprite->updateSheet(WALKING, 1);   // update sheet frame
+            break;
         }
             
         case DIRECTION::RIGHT: {
             sprite->setPosn(x + frameSpeed, y);
             sprite->updateSheet(WALKING, 1);
+            break;
         }
         case UP: {
             break;

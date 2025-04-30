@@ -33,15 +33,27 @@ TEST_CASE( "Testing commands", "[commands]" ) {
         // update sprite
         walkC.update(&testSprite);
         // test new posn
-        REQUIRE( testSprite.getName()        == WINNIE         );
-        REQUIRE( testSprite.getPosn().getX() == 1              ); // move one px right
-        REQUIRE( testSprite.getPosn().getY() == 0              );
-        REQUIRE( testSprite.getStateDir()    == LEFT           );
-        REQUIRE( testSprite.getState()       == WALKING        );
-        REQUIRE( testSprite.getFrameSpeed()  == 1              );
+        REQUIRE( testSprite.getName()        == WINNIE          );
+        REQUIRE( testSprite.getPosn().getX() == -1.0            ); // move one px left
+        REQUIRE( testSprite.getPosn().getY() == 0               );
+        REQUIRE( testSprite.getStateDir()    == LEFT            );
+        REQUIRE( testSprite.getState()       == WALKING         );
+        REQUIRE( testSprite.getFrameSpeed()  == 1               );
         // test new current frame number
-        REQUIRE( testSprite.getSheet(WALKING)->getCurrFr() == 1);
-        
+        REQUIRE( testSprite.getSheet(WALKING)->getCurrFr() == 1 );
+        // update sprite
+        testSprite.setDir(RIGHT);
+        testSprite.setFrameSpeed(2.00);
+        walkC.update(&testSprite);
+        // test new posn
+        REQUIRE( testSprite.getName()        == WINNIE          );
+        REQUIRE( testSprite.getPosn().getX() == 1.0             ); // two px to right
+        REQUIRE( testSprite.getPosn().getY() == 0               );
+        REQUIRE( testSprite.getStateDir()    == RIGHT           );
+        REQUIRE( testSprite.getState()       == WALKING         );
+        REQUIRE( testSprite.getFrameSpeed()  == 2.00            ); // new frame speed
+        // test new current frame number
+        REQUIRE( testSprite.getSheet(WALKING)->getCurrFr() == 2 );
     }
     
     SECTION( "IdleCommand" ) {
