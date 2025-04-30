@@ -21,7 +21,7 @@
 
 TEST_CASE( "All Sprite parameters are consistent when sprite is instantiated.", "[Sprite]" ) {
     NameStateSheetMap sheetMap;
-    sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/spriteSheetData.json");
+    sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testSpriteSheetData.json");
 
     Sprite testSprite = Sprite(WINNIE, Posn(0, 0), LEFT, WALKING, &sheetMap);
     

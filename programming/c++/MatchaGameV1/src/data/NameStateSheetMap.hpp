@@ -1,4 +1,3 @@
-// A nested mapping data structure that refers to Name, then state, then finally Map.
 #pragma once
 #include <stdio.h>
 #include "NAME.h"
@@ -8,23 +7,38 @@
 #include <map>
 #include <string>
 
+// A nested mapping data structure that refers to Name, then state, then finally Map.
+// For JSON reading, the JSON format should be in the form:
+/*
+ "Name_1": [
+    {sheet_1 parameters},
+    ...,
+    {sheet_n parameters}
+ ],
+ 
+ "Name_2": [
+    ...
+ ]
+ 
+ .
+ .
+ .
+ 
+ */
+
 class NameStateSheetMap {
 public:
     // constructor/destructor
     NameStateSheetMap() {
         nameStrMap = {
-            {"Winnie", WINNIE},
-            {"Pearl", PEARL},
-            {"Soma", SOMA},
-            {"Ifesola", IFESOLA}};
+            {"Winnie", WINNIE}};
         stateStrMap = {
             {"Walking", WALKING},
             {"Idle", IDLE}};
     };
-    ~NameStateSheetMap();
     
     // utils
-    SpriteSheet* getSpriteSheet(NAME name, STATE state);              // returns sprite sheet
+    SpriteSheet* getSpriteSheet(NAME name, STATE state);             // returns sprite sheet
     void addSpriteSheet(NAME name, STATE state, SpriteSheet* sheet); // add a sprite sheet
     void readJSON(std::string filepath);                             // add sprite sheets according to json file
     

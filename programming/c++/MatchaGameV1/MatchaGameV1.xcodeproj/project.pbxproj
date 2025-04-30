@@ -35,6 +35,8 @@
 		C2F78EC72DC07D6D00B7B8F9 /* SDL3.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2A313C42D95C8E8004173D5 /* SDL3.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2F78EC92DC07D8700B7B8F9 /* SDL3_image.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A313C82D95C8F7004173D5 /* SDL3_image.xcframework */; };
 		C2F78ECA2DC07D8700B7B8F9 /* SDL3_image.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2A313C82D95C8F7004173D5 /* SDL3_image.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ECB2DC0895600B7B8F9 /* CommandTest.cpp */; };
+		C2F78ECE2DC0896600B7B8F9 /* StateTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +97,8 @@
 		C2F78EB72DC0059F00B7B8F9 /* CharacterState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CharacterState.hpp; sourceTree = "<group>"; };
 		C2F78EBB2DC006BF00B7B8F9 /* IdleCommand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleCommand.cpp; sourceTree = "<group>"; };
 		C2F78EBC2DC006BF00B7B8F9 /* IdleCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IdleCommand.hpp; sourceTree = "<group>"; };
+		C2F78ECB2DC0895600B7B8F9 /* CommandTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandTest.cpp; sourceTree = "<group>"; };
+		C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateTest.cpp; sourceTree = "<group>"; };
 		C2FE94C22DAD90AC004F99B8 /* NameStateSheetMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NameStateSheetMap.cpp; sourceTree = "<group>"; };
 		C2FE94C32DAD90AC004F99B8 /* NameStateSheetMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameStateSheetMap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +128,8 @@
 		C20003212DB94A430074364D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C2F78ED02DC15C8100B7B8F9 /* state */,
+				C2F78ECF2DC15C7000B7B8F9 /* command */,
 				C20003242DB967FC0074364D /* SpriteTest.cpp */,
 				C20003262DB9680F0074364D /* SpriteSheetTest.cpp */,
 			);
@@ -291,6 +297,22 @@
 			path = states;
 			sourceTree = "<group>";
 		};
+		C2F78ECF2DC15C7000B7B8F9 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				C2F78ECB2DC0895600B7B8F9 /* CommandTest.cpp */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		C2F78ED02DC15C8100B7B8F9 /* state */ = {
+			isa = PBXGroup;
+			children = (
+				C2F78ECD2DC0896600B7B8F9 /* StateTest.cpp */,
+			);
+			path = state;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F78E9D2DBBECAD00B7B8F9 /* Posn.cpp in Sources */,
+				C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */,
 				C2F78E992DBBEC7A00B7B8F9 /* SpriteSheet.cpp in Sources */,
 				C2F78E952DBBEC6500B7B8F9 /* SpriteSheetTest.cpp in Sources */,
 				C2F78EBE2DC006C000B7B8F9 /* IdleCommand.cpp in Sources */,
@@ -405,6 +428,7 @@
 				C2F78EB92DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C2F78E932DBBEC5E00B7B8F9 /* SpriteTest.cpp in Sources */,
 				C2F78E962DBBEC6E00B7B8F9 /* main.cpp in Sources */,
+				C2F78ECE2DC0896600B7B8F9 /* StateTest.cpp in Sources */,
 				C2F78EA52DBD5E4C00B7B8F9 /* PosnTest.cpp in Sources */,
 				C2F78EA12DBBF2D700B7B8F9 /* NameStateSheetMapTest.cpp in Sources */,
 				C2F78EB02DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,

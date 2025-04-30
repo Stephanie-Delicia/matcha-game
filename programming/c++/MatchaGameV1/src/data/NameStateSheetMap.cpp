@@ -17,12 +17,8 @@ void NameStateSheetMap::addSpriteSheet(NAME name, STATE state, SpriteSheet* shee
     nameStateSheetMap[name][state] = sheet;
 }
 
-NameStateSheetMap::~NameStateSheetMap() {
-    // TODO
-}
-
-// TODO: catch error if value does not exist
 SpriteSheet* NameStateSheetMap::getSpriteSheet(NAME name, STATE state) {
+    // error if value does not exist
     // find name
     std::map<STATE, SpriteSheet*> stateSheetMap = nameStateSheetMap.at(name);
     // find sheet given state
@@ -30,13 +26,9 @@ SpriteSheet* NameStateSheetMap::getSpriteSheet(NAME name, STATE state) {
 }
 
 void NameStateSheetMap::readJSON(std::string filepath) {
-    // TODO: to recur through map once I have all the textures made for other chars.
-    // TODO: read in json file to add data
     std::ifstream file(filepath);
     
-    // std::cout << std::filesystem::exists(filepath) << "\n";
-    
-    // TODO: Catch error
+    // Catch error
     if (!file.is_open()) {
             std::cerr << "Error opening file" << std::endl;
         }
@@ -45,19 +37,35 @@ void NameStateSheetMap::readJSON(std::string filepath) {
     file >> data;
     file.close();
     
-//    std::cout << data["Winnie"]["FilePathL"] << "\n";
-//    std::cout << data["Winnie"]["FilePathR"] << "\n";
-//    std::cout << data["Winnie"]["TotalFrames"] << "\n";
-//    std::cout << data["Winnie"]["Width"] << "\n";
-//    std::cout << data["Winnie"]["Height"] << "\n";
-    
-    // WARNING: This object, since it is created with [NEW], won't be deleted until explicitly done so! Be wary and ensure it is deleted down the line.
-    SpriteSheet* sheet = new SpriteSheet((std::string) data["Winnie"]["FilePathL"],
-                                    (std::string) data["Winnie"]["FilePathR"],
-                                    (int)         data["Winnie"]["TotalFrames"],
-                                    (float)       data["Winnie"]["Width"],
-                                    (float)       data["Winnie"]["Height"]);
-    addSpriteSheet(nameStrMap[data["Winnie"]["Name"]],
-                   stateStrMap[data["Winnie"]["State"]],
-                   sheet);
+    // Recurring throught the map
+    // recur by name
+    // recur by params in name
+    for (auto i = nameStrMap.begin(); i != nameStrMap.end(); i++) {
+        // i returns key value pair
+        std::string name = i->first;
+        std::cout << "Name: " << i->first << std::endl;
+        std::cout << "nameStrMap[name]: " << nameStrMap[name] << std::endl;
+        int sheet = 0;
+        for (auto j = data[name].begin(); j != data[name].end(); j++) {
+            // recur through each sheet data instance in json for this name
+            std::cout << "sheet data: " << data[name][sheet] << std::endl;
+            std::cout << "FilePathL: " << data[name][sheet]["FilePathL"] << std::endl;
+            std::cout << "FilePathR: " << data[name][sheet]["FilePathR"] << std::endl;
+            std::cout << "TotalFrames: " << data[name][sheet]["TotalFrames"] << std::endl;
+            std::cout << "Width: " << data[name][sheet]["Width"] << std::endl;
+            std::cout << "Height: " << data[name][sheet]["Height"] << std::endl;
+            std::cout << "State: " << data[name][sheet]["State"] << std::endl;
+            sheet++;
+            // WARNING: This object, since it is created with [NEW], won't be deleted until explicitly done so! Be wary and ensure it is deleted down the line.
+            SpriteSheet* newSheet = new SpriteSheet((std::string) data[name][sheet]["FilePathL"],
+                                                    (std::string) data[name][sheet]["FilePathR"],
+                                                    (int)         data[name][sheet]["TotalFrames"],
+                                                    (float)       data[name][sheet]["Width"],
+                                                    (float)       data[name][sheet]["Height"]);
+            std::cout << "Success." << std::endl;
+            addSpriteSheet(nameStrMap[name],
+                           stateStrMap[data[name][sheet]["State"]],
+                           newSheet);
+        }
+    }
 }

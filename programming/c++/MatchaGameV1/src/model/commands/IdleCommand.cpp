@@ -8,10 +8,6 @@
 /*
  A class representing the command for handling the idle state for a sprite.
  */
-
-//IdleCommand::IdleCommand() {
-//}
-//
 //IdleCommand::~IdleCommand() {
 //}
 

@@ -8,9 +8,6 @@
 /*
  A class representing the command for handling the walking state for a sprite.
  */
-
-//WalkingCommand::WalkingCommand() {
-//}
 //
 //WalkingCommand::~WalkingCommand() {
 //}
@@ -26,7 +23,7 @@ void WalkingCommand::update(Sprite* sprite) {
     {
         case DIRECTION::LEFT: {
             sprite->setPosn(x - frameSpeed, y); // update sprite posn
-            sprite->updateSheet(WALKING, -1);   // update sheet frame
+            sprite->updateSheet(WALKING, 1);   // update sheet frame
         }
             
         case DIRECTION::RIGHT: {
