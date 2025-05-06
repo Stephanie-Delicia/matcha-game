@@ -1,20 +1,33 @@
 {
-  "Winnie":
-  [
-    {
-      "State": "Walking",
-      "FilePathL": "winnie_walk_left.png",
-      "FilePathR": "winnie_walk_right.png",
-      "TotalFrames": 8,
-      "Width": 432.00,
-      "Height": 70.00
-    },
-    {
-        "State": "Idle",
-        "FilePathL": "idle_left.png",
-        "FilePathR": "idle_right.png",
-        "TotalFrames": 1,
-        "Width": 54.00,
-        "Height": 70.00
-    }]
+    "Winnie":
+    [
+        {
+            "State": "Walking",
+            "FilePathL": "winnie_walk_left.png",
+            "FilePathR": "winnie_walk_right.png",
+            "TotalFrames": 8,
+            "Width": 432.00,
+            "Height": 70.00
+        },
+        {
+            "State": "Idle",
+            "FilePathL": "idle_left.png",
+            "FilePathR": "idle_right.png",
+            "TotalFrames": 1,
+            "Width": 54.00,
+            "Height": 70.00
+            
+        }
+    ],
+    "Pleasant_Sky":
+    [
+        {
+            "State": "Idle",
+            "FilePathL": "pleasant_sky.png",
+            "FilePathR": "pleasant_sky.png",
+            "TotalFrames": 1,
+            "Width": 640.00,
+            "Height": 360.00
+        }
+    ]
 }

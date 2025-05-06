@@ -8,7 +8,6 @@ void GameController::startGame() {
     
     while (!exitGame) {
         SDL_Event event; // get events
-        
         while(SDL_PollEvent(&event))
         {
             // handle input and update
@@ -37,6 +36,7 @@ void GameController::startGame() {
 
 void GameController::update() {
     // controller calls on the model for this
+    model->getMainPlayer()->update();
 }
 
 void GameController::draw() {

@@ -12,6 +12,10 @@ class ScreenModel {
 public:
     // constructor
     ScreenModel();
+    ScreenModel(int width, int height) {
+        w = width;
+        h = height;
+    };
     ScreenModel(std::deque<Sprite*> q, int width, int height) {
         bgQueue = q;
     };

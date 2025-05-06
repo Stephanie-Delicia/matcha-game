@@ -26,6 +26,7 @@ SpriteSheet* NameStateSheetMap::getSpriteSheet(NAME name, STATE state) {
 }
 
 void NameStateSheetMap::readJSON(std::string filepath) {
+    // open file
     std::ifstream file(filepath);
     
     // Catch error
@@ -33,13 +34,12 @@ void NameStateSheetMap::readJSON(std::string filepath) {
             std::cerr << "Error opening file" << std::endl;
         }
     
+    // read in data from file
     nlohmann::json data;
     file >> data;
     file.close();
     
-    // Recurring throught the map
-    // recur by name
-    // recur by params in name
+    // Recurring thru map
     for (auto i = nameStrMap.begin(); i != nameStrMap.end(); i++) {
         // i returns key value pair
         std::string name = i->first;

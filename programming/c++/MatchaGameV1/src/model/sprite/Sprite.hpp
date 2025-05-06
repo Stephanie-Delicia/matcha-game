@@ -17,6 +17,9 @@
 
 class Sprite {
 public:
+    Sprite() {
+        name = TEST;
+    };
     Sprite(NAME n, Posn p, DIRECTION d, STATE s, NameStateSheetMap* map) {
         name = n;
         posn = p;
@@ -36,6 +39,7 @@ public:
     
     // setters
     void setState(STATE newState);
+    void setSheetMap(NameStateSheetMap* map);
     void setDir(DIRECTION newDir);
     void setPosn(float x, float y);
     void setFrameSpeed(float speed);
@@ -54,8 +58,8 @@ public:
 private:
     NAME name;                                     // unique sprite name
     Posn posn;                                     // (x,y). defaults to (0,0)
-    STATE state;                                   // whatever state sprite is in
-    DIRECTION stateDir;                            // direction that sprite faces
+    STATE state = NONE;                            // whatever state sprite is in
     float frameSpeed = 1;                          // rate of change in sprite posn
+    DIRECTION stateDir = LEFT;                     // direction that sprite faces
     NameStateSheetMap* sheetMap;                   // map for accessing sheets
 };

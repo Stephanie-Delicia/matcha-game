@@ -1,0 +1,10 @@
+{
+    "Gameplay":
+        {
+            "active": 1,
+            "Width": 640.00,
+            "Height": 360.00,
+            "bgQueue": ["Pleasant_Sky"],
+            "mQueue": ["Winnie"]
+        }
+}

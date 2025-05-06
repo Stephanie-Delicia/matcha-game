@@ -10,6 +10,10 @@ public:
     GameController(GameModel* m, GameView* v) {
         model = m;
         view = v;
+        view->createRenderer();
+        view->createWindow(model->getGameName(),
+                           model->getWidth(),
+                           model->getHeight());
         exitGame = false;
     };
     void draw();
