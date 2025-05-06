@@ -15,9 +15,6 @@
  A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
  */
 
-Sprite::~Sprite() {
-}
-
 NAME Sprite::getName() {
     return name;
 }
@@ -40,6 +37,14 @@ float Sprite::getFrameSpeed() {
 
 SpriteSheet* Sprite::getSheet(STATE s) {
     return sheetMap->getSpriteSheet(name, s);
+}
+
+NameStateSheetMap* Sprite::getSheetMap() {
+    return sheetMap;
+}
+
+void Sprite::setSheetMap(NameStateSheetMap* map) {
+    sheetMap = map;
 }
 
 void Sprite::setDir(DIRECTION newDir) {

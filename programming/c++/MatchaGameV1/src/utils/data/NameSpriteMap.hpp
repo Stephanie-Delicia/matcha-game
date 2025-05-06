@@ -18,19 +18,35 @@
 
 class NameSpriteMap {
 public:
-    // constructor/destructor
+    // constructors
     NameSpriteMap() {
-        nameStrMap = {
-            {"Winnie", WINNIE}};
+        
     };
     
-    // utils
-    Sprite* getSprite(NAME name);                     // returns sprite
-    void readJSON(std::string filepath);              // add sprite sheets according to json file
-    void addSprite(NAME name, Sprite* sprite);        // add a sprite sheet
-    void setSheetMapAll(NameStateSheetMap* sheetMap); // for all sprites, make this the sheet map
+    NameSpriteMap(std::map<std::string, NAME> strMap) {
+        strToNameMap = strMap;
+    };
+    
+    // adders
+    void addSprite(Sprite* sprite);            // add a well-define sprite
+    void addSprite(NAME name, Sprite* sprite); // add a blank sprite
+    
+    // getters
+    Sprite* getSprite(NAME name);
+    
+    // setters
+    void setSheetMapAll(NameStateSheetMap* sheetMap);
+    
+    // info functions
+    int numSprites();
+    
+    // JSON loading
+    void loadJSON(std::string filepath);
     
 private:
     std::map<NAME, Sprite*> nameSpriteMap;
-    std::map<std::string, NAME> nameStrMap;
+    std::map<std::string, NAME> strToNameMap = {
+        {"winnie", WINNIE},
+        {"pleasant_sky", PLEASANT_SKY}
+    };
 };

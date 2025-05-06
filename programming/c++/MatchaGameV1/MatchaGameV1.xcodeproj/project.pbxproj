@@ -58,6 +58,7 @@
 		C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */; };
 		C2F78EDF2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */; };
 		C2F78EE32DC3FE3000B7B8F9 /* GameModelTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F78EE22DC3FE3000B7B8F9 /* GameModelTest.cpp */; };
+		C2FDF2A82DCA941F00C9916F /* NameSpriteMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF2A72DCA941F00C9916F /* NameSpriteMapTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -143,6 +144,7 @@
 		C2F78EDC2DC3F08B00B7B8F9 /* ScreenNavigator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenNavigator.cpp; sourceTree = "<group>"; };
 		C2F78EDD2DC3F08B00B7B8F9 /* ScreenNavigator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ScreenNavigator.hpp; sourceTree = "<group>"; };
 		C2F78EE22DC3FE3000B7B8F9 /* GameModelTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameModelTest.cpp; sourceTree = "<group>"; };
+		C2FDF2A72DCA941F00C9916F /* NameSpriteMapTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NameSpriteMapTest.cpp; sourceTree = "<group>"; };
 		C2FE94C22DAD90AC004F99B8 /* NameStateSheetMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NameStateSheetMap.cpp; sourceTree = "<group>"; };
 		C2FE94C32DAD90AC004F99B8 /* NameStateSheetMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameStateSheetMap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C20003342DB97F180074364D /* NameStateSheetMapTest.cpp */,
+				C2FDF2A72DCA941F00C9916F /* NameSpriteMapTest.cpp */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				C2F78E962DBBEC6E00B7B8F9 /* main.cpp in Sources */,
 				C2F78EE32DC3FE3000B7B8F9 /* GameModelTest.cpp in Sources */,
 				C2492C9C2DC9D4D00020F8E6 /* ScreenModelTest.cpp in Sources */,
+				C2FDF2A82DCA941F00C9916F /* NameSpriteMapTest.cpp in Sources */,
 				C2492CA32DCA74CB0020F8E6 /* NameSpriteMap.cpp in Sources */,
 				C2F78ECE2DC0896600B7B8F9 /* StateTest.cpp in Sources */,
 				C2F78EDF2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,

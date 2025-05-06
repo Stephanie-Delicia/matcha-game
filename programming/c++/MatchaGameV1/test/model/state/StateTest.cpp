@@ -64,10 +64,9 @@ TEST_CASE( "Testing states", "[state]" ) {
         REQUIRE( testSprite.getState()       == WALKING        );
         REQUIRE( testSprite.getFrameSpeed()  == 1              );
         REQUIRE( testSprite.getSheet(WALKING)->getCurrFr() == 0);
-        // have char walking now
+        // have char walking right now
         testSprite.setDir(RIGHT);
         testSprite.setFrameSpeed(2.00);
-        charState.setState(WALKING);
         charState.update(&testSprite);
         // check params
         REQUIRE( testSprite.getName()        == WINNIE         );

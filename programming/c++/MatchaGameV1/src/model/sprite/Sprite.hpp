@@ -17,8 +17,9 @@
 
 class Sprite {
 public:
-    Sprite() {
-        name = TEST;
+    Sprite();
+    Sprite(NAME n) {
+        name = n;
     };
     Sprite(NAME n, Posn p, DIRECTION d, STATE s, NameStateSheetMap* map) {
         name = n;
@@ -27,7 +28,6 @@ public:
         stateDir = d;
         sheetMap = map;
     };
-    ~Sprite();
     
     // getters
     NAME getName();
@@ -36,6 +36,7 @@ public:
     float getFrameSpeed();
     DIRECTION getStateDir();
     SpriteSheet* getSheet(STATE s);
+    NameStateSheetMap* getSheetMap();
     
     // setters
     void setState(STATE newState);
