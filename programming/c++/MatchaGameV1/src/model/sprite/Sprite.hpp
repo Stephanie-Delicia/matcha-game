@@ -17,7 +17,6 @@
 
 class Sprite {
 public:
-    Sprite();
     Sprite(NAME n) {
         name = n;
     };

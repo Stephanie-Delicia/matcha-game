@@ -22,10 +22,9 @@ TEST_CASE( "NameSpriteMap is instantiated.", "[DB for sprites]" ) {
     NameSpriteMap addedToMap;
     addedToMap.addSprite(&sprite);
 
-//    SECTION( "Empty name-sprite map. Error for nonexistent key for name." ) {
-//        NAME test = TEST;
-//        CHECK_THROWS(emptyMap.getSprite(test));
-//        }
+    SECTION( "Empty name-sprite map. Error for nonexistent key for name." ) {
+        CHECK_THROWS(emptyMap.getSprite(PLEASANT_SKY));
+        }
 
     SECTION( "Adding and accessing a sprite for a name-sprite map." ) {
         std::cout << "Adding a sprite to name-sprite map.\n";

@@ -7,8 +7,7 @@
 #include "ScreenModel.hpp"
 
 /*
- A class that contains all screens for a game model.
- Only one screen can be active at a time!
+ A class that contains all screens for a game model. Only one screen can be active at a time!
  */
 
 class ScreenNavigator {
@@ -35,8 +34,8 @@ public:
     void loadJSON(std::string filepath);
 
  private:
-    ScreenModel* mScreen;                   // screen displayed
-    std::map<ScreenModel*, bool> screenMap; // indicates if screen is active and also stores screens
-    std::map<std::string, SCREEN> screenTypeMap = { { "Gameplay" , GAMEPLAY_SCREEN } };
+    ScreenModel* mScreen; // screen displayed
+    std::map<ScreenModel*, bool> screenMap; // indicates if screen is active and stores screens
     std::map<std::string, Sprite*> spriteMap;
+    std::map<std::string, SCREEN> screenTypeMap = { { "Gameplay", GAMEPLAY_SCREEN } };
 };

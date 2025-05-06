@@ -10,7 +10,7 @@
 
 class ScreenModel {
 public:
-    // constructor
+    // constructors
     ScreenModel();
     ScreenModel(int width, int height) {
         w = width;
@@ -27,21 +27,23 @@ public:
     };
     
     // getters
+    bool isActive();
+    SCREEN screenType();
     std::deque<Sprite*> getMainQ();
     std::deque<Sprite*> getBackgroundQ();
+    
     // setters
     void setType(SCREEN t);
     void setWidth(int width);
     void setHeight(int height);
     
     // checks
-    bool isActive();
-    SCREEN screenType();
-    bool onScreen(Sprite* sprite); // check if given sprite is in one of screen queues
+    bool onScreen(Sprite* sprite); // check if sprite is on main screen
+    
     // change what gets drawn on this screen.
     void activate();                               // activate screen
     void deactivate();                             // indicate screen is now inactive
-    void emptyScreen();                            // empty the main queue, except for the background
+    void emptyScreen();                            // empty the main queue, not background
     void add(Sprite* sprite);                      // add sprite to draw on screen
     void remove(Sprite* sprite);                   // remove a specific sprite if its on screen
     void replace(std::deque<Sprite*> m);           // just outright replace what queue gets drawn
@@ -52,12 +54,12 @@ public:
     SDL_Surface returnBGSurface();
     
 private:
-    SCREEN screenT;              // what kind of screen is this?
+    int h;
+    int w;                       // width and height
+    SCREEN screenT;              // screen type enum
     bool active = false;         // is this the current screen the player is on?
     std::deque<Sprite*> mQueue;  // sprites to draw on top of the background
     std::deque<Sprite*> bgQueue; // background sprites to draw, like sky and ground
-    int h; // height
-    int w; // width
     
     // creating a surface from queue
     SDL_Surface createSurface(std::deque<Sprite*> spriteQueue);

@@ -20,7 +20,11 @@
  */
 
 Sprite* NameSpriteMap::getSprite(NAME name) {
-    return nameSpriteMap[name];
+    if (nameSpriteMap.count(name) == 0) {
+        throw std::runtime_error("Key not found in name-sheet map.");
+    } else {
+        return nameSpriteMap[name];
+    }
 }
 
 int NameSpriteMap::numSprites() {

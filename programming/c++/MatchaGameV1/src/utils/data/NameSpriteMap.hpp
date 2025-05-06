@@ -20,7 +20,7 @@ class NameSpriteMap {
 public:
     // constructors
     NameSpriteMap() {
-        
+        nameSpriteMap = {};
     };
     
     NameSpriteMap(std::map<std::string, NAME> strMap) {

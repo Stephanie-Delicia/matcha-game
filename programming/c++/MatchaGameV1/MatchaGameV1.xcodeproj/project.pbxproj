@@ -268,8 +268,6 @@
 				C2492CA02DCA74CB0020F8E6 /* NameSpriteMap.cpp */,
 				C2FE94C32DAD90AC004F99B8 /* NameStateSheetMap.hpp */,
 				C2FE94C22DAD90AC004F99B8 /* NameStateSheetMap.cpp */,
-				C2492C942DC927150020F8E6 /* SpriteStruct.hpp */,
-				C2492C932DC927150020F8E6 /* SpriteStruct.cpp */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -415,6 +413,8 @@
 			children = (
 				C26E70F42D95CB0A00DE5378 /* Sprite.cpp */,
 				C26E70F52D95CB0A00DE5378 /* Sprite.hpp */,
+				C2492C942DC927150020F8E6 /* SpriteStruct.hpp */,
+				C2492C932DC927150020F8E6 /* SpriteStruct.cpp */,
 				C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */,
 				C26E70F82D95CB1D00DE5378 /* SpriteSheet.hpp */,
 			);
