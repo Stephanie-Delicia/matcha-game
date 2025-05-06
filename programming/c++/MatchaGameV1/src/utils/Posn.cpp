@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Posn.hpp"
 
 Posn::Posn(float x, float y) {
@@ -10,8 +11,12 @@ Posn::Posn() {
     yPos = 0;
 }
 
-Posn::~Posn() {
-    
+int Posn::getIntX() {
+    return std::round(xPos);
+}
+
+int Posn::getIntY() {
+    return std::round(yPos);
 }
 
 float Posn::getX() {

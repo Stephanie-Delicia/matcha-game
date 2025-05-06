@@ -8,7 +8,7 @@
 
 class SpriteState {
 public:
-    // virtual ~SpriteState();
-    virtual void handleInput(Sprite* sprite, SDL_Event const &input) = 0;
     virtual void update(Sprite* sprite) = 0;
+    virtual void draw(Sprite* sprite, SDL_Surface *windowSrfc) = 0;
+    virtual void handleInput(Sprite* sprite, const SDL_Event &input) = 0;
 };

@@ -1,8 +1,6 @@
 #include <SDL3_image/SDL_image.h>
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_pixels.h>
-#include <SDL3/SDL_render.h>
-#include <SDL3/SDL_pixels.h>
 #include <cmath>
 #include <string>
 #include "SpriteSheet.hpp"
@@ -28,10 +26,6 @@ SpriteSheet::SpriteSheet() {
     totalFrames = 0;
     w = 0;
     h = 0;
-}
-
-SpriteSheet::~SpriteSheet() {
-    // TODO:
 }
 
 SDL_Surface* SpriteSheet::getSrfcL() {

@@ -1,13 +1,7 @@
 #pragma once
 #include <map>
-#include <string>
-#include <queue>
-#include <iostream>
 #include <SDL3/SDL.h>
 #include "Sprite.hpp"
-#include "SCREEN.h"
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
 #include "ScreenModel.hpp"
 
 /*

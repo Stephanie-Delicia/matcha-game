@@ -10,8 +10,11 @@
 class SpriteSheet {
 public:
     SpriteSheet();
-    SpriteSheet(std::string filePathL, std::string filePathR, int frames, float width, float height);
-    ~SpriteSheet();
+    SpriteSheet(std::string filePathL,
+                std::string filePathR,
+                int frames,
+                float width,
+                float height);
     
     // getters
     int getTotalFr();         // get total frames
@@ -32,8 +35,8 @@ public:
 private:
     float w; // width
     float h; // height
-    int totalFrames;
     int currFrame;
+    int totalFrames;
     SDL_Surface* srfcL;
     SDL_Surface* srfcR;
 };

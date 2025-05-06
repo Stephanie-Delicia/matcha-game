@@ -1,8 +1,10 @@
 #pragma once
 #include <map>
+#include <tuple>
 #include <SDL3/SDL.h>
 #include "Sprite.hpp"
 #include "SpriteState.hpp"
+#include "SpriteStruct.hpp"
 #include "WalkingCommand.hpp"
 #include "IdleCommand.hpp"
 #include "STATE.h"
@@ -13,13 +15,12 @@
 
 class CharacterState : SpriteState {
 public:
-    void handleInput(Sprite* sprite, SDL_Event const &input);
     void update(Sprite* sprite);
-    void setState(STATE state);
+    void draw(Sprite* sprite, SDL_Surface *windowSrfc);
+    void handleInput(Sprite* sprite, const SDL_Event &input);
     
 private:
-    STATE currState = NONE;
-    // static instances of commands for char characters
+    // commands
     IdleCommand idleC = IdleCommand();
     WalkingCommand walkingC = WalkingCommand();
 };

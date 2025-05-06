@@ -6,7 +6,9 @@
 #include "DIRECTION.h"
 #include "STATE.h"
 #include "Posn.hpp"
+#include "SpriteStruct.hpp"
 #include "SpriteSheet.hpp"
+#include "sdl_rect_utils.h"
 #include "CharacterState.hpp"
 
 /*
@@ -64,6 +66,7 @@ void Sprite::updateSheet(STATE state, int delta) {
 }
 
 void Sprite::resetSheet(STATE state) {
+    
     getSheet(state)->setFrameNum(0);
 }
 
@@ -72,11 +75,24 @@ void Sprite::handleInput(SDL_Event const &event) {
     stateHandler.handleInput(this, event);
 }
 
+void Sprite::draw(SDL_Surface *windowSrfc) {
+    CharacterState stateHandler = CharacterState();
+    stateHandler.draw(this, windowSrfc);
+}
+
 void Sprite::update() {
     CharacterState stateHandler = CharacterState();
     stateHandler.update(this);
 }
 
-void Sprite::drawSprite(SDL_Surface *windowSrfc) {
-    // TODO
+SpriteStruct Sprite::getData() {
+    SpriteSheet* sheet = getSheet(state);
+    return {name, posn, state, stateDir, sheet};
+}
+
+std::tuple<SDL_Rect, SDL_Rect> Sprite::getSrcAndDest() {
+    SpriteSheet* sheet = getSheet(state);
+    SDL_Rect frameRect = roundRect(sheet->getFrameRect());
+    SDL_Rect destRect = {posn.getIntX(), posn.getIntY(), frameRect.w, frameRect.h};
+    return std::make_tuple(frameRect, destRect);
 }

@@ -6,8 +6,7 @@
 class Posn {
 public:
     Posn(float x, float y);
-    Posn(); // x=0, y=0
-    ~Posn();
+    Posn(); // x = 0, y = 0
     
     // getters
     float getX();
@@ -16,6 +15,10 @@ public:
     // setters
     void setX(float x);
     void setY(float y);
+    
+    // round posn
+    int getIntX();
+    int getIntY();
     
 private:
     float xPos; // position on the x-axis

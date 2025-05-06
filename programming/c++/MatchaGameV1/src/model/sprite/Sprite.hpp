@@ -1,15 +1,18 @@
 #pragma once
 #include <map>
+#include <tuple>
 #include <SDL3/SDL.h>
 #include "NAME.h"
 #include "DIRECTION.h"
 #include "STATE.h"
 #include "Posn.hpp"
+#include "SpriteStruct.hpp"
 #include "SpriteSheet.hpp"
 #include "NameStateSheetMap.hpp"
 
 /*
- A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
+ A class representing a sprite (char, background texture, etc) in the game.
+ Contains information such as name, location, and states such as direction the char is facing.
  */
 
 class Sprite {
@@ -32,23 +35,27 @@ public:
     SpriteSheet* getSheet(STATE s);
     
     // setters
-    void setFrameSpeed(float speed);
-    void setPosn(float x, float y);
     void setState(STATE newState);
     void setDir(DIRECTION newDir);
+    void setPosn(float x, float y);
+    void setFrameSpeed(float speed);
     
     // draw & updates
     void update();                            // update sprite based on curr state
     void resetSheet(STATE state);             // reset sheet frame
+    void draw(SDL_Surface* windowSrfc);       // draws sprite on the given srfc
     void updateSheet(STATE state, int delta); // update sheet
     void handleInput(SDL_Event const &event); // update state of sprite given events
-    void drawSprite(SDL_Surface* windowSrfc); // draws sprite on the given srfc
+    
+    SpriteStruct getData();                   // get Sprite data in the form of a struct
+    // get source and destination rectangles for blitzing
+    std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest();
 
 private:
     NAME name;                                     // unique sprite name
     Posn posn;                                     // (x,y). defaults to (0,0)
-    float frameSpeed = 1;                          // rate of change in sprite posn
     STATE state;                                   // whatever state sprite is in
-    DIRECTION stateDir;                            // direction sprite faces
+    DIRECTION stateDir;                            // direction that sprite faces
+    float frameSpeed = 1;                          // rate of change in sprite posn
     NameStateSheetMap* sheetMap;                   // map for accessing sheets
 };
