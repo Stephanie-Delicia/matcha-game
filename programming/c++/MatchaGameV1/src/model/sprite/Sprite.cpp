@@ -36,6 +36,8 @@ float Sprite::getFrameSpeed() {
 }
 
 SpriteSheet* Sprite::getSheet(STATE s) {
+    std::cout << "getSheet call [Sprite]" << "\n";
+    std::cout << "[Sprite] NameStateSheetMap address: " << sheetMap << "\n";
     return sheetMap->getSpriteSheet(name, s);
 }
 
@@ -81,16 +83,21 @@ void Sprite::handleInput(SDL_Event const &event) {
 }
 
 void Sprite::draw(SDL_Surface *windowSrfc) {
+    std::cout << "Call draw. [Sprite]" <<  "\n";
     CharacterState stateHandler = CharacterState();
     stateHandler.draw(this, windowSrfc);
 }
 
 void Sprite::update() {
+    std::cout << "Update call. [Sprite]" <<  "\n";
     CharacterState stateHandler = CharacterState();
     stateHandler.update(this);
 }
 
 SpriteStruct Sprite::getData() {
+    std::cout << "Get data call. [Sprite]" <<  "\n";
+    std::cout << "State: " <<  state << "\n";
+    std::cout << "Name: " <<  name << "\n";
     SpriteSheet* sheet = getSheet(state);
     return {name, posn, state, stateDir, sheet};
 }

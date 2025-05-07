@@ -31,7 +31,9 @@ public:
     // constructor/destructor
     NameStateSheetMap() {
         nameStrMap = {
-            {"Winnie", WINNIE}};
+            {"Winnie", WINNIE},
+            {"Pleasant_Sky", PLEASANT_SKY}
+        };
         stateStrMap = {
             {"Walking", WALKING},
             {"Idle", IDLE}};

@@ -72,3 +72,7 @@ void GameModel::setActiveScreen(ScreenModel* screen) {
 void GameModel::setNameToSheetMap(NameStateSheetMap* map) {
     nameStateSheetMap = map;
 }
+
+void GameModel::setNameToSpriteMap(NameSpriteMap* map) {
+    nameSpriteMap = map;
+};;

@@ -74,6 +74,10 @@ TEST_CASE( "NameStateSheetMap is instantiated.", "[DB]" ) {
         REQUIRE( jsonWalkingSheet->getCurrFr() ==  0 );
         SpriteSheet* jsonIdleSheet = jsonMap.getSpriteSheet(WINNIE, IDLE);
         REQUIRE( jsonIdleSheet->getCurrFr() ==  0 );
+        
+        // for background
+        SpriteSheet* jsonIdleBGSheet = jsonMap.getSpriteSheet(PLEASANT_SKY, IDLE);
+        REQUIRE( jsonIdleBGSheet->getCurrFr() ==  0 );
 
         // mutate
         jsonWalkingSheet->setFrameNum(4);

@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 #include <SDL3/SDL.h>
 #include "GameView.hpp"
 #include <SDL3_image/SDL_image.h>
@@ -15,9 +16,13 @@ void GameView::quitSDL() {
 }
 
 void GameView::draw(ScreenModel* activeScreen) {
+    std::cout << "Draw call. [View]" <<  "\n";
     drawBGSrfc(activeScreen);
+    std::cout << "Draw background. [View]" <<  "\n";
     drawMainSrfc(activeScreen);
+    std::cout << "Draw main. [View]" <<  "\n";
     render();
+    std::cout << "Render call. [View]" <<  "\n";
     clearRender();
 }
 
@@ -33,6 +38,7 @@ void GameView::drawMainSrfc(ScreenModel* activeScreen) {
 }
 
 void GameView::drawBGSrfc(ScreenModel* activeScreen) {
+    
     SDL_Surface bgSrfc = activeScreen->returnBGSurface();
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, &bgSrfc);
     SDL_RenderTexture(renderer, text, NULL, NULL);

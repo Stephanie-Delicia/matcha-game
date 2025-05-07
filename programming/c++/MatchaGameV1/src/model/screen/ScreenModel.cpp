@@ -103,6 +103,7 @@ SDL_Surface ScreenModel::returnBGSurface() {
 }
 
 SDL_Surface ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
+    std::cout << "Call to create surface. [ScreenModel]" <<  "\n";
     SDL_Surface newSrfc = {};
     newSrfc.w = w;
     newSrfc.h = h;

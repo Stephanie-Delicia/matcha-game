@@ -43,6 +43,7 @@ public:
     void setScreenNav(ScreenNavigator* nav);
     void setActiveScreen(ScreenModel* screen);
     void setNameToSheetMap(NameStateSheetMap* map);
+    void setNameToSpriteMap(NameSpriteMap* map);
     
     // for the controller
     

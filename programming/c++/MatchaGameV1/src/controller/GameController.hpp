@@ -10,10 +10,11 @@ public:
     GameController(GameModel* m, GameView* v) {
         model = m;
         view = v;
-        view->createRenderer();
+        // TODO: This setup of the view should be in its constructor or something. Not hidden here though.
         view->createWindow(model->getGameName(),
                            model->getWidth(),
                            model->getHeight());
+        view->createRenderer();
         exitGame = false;
     };
     void draw();

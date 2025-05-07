@@ -14,6 +14,7 @@
  A class representing the command for handling the walking state for a sprite.
  */
 void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
+    std::cout << "handleInput call. [CharacterState]" <<  "\n";
     // std::cout << "input type for handleInput: " << input.type << "\n";
     STATE currState = sprite->getState();
     switch (input.type) {
@@ -56,6 +57,7 @@ void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void CharacterState::update(Sprite* sprite) {
+    std::cout << "update call. [CharacterState]" <<  "\n";
     // delegates to command
     // std::cout << "current state in charState for update: " << currState << "\n";
     STATE currState = sprite->getState();
@@ -84,11 +86,14 @@ void CharacterState::update(Sprite* sprite) {
 }
 
 void CharacterState::draw(Sprite *sprite, SDL_Surface *windowSrfc) {
+    std::cout << "Draw call. [CharacterState]\n";
     // acquire sprite data
     bool success = 0;
     SpriteStruct spriteData = sprite->getData();
+    std::cout << "Grabbed sprite data. [CharacterState]" <<  "\n";
     SpriteSheet* sheet = spriteData.sheet;
     std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
+    std::cout << "Grabbing sprite rectangles. [CharacterState]" <<  "\n";
     SDL_Rect frameRect = std::get<0>(rects);
     SDL_Rect destRect = std::get<1>(rects);
     
@@ -96,10 +101,12 @@ void CharacterState::draw(Sprite *sprite, SDL_Surface *windowSrfc) {
     switch (spriteData.dir) {
         case LEFT: {
             success = SDL_BlitSurface(sheet->getSrfcL(), &frameRect, windowSrfc, &destRect);
+            std::cout << "Grabbing sprite surface. [CharacterState]" <<  "\n";
             break;
         }
         case RIGHT: {
             success = SDL_BlitSurface(sheet->getSrfcR(), &frameRect, windowSrfc, &destRect);
+            std::cout << "Grabbing sprite surface. [CharacterState]" <<  "\n";
             break;
         }
         case UP: {
