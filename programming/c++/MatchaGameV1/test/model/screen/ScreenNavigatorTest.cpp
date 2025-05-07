@@ -31,6 +31,8 @@ TEST_CASE( "Creating a screen navigator.") {
     // instantiate the navigators, bish.
     ScreenNavigator emptyNav = ScreenNavigator();
     ScreenNavigator testNav = ScreenNavigator();
+    // set map
+    testNav.setNameSpriteMap(&spriteMap);
     
     SECTION("Empty screen nav instantiation.") {
         // main screen was not assigned yet
@@ -98,6 +100,9 @@ TEST_CASE( "Creating a screen navigator.") {
         REQUIRE_THAT( activeScreen->getWidth(),  Catch::WithinAbs(640.00, eps) );
         REQUIRE_THAT( activeScreen->getHeight(),  Catch::WithinAbs(360.00, eps) );
         REQUIRE( activeScreen->isActive() == true );
+        // check that the right sprites are in this
+        REQUIRE( activeScreen->inBackground(bg_sprite) == true );
+        REQUIRE( activeScreen->onScreen(player_sprite) == true );
     }
 }
 

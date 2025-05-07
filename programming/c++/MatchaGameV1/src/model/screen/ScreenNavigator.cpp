@@ -88,7 +88,8 @@ void ScreenNavigator::loadJSON(std::string filepath) {
                   j++) {
             // get each sprite from this queue
             std::string nameStr = (std::string) data["ls"][screenCounter]["bgQueue"][queueCounter];
-            bgQueue.push_back(spriteMap[nameStr]);
+            NAME name = strNameMap[nameStr];
+            bgQueue.push_back(nameSpriteMap->getSprite(name));
             queueCounter++;
         }
         // main queue
@@ -98,7 +99,8 @@ void ScreenNavigator::loadJSON(std::string filepath) {
                   j++) {
             // get each sprite from this queue
             std::string nameStr = (std::string) data["ls"][screenCounter]["mQueue"][queueCounter];
-            mQueue.push_back(spriteMap[nameStr]);
+            NAME name = strNameMap[nameStr];
+            mQueue.push_back(nameSpriteMap->getSprite(name));
             queueCounter++;
         }
         // add new screen to Nav map (WARNING: NEW KEYWORD AHHHHHHHHHHHHHHHHHHHHHH. Make sure to delete after.)
