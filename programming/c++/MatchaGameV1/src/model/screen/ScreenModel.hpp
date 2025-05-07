@@ -11,7 +11,7 @@
 class ScreenModel {
 public:
     // constructors
-    ScreenModel();
+    ScreenModel(){};
     ScreenModel(int width, int height) {
         w = width;
         h = height;
@@ -31,6 +31,12 @@ public:
     SCREEN screenType();
     std::deque<Sprite*> getMainQ();
     std::deque<Sprite*> getBackgroundQ();
+    float getHeight() {
+        return h;
+    };
+    float getWidth() {
+        return w;
+    };
     
     // setters
     void setType(SCREEN t);
@@ -38,14 +44,17 @@ public:
     void setHeight(int height);
     
     // checks
-    bool onScreen(Sprite* sprite); // check if sprite is on main screen
+    bool onScreen(Sprite* sprite);     // check if sprite is on main screen
+    bool inBackground(Sprite* sprite); // check if sprite is in the background
     
     // change what gets drawn on this screen.
     void activate();                               // activate screen
     void deactivate();                             // indicate screen is now inactive
     void emptyScreen();                            // empty the main queue, not background
-    void add(Sprite* sprite);                      // add sprite to draw on screen
-    void remove(Sprite* sprite);                   // remove a specific sprite if its on screen
+    void addToMain(Sprite* sprite);                // add sprite to draw on screen
+    void addToBG(Sprite* sprite);                  // add sprite to draw on screen
+    void removeMain(Sprite* sprite);                   // remove a specific sprite if its on screen
+    void removeBG(Sprite* sprite);                   // remove a specific sprite if its on screen
     void replace(std::deque<Sprite*> m);           // just outright replace what queue gets drawn
     void replaceBackground(std::deque<Sprite*> q); // make changes to the background
     
@@ -54,12 +63,12 @@ public:
     SDL_Surface returnBGSurface();
     
 private:
-    int h;
-    int w;                       // width and height
-    SCREEN screenT;              // screen type enum
-    bool active = false;         // is this the current screen the player is on?
-    std::deque<Sprite*> mQueue;  // sprites to draw on top of the background
-    std::deque<Sprite*> bgQueue; // background sprites to draw, like sky and ground
+    float h;
+    float w;                      // width and height
+    SCREEN screenT = TEST_SCREEN; // screen type enum
+    bool active = false;          // is this the current screen the player is on?
+    std::deque<Sprite*> mQueue;   // sprites to draw on top of the background
+    std::deque<Sprite*> bgQueue;  // background sprites to draw, like sky and ground
     
     // creating a surface from queue
     SDL_Surface createSurface(std::deque<Sprite*> spriteQueue);

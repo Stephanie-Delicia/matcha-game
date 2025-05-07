@@ -45,8 +45,11 @@ bool ScreenNavigator::containsScreen(ScreenModel* screen) {
 
 void ScreenNavigator::setMainScreen(ScreenModel* screen) {
     // make old main screen inactive and new screen active in map
-    mScreen->deactivate();
-    screenMap[mScreen] = false;
+    if (mScreen != nullptr) {
+        mScreen->deactivate();
+        screenMap[mScreen] = false;
+    }
+    // do this regardless
     screen->activate();
     screenMap[screen] = true;
     // reassign
@@ -72,33 +75,42 @@ void ScreenNavigator::loadJSON(std::string filepath) {
     file.close();
     
     // Recurring thru screen types
-    for (auto i = screenTypeMap.begin(); i != screenTypeMap.end(); i++) {
-        // cout << "i: " << i << "/n";
-        std::string typeStr = i->first;
-        SCREEN screen = screenTypeMap[typeStr];
+    int screenCounter = 0;
+    for (auto i = data["ls"].begin(); i != data["ls"].end(); i++) {
+        std::string typeStr = data["ls"][screenCounter]["type"];
+        SCREEN screenT = screenTypeMap[typeStr];
         std::deque<Sprite*> bgQueue;
         std::deque<Sprite*> mQueue;
-        int counter = 0;
+        int queueCounter = 0;
         // background queue
-        for (auto j = data[typeStr]["bgQueue"].begin(); j != data[typeStr]["bgQueue"].end(); j++) {
+        for (auto j = data["ls"][screenCounter]["bgQueue"].begin();
+                  j != data["ls"][screenCounter]["bgQueue"].end();
+                  j++) {
             // get each sprite from this queue
-            std::string nameStr = (std::string) data[typeStr]["bgQueue"][counter];
+            std::string nameStr = (std::string) data["ls"][screenCounter]["bgQueue"][queueCounter];
             bgQueue.push_back(spriteMap[nameStr]);
-            counter++;
+            queueCounter++;
         }
         // main queue
-        counter = 0;
-        for (auto j = data[typeStr]["mQueue"].begin(); j != data[typeStr]["mQueue"].end(); j++) {
+        queueCounter = 0;
+        for (auto j = data["ls"][screenCounter]["mQueue"].begin();
+                  j != data["ls"][screenCounter]["mQueue"].end();
+                  j++) {
             // get each sprite from this queue
-            std::string nameStr = (std::string) data[typeStr]["mQueue"][counter];
+            std::string nameStr = (std::string) data["ls"][screenCounter]["mQueue"][queueCounter];
             mQueue.push_back(spriteMap[nameStr]);
-            counter++;
+            queueCounter++;
         }
         // add new screen to Nav map (WARNING: NEW KEYWORD AHHHHHHHHHHHHHHHHHHHHHH. Make sure to delete after.)
-        ScreenModel* newScreen = new ScreenModel(bgQueue, mQueue, data[typeStr]["width"], data[typeStr]["height"]);
-        addScreen(newScreen);
-        if (data[typeStr]["active"]) {
+        ScreenModel* newScreen = new ScreenModel(bgQueue,
+                                                 mQueue,
+                                                 data["ls"][screenCounter]["width"],
+                                                 data["ls"][screenCounter]["height"]);
+        newScreen->setType(screenT); // set type
+        addScreen(newScreen);        // add the screen to this navigator
+        if (data["ls"][screenCounter]["active"]) {
             setMainScreen(newScreen);
         }
+        screenCounter++;
     }
 }

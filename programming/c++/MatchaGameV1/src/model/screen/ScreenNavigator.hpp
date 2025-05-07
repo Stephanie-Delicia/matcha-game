@@ -13,7 +13,7 @@
 class ScreenNavigator {
 public:
     // constructor
-    ScreenNavigator();
+    ScreenNavigator(){};
     ScreenNavigator(ScreenModel* mainScreen);
     ScreenNavigator(std::map<ScreenModel*, bool> screens);
     ScreenNavigator(std::map<ScreenModel*, bool> screens, ScreenModel* mainScreen);
@@ -31,11 +31,14 @@ public:
     void addScreen(ScreenModel* screen);
     
     // load from JSON
+    /*
+     File should contain a list of lists. Each list contains the parameters per screen.
+     */
     void loadJSON(std::string filepath);
 
  private:
-    ScreenModel* mScreen; // screen displayed
-    std::map<ScreenModel*, bool> screenMap; // indicates if screen is active and stores screens
+    ScreenModel* mScreen = nullptr;           // screen displayed
+    std::map<ScreenModel*, bool> screenMap;   // indicates if screen is active and stores screens
     std::map<std::string, Sprite*> spriteMap;
     std::map<std::string, SCREEN> screenTypeMap = { { "Gameplay", GAMEPLAY_SCREEN } };
 };

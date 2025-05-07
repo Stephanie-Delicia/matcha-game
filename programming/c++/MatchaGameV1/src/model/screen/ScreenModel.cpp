@@ -41,6 +41,11 @@ bool ScreenModel::onScreen(Sprite* sprite) {
     return (find_iterator != mQueue.end());
 }
 
+bool ScreenModel::inBackground(Sprite* sprite) {
+    auto find_iterator = std::find(bgQueue.begin(), bgQueue.end(), sprite);
+    return (find_iterator != bgQueue.end());
+}
+
 SCREEN ScreenModel::screenType() {
     return screenT;
 }
@@ -57,15 +62,27 @@ void ScreenModel::emptyScreen() {
     mQueue.clear();
 }
 
-void ScreenModel::add(Sprite* sprite) {
+void ScreenModel::addToMain(Sprite *sprite) {
     mQueue.push_front(sprite);
 }
 
-void ScreenModel::remove(Sprite* sprite) {
+void ScreenModel::addToBG(Sprite* sprite) {
+    bgQueue.push_front(sprite);
+}
+
+void ScreenModel::removeMain(Sprite* sprite) {
     // if found, object is removed
     auto find_iterator = std::find(mQueue.begin(), mQueue.end(), sprite);
     if (find_iterator != mQueue.end()) {
         mQueue.erase(find_iterator);
+    }
+}
+
+void ScreenModel::removeBG(Sprite* sprite) {
+    // if found, object is removed
+    auto find_iterator = std::find(bgQueue.begin(), bgQueue.end(), sprite);
+    if (find_iterator != bgQueue.end()) {
+        bgQueue.erase(find_iterator);
     }
 }
 
