@@ -15,8 +15,8 @@ public:
     void quitSDL();
     
     // drawing and rendering
-    void render();
     void clearRender();
+    void presentRender();
     void drawSprite(Sprite* sprite);
     void draw(ScreenModel* activeScreen);
     void drawBGSrfc(ScreenModel* activeScreen);

@@ -22,13 +22,11 @@
  */
 
 int main(int argc, char* argv[]) {
-    std::cout << "Can print something (yay!). [main]\n";
     // load data
     // Sheet map
     NameStateSheetMap sheetMap;
     sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testSpriteSheetData.json");
     std::cout << "Loaded NameStateSheetMap (yay!). [main]\n";
-    std::cout << "[main] NameStateSheetMap address: " << &sheetMap << "\n";
 //    // Sprite map
     NameSpriteMap spriteMap;
     spriteMap.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/nameSpriteData.json");
@@ -54,9 +52,11 @@ int main(int argc, char* argv[]) {
     Sprite* player = spriteMap.getSprite(WINNIE);
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
     player->setState(IDLE);
+    player->setPosn(0, 180.00);
     model.setMainPlayer(player);
     bg->setState(IDLE);
     bg->setSheetMap(&sheetMap);
+    bg->setPosn(0, 0);
     player->setSheetMap(&sheetMap);
     
     GameController controller = GameController(&model, &view);

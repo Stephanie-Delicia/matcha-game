@@ -4,6 +4,7 @@
 #include <deque>
 #include <iostream>
 #include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 #include "Sprite.hpp"
 #include "SCREEN.h"
 #include "SpriteSheet.hpp"
@@ -94,22 +95,20 @@ void ScreenModel::replaceBackground(std::deque<Sprite*> q) {
     bgQueue = q;
 }
 
-SDL_Surface ScreenModel::returnMSurface() {
+SDL_Surface* ScreenModel::returnMSurface() {
     return createSurface(mQueue);
 }
 
-SDL_Surface ScreenModel::returnBGSurface() {
+SDL_Surface* ScreenModel::returnBGSurface() {
     return createSurface(bgQueue);
+    //return IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_left.png");
 }
 
-SDL_Surface ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
-    std::cout << "Call to create surface. [ScreenModel]" <<  "\n";
-    SDL_Surface newSrfc = {};
-    newSrfc.w = w;
-    newSrfc.h = h;
+SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
+    SDL_Surface* surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ARGB8888);
     // draw every sprite
     for (Sprite* sprite : spriteQueue) {
-        sprite->draw(&newSrfc);
+        sprite->draw(surface);
     }
-    return newSrfc;
+    return surface;
 }

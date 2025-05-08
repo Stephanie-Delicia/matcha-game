@@ -20,7 +20,6 @@ void NameStateSheetMap::addSpriteSheet(NAME name, STATE state, SpriteSheet* shee
 SpriteSheet* NameStateSheetMap::getSpriteSheet(NAME name, STATE state) {
     // error if value does not exist
     // find name
-    std::cout << "getSpriteSheet call. [NameStateSheetMap]\n";
     std::map<STATE, SpriteSheet*> stateSheetMap = nameStateSheetMap.at(name);
     // find sheet given state
     return stateSheetMap.at(state);

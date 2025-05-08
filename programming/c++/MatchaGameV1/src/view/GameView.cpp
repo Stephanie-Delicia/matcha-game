@@ -5,6 +5,7 @@
 #include <SDL3_image/SDL_image.h>
 
 GameView::GameView() {
+    
 }
 
 void GameView::initSDL() {
@@ -16,14 +17,12 @@ void GameView::quitSDL() {
 }
 
 void GameView::draw(ScreenModel* activeScreen) {
-    std::cout << "Draw call. [View]" <<  "\n";
+    // Clear the screen
+    SDL_RenderClear(renderer);
     drawBGSrfc(activeScreen);
-    std::cout << "Draw background. [View]" <<  "\n";
     drawMainSrfc(activeScreen);
-    std::cout << "Draw main. [View]" <<  "\n";
-    render();
-    std::cout << "Render call. [View]" <<  "\n";
-    clearRender();
+    
+    presentRender();
 }
 
 void GameView::drawSprite(Sprite *sprite) {
@@ -32,16 +31,17 @@ void GameView::drawSprite(Sprite *sprite) {
 }
 
 void GameView::drawMainSrfc(ScreenModel* activeScreen) {
-    SDL_Surface mainSrfc = activeScreen->returnMSurface();
-    SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, &mainSrfc);
-    SDL_RenderTexture(renderer, text, NULL, NULL);
+    SDL_Surface* mainSrfc = activeScreen->returnMSurface();
+    SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, mainSrfc);
+    SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
+    SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
 }
 
 void GameView::drawBGSrfc(ScreenModel* activeScreen) {
-    
-    SDL_Surface bgSrfc = activeScreen->returnBGSurface();
-    SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, &bgSrfc);
-    SDL_RenderTexture(renderer, text, NULL, NULL);
+    SDL_Surface* bgSrfc = activeScreen->returnBGSurface();
+    SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, bgSrfc);
+    SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
+    SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
 }
 
 SDL_Event GameView::getEvents() {
@@ -71,10 +71,25 @@ void GameView::createRenderer() {
     renderer = SDL_CreateRenderer(window, NULL);
 }
 
-void GameView::render() {
+void GameView::presentRender() {
     SDL_RenderPresent(renderer);
 }
 
 void GameView::clearRender() {
     SDL_RenderClear(renderer);
 }
+
+/*
+ FOR TROUBLESHOOTING:
+ 
+ // TEST, RENDER AN IDLE WINNIE DAMMIT
+ //    SDL_Surface* testSurface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/pleasant_sky.png");
+ //    SDL_Surface* winnieSrfc = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_left.png");
+ //    SDL_Rect frameRect = {0, 0, 54, 70};
+ //    SDL_Rect backgroundDest = {0, 180, 54, 70};
+ //    bool success = SDL_BlitSurface(winnieSrfc, &frameRect, testSurface, &backgroundDest);
+ //    std::cout << "IM GOING CRAZY: " << success << "\n";
+ //    SDL_Texture* testTexture = SDL_CreateTextureFromSurface(renderer, testSurface);
+ //    SDL_FRect bgDest = {0.0, 0.0, 640.0, 360.0};
+ //    SDL_RenderTexture(renderer, testTexture, NULL, &bgDest);
+ */

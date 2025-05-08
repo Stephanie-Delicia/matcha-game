@@ -59,8 +59,8 @@ public:
     void replaceBackground(std::deque<Sprite*> q); // make changes to the background
     
     // create SDL surface from the queues
-    SDL_Surface returnMSurface();
-    SDL_Surface returnBGSurface();
+    SDL_Surface* returnMSurface();
+    SDL_Surface* returnBGSurface();
     
 private:
     float h;
@@ -71,5 +71,5 @@ private:
     std::deque<Sprite*> bgQueue;  // background sprites to draw, like sky and ground
     
     // creating a surface from queue
-    SDL_Surface createSurface(std::deque<Sprite*> spriteQueue);
+    SDL_Surface* createSurface(std::deque<Sprite*> spriteQueue);
 };

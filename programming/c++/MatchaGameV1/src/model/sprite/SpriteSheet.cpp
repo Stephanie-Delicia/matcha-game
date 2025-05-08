@@ -2,6 +2,7 @@
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_pixels.h>
 #include <cmath>
+#include <iostream>
 #include <string>
 #include "SpriteSheet.hpp"
 
@@ -87,5 +88,5 @@ float SpriteSheet::currX() {
 }
 
 float SpriteSheet::currY() {
-    return h; // will always be height of entire surface
+    return 0; // by the sdl coordinate system, you start from the top
 }
