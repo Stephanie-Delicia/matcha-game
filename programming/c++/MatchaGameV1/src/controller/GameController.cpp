@@ -24,12 +24,12 @@ void GameController::startGame() {
         { // to correct the initial high fps from starting
             avgFPS = 0;
         }
-        
-        // Set text to be rendered
-        timeText = "Average FPS: ";
+        timeText = "Average FPS: "; // Set text to be rendered
         timeText.append(std::to_string(avgFPS));
         std::cout << timeText << "\n";
-        SDL_Event event; // get events
+        
+        // get events
+        SDL_Event event;
         
         while( SDL_PollEvent(&event) )
         {
@@ -42,18 +42,24 @@ void GameController::startGame() {
                     break;
             }
         }
+
         update(); // similarly, updates occur to sprites chosen by the controller.
+        draw();   // Drawing is passed to the view
+        
+        // now adjust for
         float endTime = fpsTimer.getTicks();
         float timeElapsed = endTime - startTime;
         float delay = 0.0;
+        float spriteDelay = 0.0;
         if ( (1000 / fpsGoal) > timeElapsed )
         {
             delay = (1000 / fpsGoal) - timeElapsed; // stabilize frame rate by bridging the difference
-            std::cout << "delay: " << delay << "\n";
+            spriteDelay = (1000 / 20) - timeElapsed - delay;
+            // std::cout << "delay: " << delay << "\n";
+            // std::cout << "spriteDelay: " << spriteDelay << "\n";
             SDL_Delay(delay);
+            updateSpriteTime(timeElapsed, spriteDelay);
         }
-        float spriteDelay = (1000 / 20) - (endTime - startTime) - delay;
-        draw(); // Drawing is passed to the view
 
         ++countedFrames;
     }
@@ -67,6 +73,16 @@ void GameController::update() {
     // TODO: I'll give the model its own update method to make this call more direct
     // The nav gets all set up, but the model doesn't. Update the model's main player! LOL
     model->getMainPlayer()->update();
+}
+
+void GameController::updateSpriteTime(float timeElapsed, float timeDelay) {
+    Sprite* mainPlayer = model->getMainPlayer();
+    float currFrameTime = mainPlayer->getCurrFrameTime();
+    if (currFrameTime <= 0.0) {
+        mainPlayer->setCurrFrameTime(timeDelay);
+    } else {
+        mainPlayer->setCurrFrameTime(currFrameTime - timeElapsed);
+    }
 }
 
 void GameController::draw() {

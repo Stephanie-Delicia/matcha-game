@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 enum STATE {
-    WALKING,
     IDLE,
+    WALKING,
     BLINKING,
     RUNNING,
     DRINKING,

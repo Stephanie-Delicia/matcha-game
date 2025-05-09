@@ -21,7 +21,7 @@ public:
     };
     void draw();
     void update();
-    // void update();
+    void updateSpriteTime(float timeElapsed, float timeDelay);
     void startGame();
     void handleInput(SDL_Event const &event);
     

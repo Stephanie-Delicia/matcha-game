@@ -8,50 +8,51 @@
 #include "SpriteStruct.hpp"
 #include "CharacterState.hpp"
 #include "sdl_rect_utils.h"
-
-
 /*
  A class representing the command for handling the walking state for a sprite.
+ TODO: rather than by input.type, use the key states for switch statements instead.
+ Reason being that even if I hold one key down, if I WAS holding multiple keys down, but ONE OF THEM is lifted,
+ this will automatically return a KEY_UP event. Checking the key array is more accurate and will correctly show which
+ keys are still pressed down.
  */
 void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    STATE currState = sprite->getState();
-    switch (input.type) {
-        case SDL_EVENT_KEY_DOWN:
-        {
-            const bool *keys = SDL_GetKeyboardState(nullptr);
-            if (keys[SDL_SCANCODE_UP] == 1)
-            {
-                sprite->setState(STATE::IDLE);
-                currState = IDLE;
-                sprite->setDir(DIRECTION::UP);
-            }
-            else if (keys[SDL_SCANCODE_DOWN] == 1)
-            {
-                sprite->setState(STATE::IDLE);
-                currState = IDLE;
-                sprite->setDir(DIRECTION::DOWN);
-            }
-            else if (keys[SDL_SCANCODE_LEFT] == 1)
+    const bool *keys = SDL_GetKeyboardState(nullptr);
+    bool isUpPressed    = keys[SDL_SCANCODE_UP];
+    bool isDownPressed  = keys[SDL_SCANCODE_DOWN];
+    bool isLeftPressed  = keys[SDL_SCANCODE_LEFT];
+    bool isRightPressed = keys[SDL_SCANCODE_RIGHT];
+    bool keyDown = (isUpPressed || isDownPressed || isLeftPressed || isRightPressed); // are any of these pressed down?
+    if (keyDown) {
+            if (isLeftPressed && isRightPressed)
             {
                 sprite->setState(STATE::WALKING);
-                currState = WALKING;
+
+            }
+            else if (isLeftPressed)
+            {
+                sprite->setState(STATE::WALKING);
                 sprite->setDir(DIRECTION::LEFT);
             }
-            else if (keys[SDL_SCANCODE_RIGHT] == 1)
+            else if (isRightPressed)
             {
                 sprite->setState(STATE::WALKING);
-                currState = WALKING;
                 sprite->setDir(DIRECTION::RIGHT);
             }
-            break;
-        }
-        case SDL_EVENT_KEY_UP: {
+            else if (isUpPressed)
+            {
+                sprite->setState(STATE::IDLE);
+                sprite->setDir(sprite->getStateDir());
+            }
+            else if (isDownPressed)
+            {
+                sprite->setState(STATE::IDLE);
+                sprite->setDir(sprite->getStateDir());
+            }
+        } else // NO KEY IS PRESSED
+        {
             idleC.update(sprite); // reset frame of state before idle state
-            currState = IDLE;
             sprite->setState(STATE::IDLE);
-            break;
         }
-    }
 }
 
 void CharacterState::update(Sprite* sprite) {
@@ -123,4 +124,9 @@ void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
  // std::cout << "handleInput call. [CharacterState]" <<  "\n";
  // std::cout << "input type for handleInput: " << input.type << "\n";
  // std::cout << "keys[SDL_SCANCODE_LEFT]: " << keys[SDL_SCANCODE_LEFT] << "\n";
+ 
+ std::cout << "Is the key down? " << (input.type == SDL_EVENT_KEY_DOWN) << "\n";
+ 
+ std::cout << "What keys are pressed per handle loop?\n" << "left: " << isLeftPressed << ", right: " << isRightPressed << ", up: " << isUpPressed << ", down: " << isDownPressed << "\n";
+ std::cout << "What state are we in before handling? " << sprite->getState() << "\n";
  */
