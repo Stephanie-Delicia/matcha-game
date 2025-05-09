@@ -14,13 +14,11 @@
  A class representing the command for handling the walking state for a sprite.
  */
 void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    // std::cout << "handleInput call. [CharacterState]" <<  "\n";
-    // std::cout << "input type for handleInput: " << input.type << "\n";
     STATE currState = sprite->getState();
     switch (input.type) {
-        case SDL_EVENT_KEY_DOWN: {
+        case SDL_EVENT_KEY_DOWN:
+        {
             const bool *keys = SDL_GetKeyboardState(nullptr);
-            // std::cout << "keys[SDL_SCANCODE_LEFT]: " << keys[SDL_SCANCODE_LEFT] << "\n";
             if (keys[SDL_SCANCODE_UP] == 1)
             {
                 sprite->setState(STATE::IDLE);
@@ -57,9 +55,7 @@ void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void CharacterState::update(Sprite* sprite) {
-    // std::cout << "update call. [CharacterState]" <<  "\n";
     // delegates to command
-    // std::cout << "current state in charState for update: " << currState << "\n";
     STATE currState = sprite->getState();
     switch (currState) {
         case IDLE: {
@@ -86,20 +82,18 @@ void CharacterState::update(Sprite* sprite) {
 }
 
 void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
-    // acquire sprite data
     bool success = 0;
+    // acquire sprite data
+    std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
     SpriteStruct spriteData = sprite->getData();
     SpriteSheet* sheet = spriteData.sheet;
-    std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
     SDL_Rect frameRect = std::get<0>(rects);
     SDL_Rect destRect = std::get<1>(rects);
     
     // draw based on direction
     switch (spriteData.dir) {
         case LEFT: {
-            SDL_Surface* srrfc = sheet->getSrfcL();
             success = SDL_BlitSurface(sheet->getSrfcL(), &frameRect, windowSrfc, &destRect);
-            // std::cout << "frameRect: x=" << frameRect.x << ", y=" << frameRect.y << ", w=" << frameRect.w << ", h=" << frameRect.h << "\n";
             if (success < 1) {
                 fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
             }
@@ -120,3 +114,13 @@ void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
         }
     }
 }
+
+/*
+ For debugging:
+ 
+ // std::cout << "frameRect: x=" << frameRect.x << ", y=" << frameRect.y << ", w=" << frameRect.w << ", h=" << frameRect.h << "\n";
+ // std::cout << "current state in charState for update: " << currState << "\n";
+ // std::cout << "handleInput call. [CharacterState]" <<  "\n";
+ // std::cout << "input type for handleInput: " << input.type << "\n";
+ // std::cout << "keys[SDL_SCANCODE_LEFT]: " << keys[SDL_SCANCODE_LEFT] << "\n";
+ */

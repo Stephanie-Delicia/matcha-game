@@ -14,4 +14,5 @@ public:
 //    WalkingCommand();
 //    ~WalkingCommand();
     void update(Sprite* sprite) override;
+    void update(Sprite* sprite, float timeElapsed, float timeDelay);
 };

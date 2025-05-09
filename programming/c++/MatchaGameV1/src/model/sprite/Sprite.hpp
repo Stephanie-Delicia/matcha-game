@@ -20,6 +20,12 @@ public:
     Sprite(NAME n) {
         name = n;
     };
+    Sprite(NAME n, Posn p, DIRECTION d, STATE s) {
+        name = n;
+        posn = p;
+        state = s;
+        stateDir = d;
+    };
     Sprite(NAME n, Posn p, DIRECTION d, STATE s, NameStateSheetMap* map) {
         name = n;
         posn = p;
@@ -33,6 +39,7 @@ public:
     Posn getPosn();
     STATE getState();
     float getFrameSpeed();
+    float getCurrFrameTime();
     DIRECTION getStateDir();
     SpriteSheet* getSheet(STATE s);
     NameStateSheetMap* getSheetMap();
@@ -43,6 +50,7 @@ public:
     void setDir(DIRECTION newDir);
     void setPosn(float x, float y);
     void setFrameSpeed(float speed);
+    void setCurrFrameTime(float time);
     
     // draw & updates
     void update();                            // update sprite based on curr state
@@ -59,7 +67,9 @@ private:
     NAME name;                                     // unique sprite name
     Posn posn;                                     // (x,y). defaults to (0,0)
     STATE state = NONE;                            // whatever state sprite is in
-    float frameSpeed = 8;                          // rate of change in sprite posn
+    float frameSpeed = 4;                          // rate of change in sprite posn
     DIRECTION stateDir = LEFT;                     // direction that sprite faces
     NameStateSheetMap* sheetMap;                   // map for accessing sheets
+    float currFrameTime = -1.0;                     // time for the current frame to continue to be drawn
 };
+

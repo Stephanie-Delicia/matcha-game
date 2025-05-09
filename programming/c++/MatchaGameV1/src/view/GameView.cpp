@@ -5,7 +5,6 @@
 #include <SDL3_image/SDL_image.h>
 
 GameView::GameView() {
-    
 }
 
 void GameView::initSDL() {
@@ -17,17 +16,24 @@ void GameView::quitSDL() {
 }
 
 void GameView::draw(ScreenModel* activeScreen) {
-    // Clear the screen
-    SDL_RenderClear(renderer);
+    clearRender(); // Clear the renderer
     drawBGSrfc(activeScreen);
     drawMainSrfc(activeScreen);
-    
+    presentRender();
+}
+
+void GameView::testDraw(ScreenModel* activeScreen, SDL_Texture texture) {
+    clearRender(); // Clear the renderer
+    drawBGSrfc(activeScreen);
+    drawMainSrfc(activeScreen);
+    SDL_FRect dsrect = {static_cast<float>(texture.w), static_cast<float>(texture.h), 0, 0};
+    SDL_RenderTexture(renderer, &texture, NULL, &dsrect);
     presentRender();
 }
 
 void GameView::drawSprite(Sprite *sprite) {
     // draws on main surface
-    sprite->draw(mainSrfc); // draw this sprite on the window
+    sprite->draw(mainSrfc);
 }
 
 void GameView::drawMainSrfc(ScreenModel* activeScreen) {
@@ -68,7 +74,11 @@ void GameView::createWindow(std::string name, int w, int h) {
 }
 
 void GameView::createRenderer() {
-    renderer = SDL_CreateRenderer(window, NULL);
+    renderer = SDL_CreateRenderer(window, SDL_GetRenderDriver(1));
+    //
+    // 1 = opengl, best renderer thus far, 59 fps
+    // TODO: FOR SOME READON< WHEN I USE THE MOUSE, THE THING FRIGGIN SPEEDS UP WINNIE LOL
+    std::cout << "renderers: " << SDL_GetRenderDriver(1) << "\n";
 }
 
 void GameView::presentRender() {
@@ -78,18 +88,3 @@ void GameView::presentRender() {
 void GameView::clearRender() {
     SDL_RenderClear(renderer);
 }
-
-/*
- FOR TROUBLESHOOTING:
- 
- // TEST, RENDER AN IDLE WINNIE DAMMIT
- //    SDL_Surface* testSurface = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/pleasant_sky.png");
- //    SDL_Surface* winnieSrfc = IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_left.png");
- //    SDL_Rect frameRect = {0, 0, 54, 70};
- //    SDL_Rect backgroundDest = {0, 180, 54, 70};
- //    bool success = SDL_BlitSurface(winnieSrfc, &frameRect, testSurface, &backgroundDest);
- //    std::cout << "IM GOING CRAZY: " << success << "\n";
- //    SDL_Texture* testTexture = SDL_CreateTextureFromSurface(renderer, testSurface);
- //    SDL_FRect bgDest = {0.0, 0.0, 640.0, 360.0};
- //    SDL_RenderTexture(renderer, testTexture, NULL, &bgDest);
- */

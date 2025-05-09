@@ -1,16 +1,16 @@
-#include "ScreenModel.hpp"
+
 #include <map>
 #include <string>
 #include <deque>
 #include <iostream>
+#include <algorithm>
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
-#include "Sprite.hpp"
 #include "SCREEN.h"
+#include "Sprite.hpp"
+#include "ScreenModel.hpp"
 #include "SpriteSheet.hpp"
 #include "NameStateSheetMap.hpp"
-#include <algorithm>
-
 
 std::deque<Sprite*> ScreenModel::getMainQ() {
     return mQueue;
@@ -101,13 +101,11 @@ SDL_Surface* ScreenModel::returnMSurface() {
 
 SDL_Surface* ScreenModel::returnBGSurface() {
     return createSurface(bgQueue);
-    //return IMG_Load("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_left.png");
 }
 
 SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
     SDL_Surface* surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ARGB8888);
-    // draw every sprite
-    for (Sprite* sprite : spriteQueue) {
+    for (Sprite* sprite : spriteQueue) { // draw every sprite in the queue
         sprite->draw(surface);
     }
     return surface;

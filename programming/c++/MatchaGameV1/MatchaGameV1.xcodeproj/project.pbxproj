@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C200032D2DB96CDF0074364D /* main.cpp */; };
+		C2080E942DCD35A2009F2411 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2080E922DCD35A2009F2411 /* Timer.cpp */; };
+		C2080E952DCD35A2009F2411 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2080E922DCD35A2009F2411 /* Timer.cpp */; };
+		C2080EA22DCDB431009F2411 /* SDL3_ttf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2080EA12DCDB431009F2411 /* SDL3_ttf.xcframework */; };
+		C2080EA42DCDB46C009F2411 /* SDL3_ttf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2080EA12DCDB431009F2411 /* SDL3_ttf.xcframework */; };
+		C2080EA52DCDB46C009F2411 /* SDL3_ttf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2080EA12DCDB431009F2411 /* SDL3_ttf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
 		C2492C882DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
 		C2492C8A2DC7CA610020F8E6 /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C892DC7CA610020F8E6 /* GameView.cpp */; };
@@ -63,6 +68,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C2080E9F2DCDB3FC009F2411 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2080EA52DCDB46C009F2411 /* SDL3_ttf.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F78E8A2DBBEC3800B7B8F9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +111,10 @@
 		C200032D2DB96CDF0074364D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C20003312DB96FFD0074364D /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		C20003342DB97F180074364D /* NameStateSheetMapTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NameStateSheetMapTest.cpp; sourceTree = "<group>"; };
+		C2080E922DCD35A2009F2411 /* Timer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		C2080E932DCD35A2009F2411 /* Timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		C2080E962DCDACF9009F2411 /* SDL3_ttf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3_ttf.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3_ttf.xcframework; sourceTree = "<group>"; };
+		C2080EA12DCDB431009F2411 /* SDL3_ttf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3_ttf.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3_ttf.xcframework; sourceTree = "<group>"; };
 		C2492C862DC7C70B0020F8E6 /* GameController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		C2492C892DC7CA610020F8E6 /* GameView.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameView.cpp; sourceTree = "<group>"; };
 		C2492C8C2DC7CC460020F8E6 /* GameModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameModel.cpp; sourceTree = "<group>"; };
@@ -155,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2080EA22DCDB431009F2411 /* SDL3_ttf.xcframework in Frameworks */,
 				C2F78EC62DC07D6D00B7B8F9 /* SDL3.xcframework in Frameworks */,
 				C2F78EC92DC07D8700B7B8F9 /* SDL3_image.xcframework in Frameworks */,
 			);
@@ -164,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2080EA42DCDB46C009F2411 /* SDL3_ttf.xcframework in Frameworks */,
 				C2F78E9B2DBBECA100B7B8F9 /* SDL3_image.xcframework in Frameworks */,
 				C2F78E9C2DBBECA300B7B8F9 /* SDL3.xcframework in Frameworks */,
 			);
@@ -215,6 +237,8 @@
 			children = (
 				C26E71012D95CDA900DE5378 /* Posn.hpp */,
 				C26E71002D95CDA900DE5378 /* Posn.cpp */,
+				C2080E932DCD35A2009F2411 /* Timer.hpp */,
+				C2080E922DCD35A2009F2411 /* Timer.cpp */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -299,6 +323,7 @@
 		C2A313A72D95C89A004173D5 = {
 			isa = PBXGroup;
 			children = (
+				C2080EA12DCDB431009F2411 /* SDL3_ttf.xcframework */,
 				C2492CA42DCA7BBA0020F8E6 /* README.md */,
 				C2F78E7A2DBB49FF00B7B8F9 /* MatchaGameV1 */,
 				C20003312DB96FFD0074364D /* res */,
@@ -321,6 +346,7 @@
 		C2A313C32D95C8E8004173D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2080E962DCDACF9009F2411 /* SDL3_ttf.xcframework */,
 				C2A313C82D95C8F7004173D5 /* SDL3_image.xcframework */,
 				C2A313C42D95C8E8004173D5 /* SDL3.xcframework */,
 			);
@@ -484,6 +510,7 @@
 				C2F78E882DBBEC3800B7B8F9 /* Sources */,
 				C2F78E892DBBEC3800B7B8F9 /* Frameworks */,
 				C2F78E8A2DBBEC3800B7B8F9 /* CopyFiles */,
+				C2080E9F2DCDB3FC009F2411 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -561,6 +588,7 @@
 				C2F78EAF2DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,
 				C2F78EBD2DC006BF00B7B8F9 /* IdleCommand.cpp in Sources */,
 				C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,
+				C2080E942DCD35A2009F2411 /* Timer.cpp in Sources */,
 				C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 			);
@@ -573,6 +601,7 @@
 				C2F78E9D2DBBECAD00B7B8F9 /* Posn.cpp in Sources */,
 				C2492C8E2DC7CC460020F8E6 /* GameModel.cpp in Sources */,
 				C2492C962DC927150020F8E6 /* SpriteStruct.cpp in Sources */,
+				C2080E952DCD35A2009F2411 /* Timer.cpp in Sources */,
 				C2F78ED92DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2492C912DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
 				C2492C9B2DC9D4CB0020F8E6 /* ScreenNavigatorTest.cpp in Sources */,

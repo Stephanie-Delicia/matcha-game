@@ -35,6 +35,14 @@ float Sprite::getFrameSpeed() {
     return frameSpeed;
 }
 
+float Sprite::getCurrFrameTime() {
+    return currFrameTime;
+}
+
+void Sprite::setCurrFrameTime(float time) {
+    currFrameTime = time;
+}
+
 SpriteSheet* Sprite::getSheet(STATE s) {
     return sheetMap->getSpriteSheet(name, s);
 }

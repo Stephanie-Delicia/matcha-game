@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL3/SDL.h>
+#include "Timer.hpp"
 #include "GameModel.hpp"
 #include "GameView.hpp"
 /*
@@ -16,9 +17,11 @@ public:
                            model->getHeight());
         view->createRenderer();
         exitGame = false;
+        
     };
     void draw();
     void update();
+    // void update();
     void startGame();
     void handleInput(SDL_Event const &event);
     
@@ -26,4 +29,10 @@ private:
     bool exitGame;    // bool for if user exits game window
     GameView*  view;  // Simple controller for only walking a char
     GameModel* model; // Simple model
+    
+    // for testing
+    Timer fpsTimer;
+    void measureFPS();
+    std::string timeText; // display text on screen
+    int countedFrames = 0;
 };

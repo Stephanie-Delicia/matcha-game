@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
     Sprite* player = spriteMap.getSprite(WINNIE);
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
     player->setState(IDLE);
-    player->setPosn(0, 180.00);
+    player->setPosn(0, 267.00);
     model.setMainPlayer(player);
     bg->setState(IDLE);
     bg->setSheetMap(&sheetMap);
@@ -63,4 +63,5 @@ int main(int argc, char* argv[]) {
     std::cout << "Instantiated MVC. [main]\n";
     // begin gameplay
     controller.startGame();
+    std::cout << "Game closed. [main]\n";
 }

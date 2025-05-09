@@ -19,6 +19,7 @@ public:
     void presentRender();
     void drawSprite(Sprite* sprite);
     void draw(ScreenModel* activeScreen);
+    void testDraw(ScreenModel* activeScreen, SDL_Texture texture);
     void drawBGSrfc(ScreenModel* activeScreen);
     void drawMainSrfc(ScreenModel* activeScreen);
     
