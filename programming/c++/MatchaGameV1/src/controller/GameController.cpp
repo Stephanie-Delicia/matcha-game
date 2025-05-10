@@ -1,4 +1,5 @@
 #include "Timer.hpp"
+#include <cmath>
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
 #include <iostream>
@@ -24,9 +25,10 @@ void GameController::startGame() {
         { // to correct the initial high fps from starting
             avgFPS = 0;
         }
+        
         timeText = "Average FPS: "; // Set text to be rendered
-        timeText.append(std::to_string(avgFPS));
-        std::cout << timeText << "\n";
+        timeText.append(std::to_string((int) std::round(avgFPS)));
+        // std::cout << timeText << "\n";
         
         // get events
         SDL_Event event;
@@ -44,7 +46,7 @@ void GameController::startGame() {
         }
 
         update(); // similarly, updates occur to sprites chosen by the controller.
-        draw();   // Drawing is passed to the view
+        drawWithFPS(timeText);   // Drawing is passed to the view
         
         // now adjust for
         float endTime = fpsTimer.getTicks();
@@ -92,6 +94,13 @@ void GameController::draw() {
     view->draw(model->getActiveScreen());
 }
 
+void GameController::drawWithFPS(std::string fpsText) {
+    // view draws based on the model's active screen
+    // the active screen contains (1) the background to draw on first and (2) extra stuff like the main player sprite
+    // TODO: give the model a return function that returns WHAT should get drawn
+    view->drawWithFPS(model->getActiveScreen(), fpsText);
+}
+
 void GameController::handleInput(SDL_Event const &event) {
     // using the model, the game controller will choose which sprites have to interpret events
     // rather than making the model select who gets this call, we'll leave it here with the controller
@@ -121,7 +130,7 @@ void GameController::handleInput(SDL_Event const &event) {
  - Revolving animation
  
  //    TTF_TextEngine* textEngine = TTF_CreateRendererTextEngine(view->getRenderer());
- //    TTF_Font* sansFont = TTF_OpenFont("Sans.ttf", 24);
+ //
  
  //        //this opens a font style and sets a size
  //        TTF_Text* text = TTF_CreateText(textEngine, sansFont, timeText.c_str(), timeText.size());

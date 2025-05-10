@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include "Sprite.hpp"
 #include "ScreenModel.hpp"
 
@@ -19,7 +20,7 @@ public:
     void presentRender();
     void drawSprite(Sprite* sprite);
     void draw(ScreenModel* activeScreen);
-    void testDraw(ScreenModel* activeScreen, SDL_Texture texture);
+    void drawWithFPS(ScreenModel* activeScreen, std::string fpsText);
     void drawBGSrfc(ScreenModel* activeScreen);
     void drawMainSrfc(ScreenModel* activeScreen);
     
@@ -42,4 +43,10 @@ private:
     SDL_Surface*  bgSrfc;   // background for game window
     SDL_Surface*  mainSrfc; // a temporary surface
     SDL_Renderer* renderer; // renderer
+    
+    // for text
+    void setFont();
+    SDL_Color fontColor = {0, 0, 0, 255};
+    SDL_FRect destFPSRect = {5.0, 5.0, 100, 15};
+    TTF_Font* genevaFont;
 };

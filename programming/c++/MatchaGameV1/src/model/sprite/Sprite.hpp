@@ -64,12 +64,12 @@ public:
     std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest();
 
 private:
-    NAME name;                                     // unique sprite name
-    Posn posn;                                     // (x,y). defaults to (0,0)
-    STATE state = NONE;                            // whatever state sprite is in
-    float frameSpeed = 1.5;                          // rate of change in sprite posn
-    DIRECTION stateDir = LEFT;                     // direction that sprite faces
-    NameStateSheetMap* sheetMap;                   // map for accessing sheets
-    float currFrameTime = -1.0;                     // time for the current frame to continue to be drawn
+    NAME name;                                // unique sprite name
+    Posn posn;                                // (x,y). defaults to (0,0)
+    STATE state = NONE;                       // whatever state sprite is in
+    float frameSpeed = 1.5;                   // rate of change in sprite posn
+    DIRECTION stateDir = LEFT;                // direction that sprite faces
+    NameStateSheetMap* sheetMap;              // map for accessing sheets
+    float currFrameTime = -1.0;               // time for the current frame to continue to be drawn
 };
 

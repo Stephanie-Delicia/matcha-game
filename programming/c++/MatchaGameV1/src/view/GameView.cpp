@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SDL3/SDL.h>
 #include "GameView.hpp"
+#include <SDL3_ttf/SDL_ttf.h>
 #include <SDL3_image/SDL_image.h>
 
 GameView::GameView() {
@@ -9,6 +10,8 @@ GameView::GameView() {
 
 void GameView::initSDL() {
     SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
+    setFont();
 }
 
 void GameView::quitSDL() {
@@ -19,15 +22,6 @@ void GameView::draw(ScreenModel* activeScreen) {
     clearRender(); // Clear the renderer
     drawBGSrfc(activeScreen);
     drawMainSrfc(activeScreen);
-    presentRender();
-}
-
-void GameView::testDraw(ScreenModel* activeScreen, SDL_Texture texture) {
-    clearRender(); // Clear the renderer
-    drawBGSrfc(activeScreen);
-    drawMainSrfc(activeScreen);
-    SDL_FRect dsrect = {static_cast<float>(texture.w), static_cast<float>(texture.h), 0, 0};
-    SDL_RenderTexture(renderer, &texture, NULL, &dsrect);
     presentRender();
 }
 
@@ -48,6 +42,29 @@ void GameView::drawBGSrfc(ScreenModel* activeScreen) {
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, bgSrfc);
     SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
     SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
+}
+
+void GameView::drawWithFPS(ScreenModel* activeScreen, std::string fpsText) {
+    clearRender(); // Clear the renderer
+    drawBGSrfc(activeScreen);
+    drawMainSrfc(activeScreen);
+    
+    if (genevaFont == NULL) {
+        fprintf(stderr, "TTF_OpenFont failed! SDL_Error: %s\n", SDL_GetError());
+    }
+    SDL_Surface* textSrfc = TTF_RenderText_Blended(genevaFont, fpsText.c_str(), fpsText.size(), fontColor);
+    if (textSrfc == NULL) {
+        fprintf(stderr, "TTF_RenderText_Solid failed! SDL_Error: %s\n", SDL_GetError());
+    }
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSrfc);
+    if (textTexture == NULL) {
+        fprintf(stderr, "SDL_CreateTextureFromSurface failed! SDL_Error: %s\n", SDL_GetError());
+    }
+    bool success = SDL_RenderTexture(renderer, textTexture, NULL, &destFPSRect);
+    if (success == 0) {
+        fprintf(stderr, "SDL_RenderTexture failed! SDL_Error: %s\n", SDL_GetError());
+    }
+    presentRender();
 }
 
 SDL_Event GameView::getEvents() {
@@ -87,4 +104,8 @@ void GameView::presentRender() {
 
 void GameView::clearRender() {
     SDL_RenderClear(renderer);
+}
+
+void GameView::setFont() {
+    genevaFont = TTF_OpenFont("/System/Library/Fonts/Geneva.ttf", 15);
 }

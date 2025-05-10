@@ -20,6 +20,7 @@ public:
         
     };
     void draw();
+    void drawWithFPS(std::string fpsText);
     void update();
     void updateSpriteTime(float timeElapsed, float timeDelay);
     void startGame();
