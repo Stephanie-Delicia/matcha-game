@@ -114,6 +114,8 @@ void GameController::handleInput(SDL_Event const &event) {
  // std::cout << "Started a game step. [controller]\n";
  // TODO; at 200 ms, you notice that quickly changing directions results in a brief idle animation.
  // not sure exactly how to solve that - wshould I decrease the delay time when I am changing directions?
+ // TODO PRIORITY: LOOK INTO MEMORY LEAKS, THERE ARE DEFINITELY MEMORY LEAKS RN
+ // MY APPLICATION CONSUMED 60 GIGABYTES WORTH OF MEMORY DEAR GOD
  // TODO: Look into properly giving Sprite classes abstractions for states
  // TODO: Draft and determine the gameplay you want to implement
  // TODO: Read on learncpp. Look into memory leaks, better practices with pointers.
@@ -128,14 +130,6 @@ void GameController::handleInput(SDL_Event const &event) {
  - A drinking animation
  - Thumbs up animation
  - Revolving animation
- 
- //    TTF_TextEngine* textEngine = TTF_CreateRendererTextEngine(view->getRenderer());
- //
- 
- //        //this opens a font style and sets a size
- //        TTF_Text* text = TTF_CreateText(textEngine, sansFont, timeText.c_str(), timeText.size());
- //        TTF_DrawRendererText(text, 5.0, 5.0);
- //        SDL_RenderPresent(view->getRenderer());
  */
 
 void GameController::measureFPS() {

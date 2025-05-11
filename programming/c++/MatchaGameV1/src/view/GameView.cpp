@@ -35,6 +35,8 @@ void GameView::drawMainSrfc(ScreenModel* activeScreen) {
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, mainSrfc);
     SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
     SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
+    SDL_DestroySurface(mainSrfc);
+    SDL_DestroyTexture(text);
 }
 
 void GameView::drawBGSrfc(ScreenModel* activeScreen) {
@@ -42,6 +44,8 @@ void GameView::drawBGSrfc(ScreenModel* activeScreen) {
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, bgSrfc);
     SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
     SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
+    SDL_DestroySurface(bgSrfc);
+    SDL_DestroyTexture(text);
 }
 
 void GameView::drawWithFPS(ScreenModel* activeScreen, std::string fpsText) {
@@ -65,6 +69,8 @@ void GameView::drawWithFPS(ScreenModel* activeScreen, std::string fpsText) {
         fprintf(stderr, "SDL_RenderTexture failed! SDL_Error: %s\n", SDL_GetError());
     }
     presentRender();
+    SDL_DestroySurface(textSrfc);
+    SDL_DestroyTexture(textTexture);
 }
 
 SDL_Event GameView::getEvents() {

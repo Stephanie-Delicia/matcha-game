@@ -21,9 +21,9 @@ void WalkingCommand::update(Sprite* sprite) {
     switch (stateDir)
     {
         case DIRECTION::LEFT: {
-            sprite->setPosn(x - frameSpeed, y);      // update sprite posn
-            if (currFrameTime <= 0.0) {              // if enough time passed to get to the next frame
-                sprite->updateSheet(WALKING, 1);     // update sheet frame
+            sprite->setPosn(x - frameSpeed, y);  // update sprite posn
+            if (currFrameTime <= 0.0) {          // if enough time passed to get to the next frame
+                sprite->updateSheet(WALKING, 1); // update sheet frame
             }
             break;
         }
