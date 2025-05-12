@@ -20,7 +20,7 @@ public:
         
     };
     void draw();
-    void drawWithFPS(std::string fpsText);
+    void drawWithFPS();
     void update();
     void updateSpriteTime(float timeElapsed, float timeDelay);
     void startGame();
@@ -31,9 +31,13 @@ private:
     GameView*  view;  // Simple controller for only walking a char
     GameModel* model; // Simple model
     
-    // for testing
+    // To measure fps
     Timer fpsTimer;
-    void measureFPS();
-    std::string timeText; // display text on screen
+    int fpsGoal = 60;
     int countedFrames = 0;
+    
+    // for testing
+    float measureFPS();
+    std::string fpsText; // display text on screen
+    
 };

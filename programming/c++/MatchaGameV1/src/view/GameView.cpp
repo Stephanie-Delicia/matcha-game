@@ -97,11 +97,8 @@ void GameView::createWindow(std::string name, int w, int h) {
 }
 
 void GameView::createRenderer() {
-    renderer = SDL_CreateRenderer(window, SDL_GetRenderDriver(1));
-    //
     // 1 = opengl, best renderer thus far, 59 fps
-    // TODO: FOR SOME READON< WHEN I USE THE MOUSE, THE THING FRIGGIN SPEEDS UP WINNIE LOL
-    std::cout << "renderers: " << SDL_GetRenderDriver(1) << "\n";
+    renderer = SDL_CreateRenderer(window, SDL_GetRenderDriver(1));
 }
 
 void GameView::presentRender() {
