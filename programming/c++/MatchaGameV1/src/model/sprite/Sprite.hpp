@@ -12,7 +12,7 @@
 #include "NameStateSheetMap.hpp"
 
 // use a forward declaration instead
-class CharacterState;
+class SpriteState;
 
 /*
  A class representing a sprite (char, background texture, etc) in the game.
@@ -56,7 +56,7 @@ public:
     void setPosn(float x, float y);
     void setFrameSpeed(float speed);
     void setCurrFrameTime(float time);
-    void setStateHandler(CharacterState* state);
+    void setStateHandler(SpriteState* state);
     
     // draw & updates
     void update();                            // update sprite based on curr state
@@ -77,6 +77,6 @@ private:
     DIRECTION stateDir = LEFT;                // direction that sprite faces
     NameStateSheetMap* sheetMap;              // map for accessing sheets
     float currFrameTime = -1.0;               // time for the current frame to continue to be drawn, default to negative to indicate you're stuck on the current frame
-    CharacterState* stateHandler = nullptr;
+    SpriteState* stateHandler = nullptr;
 };
 

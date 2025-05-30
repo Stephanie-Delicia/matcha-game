@@ -13,7 +13,7 @@
  An abstract class that handles the sprite states.
  */
 
-class CharacterState : SpriteState {
+class CharacterState : public SpriteState {
 public:
     void update(Sprite* sprite);
     void draw(Sprite* sprite, SDL_Surface *windowSrfc);

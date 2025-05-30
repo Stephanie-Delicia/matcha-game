@@ -67,6 +67,10 @@ void Sprite::setState(STATE newState) {
     state = newState;
 }
 
+void Sprite::setStateHandler(SpriteState* state) {
+    stateHandler = state;
+}
+
 void Sprite::setPosn(float x, float y) {
     posn.setX(x);
     posn.setY(y);
@@ -104,8 +108,4 @@ std::tuple<SDL_Rect, SDL_Rect> Sprite::getSrcAndDest() {
     SDL_Rect frameRect = roundRect(sheet->getFrameRect());
     SDL_Rect destRect = {posn.getIntX(), posn.getIntY(), frameRect.w, frameRect.h};
     return std::make_tuple(frameRect, destRect);
-}
-
-void Sprite::setStateHandler(CharacterState* state) {
-    stateHandler = state;
 }

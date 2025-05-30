@@ -3,7 +3,8 @@
 #include "Sprite.hpp"
 
 /*
- An abstract class that handles the sprite states.
+ An abstract class that handles the sprite states. Has abstract method to implement, such as updating the sprite,
+ drawing it, and handling game event inputs.
  */
 
 class SpriteState {
