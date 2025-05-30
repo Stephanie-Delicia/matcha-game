@@ -83,22 +83,18 @@ void Sprite::resetSheet(STATE state) {
 }
 
 void Sprite::handleInput(SDL_Event const &event) {
-    CharacterState stateHandler = CharacterState();
-    stateHandler.handleInput(this, event);
+    stateHandler->handleInput(this, event);
 }
 
 void Sprite::draw(SDL_Surface *windowSrfc) {
-    CharacterState stateHandler = CharacterState();
-    stateHandler.draw(this, windowSrfc);
+    stateHandler->draw(this, windowSrfc);
 }
 
 void Sprite::update() {
-    CharacterState stateHandler = CharacterState();
-    stateHandler.update(this);
+    stateHandler->update(this);
 }
 
 SpriteStruct Sprite::getData() {
-
     SpriteSheet* sheet = getSheet(state);
     return {name, posn, state, stateDir, sheet};
 }
@@ -108,4 +104,8 @@ std::tuple<SDL_Rect, SDL_Rect> Sprite::getSrcAndDest() {
     SDL_Rect frameRect = roundRect(sheet->getFrameRect());
     SDL_Rect destRect = {posn.getIntX(), posn.getIntY(), frameRect.w, frameRect.h};
     return std::make_tuple(frameRect, destRect);
+}
+
+void Sprite::setStateHandler(CharacterState* state) {
+    stateHandler = state;
 }

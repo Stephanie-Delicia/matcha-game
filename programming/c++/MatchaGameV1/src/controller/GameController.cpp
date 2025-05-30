@@ -1,22 +1,6 @@
 /*
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
-
-/*
- FOR DEBUGGING:
- // std::cout << "Started a game step. [controller]\n";
- // TODO: Look into properly giving Sprite classes abstractions for states
- // TODO: Draft and determine the gameplay you want to implement
- // TODO: Read on learncpp. Look into memory leaks, better practices with pointers.
- // TODO: Make code private where it should be.
- // TODO: make function params const where it should be.
- Texturewise:
- - Drink pngs
- - Maybe running animation
- - A drinking animation
- - Thumbs up animation
- - Revolving animation
- */
 #include <cmath>
 #include <string>
 #include <iostream>
