@@ -1,3 +1,6 @@
+/*
+    A base class for a game view.
+ */
 #include <string>
 #include <iostream>
 #include <SDL3/SDL.h>
@@ -10,6 +13,7 @@ GameView::GameView() {
 
 void GameView::initSDL() {
     SDL_Init(SDL_INIT_VIDEO);
+    createRenderer();
     TTF_Init();
     setFont();
 }

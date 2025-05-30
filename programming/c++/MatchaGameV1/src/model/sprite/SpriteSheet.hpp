@@ -1,11 +1,10 @@
-#pragma once
-#include <SDL3/SDL.h>
-#include <string>
-
 /*
  A class that represents a sprite sheet. Contains data such as the SDL surface, number of frames, and dims.
  Used for drawing idle textures or player actions. Contains both left facing and right facing pngs as surfaces.
  */
+#pragma once
+#include <SDL3/SDL.h>
+#include <string>
 
 class SpriteSheet {
 public:
@@ -27,14 +26,17 @@ public:
     
     // setters
     void setFrameNum(int num);
+    void setFPSGoal(int fps) { fpsGoal = fps; };
     
     // for getting each frame's starting coordinates (x,y) on sheet surface
     float currX();
     float currY();
+    int getFPSGoal() { return fpsGoal; };
     
 private:
     float w; // width
     float h; // height
+    int fpsGoal = 30;
     int currFrame;
     int totalFrames;
     SDL_Surface* srfcL;

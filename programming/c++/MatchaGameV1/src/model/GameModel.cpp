@@ -47,6 +47,14 @@ NameStateSheetMap* GameModel::getNameToSheetMap() {
     return nameStateSheetMap;
 }
 
+void GameModel::update() {
+    screenNav->getMainScreen()->update();
+}
+
+void GameModel::handleInput(const SDL_Event &event) {
+    screenNav->getMainScreen()->handleInput(event);
+}
+
 void GameModel::setWidth(float w) {
     screenWidth = w;
 }
@@ -75,4 +83,8 @@ void GameModel::setNameToSheetMap(NameStateSheetMap* map) {
 
 void GameModel::setNameToSpriteMap(NameSpriteMap* map) {
     nameSpriteMap = map;
-};;
+}
+
+void GameModel::delayFrameTimes(float gameDelay, float timeElapsed) {
+    screenNav->getMainScreen()->delayFrameTimes(gameDelay, timeElapsed);
+}

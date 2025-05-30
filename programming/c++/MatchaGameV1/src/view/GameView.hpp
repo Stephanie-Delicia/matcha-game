@@ -1,13 +1,12 @@
+/*
+    A base class for a game view.
+ */
 #pragma once
 #include <string>
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
 #include "Sprite.hpp"
 #include "ScreenModel.hpp"
-
-/*
-    A base class for a game view.
- */
 
 class GameView {
 public:

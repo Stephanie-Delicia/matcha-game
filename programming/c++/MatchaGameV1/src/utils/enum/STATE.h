@@ -8,5 +8,6 @@ enum STATE {
     BLINKING,
     RUNNING,
     DRINKING,
+    TRANSLATION, // (sliding in the x-y plane, like the geometry term)
     NONE // sprite is not on window
 };

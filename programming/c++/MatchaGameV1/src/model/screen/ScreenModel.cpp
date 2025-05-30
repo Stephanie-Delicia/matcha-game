@@ -1,4 +1,15 @@
-
+/*
+    A class that is a data container for what to draw on screen.
+    The ScreenModel will have two queues of sprites to be drawn.
+    The background queue will contain a predefined background to draw, then there is a main queue.
+    The order of drawing is first the background queue, then the main queue.
+    The main queue will have more interactive sprites.
+ 
+    A ScreenModel will also have an update queue, that is, the sprites that will be updated when
+    the game controller calls for updates.
+ 
+    Before starting a game, a screen nav, containing a couple screen models, must be predefined.
+ */
 #include <map>
 #include <string>
 #include <deque>
@@ -14,6 +25,10 @@
 
 std::deque<Sprite*> ScreenModel::getMainQ() {
     return mQueue;
+}
+
+std::deque<Sprite*> ScreenModel::getUpdateQ() {
+    return updateQueue;
 }
 
 std::deque<Sprite*> ScreenModel::getBackgroundQ() {
@@ -63,6 +78,10 @@ void ScreenModel::emptyScreen() {
     mQueue.clear();
 }
 
+void ScreenModel::addToUpdate(Sprite* sprite) {
+    updateQueue.push_front(sprite);
+}
+
 void ScreenModel::addToMain(Sprite *sprite) {
     mQueue.push_front(sprite);
 }
@@ -71,8 +90,14 @@ void ScreenModel::addToBG(Sprite* sprite) {
     bgQueue.push_front(sprite);
 }
 
+void ScreenModel::removeUpdate(Sprite* sprite) {
+    auto find_iterator = std::find(updateQueue.begin(), updateQueue.end(), sprite);
+    if (find_iterator != updateQueue.end()) {
+        updateQueue.erase(find_iterator);
+    }
+}
+
 void ScreenModel::removeMain(Sprite* sprite) {
-    // if found, object is removed
     auto find_iterator = std::find(mQueue.begin(), mQueue.end(), sprite);
     if (find_iterator != mQueue.end()) {
         mQueue.erase(find_iterator);
@@ -87,8 +112,12 @@ void ScreenModel::removeBG(Sprite* sprite) {
     }
 }
 
-void ScreenModel::replace(std::deque<Sprite*> m) {
+void ScreenModel::replaceMain(std::deque<Sprite*> m) {
     mQueue = m;
+}
+
+void ScreenModel::replaceUpdate(std::deque<Sprite*> m) {
+    updateQueue = m;
 }
 
 void ScreenModel::replaceBackground(std::deque<Sprite*> q) {
@@ -103,10 +132,39 @@ SDL_Surface* ScreenModel::returnBGSurface() {
     return createSurface(bgQueue);
 }
 
+void ScreenModel::update() {
+    // recurs thru update queue to apply updates to each sprite
+    // draw every sprite in the queue
+    for (Sprite* sprite : updateQueue) {
+        sprite->update();
+    }
+}
+
+void ScreenModel::handleInput(const SDL_Event &event) {
+    // recurs thru update queue to apply state updates
+    // to every sprite in the queue
+    for (Sprite* sprite : updateQueue) {
+        sprite->handleInput(event);
+    }
+}
+
 SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
     SDL_Surface* surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ARGB8888);
     for (Sprite* sprite : spriteQueue) { // draw every sprite in the queue
         sprite->draw(surface);
     }
     return surface;
+}
+
+void ScreenModel::delayFrameTimes(float gameDelay, float timeElapsed) {
+    for (Sprite* sprite : updateQueue) {
+        float currFrameTime = sprite->getCurrFrameTime();
+        int fpsGoal = sprite->getSheet(sprite->getState())->getFPSGoal();
+        float spriteDelay = (1000 / fpsGoal) - timeElapsed - gameDelay;
+        if (currFrameTime <= 0.0) {
+            sprite->setCurrFrameTime(spriteDelay);
+        } else {
+            sprite->setCurrFrameTime(currFrameTime - timeElapsed);
+        }
+    }
 }

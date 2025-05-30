@@ -50,6 +50,7 @@ int main(int argc, char* argv[]) {
     // ONLY THE MODEL KNOWS THIS INFORMATION! So either instantiate the model with this,
     // or have checks for the controller and ish, for ex. 
     Sprite* player = spriteMap.getSprite(WINNIE);
+    screenNav.getMainScreen()->addToUpdate(player);
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
     player->setState(IDLE);
     player->setPosn(0, 267.00);

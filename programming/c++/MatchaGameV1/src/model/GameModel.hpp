@@ -26,6 +26,7 @@ public:
     GameModel();
     GameModel(float w, float h, std::string name);
     GameModel(float w, float h, std::string name, Sprite* mainSprite, NameStateSheetMap* map, ScreenNavigator* nav);
+    
     // getters
     float              getWidth();
     float              getHeight();
@@ -45,7 +46,10 @@ public:
     void setNameToSheetMap(NameStateSheetMap* map);
     void setNameToSpriteMap(NameSpriteMap* map);
     
-    // for the controller
+    // for the controller to use
+    void update();                            // calls on an transformation updates for the active screen
+    void handleInput(const SDL_Event &event); // calls on state updates for the active screen
+    void delayFrameTimes(float gameDelay, float timeElapsed);  // calls on active screen to delay sprite frame times accordingly
     
 private:
     // params

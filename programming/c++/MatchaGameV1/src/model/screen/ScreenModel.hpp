@@ -1,12 +1,20 @@
+/*
+    A class that is a data container for what to draw on screen.
+    The ScreenModel will have two queues of sprites to be drawn.
+    The background queue will contain a predefined background to draw, then there is a main queue.
+    The order of drawing is first the background queue, then the main queue.
+    The main queue will have more interactive sprites.
+ 
+    A ScreenModel will also have an update queue, that is, the sprites that will be updated when
+    the game controller calls for updates.
+ 
+    Before starting a game, a screen nav, containing a couple screen models, must be predefined.
+ */
 #pragma once
 #include <deque>
 #include "SCREEN.h"
 #include <SDL3/SDL.h>
 #include "Sprite.hpp"
-
-/*
- A class that represents a data container for what to draw on screen. The ScreenModel will have a queue of sprites to be drawn. The background queue will contain a predefined background to draw, then another main queue. The order of drawing will be first the background queue, then the main queue. The main queue will have more interactive methods. The background queue can be replaced.
- */
 
 class ScreenModel {
 public:
@@ -29,14 +37,11 @@ public:
     // getters
     bool isActive();
     SCREEN screenType();
+    float getWidth() { return w; };
+    float getHeight() { return h; };
     std::deque<Sprite*> getMainQ();
+    std::deque<Sprite*> getUpdateQ();
     std::deque<Sprite*> getBackgroundQ();
-    float getHeight() {
-        return h;
-    };
-    float getWidth() {
-        return w;
-    };
     
     // setters
     void setType(SCREEN t);
@@ -48,15 +53,21 @@ public:
     bool inBackground(Sprite* sprite); // check if sprite is in the background
     
     // change what gets drawn on this screen.
+    void update();                                 // call for updating sprites in update queue in active screen
+    void handleInput(SDL_Event const &event);      // handle inputs for sprites in update queue in active screen
     void activate();                               // activate screen
     void deactivate();                             // indicate screen is now inactive
     void emptyScreen();                            // empty the main queue, not background
     void addToMain(Sprite* sprite);                // add sprite to draw on screen
     void addToBG(Sprite* sprite);                  // add sprite to draw on screen
-    void removeMain(Sprite* sprite);                   // remove a specific sprite if its on screen
-    void removeBG(Sprite* sprite);                   // remove a specific sprite if its on screen
-    void replace(std::deque<Sprite*> m);           // just outright replace what queue gets drawn
+    void addToUpdate(Sprite* sprite);              // add sprite to update
+    void removeMain(Sprite* sprite);               // remove a specific sprite if its on screen
+    void removeBG(Sprite* sprite);                 // remove a specific sprite if its on screen
+    void removeUpdate(Sprite* sprite);             // remove this sprite from getting updated
+    void replaceMain(std::deque<Sprite*> m);       // just outright replace what queue gets drawn for main
     void replaceBackground(std::deque<Sprite*> q); // make changes to the background
+    void replaceUpdate(std::deque<Sprite*> q);     // make changes to what sprites get updated
+    void delayFrameTimes(float gameDelay, float timeElapsed);
     
     // create SDL surface from the queues
     SDL_Surface* returnMSurface();
@@ -65,11 +76,14 @@ public:
 private:
     float h;
     float w;                      // width and height
-    SCREEN screenT = TEST_SCREEN; // screen type enum
     bool active = false;          // is this the current screen the player is on?
-    std::deque<Sprite*> mQueue;   // sprites to draw on top of the background
-    std::deque<Sprite*> bgQueue;  // background sprites to draw, like sky and ground
+    SCREEN screenT = TEST_SCREEN; // screen type enum
     
-    // creating a surface from queue
+    // sprite queues
+    std::deque<Sprite*> mQueue;      // sprites to draw on top of the background
+    std::deque<Sprite*> bgQueue;     // background sprites to draw, like sky and ground
+    std::deque<Sprite*> updateQueue; // sprites to draw on top of the background
+    
+    // creating a surface containing all sprites in the given queue
     SDL_Surface* createSurface(std::deque<Sprite*> spriteQueue);
 };
