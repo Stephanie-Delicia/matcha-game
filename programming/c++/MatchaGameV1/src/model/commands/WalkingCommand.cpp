@@ -1,3 +1,6 @@
+/*
+ A class representing the command for handling the walking state for a sprite.
+ */
 #include "WalkingCommand.hpp"
 #include "Posn.hpp"
 #include "SpriteSheet.hpp"
@@ -5,12 +8,7 @@
 #include "StateCommand.hpp"
 #include "Sprite.hpp"
 
-/*
- A class representing the command for handling the walking state for a sprite.
- */
-
 void WalkingCommand::update(Sprite* sprite) {
-    // float timeDelay -> recommended time to delay
     DIRECTION stateDir = sprite->getStateDir();
     Posn posn = sprite->getPosn();
     float currFrameTime = sprite->getCurrFrameTime();

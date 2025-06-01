@@ -52,7 +52,7 @@ void GameView::drawBGSrfc(ScreenModel* activeScreen) {
     SDL_DestroyTexture(text);
 }
 
-void GameView::drawWithFPS(ScreenModel* activeScreen, std::string fpsText) {
+void GameView::drawWithText(ScreenModel *activeScreen, std::string text) {
     clearRender(); // Clear the renderer
     drawBGSrfc(activeScreen);
     drawMainSrfc(activeScreen);
@@ -60,7 +60,7 @@ void GameView::drawWithFPS(ScreenModel* activeScreen, std::string fpsText) {
     if (genevaFont == NULL) {
         fprintf(stderr, "TTF_OpenFont failed! SDL_Error: %s\n", SDL_GetError());
     }
-    SDL_Surface* textSrfc = TTF_RenderText_Blended(genevaFont, fpsText.c_str(), fpsText.size(), fontColor);
+    SDL_Surface* textSrfc = TTF_RenderText_Blended(genevaFont, text.c_str(), text.size(), fontColor);
     if (textSrfc == NULL) {
         fprintf(stderr, "TTF_RenderText_Solid failed! SDL_Error: %s\n", SDL_GetError());
     }

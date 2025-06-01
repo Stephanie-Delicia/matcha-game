@@ -1,6 +1,14 @@
+/*
+ A base class that represents the game model, carrier of all game data.
+ This class contains:
+ - Width and height for display window.
+ - Game name
+ - The main sprite that the player controls.
+ - Data objects for obtaining sprite sheets or game screens.
+ - The controller contains a model and updates model parameters.
+ */
 #pragma once
 #include <map>
-#include <queue>
 #include <string>
 #include <iostream>
 #include <SDL3/SDL.h>
@@ -10,15 +18,6 @@
 #include "NameSpriteMap.hpp"
 #include "ScreenNavigator.hpp"
 #include "NameStateSheetMap.hpp"
-/*
- A base class that represents the game model, carrier of all game data.
- This class contains:
- - Width and height for display window.
- - Game name
- - The main sprite that the player controls.
- - Data for obtaining sprite sheets and screens.
- - The controller contains a model and updates model parameters.
- */
 
 class GameModel {
 public:
@@ -47,17 +46,17 @@ public:
     void setNameToSpriteMap(NameSpriteMap* map);
     
     // for the controller to use
-    void update();                            // calls on an transformation updates for the active screen
-    void handleInput(const SDL_Event &event); // calls on state updates for the active screen
+    void update();                                             // calls on an transformation updates for the active screen
+    void handleInput(const SDL_Event &event);                  // calls on state updates for the active screen
     void delayFrameTimes(float gameDelay, float timeElapsed);  // calls on active screen to delay sprite frame times accordingly
     
-private:
+ protected: // derived classes have access to these fields/methods
     // params
     Sprite*            mPlayer;           // main sprite to control on screen
     std::string        gameName;          // game name
     ScreenNavigator*   screenNav;         // all screens. can use to see which screen is active.
     float              screenWidth;       // window's width
     float              screenHeight;      // window's height
-    NameSpriteMap*     nameSpriteMap;
+    NameSpriteMap*     nameSpriteMap;     // mapping to sprite given NAME
     NameStateSheetMap* nameStateSheetMap; // mapping to Spritesheets given NAME and STATE
 };

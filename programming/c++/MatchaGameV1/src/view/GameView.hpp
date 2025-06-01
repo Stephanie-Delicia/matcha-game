@@ -19,7 +19,7 @@ public:
     void presentRender();
     void drawSprite(Sprite* sprite);
     void draw(ScreenModel* activeScreen);
-    void drawWithFPS(ScreenModel* activeScreen, std::string fpsText);
+    void drawWithText(ScreenModel* activeScreen, std::string text);
     void drawBGSrfc(ScreenModel* activeScreen);
     void drawMainSrfc(ScreenModel* activeScreen);
     

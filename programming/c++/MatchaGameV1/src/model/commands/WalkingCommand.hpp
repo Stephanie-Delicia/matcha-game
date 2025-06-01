@@ -1,6 +1,4 @@
 #pragma once
-#include <map>
-#include <SDL3/SDL.h>
 #include "StateCommand.hpp"
 #include "Sprite.hpp"
 
@@ -11,7 +9,5 @@
 class WalkingCommand : public StateCommand {
     
 public:
-//    WalkingCommand();
-//    ~WalkingCommand();
     void update(Sprite* sprite) override;
 };

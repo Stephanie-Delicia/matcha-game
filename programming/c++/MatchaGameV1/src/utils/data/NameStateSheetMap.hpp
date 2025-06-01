@@ -31,12 +31,15 @@ public:
     // constructor/destructor
     NameStateSheetMap() {
         nameStrMap = {
-            {"Winnie", WINNIE},
-            {"Pleasant_Sky", PLEASANT_SKY}
+            {"winnie", WINNIE},
+            {"pleasant_sky", PLEASANT_SKY},
+            {"test_box", TEST_BOX}
         };
         stateStrMap = {
-            {"Walking", WALKING},
-            {"Idle", IDLE}};
+            {"walking", WALKING},
+            {"idle", IDLE},
+            {"translate", TRANSLATE}
+        };
     };
     
     // utils

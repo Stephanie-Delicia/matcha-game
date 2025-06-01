@@ -8,7 +8,7 @@
 #include "Posn.hpp"
 #include "SpriteStruct.hpp"
 #include "SpriteSheet.hpp"
-// #include "CharacterState.hpp" <- don't have a ref. to the header
+// #include "SpriteState.hpp" <- don't have a ref. to the header if there are circular references
 #include "NameStateSheetMap.hpp"
 
 // use a forward declaration instead
@@ -44,10 +44,12 @@ public:
     Posn getPosn();
     STATE getState();
     float getFrameSpeed();
+    SpriteStruct getData(); // get Sprite data in the form of a struct
     float getCurrFrameTime();
     DIRECTION getStateDir();
     SpriteSheet* getSheet(STATE s);
     NameStateSheetMap* getSheetMap();
+    std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest(); // get source and destination rectangles for blitzing
     
     // setters
     void setState(STATE newState);
@@ -64,19 +66,15 @@ public:
     void draw(SDL_Surface* windowSrfc);       // draws sprite on the given srfc
     void updateSheet(STATE state, int delta); // update sheet
     void handleInput(SDL_Event const &event); // update state of sprite given events
-    
-    SpriteStruct getData();                   // get Sprite data in the form of a struct
-    // get source and destination rectangles for blitzing
-    std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest();
 
 private:
-    NAME name;                                // unique sprite name
-    Posn posn;                                // (x,y). defaults to (0,0)
-    STATE state = NONE;                       // whatever state sprite is in
-    float frameSpeed = 1.20;                  // rate of change in sprite posn
-    DIRECTION stateDir = LEFT;                // direction that sprite faces
-    NameStateSheetMap* sheetMap;              // map for accessing sheets
-    float currFrameTime = -1.0;               // time for the current frame to continue to be drawn, default to negative to indicate you're stuck on the current frame
-    SpriteState* stateHandler = nullptr;
+    NAME name;                           // unique sprite name
+    Posn posn;                           // (x,y). defaults to (0,0)
+    STATE state = NONE;                  // whatever state sprite is in
+    float frameSpeed = 1.20;             // rate of change in sprite posn
+    DIRECTION stateDir = LEFT;           // direction that sprite faces
+    NameStateSheetMap* sheetMap;         // map for accessing sheets
+    float currFrameTime = -1.0;          // time for the current frame to continue be drawn, negative when you want to be stuck on the current frame
+    SpriteState* stateHandler = nullptr; // sprite delegates to the state handler for updates, drawing, and handling events
 };
 

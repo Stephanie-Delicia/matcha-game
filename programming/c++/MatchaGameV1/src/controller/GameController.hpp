@@ -2,6 +2,7 @@
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
 #pragma once
+#include <string>
 #include <SDL3/SDL.h>
 #include "Timer.hpp"
 #include "GameModel.hpp"
@@ -10,6 +11,11 @@
 class GameController {
 public:
     // constructor
+    GameController() {
+        model = nullptr;
+        view = nullptr;
+        exitGame = false;
+    };
     GameController(GameModel* m, GameView* v) {
         model = m;
         view = v;
@@ -18,13 +24,14 @@ public:
                            model->getHeight());
         exitGame = false;
     };
-    
+    // getter
+    virtual GameModel* getModel() { return model; };
     // start
-    void startGame();
+    virtual void startGame(); // to be overwritten by more complex games
     // setter
     void setFPS(int fps) { fpsGoal = fps; };
     
-private:
+protected:
     bool exitGame;
     GameView* view;
     GameModel* model;
@@ -33,6 +40,7 @@ private:
     void draw();
     void update();
     void drawWithFPS();
+    void drawWithText(std::string text);
     void gameDelay(float timeElapsed);
     void handleInput(SDL_Event const &event);
     

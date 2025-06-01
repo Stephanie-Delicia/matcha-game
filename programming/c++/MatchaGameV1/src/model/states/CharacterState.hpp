@@ -1,17 +1,12 @@
+/*
+ A concrete class that handles the states of a character sprite (one that can be moved with keyboard arrows).
+ */
 #pragma once
-#include <map>
-#include <tuple>
 #include <SDL3/SDL.h>
 #include "Sprite.hpp"
 #include "SpriteState.hpp"
-#include "SpriteStruct.hpp"
 #include "WalkingCommand.hpp"
 #include "IdleCommand.hpp"
-#include "STATE.h"
-
-/*
- An abstract class that handles the sprite states.
- */
 
 class CharacterState : public SpriteState {
 public:

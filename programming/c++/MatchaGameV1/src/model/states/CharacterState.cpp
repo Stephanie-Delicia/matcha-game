@@ -10,7 +10,7 @@
 #include "sdl_rect_utils.h"
 /*
  A class representing the command for handling the walking state for a sprite.
- TODO: rather than by input.type, use the key states for switch statements instead.
+ Rather than by input.type, use the key states for switch statements instead.
  Reason being that even if I hold one key down, if I WAS holding multiple keys down, but ONE OF THEM is lifted,
  this will automatically return a KEY_UP event. Checking the key array is more accurate and will correctly show which
  keys are still pressed down.
@@ -76,6 +76,9 @@ void CharacterState::update(Sprite* sprite) {
         case DRINKING: {
             break;
         }
+        case TRANSLATE: {
+            break;
+        }
         case NONE: {
             break;
         }
@@ -124,9 +127,4 @@ void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
  // std::cout << "handleInput call. [CharacterState]" <<  "\n";
  // std::cout << "input type for handleInput: " << input.type << "\n";
  // std::cout << "keys[SDL_SCANCODE_LEFT]: " << keys[SDL_SCANCODE_LEFT] << "\n";
- 
- std::cout << "Is the key down? " << (input.type == SDL_EVENT_KEY_DOWN) << "\n";
- 
- std::cout << "What keys are pressed per handle loop?\n" << "left: " << isLeftPressed << ", right: " << isRightPressed << ", up: " << isUpPressed << ", down: " << isDownPressed << "\n";
- std::cout << "What state are we in before handling? " << sprite->getState() << "\n";
  */

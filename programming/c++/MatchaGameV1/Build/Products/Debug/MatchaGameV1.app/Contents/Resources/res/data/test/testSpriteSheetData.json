@@ -1,8 +1,8 @@
 {
-    "Winnie":
+    "winnie":
     [
         {
-            "State": "Walking",
+            "State": "walking",
             "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/winnie_walk_left.png",
             "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/winnie_walk_right.png",
             "TotalFrames": 8,
@@ -10,7 +10,7 @@
             "Height": 70.00
         },
         {
-            "State": "Idle",
+            "State": "idle",
             "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_left.png",
             "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/idle_right.png",
             "TotalFrames": 1,
@@ -19,15 +19,26 @@
             
         }
     ],
-    "Pleasant_Sky":
+    "pleasant_sky":
     [
         {
-            "State": "Idle",
+            "State": "idle",
             "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/pleasant_sky.png",
             "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/pleasant_sky.png",
             "TotalFrames": 1,
             "Width": 640.00,
             "Height": 360.00
+        }
+    ],
+    "test_box":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/test_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/test_box.png",
+            "TotalFrames": 1,
+            "Width": 20.00,
+            "Height": 20.00
         }
     ]
 }

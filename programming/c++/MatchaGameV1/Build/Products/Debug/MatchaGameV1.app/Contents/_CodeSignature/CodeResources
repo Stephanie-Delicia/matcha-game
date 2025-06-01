@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/res/data/test/nameSpriteData.json</key>
 		<data>
-		51PnVU4v+FmoMAxb34tSFu3uCO4=
+		TtTetur+2Rg7YqfLX9MrwedjQ9A=
 		</data>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<data>
@@ -22,11 +22,15 @@
 		</data>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<data>
-		9UhUL/houkMGAVzy2r1OirP6CIA=
+		rVv2Oiq9jYxzH5Dson31n8O9/OU=
 		</data>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>
 		<data>
 		ARlcrLMiyTOj8Q7829Lf1wwATYs=
+		</data>
+		<key>Resources/res/textures/background/test_box.png</key>
+		<data>
+		CwkaiCjRC7tykP02PFIQKJnN7OM=
 		</data>
 		<key>Resources/res/textures/chars/idle_left.png</key>
 		<data>
@@ -76,7 +80,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			47c4mfahjXhpGwRpm4Kjh8vn1Exp1EljKfiXrz51N5A=
+			kiaoHqnAglv59wsXrAOPMrueq1vlrCpexUdRsBppYIs=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
@@ -97,7 +101,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RE0gvN49mrxPrvPZuwQOJycW0V4gzPPGMX2fVaY2zws=
+			usJpTtU+hF4J9fSNk1YjeGZxUW8iIOQGNi8OgKstaX4=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>
@@ -105,6 +109,13 @@
 			<key>hash2</key>
 			<data>
 			7BGSqc9NQxBnKdrQ9eYUaQGVSyf12+66dZlySXyyB6w=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/test_box.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			csB7jIhmhYH+ppG4fCds5Rv3nXi+8TSBAtnqz2cV3VQ=
 			</data>
 		</dict>
 		<key>Resources/res/textures/chars/idle_left.png</key>

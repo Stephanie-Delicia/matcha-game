@@ -47,6 +47,7 @@ private:
     std::map<NAME, Sprite*> nameSpriteMap;
     std::map<std::string, NAME> strToNameMap = {
         {"winnie", WINNIE},
-        {"pleasant_sky", PLEASANT_SKY}
+        {"pleasant_sky", PLEASANT_SKY},
+        {"test_box", TEST_BOX}
     };
 };

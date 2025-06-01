@@ -52,20 +52,28 @@ void GameController::startGame() {
 }
 
 void GameController::update() {
-    model->update();
+    getModel()->update();
 }
 
 void GameController::handleInput(SDL_Event const &event) {
-    model->handleInput(event);
+    
+    std::cout << "model ptr: " << getModel() << " [GameController]\n";
+    std::cout << "model's nav ptr: " << getModel()->getNavigator() << " [GameController]\n";
+    getModel()->handleInput(event);
 }
 
 void GameController::draw() {
     // model's active screen contains the background to draw first and then other sprites on top
-    view->draw(model->getActiveScreen());
+    view->draw(getModel()->getActiveScreen());
+}
+
+void GameController::drawWithText(std::string text) {
+    // model's active screen contains the background to draw first and then other sprites on top
+     view->drawWithText(getModel()->getActiveScreen(), text);
 }
 
 void GameController::drawWithFPS() {
-    view->drawWithFPS(model->getActiveScreen(), fpsText);
+    view->drawWithText(getModel()->getActiveScreen(), fpsText);
 }
 
 void GameController::gameDelay(float timeElapsed) {
@@ -74,7 +82,7 @@ void GameController::gameDelay(float timeElapsed) {
     {
         float delay = (1000 / fpsGoal) - timeElapsed;
         SDL_Delay(delay);
-        model->delayFrameTimes(delay, timeElapsed); // for active sprites
+        getModel()->delayFrameTimes(delay, timeElapsed); // for active sprites
     }
 }
 
