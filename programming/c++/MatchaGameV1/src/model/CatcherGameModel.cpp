@@ -35,12 +35,9 @@ void CatcherGameModel::generateBox() {
 
 void CatcherGameModel::removeBox(Sprite* box) {
     auto find_iterator = std::find(boxes.begin(), boxes.end(), box);
-    std::cout << "box to remove: " << box << " [CatcherGameModel, removeBox()]\n";
-    std::cout << "boxes size before removal: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
     if (find_iterator != boxes.end()) {
         boxes.erase(find_iterator);
     }
-    std::cout << "boxes size after: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
 }
 
 void CatcherGameModel::destroyBoxes() {
@@ -53,22 +50,13 @@ void CatcherGameModel::destroyBoxes() {
     float mWidth = mSheet->getWidth() / mSheet->getTotalFr();
     float mHeight = mSheet->getHeight();
     
-    // recur thru each box - if the box
-    std::cout << "Boxes before recurring: ";
-    for (Sprite* box : boxes) {
-        std::cout << box << ", "; // You might need to add space or delimiter if needed
-    }
-    std::cout << "\n";
-    // have a list of boxes to delete instead.
-    // then, recur and delete
+    // have a list of boxes to delete.
     std::deque<Sprite*> boxesToDelete;
+    
     for (Sprite* sprite : boxes) {
         Posn bPosn = sprite->getPosn();
         STATE bState = sprite->getState();
-        std::cout << "sprite ptr: " << sprite << "[CatcherGameModel, destroyBoxes()]\n";
-//        std::cout << "Is sprite ptr null?!: " << (sprite == nullptr) << "\n";
-        std::cout << "box state: " << bState << "\n";
-        std::cout << "box name: " << sprite->getName() << "\n";
+
         SpriteSheet* bSheet = sprite->getSheet(bState);
         float bWidth = bSheet->getWidth();
         float bHeight = bSheet->getHeight();
@@ -93,21 +81,24 @@ void CatcherGameModel::destroyBoxes() {
         }
     }
     
-    // delete here
+    // delete boxes
     for (Sprite* box : boxesToDelete) {
+        // remove from the boxes list, active screen's active deque and update deque
         removeBox(box);
-        // remove from active screen's active deque and update deque
         getActiveScreen()->removeMain(box);
         getActiveScreen()->removeUpdate(box);
         // THEN delete the sprite from existence
         delete box;    // desallocate memory
         box = nullptr; // to avoid dangling pointer
-        std::cout << "Boxes after deletion: ";
-        for (Sprite* b : boxes) {
-            std::cout << b << ", "; // You might need to add space or delimiter if needed
-        }
-        std::cout << "\n";
     }
 }
 
-
+/*
+ DEBUGGING:
+ std::cout << "box to remove: " << box << " [CatcherGameModel, removeBox()]\n";
+ std::cout << "boxes size before removal: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
+ std::cout << "boxes size after: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
+ //        std::cout << "sprite ptr: " << sprite << "[CatcherGameModel, destroyBoxes()]\n";
+ //        std::cout << "box state: " << bState << "\n";
+ //        std::cout << "box name: " << sprite->getName() << "\n";
+ */

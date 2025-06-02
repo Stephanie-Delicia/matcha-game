@@ -2,6 +2,7 @@
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
 #include <cmath>
+#include <vector>
 #include <string>
 #include <iostream>
 #include <SDL3/SDL.h>
@@ -56,9 +57,6 @@ void GameController::update() {
 }
 
 void GameController::handleInput(SDL_Event const &event) {
-    
-    std::cout << "model ptr: " << getModel() << " [GameController]\n";
-    std::cout << "model's nav ptr: " << getModel()->getNavigator() << " [GameController]\n";
     getModel()->handleInput(event);
 }
 
@@ -67,13 +65,18 @@ void GameController::draw() {
     view->draw(getModel()->getActiveScreen());
 }
 
-void GameController::drawWithText(std::string text) {
+void GameController::drawWithText(std::string text, Posn posn) {
     // model's active screen contains the background to draw first and then other sprites on top
-     view->drawWithText(getModel()->getActiveScreen(), text);
+     view->drawWithText(getModel()->getActiveScreen(), text, posn);
+}
+
+void GameController::drawWithTexts(std::vector<std::string> textLs, std::vector<Posn> posnLs) {
+    // model's active screen contains the background to draw first and then other sprites on top
+     view->drawWithTexts(getModel()->getActiveScreen(), textLs, posnLs);
 }
 
 void GameController::drawWithFPS() {
-    view->drawWithText(getModel()->getActiveScreen(), fpsText);
+    view->drawWithText(getModel()->getActiveScreen(), fpsText, Posn(100.00, 15.00));
 }
 
 void GameController::gameDelay(float timeElapsed) {
@@ -84,6 +87,10 @@ void GameController::gameDelay(float timeElapsed) {
         SDL_Delay(delay);
         getModel()->delayFrameTimes(delay, timeElapsed); // for active sprites
     }
+}
+
+void GameController::delay(float time) {
+    SDL_Delay(time);
 }
 
 float GameController::measureFPS() {

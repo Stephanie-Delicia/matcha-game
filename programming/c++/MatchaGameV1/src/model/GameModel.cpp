@@ -40,7 +40,6 @@ ScreenModel* GameModel::getActiveScreen() {
 }
 
 ScreenNavigator* GameModel::getNavigator() {
-    std::cout << "screenNav ptr: " << screenNav << " [GameModel, getNavigator()]\n";
     return screenNav;
 }
 
@@ -54,9 +53,6 @@ void GameModel::update() {
 
 void GameModel::handleInput(const SDL_Event &event) {
     ScreenNavigator* nav = getNavigator();
-    std::cout << "screenNav ptr: " << nav << " [GameModel, handleInput()]\n";
-    std::cout << (0 == nav) << " [GameModel]\n";
-    std::cout << nav->getMainScreen()->screenType() << " [GameModel]\n";
     nav->getMainScreen()->handleInput(event);
 }
 
@@ -75,11 +71,7 @@ void GameModel::setMainPlayer(Sprite* sprite) {
 }
 
 void GameModel::setScreenNav(ScreenNavigator* nav) {
-    std::cout << (nav) << " [GameModel, setScreenNav()]\n";
-    std::cout << "is null? (0 == nav) " << (0 == nav) << " [GameModel, setScreenNav()]\n";
     screenNav = nav;
-    std::cout << "is null? (0 == screenNav) " << (0 == screenNav) << " [GameModel, setScreenNav()]\n";
-    std::cout << "screenNav ptr: " << screenNav << " [GameModel, setScreenNav()]\n";
 }
 
 void GameModel::setActiveScreen(ScreenModel* screen) {

@@ -2,6 +2,7 @@
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
 #pragma once
+#include "Posn.hpp"
 #include <string>
 #include <SDL3/SDL.h>
 #include "Timer.hpp"
@@ -40,8 +41,10 @@ protected:
     void draw();
     void update();
     void drawWithFPS();
-    void drawWithText(std::string text);
-    void gameDelay(float timeElapsed);
+    void drawWithText(std::string text, Posn posn);
+    void drawWithTexts(std::vector<std::string> textLs, std::vector<Posn> posnLs); // for multiple texts
+    void gameDelay(float timeElapsed); // handles the main game delay as well as sprite delays
+    void delay(float time); // handles only the main game delay
     void handleInput(SDL_Event const &event);
     
     // To measure fps

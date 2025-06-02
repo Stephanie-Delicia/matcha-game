@@ -2,6 +2,8 @@
     A base class for a game view.
  */
 #pragma once
+#include <vector>
+#include "Posn.hpp"
 #include <string>
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
@@ -19,7 +21,8 @@ public:
     void presentRender();
     void drawSprite(Sprite* sprite);
     void draw(ScreenModel* activeScreen);
-    void drawWithText(ScreenModel* activeScreen, std::string text);
+    void drawWithText(ScreenModel* activeScreen, std::string text, Posn posn); // for a single text
+    void drawWithTexts(ScreenModel* activeScreen, std::vector<std::string> textLs, std::vector<Posn> posnLs); // for multiple texts
     void drawBGSrfc(ScreenModel* activeScreen);
     void drawMainSrfc(ScreenModel* activeScreen);
     
@@ -46,6 +49,5 @@ private:
     // for text
     void setFont();
     SDL_Color fontColor = {0, 0, 0, 255};
-    SDL_FRect destFPSRect = {5.0, 5.0, 100, 15};
     TTF_Font* genevaFont;
 };
