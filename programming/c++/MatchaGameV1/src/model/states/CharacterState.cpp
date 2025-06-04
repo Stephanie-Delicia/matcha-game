@@ -79,6 +79,9 @@ void CharacterState::update(Sprite* sprite) {
         case TRANSLATE: {
             break;
         }
+        case PRESSED: {
+            break;
+        }
         case NONE: {
             break;
         }

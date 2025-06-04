@@ -36,6 +36,8 @@
 		C2492CA52DCA7BBA0020F8E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2492CA42DCA7BBA0020F8E6 /* README.md */; };
 		C25E93C02DEB9F7800930EFB /* CatcherController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C25E93BE2DEB9F7800930EFB /* CatcherController.cpp */; };
 		C25E93C12DEB9F7800930EFB /* CatcherController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C25E93BE2DEB9F7800930EFB /* CatcherController.cpp */; };
+		C25E93C42DEF7D1900930EFB /* NavButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */; };
+		C25E93C52DEF7D1900930EFB /* NavButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */; };
 		C26E70F62D95CB0B00DE5378 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E70F42D95CB0A00DE5378 /* Sprite.cpp */; };
 		C26E70F92D95CB1D00DE5378 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */; };
 		C26E71022D95CDA900DE5378 /* Posn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E71002D95CDA900DE5378 /* Posn.cpp */; };
@@ -143,6 +145,8 @@
 		C2492CA42DCA7BBA0020F8E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C25E93BE2DEB9F7800930EFB /* CatcherController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CatcherController.cpp; sourceTree = "<group>"; };
 		C25E93BF2DEB9F7800930EFB /* CatcherController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CatcherController.hpp; sourceTree = "<group>"; };
+		C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NavButtonState.cpp; sourceTree = "<group>"; };
+		C25E93C32DEF7D1900930EFB /* NavButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NavButtonState.hpp; sourceTree = "<group>"; };
 		C26E70F42D95CB0A00DE5378 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		C26E70F52D95CB0A00DE5378 /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
@@ -424,10 +428,12 @@
 			isa = PBXGroup;
 			children = (
 				C2F78EB32DC003FB00B7B8F9 /* SpriteState.hpp */,
-				C2F78EB62DC0059F00B7B8F9 /* CharacterState.cpp */,
 				C2F78EB72DC0059F00B7B8F9 /* CharacterState.hpp */,
-				C20AD7502DEA39DA0007622F /* BoxToCatchState.cpp */,
+				C2F78EB62DC0059F00B7B8F9 /* CharacterState.cpp */,
 				C20AD7512DEA39DA0007622F /* BoxToCatchState.hpp */,
+				C20AD7502DEA39DA0007622F /* BoxToCatchState.cpp */,
+				C25E93C32DEF7D1900930EFB /* NavButtonState.hpp */,
+				C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */,
 			);
 			path = states;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				C2492C8D2DC7CC460020F8E6 /* GameModel.cpp in Sources */,
 				C2492C952DC927150020F8E6 /* SpriteStruct.cpp in Sources */,
 				C2492C902DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
+				C25E93C42DEF7D1900930EFB /* NavButtonState.cpp in Sources */,
 				C2F78ED82DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2F78EAF2DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,
 				C2F78EBD2DC006BF00B7B8F9 /* IdleCommand.cpp in Sources */,
@@ -637,6 +644,7 @@
 				C2F78E992DBBEC7A00B7B8F9 /* SpriteSheet.cpp in Sources */,
 				C2F78E952DBBEC6500B7B8F9 /* SpriteSheetTest.cpp in Sources */,
 				C2EC16172DC5444B00BDC470 /* GameControllerTest.cpp in Sources */,
+				C25E93C52DEF7D1900930EFB /* NavButtonState.cpp in Sources */,
 				C2F78EBE2DC006C000B7B8F9 /* IdleCommand.cpp in Sources */,
 				C2F78E972DBBEC7200B7B8F9 /* catchTest.cpp in Sources */,
 				C2F78E982DBBEC7800B7B8F9 /* Sprite.cpp in Sources */,

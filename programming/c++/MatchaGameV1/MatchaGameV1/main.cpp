@@ -13,15 +13,13 @@
 #include "CatcherGameModel.hpp"
 #include "CatcherController.hpp"
 /*
-    From testing, I ensured that the model should have a navigator that
-    has an active gameplay screen. This is what the controller should pass to
-    the view to draw.
+    In this latest update, we have a catcher game. The player must move the sprite around using
+    key arrows.
  
-    Any type of input handling is handled by the player sprite, as well as updates.
-    The controller gets to choose what gets handled/updated.
+    Additionally, I plan to add a start screen (not finalized design-wise) in which the player can click the
+    "START" button to navigate to the gameplay screen.
  
-    In THIS game, the controller passes everything to a single player sprite which
-    only interprets keyboard presses. The background should never change.
+    You can't go back after this lol
  */
 
 int main(int argc, char* argv[]) {
@@ -43,16 +41,12 @@ int main(int argc, char* argv[]) {
     // TODO: nav should through an error if you attemot loadJSON without setting SpriteMap.
     screenNav.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testScreenNavData.json");
     std::cout << "Loaded ScreenNavigator. [main]\n";
-    std::cout << (nullptr == &screenNav) << " [main]\n";
-    std::cout << "screenNav ptr: " << &screenNav << " [main]\n";
     
     // ensure view, model, and controller are instantiated with everything they need.
     GameView view;
-    CatcherGameModel model = CatcherGameModel(640, 360, "Move the sprite with keyboard arrow keys.");
-    std::cout << "model ptr: " << &model << " [main]\n";
+    CatcherGameModel model = CatcherGameModel(640, 360, "Catch the matcha!");
     // load model with data
     model.setScreenNav(&screenNav);
-    std::cout << "screenNav ptr after setting model: " << model.getNavigator() << " [main]\n";
     model.setNameToSheetMap(&sheetMap);
     model.setNameToSpriteMap(&spriteMap);
     

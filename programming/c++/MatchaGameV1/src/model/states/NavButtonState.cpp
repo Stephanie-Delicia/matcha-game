@@ -1,8 +1,6 @@
 /*
- A class representing how to handle states for an object/sprite that is to be catched by the
- main sprite or player. If the object overlaps with the player, it should disappear and
- some sort of score tracker should be updated.
  */
+#include <cmath>
 #include <iostream>
 #include <SDL3/SDL.h>
 #include "STATE.h"
@@ -10,14 +8,29 @@
 #include "SpriteSheet.hpp"
 #include "DIRECTION.h"
 #include "SpriteStruct.hpp"
-#include "BoxToCatchState.hpp"
+#include "NavButtonState.hpp"
 #include "sdl_rect_utils.h"
 
-void BoxToCatchState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    // the box to catch should not respond to input
+void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
+    const bool *keys = SDL_GetKeyboardState(nullptr);
+    if (input.type == SDL_EVENT_MOUSE_BUTTON_DOWN and sprite->getState() != PRESSED) { // mouse down click
+        // get sprite rectangle
+        Posn posn = Posn(input.button.x, input.button.y);
+        Posn spritePosn = sprite->getPosn();
+        SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
+        float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
+        SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth, spriteSheet->getHeight()};
+        // if the click posn is within the sprite rect, set the state
+        if (isPosnOverRect(posn, spriteRect)) {
+            sprite->setState(STATE::PRESSED);
+        }
+    } else // NO MOUSE CLICK OR RESET FOR THE LONG PRESS CASE
+    {
+        sprite->setState(STATE::IDLE);
+    }
 }
 
-void BoxToCatchState::update(Sprite* sprite) {
+void NavButtonState::update(Sprite* sprite) {
     // delegates to command
     STATE currState = sprite->getState();
     switch (currState) {
@@ -37,10 +50,17 @@ void BoxToCatchState::update(Sprite* sprite) {
             break;
         }
         case TRANSLATE: {
-            transC.update(sprite);
             break;
         }
         case PRESSED: {
+            // NAVIGATE BISH
+            ScreenModel* currActiveScreen = nav->getMainScreen();
+            if (currActiveScreen != screenToNavTo) { // if we are not yet on the screen to go to
+                nav->setMainScreen(screenToNavTo);
+            } else {
+                std::cout << "We are already at the screen to navigate to. [NavButtonState]\n";
+            }
+            sprite->setState(STATE::IDLE);
             break;
         }
         case NONE: {
@@ -49,7 +69,7 @@ void BoxToCatchState::update(Sprite* sprite) {
     }
 }
 
-void BoxToCatchState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
+void NavButtonState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
     bool success = 0;
     // acquire sprite data
     std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
@@ -75,17 +95,9 @@ void BoxToCatchState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
             break;
         }
         case UP: {
-            success = SDL_BlitSurface(sheet->getSrfcR(), &frameRect, windowSrfc, &destRect);
-            if (success < 1) {
-                fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
-            }
             break;
         }
         case DOWN: {
-            success = SDL_BlitSurface(sheet->getSrfcR(), &frameRect, windowSrfc, &destRect);
-            if (success < 1) {
-                fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
-            }
             break;
         }
     }

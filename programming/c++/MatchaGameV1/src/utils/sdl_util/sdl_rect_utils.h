@@ -1,3 +1,8 @@
 #pragma once
+#include "Posn.hpp"
 
-SDL_Rect roundRect(SDL_FRect fRect);
+SDL_Rect roundRect(SDL_FRect fRect); // round the floats in a SDL_FRect to ints
+
+bool isThereRectOverlap(SDL_FRect rect1, SDL_FRect rect2); // do these two rectangles overlap?
+
+bool isPosnOverRect(Posn posn, SDL_FRect rect); // is this point on the rectangle?

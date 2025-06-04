@@ -9,5 +9,6 @@ enum STATE {
     RUNNING,
     DRINKING,
     TRANSLATE, // (sliding in the x-y plane, like the geometry term)
+    PRESSED,   // texture was clicked on
     NONE // sprite is not on window
 };
