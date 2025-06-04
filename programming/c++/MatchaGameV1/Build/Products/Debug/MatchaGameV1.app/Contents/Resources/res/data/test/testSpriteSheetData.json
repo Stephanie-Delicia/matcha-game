@@ -40,5 +40,35 @@
             "Width": 20.00,
             "Height": 20.00
         }
+    ],
+    "start_screen_test":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_screen_test.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_screen_test.png",
+            "TotalFrames": 1,
+            "Width": 640.00,
+            "Height": 360.00
+        }
+    ],
+    "start_button_test":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "TotalFrames": 1,
+            "Width": 107.00,
+            "Height": 28.00
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "TotalFrames": 1,
+            "Width": 107.00,
+            "Height": 28.00
+        }
     ]
 }

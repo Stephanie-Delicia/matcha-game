@@ -4,6 +4,7 @@
 #include "NameStateSheetMap.hpp"
 #include "NameSpriteMap.hpp"
 #include "CharacterState.hpp"
+#include "NavButtonState.hpp"
 #include "ScreenNavigator.hpp"
 #include "SpriteSheet.hpp"
 #include "Sprite.hpp"
@@ -19,7 +20,7 @@
     Additionally, I plan to add a start screen (not finalized design-wise) in which the player can click the
     "START" button to navigate to the gameplay screen.
  
-    You can't go back after this lol
+    You can't go back after this lol, just exit the window
  */
 
 int main(int argc, char* argv[]) {
@@ -39,7 +40,7 @@ int main(int argc, char* argv[]) {
     screenNav.setNameSpriteMap(&spriteMap);
     
     // TODO: nav should through an error if you attemot loadJSON without setting SpriteMap.
-    screenNav.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testScreenNavData.json");
+    screenNav.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testScreenNavData2.json");
     std::cout << "Loaded ScreenNavigator. [main]\n";
     
     // ensure view, model, and controller are instantiated with everything they need.
@@ -50,20 +51,44 @@ int main(int argc, char* argv[]) {
     model.setNameToSheetMap(&sheetMap);
     model.setNameToSpriteMap(&spriteMap);
     
-    // set main player and background
-    CharacterState stateHandler = CharacterState();
+    // set main player, pleasant sky, test start screen, and test start screen button
+    NavButtonState navButtonHandler = NavButtonState(); // set the param
+    navButtonHandler.setScreenNav(&screenNav);
+    navButtonHandler.setScreenToNavTo(screenNav.getScreen(GAMEPLAY_SCREEN));
+    
+    CharacterState charStateHandler = CharacterState();
+    
     Sprite* player = spriteMap.getSprite(WINNIE);
-    screenNav.getMainScreen()->addToUpdate(player);
+    Sprite* start_button = spriteMap.getSprite(START_BUTTON_TEST);
+    
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(player);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(start_button);
+    
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
-    player->setStateHandler(&stateHandler);
+    Sprite* start_bg = spriteMap.getSprite(START_SCREEN_TEST);
+    
+    
+    player->setStateHandler(&charStateHandler);
     player->setState(IDLE);
     player->setPosn(0, 267.00);
+    
+    start_button->setStateHandler(&navButtonHandler);
+    start_button->setState(IDLE);
+    start_button->setPosn(225, 220.00);
+    
     model.setMainPlayer(player);
-    bg->setStateHandler(&stateHandler);
+    
+    bg->setStateHandler(&charStateHandler);
+    start_bg->setStateHandler(&charStateHandler);
     bg->setState(IDLE);
-    bg->setSheetMap(&sheetMap);
+    start_bg->setState(IDLE);
     bg->setPosn(0, 0);
+    start_bg->setPosn(0, 0);
+    
     player->setSheetMap(&sheetMap);
+    start_button->setSheetMap(&sheetMap);
+    bg->setSheetMap(&sheetMap);
+    start_bg->setSheetMap(&sheetMap);
     
     CatcherController controller = CatcherController(&model, &view);
     std::cout << "Instantiated MVC. (yay!) [main]\n";
@@ -72,61 +97,3 @@ int main(int argc, char* argv[]) {
     controller.startGame();
     std::cout << "Game closed. [main]\n";
 }
-
-/*
- FOR JUST MOVING THE MAIN PLAYER AROUND:
- 
- NameStateSheetMap sheetMap;
- sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testSpriteSheetData.json");
- std::cout << "Loaded NameStateSheetMap. [main]\n";
- 
- // Sprite map
- NameSpriteMap spriteMap;
- spriteMap.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/nameSpriteData.json");
- spriteMap.setSheetMapAll(&sheetMap);
- std::cout << "Loaded NameSpriteMap. [main]\n";
- 
- // Screen navigator
- ScreenNavigator screenNav = ScreenNavigator();
- screenNav.setNameSpriteMap(&spriteMap);
- 
- // TODO: nav should through an error if you attemot loadJSON without setting SpriteMap.
- screenNav.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testScreenNavData.json");
- std::cout << "Loaded ScreenNavigator. [main]\n";
- 
- // ensure view, model, and controller are instantiated with everything they need.
- GameView view;
- GameModel model = GameModel(640, 360, "Move the sprite with keyboard arrow keys.");
- 
- // load model with data
- model.setScreenNav(&screenNav);
- model.setNameToSheetMap(&sheetMap);
- model.setNameToSpriteMap(&spriteMap);
- 
- // set main player and background
- CharacterState stateHandler = CharacterState();
- Sprite* player = spriteMap.getSprite(WINNIE);
- screenNav.getMainScreen()->addToUpdate(player);
- Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
- player->setStateHandler(&stateHandler);
- player->setState(IDLE);
- player->setPosn(0, 267.00);
- model.setMainPlayer(player);
- bg->setStateHandler(&stateHandler);
- bg->setState(IDLE);
- bg->setSheetMap(&sheetMap);
- bg->setPosn(0, 0);
- player->setSheetMap(&sheetMap);
- 
- GameController controller = GameController(&model, &view);
- std::cout << "Instantiated MVC. (yay!) [main]\n";
- 
- // begin gameplay
- controller.startGame();
- std::cout << "Game closed. [main]\n";
- 
- 
- 
- 
- 
- */

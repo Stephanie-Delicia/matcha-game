@@ -104,6 +104,7 @@ SpriteStruct Sprite::getData() {
 }
 
 std::tuple<SDL_Rect, SDL_Rect> Sprite::getSrcAndDest() {
+    std::cout << "get sheet call. [Sprite]\n";
     SpriteSheet* sheet = getSheet(state);
     SDL_Rect frameRect = roundRect(sheet->getFrameRect());
     SDL_Rect destRect = {posn.getIntX(), posn.getIntY(), frameRect.w, frameRect.h};

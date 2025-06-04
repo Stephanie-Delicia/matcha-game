@@ -12,7 +12,6 @@
 #include "sdl_rect_utils.h"
 
 void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    const bool *keys = SDL_GetKeyboardState(nullptr);
     if (input.type == SDL_EVENT_MOUSE_BUTTON_DOWN and sprite->getState() != PRESSED) { // mouse down click
         // get sprite rectangle
         Posn posn = Posn(input.button.x, input.button.y);
@@ -54,9 +53,9 @@ void NavButtonState::update(Sprite* sprite) {
         }
         case PRESSED: {
             // NAVIGATE BISH
-            ScreenModel* currActiveScreen = nav->getMainScreen();
+            ScreenModel* currActiveScreen = screenNav->getMainScreen();
             if (currActiveScreen != screenToNavTo) { // if we are not yet on the screen to go to
-                nav->setMainScreen(screenToNavTo);
+                screenNav->setMainScreen(screenToNavTo);
             } else {
                 std::cout << "We are already at the screen to navigate to. [NavButtonState]\n";
             }
@@ -70,10 +69,17 @@ void NavButtonState::update(Sprite* sprite) {
 }
 
 void NavButtonState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
+    std::cout << "Draw call for sprite ptr:  " << sprite << ". [NavButtonState]\n";
+    std::cout << "sprite state:  " << sprite->getState() << ". [NavButtonState]\n";
+    std::cout << "sprite dir:  " << sprite->getStateDir() << ". [NavButtonState]\n";
     bool success = 0;
     // acquire sprite data
+    std::cout << "sprite rect call. [NavButtonState]\n";
+
     std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
+    std::cout << "sprite data call. [NavButtonState]\n";
     SpriteStruct spriteData = sprite->getData();
+    
     SpriteSheet* sheet = spriteData.sheet;
     SDL_Rect frameRect = std::get<0>(rects);
     SDL_Rect destRect = std::get<1>(rects);

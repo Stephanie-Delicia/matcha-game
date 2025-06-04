@@ -16,6 +16,6 @@ enum NAME {
     HOT_MATCHA_LATTE,
     TRADITIONAL_MATCHA,
     TEST_BOX,
-    START_SCREEN_DRAFT,
-    START_BTN_DRAFT // btn = button
+    START_SCREEN_TEST,
+    START_BUTTON_TEST // btn = button, 13
 };

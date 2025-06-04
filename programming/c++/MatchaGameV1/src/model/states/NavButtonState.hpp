@@ -19,11 +19,11 @@ public:
     void handleInput(Sprite* sprite, const SDL_Event &input);
 
     // this sprite won't undergo any sort of transformation, so no command needed to handle updates
-    void setScreenNav(ScreenNavigator* nav);
-    void setScreenToNavTo(ScreenModel* screen);
+    void setScreenNav(ScreenNavigator* nav) { screenNav = nav; } ;
+    void setScreenToNavTo(ScreenModel* screen) { screenToNavTo = screen; } ;
     
 protected:
     IdleCommand idleC = IdleCommand();
-    ScreenNavigator* nav;
+    ScreenNavigator* screenNav;
     ScreenModel* screenToNavTo;
 };

@@ -43,6 +43,15 @@ bool ScreenNavigator::containsScreen(ScreenModel* screen) {
     return screenMap.count(screen);
 }
 
+ScreenModel* ScreenNavigator::getScreen(SCREEN type) {
+    for (const auto& [key, value] : getScreens()) {
+        if (key->screenType() == type) {
+            return key;
+        }
+    }
+    return nullptr;
+}
+ 
 void ScreenNavigator::setMainScreen(ScreenModel* screen) {
     // make old main screen inactive and new screen active in map
     if (mScreen != nullptr) {

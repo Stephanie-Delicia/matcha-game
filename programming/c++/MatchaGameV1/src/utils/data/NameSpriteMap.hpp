@@ -48,6 +48,8 @@ private:
     std::map<std::string, NAME> strToNameMap = {
         {"winnie", WINNIE},
         {"pleasant_sky", PLEASANT_SKY},
-        {"test_box", TEST_BOX}
+        {"test_box", TEST_BOX},
+        {"start_button_test", START_BUTTON_TEST},
+        {"start_screen_test", START_SCREEN_TEST}
     };
 };

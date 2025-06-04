@@ -52,6 +52,8 @@ void NameStateSheetMap::readJSON(std::string filepath) {
                                                     (int)         data[name][sheet]["TotalFrames"],
                                                     (float)       data[name][sheet]["Width"],
                                                     (float)       data[name][sheet]["Height"]);
+            std::cout << "nameStrMap[name]: " << nameStrMap[name] << ". [Sprite]\n";
+            
             addSpriteSheet(nameStrMap[name],
                            stateStrMap[data[name][sheet]["State"]],
                            newSheet);
