@@ -5,6 +5,7 @@
 #include "CatcherController.hpp"
 
 void CatcherController::startGame() {
+    fpsGoal = 60;
     Posn scorePosn = Posn(10.00, 15.00);
     Posn fpsPosn = Posn(500.00, 15.00);
     bool introFinished = false;
@@ -21,7 +22,7 @@ void CatcherController::startGame() {
     // game step loop
     gStartTime = fpsTimer.getTicks();
     while (!exitGame) {
-        std::cout << "Start game loop. [controller]\n";
+        // std::cout << "Start game loop. [controller]\n";
         startTime = fpsTimer.getTicks();
         avgFPS = measureFPS();
         setFPSText(avgFPS);
@@ -56,7 +57,7 @@ void CatcherController::startGame() {
 //            if (introFinished and !finishedGame) {
 //                handleInput(event);
 //            }
-            std::cout << "Handle input loop. [controller]\n";
+           //  std::cout << "Handle input loop. [controller]\n";
             handleInput(event);
              
             switch( event.type ) {
@@ -67,9 +68,9 @@ void CatcherController::startGame() {
         }
 //        if (introFinished and !finishedGame) {
             // getModel()->destroyBoxes();
-            std::cout << "Update call. [controller]\n";
+            // std::cout << "Update call. [controller]\n";
             update();
-            std::cout << "Draw call. [controller]\n";
+            // std::cout << "Draw call. [controller]\n";
             drawWithTexts({"Score: " + std::to_string(getModel()->getScore()), fpsText}, {scorePosn, fpsPosn});
             // adjust fps
             endTime = fpsTimer.getTicks();

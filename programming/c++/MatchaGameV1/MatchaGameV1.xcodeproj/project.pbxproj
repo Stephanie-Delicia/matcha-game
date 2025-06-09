@@ -19,6 +19,10 @@
 		C20AD7532DEA39DA0007622F /* BoxToCatchState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20AD7502DEA39DA0007622F /* BoxToCatchState.cpp */; };
 		C20AD7562DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */; };
 		C20AD7572DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */; };
+		C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
+		C2446A4E2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
+		C2446A522DF75970009B960B /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A502DF75970009B960B /* SceneRequest.cpp */; };
+		C2446A532DF75970009B960B /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A502DF75970009B960B /* SceneRequest.cpp */; };
 		C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
 		C2492C882DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
 		C2492C8A2DC7CA610020F8E6 /* GameView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C892DC7CA610020F8E6 /* GameView.cpp */; };
@@ -131,6 +135,11 @@
 		C20AD7512DEA39DA0007622F /* BoxToCatchState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoxToCatchState.hpp; sourceTree = "<group>"; };
 		C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CatcherGameModel.cpp; sourceTree = "<group>"; };
 		C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CatcherGameModel.hpp; sourceTree = "<group>"; };
+		C2446A4B2DF53653009B960B /* SceneController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneController.cpp; sourceTree = "<group>"; };
+		C2446A4C2DF53653009B960B /* SceneController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneController.hpp; sourceTree = "<group>"; };
+		C2446A502DF75970009B960B /* SceneRequest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRequest.cpp; sourceTree = "<group>"; };
+		C2446A512DF75970009B960B /* SceneRequest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneRequest.hpp; sourceTree = "<group>"; };
+		C2446A542DF75997009B960B /* SCENE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCENE.h; sourceTree = "<group>"; };
 		C2492C862DC7C70B0020F8E6 /* GameController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
 		C2492C892DC7CA610020F8E6 /* GameView.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameView.cpp; sourceTree = "<group>"; };
 		C2492C8C2DC7CC460020F8E6 /* GameModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameModel.cpp; sourceTree = "<group>"; };
@@ -235,6 +244,15 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		C2446A4F2DF53663009B960B /* gamestyles */ = {
+			isa = PBXGroup;
+			children = (
+				C25E93BF2DEB9F7800930EFB /* CatcherController.hpp */,
+				C25E93BE2DEB9F7800930EFB /* CatcherController.cpp */,
+			);
+			path = gamestyles;
+			sourceTree = "<group>";
+		};
 		C2492C9D2DCA667A0020F8E6 /* sdl_util */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,8 +311,11 @@
 			children = (
 				C2F78ED42DC2CC3D00B7B8F9 /* GameController.hpp */,
 				C2492C862DC7C70B0020F8E6 /* GameController.cpp */,
-				C25E93BF2DEB9F7800930EFB /* CatcherController.hpp */,
-				C25E93BE2DEB9F7800930EFB /* CatcherController.cpp */,
+				C2446A4C2DF53653009B960B /* SceneController.hpp */,
+				C2446A4B2DF53653009B960B /* SceneController.cpp */,
+				C2446A512DF75970009B960B /* SceneRequest.hpp */,
+				C2446A502DF75970009B960B /* SceneRequest.cpp */,
+				C2446A4F2DF53663009B960B /* gamestyles */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -306,6 +327,7 @@
 				C26E70FC2D95CC2300DE5378 /* NAME.h */,
 				C26E70FE2D95CC6B00DE5378 /* DIRECTION.h */,
 				C2F78ED52DC2D02100B7B8F9 /* SCREEN.h */,
+				C2446A542DF75997009B960B /* SCENE.h */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -604,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2446A522DF75970009B960B /* SceneRequest.cpp in Sources */,
 				C2492CA22DCA74CB0020F8E6 /* NameSpriteMap.cpp in Sources */,
 				C26E71022D95CDA900DE5378 /* Posn.cpp in Sources */,
 				C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */,
@@ -622,6 +645,7 @@
 				C2F78EBD2DC006BF00B7B8F9 /* IdleCommand.cpp in Sources */,
 				C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,
 				C2080E942DCD35A2009F2411 /* Timer.cpp in Sources */,
+				C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */,
 				C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */,
 				C20AD7562DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
@@ -646,11 +670,13 @@
 				C2EC16172DC5444B00BDC470 /* GameControllerTest.cpp in Sources */,
 				C25E93C52DEF7D1900930EFB /* NavButtonState.cpp in Sources */,
 				C2F78EBE2DC006C000B7B8F9 /* IdleCommand.cpp in Sources */,
+				C2446A532DF75970009B960B /* SceneRequest.cpp in Sources */,
 				C2F78E972DBBEC7200B7B8F9 /* catchTest.cpp in Sources */,
 				C2F78E982DBBEC7800B7B8F9 /* Sprite.cpp in Sources */,
 				C2F78EB92DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C2492C8B2DC7CA610020F8E6 /* GameView.cpp in Sources */,
 				C25E93C12DEB9F7800930EFB /* CatcherController.cpp in Sources */,
+				C2446A4E2DF53653009B960B /* SceneController.cpp in Sources */,
 				C2EC16152DC5443900BDC470 /* GameViewTest.cpp in Sources */,
 				C2F78E932DBBEC5E00B7B8F9 /* SpriteTest.cpp in Sources */,
 				C2F78E962DBBEC6E00B7B8F9 /* main.cpp in Sources */,

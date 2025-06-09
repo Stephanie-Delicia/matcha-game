@@ -36,9 +36,9 @@ void GameView::drawSprite(Sprite *sprite) {
 }
 
 void GameView::drawMainSrfc(ScreenModel* activeScreen) {
-    std::cout << "drawMainSrfc. [GameView]\n";
+//    std::cout << "drawMainSrfc. [GameView]\n";
     SDL_Surface* mainSrfc = activeScreen->returnMSurface();
-    std::cout << "Created main surface. [GameView]\n";
+//    std::cout << "Created main surface. [GameView]\n";
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, mainSrfc);
     SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
     SDL_RenderTexture(renderer, text, NULL, &backgroundDest);
@@ -47,9 +47,7 @@ void GameView::drawMainSrfc(ScreenModel* activeScreen) {
 }
 
 void GameView::drawBGSrfc(ScreenModel* activeScreen) {
-    std::cout << "drawBGSrfc. [GameView]\n";
     SDL_Surface* bgSrfc = activeScreen->returnBGSurface();
-    std::cout << "Created background surface. [GameView]\n";
     SDL_Texture* text = SDL_CreateTextureFromSurface(renderer, bgSrfc);
     SDL_FRect backgroundDest = {0, 0, activeScreen->getWidth(), activeScreen->getHeight()};
     SDL_RenderTexture(renderer, text, NULL, &backgroundDest);

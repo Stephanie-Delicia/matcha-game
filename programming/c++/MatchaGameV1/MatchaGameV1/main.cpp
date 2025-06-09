@@ -70,11 +70,12 @@ int main(int argc, char* argv[]) {
     
     player->setStateHandler(&charStateHandler);
     player->setState(IDLE);
+    player->setDir(RIGHT);
     player->setPosn(0, 267.00);
     
     start_button->setStateHandler(&navButtonHandler);
     start_button->setState(IDLE);
-    start_button->setPosn(225, 220.00);
+    start_button->setPosn(260, 220.00);
     
     model.setMainPlayer(player);
     

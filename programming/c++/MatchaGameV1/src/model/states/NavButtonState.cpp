@@ -12,20 +12,40 @@
 #include "sdl_rect_utils.h"
 
 void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
+    // get mouse posn
+    float mouse_x, mouse_y;
+    SDL_MouseButtonFlags mouse_state;
+
+    // Get the mouse state
+    mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
+
     if (input.type == SDL_EVENT_MOUSE_BUTTON_DOWN and sprite->getState() != PRESSED) { // mouse down click
+        // std::cout << "mouse down detected. [handleInput] \n";
         // get sprite rectangle
         Posn posn = Posn(input.button.x, input.button.y);
         Posn spritePosn = sprite->getPosn();
         SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
         float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
-        SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth, spriteSheet->getHeight()};
+        SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
         // if the click posn is within the sprite rect, set the state
         if (isPosnOverRect(posn, spriteRect)) {
             sprite->setState(STATE::PRESSED);
         }
     } else // NO MOUSE CLICK OR RESET FOR THE LONG PRESS CASE
     {
-        sprite->setState(STATE::IDLE);
+        // std::cout << "mouse up detected. [handleInput] \n";
+        // check if the mouse is hovering over a button
+        Posn posn = Posn(mouse_x, mouse_y);
+        Posn spritePosn = sprite->getPosn();
+        SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
+        float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
+        SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
+        // if the click posn is within the sprite rect, set the state to hover
+        if (isPosnOverRect(posn, spriteRect)) {
+            sprite->setState(STATE::HOVER);
+        } else {
+            sprite->setState(STATE::IDLE);
+        }
     }
 }
 
@@ -62,6 +82,9 @@ void NavButtonState::update(Sprite* sprite) {
             sprite->setState(STATE::IDLE);
             break;
         }
+        case HOVER: {
+            break;
+        }
         case NONE: {
             break;
         }
@@ -69,15 +92,11 @@ void NavButtonState::update(Sprite* sprite) {
 }
 
 void NavButtonState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
-    std::cout << "Draw call for sprite ptr:  " << sprite << ". [NavButtonState]\n";
-    std::cout << "sprite state:  " << sprite->getState() << ". [NavButtonState]\n";
-    std::cout << "sprite dir:  " << sprite->getStateDir() << ". [NavButtonState]\n";
     bool success = 0;
     // acquire sprite data
-    std::cout << "sprite rect call. [NavButtonState]\n";
 
     std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
-    std::cout << "sprite data call. [NavButtonState]\n";
+    // std::cout << "sprite data call. [NavButtonState]\n";
     SpriteStruct spriteData = sprite->getData();
     
     SpriteSheet* sheet = spriteData.sheet;

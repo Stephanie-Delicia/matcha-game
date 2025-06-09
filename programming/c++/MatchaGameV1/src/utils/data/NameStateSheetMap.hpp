@@ -35,14 +35,13 @@ public:
             {"pleasant_sky", PLEASANT_SKY},
             {"test_box", TEST_BOX},
             {"start_screen_test", START_SCREEN_TEST},
-            {"start_button_test", START_BUTTON_TEST}
-        };
+            {"start_button_test", START_BUTTON_TEST}};
         stateStrMap = {
             {"walking", WALKING},
             {"idle", IDLE},
             {"translate", TRANSLATE},
-            {"pressed", PRESSED}
-        };
+            {"pressed", PRESSED},
+            {"hover", HOVER}};
     };
     
     // utils

@@ -52,10 +52,7 @@ void GameModel::update() {
 }
 
 void GameModel::handleInput(const SDL_Event &event) {
-    std::cout << "handleInput call. [GameModel]\n";
     ScreenNavigator* nav = getNavigator();
-    std::cout << "Main screen ptr: " << nav->getMainScreen() << ". [GameModel]\n";
-    std::cout << "Main screen type: " << nav->getMainScreen()->screenType() << ". [GameModel]\n";
     nav->getMainScreen()->handleInput(event);
 }
 

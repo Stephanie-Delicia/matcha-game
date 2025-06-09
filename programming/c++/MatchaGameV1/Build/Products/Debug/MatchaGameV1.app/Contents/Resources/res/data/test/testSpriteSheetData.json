@@ -69,6 +69,14 @@
             "TotalFrames": 1,
             "Width": 107.00,
             "Height": 28.00
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_button_test.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_button_test.png",
+            "TotalFrames": 1,
+            "Width": 107.00,
+            "Height": 28.00
         }
     ]
 }

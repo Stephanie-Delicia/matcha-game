@@ -11,6 +11,7 @@
 #include "GameView.hpp"
 #include "GameModel.hpp"
 #include "GameController.hpp"
+#include "SceneController.hpp"
 
 void GameController::startGame() {
     float startTime;
@@ -21,26 +22,16 @@ void GameController::startGame() {
     view->initSDL();
     fpsTimer.start();
     
-    // game step loop
+    // game step
     while (!exitGame) {
+        // for measuring fps
         startTime = fpsTimer.getTicks();
         avgFPS = measureFPS();
         setFPSText(avgFPS);
         
-        SDL_Event event;
-        while( SDL_PollEvent(&event) )
-        {
-            handleInput(event);
-
-            switch( event.type ) {
-                case SDL_EVENT_QUIT:
-                    exitGame = true;
-                    break;
-            }
-        }
-        update();
-        drawWithFPS();
-        
+        // get and handle event
+        handleEvent();
+       
         // adjust fps
         endTime = fpsTimer.getTicks();
         timeElapsed = endTime - startTime;
@@ -58,6 +49,23 @@ void GameController::update() {
 
 void GameController::handleInput(SDL_Event const &event) {
     getModel()->handleInput(event);
+}
+
+void GameController::handleEvent() {
+    SDL_Event event;
+    while( SDL_PollEvent(&event) )
+    {
+        // call for sceneController
+        // an if statement
+        handleInput(event);
+        switch( event.type ) {
+            case SDL_EVENT_QUIT:
+                exitGame = true;
+                break;
+        }
+    }
+    update();
+    drawWithFPS();
 }
 
 void GameController::draw() {
@@ -103,4 +111,10 @@ float GameController::measureFPS() {
 
 void GameController::setFPSText(int fps) {
     fpsText = "Average FPS: " + std::to_string((int) std::round(fps));
+}
+
+void GameController::setSceneController() {
+    if (sceneController == nullptr) {
+        sceneController = new SceneController(model, view);
+    }
 }
