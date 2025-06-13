@@ -6,14 +6,25 @@
 //
 
 #include "SceneController.hpp"
+#include "Timer.hpp"
 
 void SceneController::drawStillScene(SceneRequest* request) {
     // TODO: incorporate the timer...
-    float startTime = fpsTimer.getTicks();
+    std::cout << "[SceneController, drawStillScene]\n";
+    std::cout << "fpsTimer ptr: " << fpsTimer << " [SceneController, drawStillScene]\n";
+    float startTime = fpsTimer->getTicks();
     float timeDuration = request->getTimeDuration();
+    
+    std::cout << "startTime: " << startTime << " [SceneController, drawStillScene]\n";
+    std::cout << "timeDuration: " << timeDuration << " [SceneController, drawStillScene]\n";
+    std::cout << "fpsTimer.getTicks(): " << fpsTimer->getTicks() << " [SceneController, drawStillScene]\n";
 
     // neither handleinput or update are called. Truly a still scene.
-    while (fpsTimer.getTicks() - startTime >= timeDuration) {
+    while (fpsTimer->getTicks() - startTime <= timeDuration) {
+        std::cout << "startTime: " << startTime << " [SceneController, drawStillScene]\n";
+        std::cout << "fpsTimer.getTicks(): " << fpsTimer->getTicks() << " [SceneController, drawStillScene]\n";
+        std::cout << "fpsTimer.getTicks() - startTime >= timeDuration: " << (fpsTimer->getTicks() - startTime >= timeDuration) << " [SceneController, drawStillScene]\n";
+        std::cout << "Time loop for [SceneController, drawStillScene].\n";
         SDL_Event event;
         while( SDL_PollEvent(&event) )
         {
@@ -23,10 +34,16 @@ void SceneController::drawStillScene(SceneRequest* request) {
                     break;
             }
         }
-        draw();
+        drawWithText("Collect 20 boxes to win, bish!", Posn(200, 170));
+        
+        float endTime = fpsTimer->getTicks();
+        float timeElapsed = endTime - startTime;
+        gameDelay(timeElapsed);
+        countedFrames++;
     }
+    std::cout << "Finished scene request. [drawStillScene]\n";
+    // fpsTimer->stop();
     request->setTimeDuration(0);
-    removeRequest(request);
 }
 
 bool SceneController::hasRequests() {
@@ -34,6 +51,7 @@ bool SceneController::hasRequests() {
 }
 
 void SceneController::fulfillRequests() {
+    std::cout << "[SceneController, fulfillRequests]\n";
     std::deque<SceneRequest*> reqsToDelete;
     for (SceneRequest* req : sceneRequests) {
         // fulfill, then delete
@@ -49,12 +67,18 @@ void SceneController::fulfillRequests() {
 }
 
 void SceneController::removeRequest(SceneRequest* req) {
-//    auto find_iterator = std::find(sceneRequests.begin(), sceneRequests.end(), req);
-//    if (find_iterator != sceneRequests.end()) {
-//        sceneRequests.erase(find_iterator);
-//    }
+    auto find_iterator = std::find(sceneRequests.begin(), sceneRequests.end(), req);
+    if (find_iterator != sceneRequests.end()) {
+        sceneRequests.erase(find_iterator);
+    }
+    // requests, when created, are dynamically allocated. Make sure to delete and then get rid of the
+    // dangling pointer.
+    // UPDATE: the deletion will occur in the main controller for now instead
+//    delete req;
+//    req = nullptr;
 }
 
 void SceneController::addRequest(SceneRequest* req) {
+    std::cout << "Added req ptr: " << req << ", [SceneController].\n";
     sceneRequests.push_front(req);
 }

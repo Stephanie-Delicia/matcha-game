@@ -13,6 +13,7 @@ GameView::GameView() {
 }
 
 void GameView::initSDL() {
+    std::cout << "initSDL call. [GameView].\n";
     SDL_Init(SDL_INIT_VIDEO);
     createRenderer();
     TTF_Init();

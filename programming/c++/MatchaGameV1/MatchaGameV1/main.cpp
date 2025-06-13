@@ -53,7 +53,6 @@ int main(int argc, char* argv[]) {
     
     // set main player, pleasant sky, test start screen, and test start screen button
     NavButtonState navButtonHandler = NavButtonState(); // set the param
-    navButtonHandler.setScreenNav(&screenNav);
     navButtonHandler.setScreenToNavTo(screenNav.getScreen(GAMEPLAY_SCREEN));
     
     CharacterState charStateHandler = CharacterState();
@@ -92,7 +91,9 @@ int main(int argc, char* argv[]) {
     start_bg->setSheetMap(&sheetMap);
     
     CatcherController controller = CatcherController(&model, &view);
+    controller.setScreenNav(&screenNav);
     std::cout << "Instantiated MVC. (yay!) [main]\n";
+    navButtonHandler.setGameController(&controller);
     
     // begin gameplay
     controller.startGame();

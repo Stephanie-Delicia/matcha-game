@@ -9,16 +9,15 @@
 #include "Timer.hpp"
 #include "SceneRequest.hpp"
 #include "GameController.hpp"
-#include "CatcherGameModel.hpp"
 
 class SceneController : public GameController {
 public:
     SceneController(GameModel* m, GameView* v) {
+        std::cout << "In SceneController constructor. [SceneController].\n";
+        std::cout << "m ptr: " << m << ", [SceneController].\n";
+        std::cout << "v ptr: " << v << ", [SceneController].\n";
         sceneModel = m;
         view = v;
-        view->createWindow(sceneModel->getGameName(),
-                           sceneModel->getWidth(),
-                           sceneModel->getHeight());
         exitGame = false;
     };
     // overriding model

@@ -10,7 +10,9 @@
 #include "TranslateCommand.hpp"
 #include "ScreenNavigator.hpp"
 #include "ScreenModel.hpp"
+#include "GameController.hpp"
 #include "IdleCommand.hpp"
+
 
 class NavButtonState : public SpriteState {
 public:
@@ -19,11 +21,11 @@ public:
     void handleInput(Sprite* sprite, const SDL_Event &input);
 
     // this sprite won't undergo any sort of transformation, so no command needed to handle updates
-    void setScreenNav(ScreenNavigator* nav) { screenNav = nav; } ;
+    void setGameController(GameController* controller) { gameController = controller; } ;
     void setScreenToNavTo(ScreenModel* screen) { screenToNavTo = screen; } ;
     
 protected:
+    GameController* gameController; // to send scene requests to if needed.
     IdleCommand idleC = IdleCommand();
-    ScreenNavigator* screenNav;
     ScreenModel* screenToNavTo;
 };

@@ -71,7 +71,7 @@ private:
     NAME name;                           // unique sprite name
     Posn posn;                           // (x,y). defaults to (0,0)
     STATE state = NONE;                  // whatever state sprite is in
-    float frameSpeed = 1.20;             // rate of change in sprite posn
+    float frameSpeed = 2;             // rate of change in sprite posn
     DIRECTION stateDir = LEFT;           // direction that sprite faces
     NameStateSheetMap* sheetMap;         // map for accessing sheets
     float currFrameTime = -1.0;          // time for the current frame to continue be drawn, negative when you want to be stuck on the current frame

@@ -5,11 +5,13 @@
 #include <SDL3/SDL.h>
 #include "STATE.h"
 #include "Sprite.hpp"
+#include "SceneRequest.hpp"
 #include "SpriteSheet.hpp"
 #include "DIRECTION.h"
 #include "SpriteStruct.hpp"
 #include "NavButtonState.hpp"
 #include "sdl_rect_utils.h"
+#include "NavRequest.hpp"
 
 void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
     // get mouse posn
@@ -33,7 +35,6 @@ void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
         }
     } else // NO MOUSE CLICK OR RESET FOR THE LONG PRESS CASE
     {
-        // std::cout << "mouse up detected. [handleInput] \n";
         // check if the mouse is hovering over a button
         Posn posn = Posn(mouse_x, mouse_y);
         Posn spritePosn = sprite->getPosn();
@@ -72,13 +73,18 @@ void NavButtonState::update(Sprite* sprite) {
             break;
         }
         case PRESSED: {
-            // NAVIGATE BISH
-            ScreenModel* currActiveScreen = screenNav->getMainScreen();
-            if (currActiveScreen != screenToNavTo) { // if we are not yet on the screen to go to
-                screenNav->setMainScreen(screenToNavTo);
-            } else {
-                std::cout << "We are already at the screen to navigate to. [NavButtonState]\n";
-            }
+            // make a nav draw request
+            std::cout << "Adding a navigation request. [NavButtonState]\n";
+            NavRequest* navReq = new NavRequest(screenToNavTo);
+            gameController->addRequest(navReq);
+            std::cout << "Navigation request ptr: " << navReq << " [NavButtonState]\n";
+            
+            // make a transition draw request
+            std::cout << "Adding a scene request. [NavButtonState]\n";
+            SceneRequest* sceneReq = new SceneRequest(STILL, 3000);
+            std::cout << "Scene request ptr: " << sceneReq << " [NavButtonState]\n";
+            gameController->addRequest(sceneReq);
+
             sprite->setState(STATE::IDLE);
             break;
         }
@@ -94,9 +100,7 @@ void NavButtonState::update(Sprite* sprite) {
 void NavButtonState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
     bool success = 0;
     // acquire sprite data
-
     std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
-    // std::cout << "sprite data call. [NavButtonState]\n";
     SpriteStruct spriteData = sprite->getData();
     
     SpriteSheet* sheet = spriteData.sheet;

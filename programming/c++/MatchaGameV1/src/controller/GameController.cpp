@@ -12,6 +12,9 @@
 #include "GameModel.hpp"
 #include "GameController.hpp"
 #include "SceneController.hpp"
+#include "SceneRequest.hpp"
+#include "NavRequest.hpp"
+#include "../utils/enum/REQUEST.h"
 
 void GameController::startGame() {
     float startTime;
@@ -19,27 +22,29 @@ void GameController::startGame() {
     float avgFPS;
     float timeElapsed;
     
+    fpsTimer = new Timer();
+    std::cout << "GameController::startGame() call. [GameController]\n";
     view->initSDL();
-    fpsTimer.start();
+    fpsTimer->start();
     
     // game step
     while (!exitGame) {
         // for measuring fps
-        startTime = fpsTimer.getTicks();
+        startTime = fpsTimer->getTicks();
         avgFPS = measureFPS();
         setFPSText(avgFPS);
-        
-        // get and handle event
-        handleEvent();
-       
-        // adjust fps
-        endTime = fpsTimer.getTicks();
+
+        // get events and handle them, update sprites, and draw accordingly
+        handleEvents();
+
+        // for adjusting fps
+        endTime = fpsTimer->getTicks();
         timeElapsed = endTime - startTime;
         gameDelay(timeElapsed);
         ++countedFrames;
     }
 
-    // quit
+    // quit the window
     view->quitSDL();
 }
 
@@ -51,7 +56,8 @@ void GameController::handleInput(SDL_Event const &event) {
     getModel()->handleInput(event);
 }
 
-void GameController::handleEvent() {
+void GameController::handleEvents() {
+    std::cout << "handleEvents() call. [GameController]\n";
     SDL_Event event;
     while( SDL_PollEvent(&event) )
     {
@@ -84,7 +90,7 @@ void GameController::drawWithTexts(std::vector<std::string> textLs, std::vector<
 }
 
 void GameController::drawWithFPS() {
-    view->drawWithText(getModel()->getActiveScreen(), fpsText, Posn(100.00, 15.00));
+    view->drawWithText(getModel()->getActiveScreen(), fpsText, Posn(10, 15.00));
 }
 
 void GameController::gameDelay(float timeElapsed) {
@@ -102,7 +108,7 @@ void GameController::delay(float time) {
 }
 
 float GameController::measureFPS() {
-    float avgFPS = countedFrames / ( fpsTimer.getTicks() / 1000.f );
+    float avgFPS = countedFrames / ( fpsTimer->getTicks() / 1000.f );
     if( avgFPS > 10000 ) {
         avgFPS = 0; // correct initial high fps
     }
@@ -114,7 +120,68 @@ void GameController::setFPSText(int fps) {
 }
 
 void GameController::setSceneController() {
-    if (sceneController == nullptr) {
-        sceneController = new SceneController(model, view);
+    // Scene controller need not be manually assigned, a whole new one is created w/ each main game controller.
+    sceneController = new SceneController(getModel(), view);
+    // The scene controller uses the same timer for performing scenes
+    sceneController->setTimer(fpsTimer);
+}
+
+void GameController::addRequest(Request* request) {
+    std::cout << "Adding request ptr: " << request << " [GameController, addRequest()]\n";
+    std::cout << "Request type: " << request->getReqType() << " [GameController, addRequest()]\n";
+    requests.push_front(request);
+}
+
+void GameController::removeRequest(Request* request) {
+    auto find_iterator = std::find(requests.begin(), requests.end(), request);
+    if (find_iterator != requests.end()) {
+        requests.erase(find_iterator);
+    }
+    // requests, when created, are dynamically allocated. Make sure to delete and then get rid of the
+    // dangling pointer.
+    delete request;
+    request = nullptr;
+}
+
+void GameController::handleRequests() {
+    std::deque<Request*> reqsToDelete;
+    // recur thru requests in the event queue
+    for (Request* req : requests) {
+        // add to list of requests to de;ete
+        switch (req->getReqType()) {
+            case SCENE: {
+                // for lower hiearchy relationships, we can luckily use dynamic_cast! Yay!
+                // WARNING: I hope this isnt cause for a memory leak. Reqs, when created, are
+                // dynamically allocated, so I wonder if dynamic_cast does the same for such an object.
+                std::cout << "the request ptr: " << req << " [GameController::handleRequests()]\n";
+                SceneRequest* sceneReq = dynamic_cast<SceneRequest*>(req);
+                std::cout << "the sceneReq ptr: " << sceneReq << " [GameController::handleRequests()]\n";
+                sceneController->addRequest(sceneReq);
+                // TODO: I think I am double deleting here.
+                // Fulfill the draw request, then delete it HERE
+                sceneController->fulfillRequests();
+                reqsToDelete.push_front(req);
+                break;
+            }
+            case NAVIGATE: {
+                std::cout << "the request ptr: " << req << " [GameController::handleRequests()]\n";
+                NavRequest* navReq = dynamic_cast<NavRequest*>(req);
+                std::cout << "the navReq ptr: " << navReq << " [GameController::handleRequests()]\n";
+                screenNav->setMainScreen(navReq->getScreenModel());
+                reqsToDelete.push_front(req);
+                break;
+            }
+            default: {
+                // just delete it, otherwise, a weird unaccounted request type stays there forever!!
+                reqsToDelete.push_front(req);
+                break;
+            }
+        }
+    }
+    
+    // delete
+    for (Request* req : reqsToDelete) {
+        removeRequest(req);
     }
 }
+

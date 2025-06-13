@@ -36,7 +36,7 @@ public:
 private:
     float w; // width
     float h; // height
-    int fpsGoal = 30;
+    int fpsGoal = 35;
     int currFrame;
     int totalFrames;
     SDL_Surface* srfcL;
