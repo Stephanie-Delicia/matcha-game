@@ -26,7 +26,7 @@ void GameController::startGame() {
     std::cout << "GameController::startGame() call. [GameController]\n";
     view->initSDL();
     fpsTimer->start();
-    
+    SDL_RaiseWindow(view->getWindow());
     // game step
     while (!exitGame) {
         // for measuring fps
@@ -119,9 +119,11 @@ void GameController::setFPSText(int fps) {
     fpsText = "Average FPS: " + std::to_string((int) std::round(fps));
 }
 
+
+
 void GameController::setSceneController() {
     // Scene controller need not be manually assigned, a whole new one is created w/ each main game controller.
-    sceneController = new SceneController(getModel(), view);
+    sceneController = new SceneController(getModel(), view, this);
     // The scene controller uses the same timer for performing scenes
     sceneController->setTimer(fpsTimer);
 }

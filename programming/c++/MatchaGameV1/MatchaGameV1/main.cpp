@@ -1,4 +1,12 @@
-// main.cpp for running game
+/*
+    In this latest update, we have a catcher game. The player must move the sprite around using
+    key arrows.
+ 
+    Additionally, I plan to add a start screen (not finalized design-wise) in which the player can click the
+    "START" button to navigate to the gameplay screen.
+ 
+    You can't go back after this lol, just exit the window
+ */
 #include <stdio.h>
 #include <iostream>
 #include "NameStateSheetMap.hpp"
@@ -13,15 +21,6 @@
 #include "GameController.hpp"
 #include "CatcherGameModel.hpp"
 #include "CatcherController.hpp"
-/*
-    In this latest update, we have a catcher game. The player must move the sprite around using
-    key arrows.
- 
-    Additionally, I plan to add a start screen (not finalized design-wise) in which the player can click the
-    "START" button to navigate to the gameplay screen.
- 
-    You can't go back after this lol, just exit the window
- */
 
 int main(int argc, char* argv[]) {
     // Sheet map
@@ -66,6 +65,10 @@ int main(int argc, char* argv[]) {
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
     Sprite* start_bg = spriteMap.getSprite(START_SCREEN_TEST);
     
+    Sprite* black_screen = spriteMap.getSprite(BLACK_SCREEN);
+    black_screen->setStateHandler(&charStateHandler);
+    black_screen->setState(IDLE);
+    black_screen->setDir(LEFT);
     
     player->setStateHandler(&charStateHandler);
     player->setState(IDLE);

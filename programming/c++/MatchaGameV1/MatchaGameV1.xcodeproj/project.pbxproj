@@ -21,6 +21,7 @@
 		C20AD7572DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */; };
 		C20B32922DF8A66A003AFA91 /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */; };
 		C20B32932DF8A66A003AFA91 /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */; };
+		C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */; };
 		C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
 		C2446A4E2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
 		C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
@@ -140,6 +141,8 @@
 		C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CatcherGameModel.cpp; sourceTree = "<group>"; };
 		C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CatcherGameModel.hpp; sourceTree = "<group>"; };
 		C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRequest.cpp; sourceTree = "<group>"; };
+		C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = catcher_game_setup.cpp; sourceTree = "<group>"; };
+		C21498F42DFF111F004B8E3A /* catcher_game_setup.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catcher_game_setup.hpp; sourceTree = "<group>"; };
 		C2446A4B2DF53653009B960B /* SceneController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneController.cpp; sourceTree = "<group>"; };
 		C2446A4C2DF53653009B960B /* SceneController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneController.hpp; sourceTree = "<group>"; };
 		C2446A512DF75970009B960B /* SceneRequest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneRequest.hpp; sourceTree = "<group>"; };
@@ -253,6 +256,24 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		C21498F12DFF1043004B8E3A /* gamestyles */ = {
+			isa = PBXGroup;
+			children = (
+				C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */,
+				C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */,
+			);
+			path = gamestyles;
+			sourceTree = "<group>";
+		};
+		C21498F22DFF10EF004B8E3A /* gamestyles_setup */ = {
+			isa = PBXGroup;
+			children = (
+				C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */,
+				C21498F42DFF111F004B8E3A /* catcher_game_setup.hpp */,
+			);
+			path = gamestyles_setup;
+			sourceTree = "<group>";
+		};
 		C2446A4F2DF53663009B960B /* gamestyles */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,12 +316,10 @@
 			children = (
 				C2F78ED12DC2CC0800B7B8F9 /* GameModel.hpp */,
 				C2492C8C2DC7CC460020F8E6 /* GameModel.cpp */,
-				C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */,
-				C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */,
 				C2F78EDB2DC3CCF200B7B8F9 /* sprite */,
 				C2F78EDA2DC3CA2900B7B8F9 /* screen */,
-				C2F78EBF2DC0533500B7B8F9 /* commands */,
 				C2F78EC22DC0539000B7B8F9 /* states */,
+				C21498F12DFF1043004B8E3A /* gamestyles */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -413,6 +432,7 @@
 			children = (
 				C200032D2DB96CDF0074364D /* main.cpp */,
 				C2A313BD2D95C8A7004173D5 /* MatchaGameV1.entitlements */,
+				C21498F22DFF10EF004B8E3A /* gamestyles_setup */,
 			);
 			path = MatchaGameV1;
 			sourceTree = "<group>";
@@ -465,6 +485,7 @@
 				C20AD7502DEA39DA0007622F /* BoxToCatchState.cpp */,
 				C25E93C32DEF7D1900930EFB /* NavButtonState.hpp */,
 				C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */,
+				C2F78EBF2DC0533500B7B8F9 /* commands */,
 			);
 			path = states;
 			sourceTree = "<group>";
@@ -672,6 +693,7 @@
 				C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */,
 				C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */,
 				C20AD7562DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */,
+				C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C25E93C02DEB9F7800930EFB /* CatcherController.cpp in Sources */,
 			);

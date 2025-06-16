@@ -144,8 +144,8 @@ void ScreenModel::handleInput(const SDL_Event &event) {
     // recurs thru update queue to apply state updates
     // to every sprite in the queue
     for (Sprite* sprite : updateQueue) {
-//        std::cout << "Sprite to handle input for: " << sprite->getName() << ". [ScreenModel]\n";
-//        std::cout << "Sprite ptr: " << sprite << ". [ScreenModel]\n";
+        std::cout << "Sprite to handle input for: " << sprite->getName() << ". [ScreenModel]\n";
+        // std::cout << "Sprite ptr: " << sprite << ". [ScreenModel]\n";
         sprite->handleInput(event);
     }
 }
@@ -153,6 +153,7 @@ void ScreenModel::handleInput(const SDL_Event &event) {
 SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
     SDL_Surface* surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ARGB8888);
     for (Sprite* sprite : spriteQueue) { // draw every sprite in the queue
+        std::cout << "Sprite to handle input for: " << sprite->getName() << ". [ScreenModel]\n";
         sprite->draw(surface);
     }
     return surface;

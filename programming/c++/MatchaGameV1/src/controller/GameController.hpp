@@ -34,6 +34,7 @@ public:
     virtual GameModel* getModel() { return model; };
     // start
     virtual void startGame(); // to be overwritten by more complex games
+    void endGame() { exitGame = true; };
     void setScreenNav(ScreenNavigator* nav) { screenNav = nav; } ;
     
     void addRequest(Request* request);
@@ -59,6 +60,9 @@ protected:
     void delay(float time); // handles only the main game delay
     void handleInput(SDL_Event const &event);
     void handleRequests();
+    
+    // get
+    
     
     // scene and nav events
     void removeRequest(Request* request); // first removes request from the queue and then DELETES

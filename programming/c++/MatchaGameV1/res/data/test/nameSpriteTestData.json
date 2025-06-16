@@ -2,6 +2,8 @@
     "sprite_list": [{"name": "winnie", "posnX": 0, "posnY": 267, "state": "idle", "dir": "left"},
         {"name": "pleasant_sky", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "start_button_test", "posnX": 100, "posnY": 240, "state": "idle",  "dir": "left"},
-        {"name": "start_screen_test", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
+        {"name": "start_screen_test", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "replay_button", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "black_screen", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
     ]
 }

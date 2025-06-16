@@ -1,7 +1,7 @@
 dependencies: \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/TranslateCommand.cpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/TranslateCommand.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/StateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/TranslateCommand.cpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/TranslateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/StateCommand.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Products/Debug/SDL3.framework/Headers/SDL.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Products/Debug/SDL3.framework/Headers/SDL_stdinc.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Products/Debug/SDL3.framework/Headers/SDL_platform_defines.h \

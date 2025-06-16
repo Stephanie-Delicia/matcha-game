@@ -13,12 +13,14 @@ public:
         setReqType(SCENE);
     };
     
+    
     // setters
     void setTimeDuration(float time) { timeDuration = time; };
     void setSceneType(enum SCENE type) { sceneType = type; };
     
     // getters
     float getTimeDuration() { return timeDuration; };
+    enum SCENE getSceneType() { return sceneType; };
     
 protected:
     enum SCENE sceneType;

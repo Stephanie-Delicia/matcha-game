@@ -69,6 +69,6 @@ dependencies: \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/data/NameStateSheetMap.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/BoxToCatchState.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/SpriteState.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/TranslateCommand.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/StateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/TranslateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/StateCommand.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/sdl_util/sdl_rect_utils.h

@@ -78,5 +78,43 @@
             "Width": 107.00,
             "Height": 28.00
         }
+    ],
+    "black_screen":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/black_screen.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/black_screen.png",
+            "TotalFrames": 1,
+            "Width": 640.00,
+            "Height": 360.00
+        }
+    ],
+    "replay_button":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "TotalFrames": 1,
+            "Width": 120.00,
+            "Height": 30.00
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "TotalFrames": 1,
+            "Width": 120.00,
+            "Height": 30.00
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_replay_button.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_replay_button.png",
+            "TotalFrames": 1,
+            "Width": 120.00,
+            "Height": 30.00
+        }
     ]
 }

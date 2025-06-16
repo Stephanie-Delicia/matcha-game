@@ -70,6 +70,6 @@ dependencies: \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/sdl_util/sdl_rect_utils.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/CharacterState.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/SpriteState.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/WalkingCommand.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/StateCommand.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/IdleCommand.hpp
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/WalkingCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/StateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/IdleCommand.hpp

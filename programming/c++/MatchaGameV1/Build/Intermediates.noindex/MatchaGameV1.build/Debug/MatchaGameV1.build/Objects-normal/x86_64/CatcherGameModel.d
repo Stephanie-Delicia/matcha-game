@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/CatcherGameModel.cpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/CatcherGameModel.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/gamestyles/CatcherGameModel.cpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/gamestyles/CatcherGameModel.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/BoxToCatchState.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/classes/Posn.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Products/Debug/SDL3.framework/Headers/SDL.h \
@@ -70,8 +70,8 @@ dependencies: \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/sprite/SpriteSheet.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/data/NameStateSheetMap.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/SpriteState.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/TranslateCommand.hpp \
-  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/commands/StateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/TranslateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/StateCommand.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/enum/SCREEN.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/screen/ScreenModel.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/data/NameSpriteMap.hpp \

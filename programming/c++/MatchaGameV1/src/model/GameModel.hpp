@@ -34,6 +34,7 @@ public:
     ScreenModel*       getActiveScreen();
     ScreenNavigator*   getNavigator();
     NameStateSheetMap* getNameToSheetMap();
+    NameSpriteMap*     getNameSpriteMap();
     
     // setters
     void setWidth(float w);

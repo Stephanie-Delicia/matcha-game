@@ -47,11 +47,16 @@ NameStateSheetMap* GameModel::getNameToSheetMap() {
     return nameStateSheetMap;
 }
 
+NameSpriteMap* GameModel::getNameSpriteMap() {
+    return nameSpriteMap;
+}
+
 void GameModel::update() {
     screenNav->getMainScreen()->update();
 }
 
 void GameModel::handleInput(const SDL_Event &event) {
+    std::cout << "handleInput call. [GameModel::handleInput] \n";
     ScreenNavigator* nav = getNavigator();
     nav->getMainScreen()->handleInput(event);
 }

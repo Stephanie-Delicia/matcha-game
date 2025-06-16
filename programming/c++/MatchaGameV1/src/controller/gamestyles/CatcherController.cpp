@@ -7,6 +7,7 @@
 
 void CatcherController::startGame() {
     fpsGoal = 55;
+    bool startGameplay = false;
     Posn scorePosn = Posn(10.00, 15.00);
     Posn fpsPosn = Posn(500.00, 15.00);
     float startTime;
@@ -20,24 +21,29 @@ void CatcherController::startGame() {
     view->initSDL();
     fpsTimer->start();
     setSceneController();
-    std::cout << "scene controller ptr: " << sceneController << ", [CatcherController].\n";
-    std::cout << "model ptr: " << getModel() << ", [CatcherController].\n";
+    
+//    std::cout << "scene controller ptr: " << sceneController << ", [CatcherController].\n";
+//    std::cout << "model ptr: " << getModel() << ", [CatcherController].\n";
     
     // game step loop
     gStartTime = fpsTimer->getTicks();
     while (!exitGame) {
-        std::cout << "Start game loop. [CatcherController]\n";
+//        std::cout << "Start game loop. [CatcherController]\n";
         startTime = fpsTimer->getTicks();
-        std::cout << "startTime: " << startTime << " [CatcherController]\n";
+//        std::cout << "startTime: " << startTime << " [CatcherController]\n";
         avgFPS = measureFPS();
         setFPSText(avgFPS);
         
-        getModel()->generateBox();
+        if (startGameplay) {
+            getModel()->generateBox();
+        }
+        
         
         // for handling events, we first check if there are any scene or navigation requests and fulfill those first.
        if (hasRequests()) {
            std::cout << "Fulfilling requests. [CatcherController]\n";
            handleRequests();
+           startGameplay = true;
        } else {
            std::cout << "Regular handling of events. [CatcherController]\n";
            handleEvents();
@@ -45,7 +51,7 @@ void CatcherController::startGame() {
         
         getModel()->destroyBoxes();
         
-        if (getModel()->getScore() >= 20 and !endScreenDisplay) {
+        if (getModel()->getScore() >= 5 and !endScreenDisplay) {
             addRequest(new SceneRequest(STILL, 5000));
             endScreenDisplay = true;
             // display a replay button

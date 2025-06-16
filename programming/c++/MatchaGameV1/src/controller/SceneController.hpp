@@ -12,10 +12,11 @@
 
 class SceneController : public GameController {
 public:
-    SceneController(GameModel* m, GameView* v) {
+    SceneController(GameModel* m, GameView* v, GameController* controller) {
         std::cout << "In SceneController constructor. [SceneController].\n";
         std::cout << "m ptr: " << m << ", [SceneController].\n";
         std::cout << "v ptr: " << v << ", [SceneController].\n";
+        mainController = controller;
         sceneModel = m;
         view = v;
         exitGame = false;
@@ -36,8 +37,14 @@ public:
     
     // neither handleinput or update are called. Truly a still scene.
     void drawStillScene(SceneRequest* request);
+    // draws a new rectangle over the screen, initially transparent but soon fades to black
+    void drawFadeToBlack(SceneRequest* request);
+    // draws a rectangle over the screen, but it eventually becomes transparent and deleted
+    void drawFadeOutOfBlack(SceneRequest* request);
+
     void fulfillRequests();
     
 protected:
+    GameController* mainController; // this is a SEPARATE controller, use only to send game exit requests
     std::deque<SceneRequest*> sceneRequests;
 };

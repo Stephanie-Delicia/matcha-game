@@ -44,10 +44,13 @@ public:
     ScreenModel* startScreen = nullptr;
     NameSpriteMap* nameSpriteMap;             // NAME to Sprite* map
     std::map<ScreenModel*, bool> screenMap;   // indicates if screen is active and stores screens
-    std::map<std::string, NAME> strNameMap = { {"winnie", WINNIE},
-                                               {"pleasant_sky", PLEASANT_SKY},
+    std::map<std::string, NAME> strNameMap = { {"winnie",            WINNIE},
+                                               {"pleasant_sky",      PLEASANT_SKY},
                                                {"start_screen_test", START_SCREEN_TEST},
-                                               {"start_button_test", START_BUTTON_TEST} };
-    std::map<std::string, SCREEN> screenTypeMap = { { "gameplay", GAMEPLAY_SCREEN },
-                                                    { "start", START_SCREEN } };
+                                               {"start_button_test", START_BUTTON_TEST},
+                                               {"replay_button",     REPLAY_BUTTON},
+                                               {"black_screen", BLACK_SCREEN} };
+    
+    std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},
+                                                    {"gameplay", GAMEPLAY_SCREEN} };
 };

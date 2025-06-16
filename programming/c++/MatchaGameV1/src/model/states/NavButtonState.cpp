@@ -73,6 +73,12 @@ void NavButtonState::update(Sprite* sprite) {
             break;
         }
         case PRESSED: {
+            // make a transition draw request
+            std::cout << "Adding a scene request. [NavButtonState]\n";
+            SceneRequest* sceneReq = new SceneRequest(STILL, 3000);
+            std::cout << "Scene request ptr: " << sceneReq << " [NavButtonState]\n";
+            gameController->addRequest(sceneReq);
+            
             // make a nav draw request
             std::cout << "Adding a navigation request. [NavButtonState]\n";
             NavRequest* navReq = new NavRequest(screenToNavTo);
@@ -80,10 +86,12 @@ void NavButtonState::update(Sprite* sprite) {
             std::cout << "Navigation request ptr: " << navReq << " [NavButtonState]\n";
             
             // make a transition draw request
-            std::cout << "Adding a scene request. [NavButtonState]\n";
-            SceneRequest* sceneReq = new SceneRequest(STILL, 3000);
-            std::cout << "Scene request ptr: " << sceneReq << " [NavButtonState]\n";
-            gameController->addRequest(sceneReq);
+            std::cout << "Adding a fade scene request. [NavButtonState]\n";
+            SceneRequest* fadeSceneReq = new SceneRequest(FADE, 1000);
+            std::cout << "Fade scene request ptr: " << fadeSceneReq << " [NavButtonState]\n";
+            gameController->addRequest(fadeSceneReq);
+            
+
 
             sprite->setState(STATE::IDLE);
             break;
