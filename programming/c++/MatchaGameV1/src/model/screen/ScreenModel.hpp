@@ -42,6 +42,7 @@ public:
     std::deque<Sprite*> getMainQ();
     std::deque<Sprite*> getUpdateQ();
     std::deque<Sprite*> getBackgroundQ();
+    std::deque<Sprite*> getUiQ();
     
     // setters
     void setType(SCREEN t);
@@ -69,6 +70,12 @@ public:
     void replaceUpdate(std::deque<Sprite*> q);     // make changes to what sprites get updated
     void delayFrameTimes(float gameDelay, float timeElapsed);
     
+    // UI queue
+    void addToUI(Sprite* sprite);
+    void removeUI(Sprite* sprite);
+    void updateUI();
+    void handleInputForUI(SDL_Event const &event);
+    
     // create SDL surface from the queues
     SDL_Surface* returnMSurface();
     SDL_Surface* returnBGSurface();
@@ -80,6 +87,7 @@ private:
     SCREEN screenT = TEST_SCREEN; // screen type enum
     
     // sprite queues
+    std::deque<Sprite*> UiQueue;     // Ui elements to draw on screen like buttons
     std::deque<Sprite*> mQueue;      // sprites to draw on top of the background
     std::deque<Sprite*> bgQueue;     // background sprites to draw, like sky and ground
     std::deque<Sprite*> updateQueue; // sprites to draw on top of the background

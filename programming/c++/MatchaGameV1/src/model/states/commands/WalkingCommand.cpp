@@ -16,10 +16,16 @@ void WalkingCommand::update(Sprite* sprite) {
     float x = posn.getX();
     float y = posn.getY();
     
+    // get sheet width
+    SpriteSheet* sheet = sprite->getSheet(sprite->getState());
+    float width = sheet->getWidth() / sheet->getTotalFr();
+    
     switch (stateDir)
     {
         case DIRECTION::LEFT: {
-            sprite->setPosn(x - frameSpeed, y);  // update sprite posn
+            if (x - frameSpeed + 6 >= 0) {
+                sprite->setPosn(x - frameSpeed, y);  // update sprite posn
+            }
             if (currFrameTime <= 0.0) {          // if enough time passed to get to the next frame
                 sprite->updateSheet(WALKING, 1); // update sheet frame
             }
@@ -27,7 +33,10 @@ void WalkingCommand::update(Sprite* sprite) {
         }
             
         case DIRECTION::RIGHT: {
-            sprite->setPosn(x + frameSpeed, y);
+            // if ((x + width + frameSpeed) <= screenWidth) {
+            if ((x + width - 4) <= screenWidth) {
+                sprite->setPosn(x + frameSpeed, y);
+            }
             if (currFrameTime <= 0.0) {
                 sprite->updateSheet(WALKING, 1); // update sheet frame
             }

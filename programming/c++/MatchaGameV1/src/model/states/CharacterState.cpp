@@ -50,7 +50,6 @@ void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
             }
         } else // NO KEY IS PRESSED
         {
-            std::cout << "No key is pressed so player should be made idle. \n";
             idleC.update(sprite); // reset frame of state before idle state
             sprite->setState(STATE::IDLE);
         }

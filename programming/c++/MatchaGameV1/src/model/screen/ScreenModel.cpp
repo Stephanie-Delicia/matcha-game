@@ -27,6 +27,10 @@ std::deque<Sprite*> ScreenModel::getMainQ() {
     return mQueue;
 }
 
+std::deque<Sprite*> ScreenModel::getUiQ() {
+    return UiQueue;
+}
+
 std::deque<Sprite*> ScreenModel::getUpdateQ() {
     return updateQueue;
 }
@@ -144,7 +148,6 @@ void ScreenModel::handleInput(const SDL_Event &event) {
     // recurs thru update queue to apply state updates
     // to every sprite in the queue
     for (Sprite* sprite : updateQueue) {
-        std::cout << "Sprite to handle input for: " << sprite->getName() << ". [ScreenModel]\n";
         // std::cout << "Sprite ptr: " << sprite << ". [ScreenModel]\n";
         sprite->handleInput(event);
     }
@@ -153,7 +156,6 @@ void ScreenModel::handleInput(const SDL_Event &event) {
 SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
     SDL_Surface* surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ARGB8888);
     for (Sprite* sprite : spriteQueue) { // draw every sprite in the queue
-        std::cout << "Sprite to handle input for: " << sprite->getName() << ". [ScreenModel]\n";
         sprite->draw(surface);
     }
     return surface;
@@ -169,5 +171,28 @@ void ScreenModel::delayFrameTimes(float gameDelay, float timeElapsed) {
         } else {
             sprite->setCurrFrameTime(currFrameTime - timeElapsed);
         }
+    }
+}
+
+void ScreenModel::addToUI(Sprite *sprite) {
+    UiQueue.push_back(sprite);
+}
+
+void ScreenModel::removeUI(Sprite* sprite) {
+    auto find_iterator = std::find(UiQueue.begin(), UiQueue.end(), sprite);
+    if (find_iterator != UiQueue.end()) {
+        UiQueue.erase(find_iterator);
+    }
+}
+
+void ScreenModel::updateUI() {
+    for (Sprite* sprite : UiQueue) {
+        sprite->update();
+    }
+}
+
+void ScreenModel::handleInputForUI(const SDL_Event &event) {
+    for (Sprite* sprite : UiQueue) {
+        sprite->handleInput(event);
     }
 }

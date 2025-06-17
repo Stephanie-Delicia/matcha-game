@@ -3,6 +3,7 @@
 #pragma once
 #include "Timer.hpp"
 #include "SCENE.h"
+#include <string>
 #include "Request.hpp"
 #include "ScreenModel.hpp"
 

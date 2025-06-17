@@ -22,8 +22,7 @@ void ReplayButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
     mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
 
     if (sprite->getState() != NONE) {
-        if (input.type == SDL_EVENT_MOUSE_BUTTON_DOWN and sprite->getState() != PRESSED) { // mouse down click
-            // std::cout << "mouse down detected. [handleInput] \n";
+        if (SDL_EVENT_MOUSE_BUTTON_DOWN == input.type and sprite->getState() != PRESSED) { // mouse down click
             // get sprite rectangle
             Posn posn = Posn(input.button.x, input.button.y);
             Posn spritePosn = sprite->getPosn();
@@ -53,7 +52,6 @@ void ReplayButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void ReplayButtonState::update(Sprite* sprite) {
-    std::cout << "Sprite state: " << sprite->getState() << ". [ReplayButtonState::update(Sprite* sprite)]\n";
     // delegates to command
     STATE currState = sprite->getState();
     switch (currState) {
@@ -77,6 +75,7 @@ void ReplayButtonState::update(Sprite* sprite) {
         }
         case PRESSED: {
             // reset the game
+            gameController->setEndScene(true);
             gameController->reset();
             sprite->setState(STATE::NONE);
             break;

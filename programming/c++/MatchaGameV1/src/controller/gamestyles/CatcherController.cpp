@@ -24,6 +24,7 @@ void CatcherController::startGame() {
     // game step loop
     gStartTime = fpsTimer->getTicks();
     while (!exitGame) {
+        endScreenDisplay = false;
         startTime = fpsTimer->getTicks();
         avgFPS = measureFPS();
         setFPSText(avgFPS);
@@ -35,24 +36,18 @@ void CatcherController::startGame() {
         
         // handling events, we first check if there are any scene or navigation requests and fulfill those first.
        if (hasRequests()) {
-           std::cout << "Fulfilling requests. [CatcherController]\n";
            handleRequests();
            startGameplay = true;
        } else {
-           std::cout << "Regular handling of events. [CatcherController]\n";
            handleEvents();
        }
         
         getModel()->destroyBoxes();
         
         if (getModel()->getScore() >= 5 and !endScreenDisplay) {
-            // display a replay button
-            // ... if there exists one
-            // grab the active screen, find the replay button, then set its state to idle instead
             Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
             replayButtonPtr->setState(IDLE);
-            
-            addRequest(new SceneRequest(STILL, 5000));
+            addRequest(new SceneRequest(STILL, -1));
             endScreenDisplay = true;
         }
         

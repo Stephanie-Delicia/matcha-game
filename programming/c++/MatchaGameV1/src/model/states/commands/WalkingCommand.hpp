@@ -10,4 +10,8 @@ class WalkingCommand : public StateCommand {
     
 public:
     void update(Sprite* sprite) override;
+    void setScreenWidth(float width) { screenWidth = width; };
+    
+protected:
+    float screenWidth;
 };

@@ -10,12 +10,21 @@
 
 class CharacterState : public SpriteState {
 public:
+    CharacterState(float width, float height) {
+        screenWidth = width;
+        screenHeight = height;
+        walkingC.setScreenWidth(screenWidth);
+    };
     void update(Sprite* sprite);
     void draw(Sprite* sprite, SDL_Surface *windowSrfc);
     void handleInput(Sprite* sprite, const SDL_Event &input);
+    void setWidth(float width)   { screenWidth  = width; };
+    void setHeight(float height) { screenHeight = height; };
     
 private:
     // commands
+    float screenWidth;
+    float screenHeight;
     IdleCommand idleC = IdleCommand();
     WalkingCommand walkingC = WalkingCommand();
 };

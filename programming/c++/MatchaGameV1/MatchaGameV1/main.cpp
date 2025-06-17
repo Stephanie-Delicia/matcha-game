@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
     NavButtonState navButtonHandler = NavButtonState(); // set the param
     navButtonHandler.setScreenToNavTo(screenNav.getScreen(GAMEPLAY_SCREEN));
     
-    CharacterState charStateHandler = CharacterState();
+    CharacterState charStateHandler = CharacterState(640, 360);
     
     Sprite* player = spriteMap.getSprite(WINNIE);
     Sprite* start_button = spriteMap.getSprite(START_BUTTON_TEST);
@@ -79,6 +79,7 @@ int main(int argc, char* argv[]) {
     replay_btn->setDir(LEFT);
     replay_btn->setPosn(475, 15);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(replay_btn);
     
     player->setStateHandler(&charStateHandler);
     player->setState(IDLE);

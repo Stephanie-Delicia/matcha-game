@@ -55,10 +55,18 @@ void GameModel::update() {
     screenNav->getMainScreen()->update();
 }
 
+void GameModel::updateUI() {
+    screenNav->getMainScreen()->updateUI();
+}
+
 void GameModel::handleInput(const SDL_Event &event) {
-    std::cout << "handleInput call. [GameModel::handleInput] \n";
     ScreenNavigator* nav = getNavigator();
     nav->getMainScreen()->handleInput(event);
+}
+
+void GameModel::handleInputForUI(const SDL_Event &event) {
+    ScreenNavigator* nav = getNavigator();
+    nav->getMainScreen()->handleInputForUI(event);
 }
 
 void GameModel::setWidth(float w) {

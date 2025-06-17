@@ -23,7 +23,6 @@ void GameController::startGame() {
     float timeElapsed;
     
     fpsTimer = new Timer();
-    std::cout << "GameController::startGame() call. [GameController]\n";
     view->initSDL();
     fpsTimer->start();
     SDL_RaiseWindow(view->getWindow());
@@ -52,12 +51,19 @@ void GameController::update() {
     getModel()->update();
 }
 
+void GameController::updateUI() {
+    getModel()->updateUI();
+}
+
 void GameController::handleInput(SDL_Event const &event) {
     getModel()->handleInput(event);
 }
 
+void GameController::handleInputForUI(SDL_Event const &event) {
+    getModel()->handleInputForUI(event);
+}
+
 void GameController::handleEvents() {
-    std::cout << "handleEvents() call. [GameController]\n";
     SDL_Event event;
     while( SDL_PollEvent(&event) )
     {
@@ -119,8 +125,6 @@ void GameController::setFPSText(int fps) {
     fpsText = "Average FPS: " + std::to_string((int) std::round(fps));
 }
 
-
-
 void GameController::setSceneController() {
     // Scene controller need not be manually assigned, a whole new one is created w/ each main game controller.
     sceneController = new SceneController(getModel(), view, this);
@@ -129,8 +133,6 @@ void GameController::setSceneController() {
 }
 
 void GameController::addRequest(Request* request) {
-    std::cout << "Adding request ptr: " << request << " [GameController, addRequest()]\n";
-    std::cout << "Request type: " << request->getReqType() << " [GameController, addRequest()]\n";
     requests.push_front(request);
 }
 
@@ -155,9 +157,7 @@ void GameController::handleRequests() {
                 // for lower hiearchy relationships, we can luckily use dynamic_cast! Yay!
                 // WARNING: I hope this isnt cause for a memory leak. Reqs, when created, are
                 // dynamically allocated, so I wonder if dynamic_cast does the same for such an object.
-                std::cout << "the request ptr: " << req << " [GameController::handleRequests()]\n";
                 SceneRequest* sceneReq = dynamic_cast<SceneRequest*>(req);
-                std::cout << "the sceneReq ptr: " << sceneReq << " [GameController::handleRequests()]\n";
                 sceneController->addRequest(sceneReq);
                 // TODO: I think I am double deleting here.
                 // Fulfill the draw request, then delete it HERE
@@ -166,9 +166,7 @@ void GameController::handleRequests() {
                 break;
             }
             case NAVIGATE: {
-                std::cout << "the request ptr: " << req << " [GameController::handleRequests()]\n";
                 NavRequest* navReq = dynamic_cast<NavRequest*>(req);
-                std::cout << "the navReq ptr: " << navReq << " [GameController::handleRequests()]\n";
                 screenNav->setMainScreen(navReq->getScreenModel());
                 reqsToDelete.push_front(req);
                 break;
@@ -186,4 +184,6 @@ void GameController::handleRequests() {
         removeRequest(req);
     }
 }
+
+
 

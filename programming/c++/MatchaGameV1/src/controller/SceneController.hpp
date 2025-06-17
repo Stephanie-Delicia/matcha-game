@@ -14,9 +14,6 @@
 class SceneController : public GameController {
 public:
     SceneController(GameModel* m, GameView* v, GameController* controller) {
-        std::cout << "In SceneController constructor. [SceneController].\n";
-        std::cout << "m ptr: " << m << ", [SceneController].\n";
-        std::cout << "v ptr: " << v << ", [SceneController].\n";
         mainController = controller;
         sceneModel = m;
         view = v;

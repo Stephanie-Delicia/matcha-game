@@ -32,6 +32,11 @@ public:
     };
     // getter
     virtual GameModel* getModel() { return model; };
+    bool getEndScene() { return endScene; };
+    
+    // setter
+    void setEndScene(bool b) { endScene = b; };
+    
     // start
     virtual void startGame(); // to be overwritten by more complex games
     void endGame() { exitGame = true; };
@@ -44,7 +49,12 @@ public:
     // reset game
     virtual void reset() {}; // to be overwritten by more complex games
     
+    // frame count
+    void frameCountAdd(int incrementor) { countedFrames = countedFrames + incrementor; } ;
+    void gameDelay(float timeElapsed); // handles the main game delay as well as sprite delays
+    
 protected:
+    bool endScene = false;
     bool exitGame;
     GameView* view;
     GameModel* model;
@@ -55,13 +65,15 @@ protected:
     // methods for handling events, drawing, and updates
     void draw();
     void update();
+    void updateUI();
     void drawWithFPS();
     void handleEvents(); // includes handling input, updating, and drawing
     void drawWithText(std::string text, Posn posn);
     void drawWithTexts(std::vector<std::string> textLs, std::vector<Posn> posnLs); // for multiple texts
-    void gameDelay(float timeElapsed); // handles the main game delay as well as sprite delays
+    
     void delay(float time); // handles only the main game delay
     void handleInput(SDL_Event const &event);
+    void handleInputForUI(SDL_Event const &event);
     void handleRequests();
     
     // get

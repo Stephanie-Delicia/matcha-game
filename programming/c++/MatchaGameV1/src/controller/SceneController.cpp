@@ -6,32 +6,40 @@
 #include "Timer.hpp"
 #include "NAME.h"
 #include "REQUEST.h"
+#include <limits>
 
 void SceneController::drawStillScene(SceneRequest* request) {
     float startTime = fpsTimer->getTicks();
     float timeDuration = request->getTimeDuration();
     
+    if (timeDuration <= -1) {
+        timeDuration = std::numeric_limits<float>::infinity();
+    }
+    
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !exitGame) {
+    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )
         {
+            handleInputForUI(event);
             switch( event.type ) {
                 case SDL_EVENT_QUIT:
                     mainController->endGame();
-                    exitGame = true;
+                    mainController->setEndScene(true);
                     break;
             }
         }
-        drawWithText("Collect 20 boxes to win, bish!", Posn(200, 170));
         
+        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
+        updateUI();
+
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
-        gameDelay(timeElapsed); // TODO: I dont think this is running properly?
-        countedFrames++;
+        mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
+        mainController->frameCountAdd(1);
     }
-    exitGame = false;
+    mainController->setEndScene(false);
     request->setTimeDuration(0);
 }
 
@@ -50,37 +58,25 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
     // get alpha
     bool success = SDL_GetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), &alpha);
     if (success) {
-        std::cout << "Sucess getting the alpha! [SceneController::drawFadeToBlack()]\n";
     }
     // make transparent
     if (alpha == 0) {
-        std::cout << "The rectangle was already fully transparent. [SceneController::drawFadeToBlack()]\n";
     } else {
         bool success2 = SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 0);
-        std::cout << "Making the rectangle fully transparent. [SceneController::drawFadeToBlack()]\n";
     }
-    // So, we're going to add that ish to the main screen's queues for drawing
-    // Just the main queue! No updates needed.
-    // So, we ensure its in the main queue, THEN, we alter the transparency.
+
     Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
     bool inQueue = getModel()->getActiveScreen()->onScreen(blackScreenPtr);
     
     if (!inQueue) {
         getModel()->getActiveScreen()->addToMain(blackScreenPtr);
     }
-
-    // Let's do like maybe 2 seconds for the fade
-    // then we keep the screen on for the time duration.
-    // when that's done, we have to have an immediate nav call, then a drawFadeOutOfBlack() call in the main controller queue.
-    // that will have a set time like 2 seconds two, maybe.
     
     float startTime = fpsTimer->getTicks();
     float timeDuration = request->getTimeDuration();
     
-    float timeStep = timeDuration / 255.00;
-    int alphaStep = 1;
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !exitGame) {
+    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
         SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), ((fpsTimer->getTicks() - startTime)/timeDuration) * 255.00);
         // game step
         SDL_Event event;
@@ -89,18 +85,18 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
             switch( event.type ) {
                 case SDL_EVENT_QUIT:
                     mainController->endGame();
-                    exitGame = true;
+                    mainController->setEndScene(true);
                     break;
             }
         }
-        drawWithText("Collect 20 boxes to win, bish!", Posn(200, 170));
+        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
         
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
-        gameDelay(timeElapsed); // TODO: I dont think this is running properly?
-        countedFrames++;
+        mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
+        mainController->frameCountAdd(1);
     }
-    exitGame = false;
+    mainController->setEndScene(false);
     request->setTimeDuration(0);
 }
 
@@ -138,14 +134,11 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
     // get alpha
     bool success = SDL_GetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), &alpha);
     if (success) {
-        std::cout << "Sucess getting the alpha! [SceneController::drawFadeOutOfBlack()]\n";
     }
     // make transparent
     if (alpha == 255) {
-        std::cout << "The rectangle was already fully opaque. [SceneController::drawFadeOutOfBlack()]\n";
     } else {
         bool success2 = SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 255);
-        std::cout << "Making the rectangle fully transparent. [SceneController::drawFadeOutOfBlack()]\n";
     }
     // So, we're going to add that ish to the main screen's queues for drawing
     // Just the main queue! No updates needed.
@@ -161,7 +154,7 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
     float timeDuration = request->getTimeDuration();
     
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !exitGame) {
+    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
         SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), (1 - ((fpsTimer->getTicks() - startTime)/timeDuration)) * 255.00);
         // game step
         SDL_Event event;
@@ -170,18 +163,18 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
             switch( event.type ) {
                 case SDL_EVENT_QUIT:
                     mainController->endGame();
-                    exitGame = true;
+                    mainController->setEndScene(true);
                     break;
             }
         }
-        drawWithText("Collect 20 boxes to win, bish!", Posn(200, 170));
+        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
         
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
-        gameDelay(timeElapsed);
-        countedFrames++;
+        mainController->gameDelay(timeElapsed);
+        mainController->frameCountAdd(1);
     }
-    exitGame = false;
+    mainController->setEndScene(false);
     request->setTimeDuration(0);
 }
 
@@ -190,7 +183,6 @@ bool SceneController::hasRequests() {
 }
 
 void SceneController::fulfillRequests() {
-    std::cout << "[SceneController, fulfillRequests]\n";
     std::deque<SceneRequest*> reqsToDelete;
     for (SceneRequest* req : sceneRequests) {
         // fulfill, then add to queue for deletion
@@ -244,27 +236,5 @@ void SceneController::removeRequest(SceneRequest* req) {
 }
 
 void SceneController::addRequest(SceneRequest* req) {
-    std::cout << "Added req ptr: " << req << ", [SceneController].\n";
     sceneRequests.push_front(req);
 }
-
-/*
- FOR TESTING:
- //    std::cout << "[SceneController, drawStillScene]\n";
- //    std::cout << "fpsTimer ptr: " << fpsTimer << " [SceneController, drawStillScene]\n";
- 
- //    std::cout << "startTime: " << startTime << " [SceneController, drawStillScene]\n";
- //    std::cout << "timeDuration: " << timeDuration << " [SceneController, drawStillScene]\n";
- //    std::cout << "fpsTimer.getTicks(): " << fpsTimer->getTicks() << " [SceneController, drawStillScene]\n";
- 
- //        std::cout << "startTime: " << startTime << " [SceneController, drawStillScene]\n";
- //        std::cout << "fpsTimer.getTicks(): " << fpsTimer->getTicks() << " [SceneController, drawStillScene]\n";
- //        std::cout << "fpsTimer.getTicks() - startTime >= timeDuration: " << (fpsTimer->getTicks() - startTime >= timeDuration) << " [SceneController, drawStillScene]\n";
- //        std::cout << "Time loop for [SceneController, drawStillScene].\n";
- 
- //    std::cout << "Finished scene request. [drawStillScene]\n";
-     // fpsTimer->stop();
- 
- //    delete req;
- //    req = nullptr;
- */
