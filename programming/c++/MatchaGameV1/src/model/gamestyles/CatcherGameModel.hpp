@@ -34,7 +34,8 @@ public:
     void addBox(Sprite* box);
     void generateBox(); // on some chance, generate a box, add to box list, and give to the active screen
     void removeBox(Sprite* box);
-    void destroyBoxes(); // recur thru each box and, if the box is on a player or at floor, destroy the box.
+    void destroyBoxes();    // recur thru each box and, if the box is on a player or at floor, destroy the box.
+    void clearBoxesQueue(); // recurs thru each box, removes them from the queue, and deletes them (for replaying)
     
 private:
     int score = 0;

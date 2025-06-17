@@ -9,6 +9,7 @@
 #include "Timer.hpp"
 #include "SceneRequest.hpp"
 #include "GameController.hpp"
+#include "ScreenModel.hpp"
 
 class SceneController : public GameController {
 public:
@@ -41,6 +42,9 @@ public:
     void drawFadeToBlack(SceneRequest* request);
     // draws a rectangle over the screen, but it eventually becomes transparent and deleted
     void drawFadeOutOfBlack(SceneRequest* request);
+    // remove the black screen
+    void removeBlackScreen(); // remove black screen
+    void addBlackScreen(ScreenModel* screenToSetup);    // add the black screen
 
     void fulfillRequests();
     

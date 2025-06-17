@@ -44,7 +44,8 @@ public:
             {"idle", IDLE},
             {"translate", TRANSLATE},
             {"pressed", PRESSED},
-            {"hover", HOVER}
+            {"hover", HOVER},
+            {"none", NONE}
         };
     };
     

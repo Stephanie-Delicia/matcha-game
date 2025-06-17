@@ -51,6 +51,7 @@ void NavButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void NavButtonState::update(Sprite* sprite) {
+    std::cout << "Sprite state: " << sprite->getState() << ". [NavButtonState::update(Sprite* sprite)]\n";
     // delegates to command
     STATE currState = sprite->getState();
     switch (currState) {
@@ -73,17 +74,35 @@ void NavButtonState::update(Sprite* sprite) {
             break;
         }
         case PRESSED: {
-            // make a transition draw request
-            std::cout << "Adding a scene request. [NavButtonState]\n";
-            SceneRequest* sceneReq = new SceneRequest(STILL, 3000);
-            std::cout << "Scene request ptr: " << sceneReq << " [NavButtonState]\n";
-            gameController->addRequest(sceneReq);
             
+            // make a transition draw request
+            SceneRequest* sceneReq2 = new SceneRequest(STILL, 1000);
+            gameController->addRequest(sceneReq2);
+            
+            // request a fade out
+            std::cout << "Adding a fade out scene request. [NavButtonState]\n";
+            SceneRequest* unfadeSceneReq = new SceneRequest(UNFADE, 250);
+            std::cout << "Fade scene request ptr: " << unfadeSceneReq << " [NavButtonState]\n";
+            gameController->addRequest(unfadeSceneReq);
+
             // make a nav draw request
             std::cout << "Adding a navigation request. [NavButtonState]\n";
             NavRequest* navReq = new NavRequest(screenToNavTo);
             gameController->addRequest(navReq);
             std::cout << "Navigation request ptr: " << navReq << " [NavButtonState]\n";
+            
+            SceneRequest* removeBlackScreenReq = new SceneRequest(REMOVE_BLACK_SCREEN, 0.0);
+            gameController->addRequest(removeBlackScreenReq);
+            
+            SceneRequest* addBlackScreenReq = new SceneRequest(ADD_BLACK_SCREEN, screenToNavTo);
+            std::cout << "Scene request for addnig a black screen ptr: " << addBlackScreenReq << " [NavButtonState]\n";
+            gameController->addRequest(addBlackScreenReq);
+            
+            // make a transition draw request
+            std::cout << "Adding a scene request. [NavButtonState]\n";
+            SceneRequest* sceneReq = new SceneRequest(STILL, 500);
+            std::cout << "Scene request ptr: " << sceneReq << " [NavButtonState]\n";
+            gameController->addRequest(sceneReq);
             
             // make a transition draw request
             std::cout << "Adding a fade scene request. [NavButtonState]\n";
@@ -91,8 +110,6 @@ void NavButtonState::update(Sprite* sprite) {
             std::cout << "Fade scene request ptr: " << fadeSceneReq << " [NavButtonState]\n";
             gameController->addRequest(fadeSceneReq);
             
-
-
             sprite->setState(STATE::IDLE);
             break;
         }

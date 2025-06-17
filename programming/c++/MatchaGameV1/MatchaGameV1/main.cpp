@@ -13,6 +13,7 @@
 #include "NameSpriteMap.hpp"
 #include "CharacterState.hpp"
 #include "NavButtonState.hpp"
+#include "ReplayButtonState.hpp"
 #include "ScreenNavigator.hpp"
 #include "SpriteSheet.hpp"
 #include "Sprite.hpp"
@@ -70,6 +71,15 @@ int main(int argc, char* argv[]) {
     black_screen->setState(IDLE);
     black_screen->setDir(LEFT);
     
+    ReplayButtonState replayButtonHandler = ReplayButtonState();
+    
+    Sprite* replay_btn = spriteMap.getSprite(REPLAY_BUTTON);
+    replay_btn->setStateHandler(&replayButtonHandler);
+    replay_btn->setState(NONE);
+    replay_btn->setDir(LEFT);
+    replay_btn->setPosn(475, 15);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
+    
     player->setStateHandler(&charStateHandler);
     player->setState(IDLE);
     player->setDir(RIGHT);
@@ -90,6 +100,7 @@ int main(int argc, char* argv[]) {
     
     player->setSheetMap(&sheetMap);
     start_button->setSheetMap(&sheetMap);
+    replay_btn->setSheetMap(&sheetMap);
     bg->setSheetMap(&sheetMap);
     start_bg->setSheetMap(&sheetMap);
     
@@ -97,6 +108,8 @@ int main(int argc, char* argv[]) {
     controller.setScreenNav(&screenNav);
     std::cout << "Instantiated MVC. (yay!) [main]\n";
     navButtonHandler.setGameController(&controller);
+    replayButtonHandler.setGameController(&controller);
+    
     
     // begin gameplay
     controller.startGame();

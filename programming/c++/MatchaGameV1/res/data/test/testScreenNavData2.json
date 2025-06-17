@@ -1,4 +1,4 @@
 {
-    "ls": [{"active": false, "width": 640.00, "height": 360.00, "bgQueue": ["pleasant_sky"], "mQueue": ["winnie"], "type": "gameplay"},
+    "ls": [{"active": false, "width": 640.00, "height": 360.00, "bgQueue": ["pleasant_sky"], "mQueue": ["winnie", "replay_button"], "type": "gameplay"},
         {"active": true, "width": 640.00, "height": 360.00, "bgQueue": ["start_screen_test"], "mQueue": ["start_button_test"], "type": "start"}]
 }

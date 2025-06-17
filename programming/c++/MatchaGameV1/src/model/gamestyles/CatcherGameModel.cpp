@@ -14,7 +14,7 @@ void CatcherGameModel::generateBox() {
         std::random_device rd;  // a seed source for the random number engine
         std::mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<double> realDistr(0.0, 1.0);
-        std::uniform_int_distribution<> intDistr(0, static_cast<int>(screenWidth));
+        std::uniform_int_distribution<> intDistr(0, static_cast<int>(screenWidth - 20));
         
         double randNum = realDistr(gen);
         
@@ -88,6 +88,21 @@ void CatcherGameModel::destroyBoxes() {
         getActiveScreen()->removeMain(box);
         getActiveScreen()->removeUpdate(box);
         // THEN delete the sprite from existence
+        delete box;    // desallocate memory
+        box = nullptr; // to avoid dangling pointer
+    }
+}
+
+void CatcherGameModel::clearBoxesQueue() {
+    std::deque<Sprite*> boxesToDelete;
+    for (Sprite* box : boxes) {
+        boxesToDelete.push_front(box);
+        removeBox(box);
+    }
+    
+    for (Sprite* box : boxesToDelete) {
+        getActiveScreen()->removeMain(box);
+        getActiveScreen()->removeUpdate(box);
         delete box;    // desallocate memory
         box = nullptr; // to avoid dangling pointer
     }

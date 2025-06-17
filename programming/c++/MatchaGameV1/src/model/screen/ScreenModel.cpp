@@ -83,7 +83,7 @@ void ScreenModel::addToUpdate(Sprite* sprite) {
 }
 
 void ScreenModel::addToMain(Sprite *sprite) {
-    mQueue.push_front(sprite);
+    mQueue.push_back(sprite);
 }
 
 void ScreenModel::addToBG(Sprite* sprite) {

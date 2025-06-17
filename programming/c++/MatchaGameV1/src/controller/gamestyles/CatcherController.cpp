@@ -15,22 +15,16 @@ void CatcherController::startGame() {
     float endTime;
     float avgFPS;
     float timeElapsed = 0.0;
-    bool endScreenDisplay = false;
     
     fpsTimer = new Timer();
     view->initSDL();
     fpsTimer->start();
     setSceneController();
     
-//    std::cout << "scene controller ptr: " << sceneController << ", [CatcherController].\n";
-//    std::cout << "model ptr: " << getModel() << ", [CatcherController].\n";
-    
     // game step loop
     gStartTime = fpsTimer->getTicks();
     while (!exitGame) {
-//        std::cout << "Start game loop. [CatcherController]\n";
         startTime = fpsTimer->getTicks();
-//        std::cout << "startTime: " << startTime << " [CatcherController]\n";
         avgFPS = measureFPS();
         setFPSText(avgFPS);
         
@@ -39,7 +33,7 @@ void CatcherController::startGame() {
         }
         
         
-        // for handling events, we first check if there are any scene or navigation requests and fulfill those first.
+        // handling events, we first check if there are any scene or navigation requests and fulfill those first.
        if (hasRequests()) {
            std::cout << "Fulfilling requests. [CatcherController]\n";
            handleRequests();
@@ -52,9 +46,14 @@ void CatcherController::startGame() {
         getModel()->destroyBoxes();
         
         if (getModel()->getScore() >= 5 and !endScreenDisplay) {
+            // display a replay button
+            // ... if there exists one
+            // grab the active screen, find the replay button, then set its state to idle instead
+            Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
+            replayButtonPtr->setState(IDLE);
+            
             addRequest(new SceneRequest(STILL, 5000));
             endScreenDisplay = true;
-            // display a replay button
         }
         
         // adjust fps
@@ -66,4 +65,16 @@ void CatcherController::startGame() {
 
     // quit
     view->quitSDL();
+}
+
+void CatcherController::reset() {
+    // reset score
+    getModel()->setScore(0);
+    // disappear all of the boxes
+    getModel()->clearBoxesQueue();
+    // keep winnie in her location
+    // hide replay button again
+    Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
+    replayButtonPtr->setState(NONE);
+    endScreenDisplay = false;
 }

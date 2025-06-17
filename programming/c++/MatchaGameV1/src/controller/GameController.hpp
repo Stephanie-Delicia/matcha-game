@@ -41,6 +41,9 @@ public:
     
     bool hasRequests() { return (requests.size() > 0); };
     
+    // reset game
+    virtual void reset() {}; // to be overwritten by more complex games
+    
 protected:
     bool exitGame;
     GameView* view;
@@ -62,7 +65,6 @@ protected:
     void handleRequests();
     
     // get
-    
     
     // scene and nav events
     void removeRequest(Request* request); // first removes request from the queue and then DELETES

@@ -102,12 +102,87 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
     }
     exitGame = false;
     request->setTimeDuration(0);
+}
+
+void SceneController::removeBlackScreen() {
+    NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
+    Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
+    bool inQueue = getModel()->getActiveScreen()->onScreen(blackScreenPtr);
     
-    // DO NOT remove scree from screen queue. Need to call drawFadeOutOfBlack() to do this.
+    if (inQueue) {
+        getModel()->getActiveScreen()->removeMain(blackScreenPtr);
+    }
+}
+
+void SceneController::addBlackScreen(ScreenModel* screenToSetup) {
+    NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
+    Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
+    bool inQueue = screenToSetup->onScreen(blackScreenPtr);
+    
+    // ensure the alpha is set to 100%
+    NameStateSheetMap* stateSheetMap = getModel()->getNameToSheetMap();
+    SpriteSheet* blackScreenSheet = stateSheetMap->getSpriteSheet(BLACK_SCREEN, IDLE);
+    bool success = SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 255);
+    
+    if (!inQueue) {
+        screenToSetup->addToMain(blackScreenPtr);
+    }
 }
 
 void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
+    NameStateSheetMap* stateSheetMap = getModel()->getNameToSheetMap();
+    NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
+    SpriteSheet* blackScreenSheet = stateSheetMap->getSpriteSheet(BLACK_SCREEN, IDLE);
+    uint8_t alpha = 0;
+    // 0 = fully transparent
+    // get alpha
+    bool success = SDL_GetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), &alpha);
+    if (success) {
+        std::cout << "Sucess getting the alpha! [SceneController::drawFadeOutOfBlack()]\n";
+    }
+    // make transparent
+    if (alpha == 255) {
+        std::cout << "The rectangle was already fully opaque. [SceneController::drawFadeOutOfBlack()]\n";
+    } else {
+        bool success2 = SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 255);
+        std::cout << "Making the rectangle fully transparent. [SceneController::drawFadeOutOfBlack()]\n";
+    }
+    // So, we're going to add that ish to the main screen's queues for drawing
+    // Just the main queue! No updates needed.
+    // So, we ensure its in the main queue, THEN, we alter the transparency.
+    Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
+    bool inQueue = getModel()->getActiveScreen()->onScreen(blackScreenPtr);
     
+    if (!inQueue) {
+        getModel()->getActiveScreen()->addToMain(blackScreenPtr);
+    }
+    
+    float startTime = fpsTimer->getTicks();
+    float timeDuration = request->getTimeDuration();
+    
+    // neither handleinput or update are called. Truly a still scene.
+    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !exitGame) {
+        SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), (1 - ((fpsTimer->getTicks() - startTime)/timeDuration)) * 255.00);
+        // game step
+        SDL_Event event;
+        while( SDL_PollEvent(&event) )
+        {
+            switch( event.type ) {
+                case SDL_EVENT_QUIT:
+                    mainController->endGame();
+                    exitGame = true;
+                    break;
+            }
+        }
+        drawWithText("Collect 20 boxes to win, bish!", Posn(200, 170));
+        
+        float endTime = fpsTimer->getTicks();
+        float timeElapsed = endTime - startTime;
+        gameDelay(timeElapsed);
+        countedFrames++;
+    }
+    exitGame = false;
+    request->setTimeDuration(0);
 }
 
 bool SceneController::hasRequests() {
@@ -127,6 +202,21 @@ void SceneController::fulfillRequests() {
                 
             case FADE: {
                 drawFadeToBlack(req);
+                break;
+            }
+                
+            case UNFADE: {
+                drawFadeOutOfBlack(req);
+                break;
+            }
+                
+            case REMOVE_BLACK_SCREEN: {
+                removeBlackScreen();
+                break;
+            }
+                
+            case ADD_BLACK_SCREEN: {
+                addBlackScreen(req->getScreenToSetup());
                 break;
             }
         

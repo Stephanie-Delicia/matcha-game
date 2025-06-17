@@ -3,7 +3,7 @@
         {"name": "pleasant_sky", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "start_button_test", "posnX": 100, "posnY": 240, "state": "idle",  "dir": "left"},
         {"name": "start_screen_test", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
-        {"name": "replay_button", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "replay_button", "posnX": 15, "posnY": 240, "state": "idle",  "dir": "left"},
         {"name": "black_screen", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
     ]
 }

@@ -19,6 +19,8 @@ public:
     };
     
     void startGame() override;
+    void reset() override;
     CatcherGameModel* getModel() override { return catcherModel; };
     CatcherGameModel* catcherModel;
+    bool endScreenDisplay = false;
 };
