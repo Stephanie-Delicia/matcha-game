@@ -74,7 +74,7 @@ void NavButtonState::update(Sprite* sprite) {
         case PRESSED: {
             
             // make a transition draw request
-            SceneRequest* sceneReq2 = new SceneRequest(STILL, 1000);
+            SceneRequest* sceneReq2 = new SceneRequest(STILL, 500);
             gameController->addRequest(sceneReq2);
             
             // request a fade out
@@ -92,11 +92,11 @@ void NavButtonState::update(Sprite* sprite) {
             gameController->addRequest(addBlackScreenReq);
             
             // make a transition draw request
-            SceneRequest* sceneReq = new SceneRequest(STILL, 500);
+            SceneRequest* sceneReq = new SceneRequest(STILL, 250);
             gameController->addRequest(sceneReq);
             
             // make a transition draw request
-            SceneRequest* fadeSceneReq = new SceneRequest(FADE, 1000);
+            SceneRequest* fadeSceneReq = new SceneRequest(FADE, 500);
             gameController->addRequest(fadeSceneReq);
             
             sprite->setState(STATE::IDLE);

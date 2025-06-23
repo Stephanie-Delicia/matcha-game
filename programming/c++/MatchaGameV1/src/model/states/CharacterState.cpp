@@ -21,21 +21,31 @@ void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
     bool isDownPressed  = keys[SDL_SCANCODE_DOWN];
     bool isLeftPressed  = keys[SDL_SCANCODE_LEFT];
     bool isRightPressed = keys[SDL_SCANCODE_RIGHT];
-    bool keyDown = (isUpPressed || isDownPressed || isLeftPressed || isRightPressed); // are any of these pressed down?
+    bool isSpacePressed = keys[SDL_SCANCODE_SPACE];
+    bool keyDown = (isUpPressed || isDownPressed || isLeftPressed || isRightPressed || isSpacePressed); // are any of these pressed down?
     if (keyDown) {
             if (isLeftPressed && isRightPressed)
             {
-                sprite->setState(STATE::WALKING);
-
+                if (sprite->getState() != JUMPING) {
+                    sprite->setState(STATE::WALKING);
+                }
             }
             else if (isLeftPressed)
             {
-                sprite->setState(STATE::WALKING);
+                // consider if the char state is JUMPING
+                // then we need to fulfill the full jumping animation also and not change state yet
+                // if sprite state is jumping,
+                // do not change state but still set the direction
+                if (sprite->getState() != JUMPING) {
+                    sprite->setState(STATE::WALKING);
+                }
                 sprite->setDir(DIRECTION::LEFT);
             }
             else if (isRightPressed)
             {
-                sprite->setState(STATE::WALKING);
+                if (sprite->getState() != JUMPING) {
+                    sprite->setState(STATE::WALKING);
+                }
                 sprite->setDir(DIRECTION::RIGHT);
             }
             else if (isUpPressed)
@@ -48,10 +58,19 @@ void CharacterState::handleInput(Sprite* sprite, const SDL_Event &input) {
                 sprite->setState(STATE::IDLE);
                 sprite->setDir(sprite->getStateDir());
             }
+            else if (isSpacePressed) {
+                std::cout << "I get to here." << " [CharState, checking for jumping.]\n";
+                setJumpingCommand();
+                std::cout << "timer ptr: " << gameController->getTimer() << ". [charstate, checking for jumping.]\n";
+                sprite->setState(STATE::JUMPING);
+                sprite->setDir(sprite->getStateDir());
+            }
         } else // NO KEY IS PRESSED
         {
-            idleC.update(sprite); // reset frame of state before idle state
-            sprite->setState(STATE::IDLE);
+            if (sprite->getState() != JUMPING) {
+                idleC.update(sprite); // reset frame of state before idle state
+                sprite->setState(STATE::IDLE);
+            }
         }
 }
 
@@ -80,6 +99,14 @@ void CharacterState::update(Sprite* sprite) {
             break;
         }
         case PRESSED: {
+            break;
+        }
+        case HOVER: {
+            break;
+        }
+        case JUMPING: {
+            std::cout << "I get to here." << " [CharState, checking for jumping update.]\n";
+            jumpingC.update(sprite);
             break;
         }
         case NONE: {

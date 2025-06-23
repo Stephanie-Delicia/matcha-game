@@ -48,6 +48,8 @@
 		C26E70F62D95CB0B00DE5378 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E70F42D95CB0A00DE5378 /* Sprite.cpp */; };
 		C26E70F92D95CB1D00DE5378 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E70F72D95CB1D00DE5378 /* SpriteSheet.cpp */; };
 		C26E71022D95CDA900DE5378 /* Posn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26E71002D95CDA900DE5378 /* Posn.cpp */; };
+		C2747FA02E09CB5300B26996 /* JumpingCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747F9E2E09CB5300B26996 /* JumpingCommand.cpp */; };
+		C2747FA12E09CB5300B26996 /* JumpingCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747F9E2E09CB5300B26996 /* JumpingCommand.cpp */; };
 		C2EC16152DC5443900BDC470 /* GameViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC16142DC5443900BDC470 /* GameViewTest.cpp */; };
 		C2EC16172DC5444B00BDC470 /* GameControllerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC16162DC5444B00BDC470 /* GameControllerTest.cpp */; };
 		C2F78E932DBBEC5E00B7B8F9 /* SpriteTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20003242DB967FC0074364D /* SpriteTest.cpp */; };
@@ -176,6 +178,8 @@
 		C26E70FE2D95CC6B00DE5378 /* DIRECTION.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIRECTION.h; sourceTree = "<group>"; };
 		C26E71002D95CDA900DE5378 /* Posn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Posn.cpp; sourceTree = "<group>"; };
 		C26E71012D95CDA900DE5378 /* Posn.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Posn.hpp; sourceTree = "<group>"; };
+		C2747F9E2E09CB5300B26996 /* JumpingCommand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JumpingCommand.cpp; sourceTree = "<group>"; };
+		C2747F9F2E09CB5300B26996 /* JumpingCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JumpingCommand.hpp; sourceTree = "<group>"; };
 		C2A313B02D95C89A004173D5 /* MatchaGameV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchaGameV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A313BD2D95C8A7004173D5 /* MatchaGameV1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchaGameV1.entitlements; sourceTree = "<group>"; };
 		C2A313C42D95C8E8004173D5 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3.xcframework; sourceTree = "<group>"; };
@@ -471,10 +475,12 @@
 				C2F78EA72DBD6FB100B7B8F9 /* StateCommand.hpp */,
 				C20AD74C2DEA38F10007622F /* TranslateCommand.cpp */,
 				C20AD74D2DEA38F10007622F /* TranslateCommand.hpp */,
-				C2F78EAD2DBFF9DE00B7B8F9 /* WalkingCommand.cpp */,
 				C2F78EAE2DBFF9DE00B7B8F9 /* WalkingCommand.hpp */,
-				C2F78EBB2DC006BF00B7B8F9 /* IdleCommand.cpp */,
+				C2F78EAD2DBFF9DE00B7B8F9 /* WalkingCommand.cpp */,
 				C2F78EBC2DC006BF00B7B8F9 /* IdleCommand.hpp */,
+				C2F78EBB2DC006BF00B7B8F9 /* IdleCommand.cpp */,
+				C2747F9F2E09CB5300B26996 /* JumpingCommand.hpp */,
+				C2747F9E2E09CB5300B26996 /* JumpingCommand.cpp */,
 			);
 			path = commands;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */,
 				C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */,
 				C20AD7562DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */,
+				C2747FA02E09CB5300B26996 /* JumpingCommand.cpp in Sources */,
 				C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C25E93C02DEB9F7800930EFB /* CatcherController.cpp in Sources */,
@@ -714,6 +721,7 @@
 				C2492C8E2DC7CC460020F8E6 /* GameModel.cpp in Sources */,
 				C2492C962DC927150020F8E6 /* SpriteStruct.cpp in Sources */,
 				C2080E952DCD35A2009F2411 /* Timer.cpp in Sources */,
+				C2747FA12E09CB5300B26996 /* JumpingCommand.cpp in Sources */,
 				C2F78ED92DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2492C912DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
 				C2492C9B2DC9D4CB0020F8E6 /* ScreenNavigatorTest.cpp in Sources */,

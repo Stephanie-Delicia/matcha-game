@@ -110,6 +110,8 @@ int main(int argc, char* argv[]) {
     std::cout << "Instantiated MVC. (yay!) [main]\n";
     navButtonHandler.setGameController(&controller);
     replayButtonHandler.setGameController(&controller);
+    charStateHandler.setGameController(&controller);
+//    charStateHandler.setJumpingCommand(); // has to be used when game is already playing
     
     
     // begin gameplay

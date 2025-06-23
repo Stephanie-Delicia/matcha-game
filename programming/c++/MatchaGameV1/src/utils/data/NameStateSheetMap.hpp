@@ -41,6 +41,7 @@ public:
         };
         stateStrMap = {
             {"walking", WALKING},
+            {"jumping", JUMPING},
             {"idle", IDLE},
             {"translate", TRANSLATE},
             {"pressed", PRESSED},

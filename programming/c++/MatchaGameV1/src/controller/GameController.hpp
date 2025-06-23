@@ -33,6 +33,7 @@ public:
     // getter
     virtual GameModel* getModel() { return model; };
     bool getEndScene() { return endScene; };
+    Timer* getTimer() {return fpsTimer;};
     
     // setter
     void setEndScene(bool b) { endScene = b; };
