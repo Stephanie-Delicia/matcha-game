@@ -28,9 +28,45 @@
 		<data>
 		yXBri/LEMGOxQHkUVi2yoL335Gk=
 		</data>
+		<key>Resources/res/textures/background/back_btn.png</key>
+		<data>
+		kSFBZ4h+eLeMFAbWhTMpDs6buJU=
+		</data>
+		<key>Resources/res/textures/background/back_btn_hover.png</key>
+		<data>
+		AeVyaS6Eto8hfzg9Z8T0CcT55JE=
+		</data>
 		<key>Resources/res/textures/background/black_screen.png</key>
 		<data>
 		Ejrdp0fRIPnWJA0McMW/u7BYn1c=
+		</data>
+		<key>Resources/res/textures/background/controls_desc_box.png</key>
+		<data>
+		bjvLkVf3npLxXm51ELKhULz6SQM=
+		</data>
+		<key>Resources/res/textures/background/exit_btn.png</key>
+		<data>
+		Hp92KoRbw48t/Dh6HM+LY880pY4=
+		</data>
+		<key>Resources/res/textures/background/exit_btn_hover.png</key>
+		<data>
+		qhQOLDFDKIyCTa3t4PsNFVcSab4=
+		</data>
+		<key>Resources/res/textures/background/go_to_start_screen_btn.png</key>
+		<data>
+		nKKLy7cI5yeDoqnusrQqYaNBAkY=
+		</data>
+		<key>Resources/res/textures/background/go_to_start_screen_btn_hover.png</key>
+		<data>
+		p/HEN6B3UOQQfUY93HZ+iif8F5k=
+		</data>
+		<key>Resources/res/textures/background/help_btn.png</key>
+		<data>
+		77w0zcy4t0MVbpozifWmZO/Iy9I=
+		</data>
+		<key>Resources/res/textures/background/help_btn_hover.png</key>
+		<data>
+		X24+Fe9Qbdc6TuO/hujlSL/hrac=
 		</data>
 		<key>Resources/res/textures/background/hover_button_test.png</key>
 		<data>
@@ -39,6 +75,10 @@
 		<key>Resources/res/textures/background/hover_replay_button.png</key>
 		<data>
 		gX7mJ4HkG2vQFNNDbCDVHH45Z/k=
+		</data>
+		<key>Resources/res/textures/background/menu_box.png</key>
+		<data>
+		bUs3y98phDNgRYs+MnpYtv+VO8I=
 		</data>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>
 		<data>
@@ -139,11 +179,74 @@
 			EddhCjzNA7pLpraO3ZJAqkazolwo8n44WwsgZ9PeLvs=
 			</data>
 		</dict>
+		<key>Resources/res/textures/background/back_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ZEustamgaoTVL+oDYI3JqxWDIi05F+djYaq9RHxvn5w=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/back_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gTLVq5HbFCrxw/OBMDF8HalMKmg46T94MOAPSNyAVHg=
+			</data>
+		</dict>
 		<key>Resources/res/textures/background/black_screen.png</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			UZ6CDeYib2XrjVjJYdoCJW0iNXN2pKeUTn806/YxXf8=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/controls_desc_box.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DB9KfX+Zuqh6L7zmdYk+JCP4dpLVnPYzCo+zQffBuo0=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/exit_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nKuz4l89v91wCmVxMKKUtgFnG0W9C6EpnmozG2Mi6Nc=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/exit_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1EY7Q/LxVvmDijpXwhJGvq3Wb6DREbgkMmtyYc7GtEA=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/go_to_start_screen_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			1RbwHg3F+aR8c8HUsrg7vBn1tAw0LUgq+Njdz9TZOb4=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/go_to_start_screen_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			c2O+pSpIWbFgKyYMlEwPkRtC622LIgN/tuiG/t3CxpM=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/help_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AMdllcbw+V41x9q2aKfQ3uSVUuugq+h/ZPGUWOR0oP8=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/help_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			j3lXk3hlrIp+nI3rM9g7B1OfvMjqcnf4g0aqpmmSOPU=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/hover_button_test.png</key>
@@ -158,6 +261,13 @@
 			<key>hash2</key>
 			<data>
 			4So9QKmTVInpWxA2wIoivLtScVcGfK/m0kAVWmPnVi4=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/menu_box.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bit7C3IGrlZ6nZVP9XWmCL9p7+GwKEwBAafvklqpEpg=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>

@@ -64,10 +64,8 @@ void GameController::handleInputForUI(SDL_Event const &event) {
 }
 
 void GameController::handleEvents() {
-    std::cout << "handleEvents() called." << " [GameController]\n";
     // Findings, Ithink SDL_PollEvent will literally only pick up on events when the user
     // does something
-    // 
     SDL_Event event;
     while( SDL_PollEvent(&event) )
     {
@@ -79,8 +77,6 @@ void GameController::handleEvents() {
         }
     }
     // TODO: MAIN GAMEPLAY NEEDS TO BE CALLED HERE!
-    // handleInput(event);
-    std::cout << "update() called." << " [GameController]\n";
     update();
     drawWithFPS();
 }

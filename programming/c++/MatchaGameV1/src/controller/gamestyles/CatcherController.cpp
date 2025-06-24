@@ -55,7 +55,6 @@ void CatcherController::startGame() {
                // TODO: MAIN GAMEPLAY NEEDS TO BE CALLED HERE!
                // handleInput(event);
                handleInput(event);
-               std::cout << "update() called." << " [GameController]\n";
                update();
                drawWithFPS();
            }
@@ -88,7 +87,7 @@ void CatcherController::startGame() {
 void CatcherController::reset() {
     // reset score
     getModel()->setScore(0);
-    // disappear all of the boxes
+    // delete all of the boxes
     getModel()->clearBoxesQueue();
     // keep winnie in her location
     // hide replay button again

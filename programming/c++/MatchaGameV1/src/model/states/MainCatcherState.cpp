@@ -17,7 +17,6 @@
  keys are still pressed down.
  */
 void MainCatcherState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    std::cout << "handleInput called." << " [MainCharState, checking for jumping.]\n";
     const bool *keys = SDL_GetKeyboardState(nullptr);
     bool isUpPressed    = keys[SDL_SCANCODE_UP];
     bool isDownPressed  = keys[SDL_SCANCODE_DOWN];
@@ -26,20 +25,17 @@ void MainCatcherState::handleInput(Sprite* sprite, const SDL_Event &input) {
     bool isSpacePressed = keys[SDL_SCANCODE_SPACE];
     bool keyDown = (isUpPressed || isDownPressed || isLeftPressed || isRightPressed || isSpacePressed); // are any of these pressed down?
     if (keyDown) {
-        std::cout << "Key is down." << " [MainCharState, checking for jumping.]\n";
         if (isLeftPressed && isRightPressed)
         {
             sprite->addState(WALKING);
         }
         else if (isLeftPressed)
         {
-            std::cout << "Left is down." << " [MainCharState, checking for jumping.]\n";
             sprite->addState(WALKING);
             sprite->setDir(DIRECTION::LEFT);
         }
         else if (isRightPressed)
         {
-            std::cout << "Right is down." << " [MainCharState, checking for jumping.]\n";
             sprite->addState(WALKING);
             sprite->setDir(DIRECTION::RIGHT);
         }
@@ -58,34 +54,24 @@ void MainCatcherState::handleInput(Sprite* sprite, const SDL_Event &input) {
             }
         }
     } else { // NO KEY PRESSED
-        std::cout << "No key is pressed." << " [MainCharState, checking for jumping.]\n";
         if (!sprite->hasStateInQueue(JUMPING) or sprite->getStates().size() == 0) {
-            std::cout << "Key is up, so we add the idle state." << " [MainCharState, checking for jumping.]\n";
             idleC.update(sprite); // reset frame of state before idle state
             sprite->addState(IDLE);
         }
     }
         
      if (isSpacePressed) {
-         std::cout << "Space is pressed." << " [MainCharState, checking for jumping.]\n";
          if (!sprite->hasStateInQueue(JUMPING)) {
-             std::cout << "Space is already in the queue." << " [MainCharState, checking for jumping.]\n";
              setJumpingCommand();
              sprite->addState(JUMPING);
          }
     }
-    
-    std::cout << "Size of state queue: " << sprite->getStates().size() << ". [MainCharState, handleInput.]\n";
 }
 
 void MainCatcherState::update(Sprite* sprite) {
-    std::cout << "update called." << " [MainCharState, checking for jumping.]\n";
-    //TODO: update should recur thru deque of states of sprite
-    std::cout << "Size of state queue: " << sprite->getStates().size() << ". [MainCharState, update.]\n";
     std::deque<STATE> stateQueue = sprite->getStates();
     std::deque<STATE> statesToRemove;
     for (STATE s : stateQueue) {
-        std::cout << "State: " << s << ". [MainCharState, update.]\n";
         // delegates to command
         STATE currState = s;
         sprite->setState(s);

@@ -26,14 +26,13 @@ void JumpingCommand::update(Sprite* sprite) {
     
     timeElapsed = (timer->getTicks() - startTime) / 1000; // convert ms to s
     
-    std::cout << "timeElapsed: " << timeElapsed << ". [JumpingCommand, checking for jumping.]\n";
-    std::cout << "startTime: " << startTime << ". [JumpingCommand, checking for jumping.]\n";
+//    std::cout << "timeElapsed: " << timeElapsed << ". [JumpingCommand, checking for jumping.]\n";
+//    std::cout << "startTime: " << startTime << ". [JumpingCommand, checking for jumping.]\n";
     
     switch (stateDir)
     {
         case DIRECTION::LEFT: {
             float newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
-            std::cout << "new y: " << newY << ". [cmd] \n";
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
@@ -51,8 +50,6 @@ void JumpingCommand::update(Sprite* sprite) {
             
         case DIRECTION::RIGHT: {
             float newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
-            std::cout << "new y: " << newY << ". [cmd] \n";
-            std::cout << "screenFloor: " << screenFloor << ". [cmd] \n";
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
