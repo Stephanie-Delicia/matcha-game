@@ -15,6 +15,7 @@
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/SpriteStruct.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/sdl_rect_utils.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/NavButtonState.o
+/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/MainSprite.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/ScreenModel.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/WalkingCommand.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/IdleCommand.o
@@ -24,6 +25,7 @@
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/main.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/CatcherGameModel.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/JumpingCommand.o
+/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/MainCatcherState.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/catcher_game_setup.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/CharacterState.o
 /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Intermediates.noindex/MatchaGameV1.build/Debug/MatchaGameV1.build/Objects-normal/x86_64/CatcherController.o

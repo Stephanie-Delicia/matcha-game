@@ -19,9 +19,11 @@ public:
     void setTimer(Timer* t) { timer = t; };
     void setAccDueToG(float g) { accDueToG = g; };
     void setInitV(float v) { initV = v; };
+    void setDone(bool b) {isDone = b;};
    
     // info
     float getJumpDuration() { return (-initV * (2.00/accDueToG)); };
+    bool getIsDone() { return isDone; };
    
     // updates
     void updateV(float changeInTime) { currV = currV - (changeInTime * accDueToG); };
@@ -29,9 +31,10 @@ public:
 protected:
     // VELOCITY HERE IS REFERRING TO THE Y-VELOCITY, X-VELOCITY SHOULD STAY CONSTANT AND IS
     // SPRITE CLASS INFO
-    float initV = -40.00;
-    float currV = -40.00;
-    float accDueToG = 150; // acceleration due to gravity, i'll have this be something that can be changed
+    bool isDone = false;
+    float initV = -80.00;
+    float currV = -80.00;
+    float accDueToG = 400; // acceleration due to gravity, i'll have this be something that can be changed
     float screenWidth;
     float screenFloor = 267.00;
     Timer* timer;

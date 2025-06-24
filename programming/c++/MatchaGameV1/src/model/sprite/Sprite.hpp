@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <tuple>
+#include <deque>
 #include <SDL3/SDL.h>
 #include "NAME.h"
 #include "DIRECTION.h"
@@ -8,7 +9,6 @@
 #include "Posn.hpp"
 #include "SpriteStruct.hpp"
 #include "SpriteSheet.hpp"
-// #include "SpriteState.hpp" <- don't have a ref. to the header if there are circular references
 #include "NameStateSheetMap.hpp"
 
 // use a forward declaration instead
@@ -66,8 +66,19 @@ public:
     void draw(SDL_Surface* windowSrfc);       // draws sprite on the given srfc
     void updateSheet(STATE state, int delta); // update sheet
     void handleInput(SDL_Event const &event); // update state of sprite given events
+    
+    // instead of using the singular STATE, we will have a queue to fulfill to handle more complex series of
+    // keyboard inputs.
+    void addState(STATE s);
+    void removeState(STATE s);
+    bool hasStateInQueue(STATE s);
+    void clearQueue();
+    
+    // getters
+    std::deque<STATE> getStates() { return statesToProcess; } ;
 
 private:
+    std::deque<STATE> statesToProcess;
     NAME name;                           // unique sprite name
     Posn posn;                           // (x,y). defaults to (0,0)
     STATE state = NONE;                  // whatever state sprite is in

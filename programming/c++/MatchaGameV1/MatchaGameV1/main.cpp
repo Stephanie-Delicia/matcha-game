@@ -10,7 +10,9 @@
 #include <stdio.h>
 #include <iostream>
 #include "NameStateSheetMap.hpp"
+#include "MainCatcherState.hpp"
 #include "NameSpriteMap.hpp"
+#include "MainSprite.hpp"
 #include "CharacterState.hpp"
 #include "NavButtonState.hpp"
 #include "ReplayButtonState.hpp"
@@ -56,6 +58,7 @@ int main(int argc, char* argv[]) {
     navButtonHandler.setScreenToNavTo(screenNav.getScreen(GAMEPLAY_SCREEN));
     
     CharacterState charStateHandler = CharacterState(640, 360);
+    MainCatcherState catcherStateHandler = MainCatcherState(640, 360);
     
     Sprite* player = spriteMap.getSprite(WINNIE);
     Sprite* start_button = spriteMap.getSprite(START_BUTTON_TEST);
@@ -81,7 +84,8 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(replay_btn);
     
-    player->setStateHandler(&charStateHandler);
+    player->setStateHandler(&catcherStateHandler);
+//    player->setStateHandler(&charStateHandler);
     player->setState(IDLE);
     player->setDir(RIGHT);
     player->setPosn(0, 267.00);
@@ -111,6 +115,7 @@ int main(int argc, char* argv[]) {
     navButtonHandler.setGameController(&controller);
     replayButtonHandler.setGameController(&controller);
     charStateHandler.setGameController(&controller);
+    catcherStateHandler.setGameController(&controller);
 //    charStateHandler.setJumpingCommand(); // has to be used when game is already playing
     
     

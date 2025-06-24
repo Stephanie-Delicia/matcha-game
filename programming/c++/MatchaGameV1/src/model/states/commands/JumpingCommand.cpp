@@ -37,7 +37,9 @@ void JumpingCommand::update(Sprite* sprite) {
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
+                sprite->addState(IDLE);
                 startTime = 0;
+                isDone = true;
             } else {
                 sprite->setPosn(x, newY);  // update sprite posn
             }
@@ -54,7 +56,9 @@ void JumpingCommand::update(Sprite* sprite) {
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
+                sprite->addState(IDLE);
                 startTime = 0;
+                isDone = true;
             } else {
                 sprite->setPosn(x, newY);  // update sprite posn
             }

@@ -39,7 +39,30 @@ void CatcherController::startGame() {
            handleRequests();
            startGameplay = true;
        } else {
-           handleEvents();
+           if (!startGameplay) {
+               handleEvents();
+           } else {
+               // PUT THIS INTO A NEW METHOD INSTEAD
+               SDL_Event event;
+               while( SDL_PollEvent(&event) )
+               {
+                   switch( event.type ) {
+                       case SDL_EVENT_QUIT:
+                           exitGame = true;
+                           break;
+                   }
+               }
+               // TODO: MAIN GAMEPLAY NEEDS TO BE CALLED HERE!
+               // handleInput(event);
+               handleInput(event);
+               std::cout << "update() called." << " [GameController]\n";
+               update();
+               drawWithFPS();
+           }
+           // TODO:
+           // HAVE DIFFERENT CALLS - THIS FOR NORMAL SCREENS W/O gameplay
+           // FOR GAMEPLAY, WE NEED CONTINUOUS CALLS BASICALLY
+          
        }
         
         getModel()->destroyBoxes();

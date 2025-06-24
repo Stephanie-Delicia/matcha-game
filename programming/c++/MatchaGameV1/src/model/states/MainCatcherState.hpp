@@ -10,10 +10,12 @@
 #include "IdleCommand.hpp"
 #include "GameController.hpp"
 #include "JumpingCommand.hpp"
+#include "CharacterState.hpp"
+#include "MainSprite.hpp"
 
-class CharacterState : public SpriteState {
+class MainCatcherState : public CharacterState {
 public:
-    CharacterState(float width, float height) {
+    MainCatcherState(float width, float height) : CharacterState(width, height) {
         screenWidth = width;
         screenHeight = height;
         walkingC.setScreenWidth(screenWidth);
@@ -23,7 +25,7 @@ public:
     void handleInput(Sprite* sprite, const SDL_Event &input);
     void setWidth(float width)   { screenWidth  = width; };
     void setJumpingCommand() {
-        jumpingC.setTimer(gameController->getTimer());        
+        jumpingC.setTimer(gameController->getTimer());
     };
     void setHeight(float height) { screenHeight = height; };
     void setGameController(GameController* controller) { gameController = controller; } ;

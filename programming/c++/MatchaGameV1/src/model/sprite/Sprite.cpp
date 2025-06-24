@@ -110,3 +110,26 @@ std::tuple<SDL_Rect, SDL_Rect> Sprite::getSrcAndDest() {
     SDL_Rect destRect = {posn.getIntX(), posn.getIntY(), frameRect.w, frameRect.h};
     return std::make_tuple(frameRect, destRect);
 }
+
+
+
+void Sprite::addState(STATE s) {
+    statesToProcess.push_back(s);
+}
+
+void Sprite::clearQueue() {
+    statesToProcess.clear();
+}
+
+void Sprite::removeState(STATE s) {
+    // if found, object is removed
+    auto find_iterator = std::find(statesToProcess.begin(), statesToProcess.end(), s);
+    if (find_iterator != statesToProcess.end()) {
+        statesToProcess.erase(find_iterator);
+    }
+}
+
+bool Sprite::hasStateInQueue(STATE s) {
+    auto find_iterator = std::find(statesToProcess.begin(), statesToProcess.end(), s);
+    return (find_iterator != statesToProcess.end());
+}
