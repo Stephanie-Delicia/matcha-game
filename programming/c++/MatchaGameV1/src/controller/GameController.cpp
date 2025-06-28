@@ -59,13 +59,22 @@ void GameController::handleInput(SDL_Event const &event) {
     getModel()->handleInput(event);
 }
 
+void GameController::handleMainSprite(const SDL_Event &event) {
+    getModel()->handleMainSprite(event);
+}
+
+void GameController::handleWithoutMainSprite(const SDL_Event &event) {
+    getModel()->handleWithoutMainSprite(event);
+}
+
+
 void GameController::handleInputForUI(SDL_Event const &event) {
     getModel()->handleInputForUI(event);
 }
 
 void GameController::handleEvents() {
-    // Findings, Ithink SDL_PollEvent will literally only pick up on events when the user
-    // does something
+    // Findings, I think SDL_PollEvent will literally only pick up on events when the user
+    // does something, like move their mouse or press a key
     SDL_Event event;
     while( SDL_PollEvent(&event) )
     {
@@ -76,7 +85,6 @@ void GameController::handleEvents() {
                 break;
         }
     }
-    // TODO: MAIN GAMEPLAY NEEDS TO BE CALLED HERE!
     update();
     drawWithFPS();
 }
@@ -152,6 +160,7 @@ void GameController::handleRequests() {
     std::deque<Request*> reqsToDelete;
     // recur thru requests in the event queue
     for (Request* req : requests) {
+        std::cout << "req type." << req->getReqType() << ". [GameController, handleRequests()]\n";
         // add to list of requests to de;ete
         switch (req->getReqType()) {
             case SCENE: {
@@ -160,7 +169,6 @@ void GameController::handleRequests() {
                 // dynamically allocated, so I wonder if dynamic_cast does the same for such an object.
                 SceneRequest* sceneReq = dynamic_cast<SceneRequest*>(req);
                 sceneController->addRequest(sceneReq);
-                // TODO: I think I am double deleting here.
                 // Fulfill the draw request, then delete it HERE
                 sceneController->fulfillRequests();
                 reqsToDelete.push_front(req);

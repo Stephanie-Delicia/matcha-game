@@ -3,7 +3,14 @@
         {"name": "pleasant_sky", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "start_button_test", "posnX": 100, "posnY": 240, "state": "idle",  "dir": "left"},
         {"name": "start_screen_test", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
-        {"name": "replay_button", "posnX": 15, "posnY": 240, "state": "idle",  "dir": "left"},
-        {"name": "black_screen", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
+        {"name": "replay_button", "posnX": 475, "posnY": 15, "state": "idle",  "dir": "left"},
+        {"name": "black_screen", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "menu_box", "posnX": 179, "posnY": 76, "state": "idle",  "dir": "left"},
+        {"name": "menu_button", "posnX": 475, "posnY": 80, "state": "idle",  "dir": "left"},
+        {"name": "return_button", "posnX": 320, "posnY": 80, "state": "idle",  "dir": "left"},
+        {"name": "back_to_start_scrn_btn", "posnX": 277, "posnY": 90, "state": "idle",  "dir": "left"},
+        {"name": "exit_button", "posnX": 277, "posnY": 150, "state": "idle",  "dir": "left"},
+        {"name": "instructions_btn", "posnX": 277, "posnY": 210, "state": "idle",  "dir": "left"},
+        {"name": "instructions_box", "posnX": 72, "posnY": 61, "state": "idle",  "dir": "left"}
     ]
 }

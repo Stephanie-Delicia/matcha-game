@@ -116,35 +116,37 @@ void CharacterState::update(Sprite* sprite) {
 }
 
 void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
-    bool success = 0;
-    // acquire sprite data
-    std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
-    SpriteStruct spriteData = sprite->getData();
-    SpriteSheet* sheet = spriteData.sheet;
-    SDL_Rect frameRect = std::get<0>(rects);
-    SDL_Rect destRect = std::get<1>(rects);
-    
-    // draw based on direction
-    switch (spriteData.dir) {
-        case LEFT: {
-            success = SDL_BlitSurface(sheet->getSrfcL(), &frameRect, windowSrfc, &destRect);
-            if (success < 1) {
-                fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
+    // draw based on direction, IF THE STATE IS NOT NONE
+    if (sprite->getState() != NONE) {
+        bool success = 0;
+        // acquire sprite data
+        std::tuple<SDL_Rect, SDL_Rect> rects = sprite->getSrcAndDest();
+        SpriteStruct spriteData = sprite->getData();
+        SpriteSheet* sheet = spriteData.sheet;
+        SDL_Rect frameRect = std::get<0>(rects);
+        SDL_Rect destRect = std::get<1>(rects);
+        
+        switch (spriteData.dir) {
+            case LEFT: {
+                success = SDL_BlitSurface(sheet->getSrfcL(), &frameRect, windowSrfc, &destRect);
+                if (success < 1) {
+                    fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
+                }
+                break;
             }
-            break;
-        }
-        case RIGHT: {
-            success = SDL_BlitSurface(sheet->getSrfcR(), &frameRect, windowSrfc, &destRect);
-            if (success < 1) {
-                fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
+            case RIGHT: {
+                success = SDL_BlitSurface(sheet->getSrfcR(), &frameRect, windowSrfc, &destRect);
+                if (success < 1) {
+                    fprintf(stderr, "SDL_BlitSurface failed! SDL_Error: %s\n", SDL_GetError());
+                }
+                break;
             }
-            break;
-        }
-        case UP: {
-            break;
-        }
-        case DOWN: {
-            break;
+            case UP: {
+                break;
+            }
+            case DOWN: {
+                break;
+            }
         }
     }
 }

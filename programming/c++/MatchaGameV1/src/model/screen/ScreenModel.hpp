@@ -56,6 +56,8 @@ public:
     // change what gets drawn on this screen.
     void update();                                 // call for updating sprites in update queue in active screen
     void handleInput(SDL_Event const &event);      // handle inputs for sprites in update queue in active screen
+    void handleWithoutMainSprite(SDL_Event const &event, Sprite* mainSprite);
+    
     void activate();                               // activate screen
     void deactivate();                             // indicate screen is now inactive
     void emptyScreen();                            // empty the main queue, not background

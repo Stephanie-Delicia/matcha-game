@@ -32,6 +32,7 @@ public:
     };
     // getter
     virtual GameModel* getModel() { return model; };
+    virtual bool isGameBeaten() { return false; };
     bool getEndScene() { return endScene; };
     Timer* getTimer() {return fpsTimer;};
     
@@ -63,19 +64,22 @@ protected:
     SceneController* sceneController;
     std::deque<Request*> requests; // includes requests such as navigating to new screen or drawing a scene
     
-    // methods for handling events, drawing, and updates
+    // methods for drawing and updates and delays
     void draw();
     void update();
     void updateUI();
     void drawWithFPS();
-    void handleEvents(); // includes handling input, updating, and drawing
+    void delay(float time); // handles only the main game delay
     void drawWithText(std::string text, Posn posn);
     void drawWithTexts(std::vector<std::string> textLs, std::vector<Posn> posnLs); // for multiple texts
     
-    void delay(float time); // handles only the main game delay
-    void handleInput(SDL_Event const &event);
-    void handleInputForUI(SDL_Event const &event);
-    void handleRequests();
+    // handling events
+    void handleEvents();                            // handles event polling, updates, and draws for ALL sprites
+    void handleInput(SDL_Event const &event);       // call to the model to handle input for THIS event for ALL sprites
+    void handleWithoutMainSprite(SDL_Event const &event); // handle input for all elements EXCEPT MAIN
+    void handleInputForUI(SDL_Event const &event);  // handling input, but only for UI elements
+    void handleRequests();                          // handling requests for navigation or drawing scenes
+    void handleMainSprite(const SDL_Event &event);  // handling events only for the main sprite
     
     // get
     

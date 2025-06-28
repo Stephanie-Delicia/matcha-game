@@ -9,6 +9,7 @@
 #include <limits>
 
 void SceneController::drawStillScene(SceneRequest* request) {
+    std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
     float startTime = fpsTimer->getTicks();
     float timeDuration = request->getTimeDuration();
     
@@ -18,6 +19,7 @@ void SceneController::drawStillScene(SceneRequest* request) {
     
     // neither handleinput or update are called. Truly a still scene.
     while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
+        std::cout << "End scene bool: " << mainController->getEndScene() << ". [drawStillScene()]\n";
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )

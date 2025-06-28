@@ -2,7 +2,7 @@
   "_buildCommand2" : {
     "command" : "build",
     "skipDependencies" : false,
-    "style" : "buildOnly"
+    "style" : "buildAndRun"
   },
   "buildCommand" : "build",
   "configuredTargets" : [
@@ -46,7 +46,6 @@
       }
     }
   },
-  "qos" : "default",
   "schemeCommand" : "launch",
   "schemeCommand2" : "launch",
   "showNonLoggedProgress" : true,

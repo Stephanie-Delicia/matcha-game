@@ -7,7 +7,7 @@
 
 void CatcherController::startGame() {
     fpsGoal = 55;
-    bool startGameplay = false;
+    bool inGameplay = false;
     Posn scorePosn = Posn(10.00, 15.00);
     Posn fpsPosn = Posn(500.00, 15.00);
     float startTime;
@@ -20,57 +20,57 @@ void CatcherController::startGame() {
     view->initSDL();
     fpsTimer->start();
     setSceneController();
+    gStartTime = fpsTimer->getTicks();
     
     // game step loop
-    gStartTime = fpsTimer->getTicks();
     while (!exitGame) {
-        endScreenDisplay = false;
+        // fps
         startTime = fpsTimer->getTicks();
         avgFPS = measureFPS();
         setFPSText(avgFPS);
         
-        if (startGameplay) {
-            getModel()->generateBox();
-        }
-        
-        
-        // handling events, we first check if there are any scene or navigation requests and fulfill those first.
+       // polling events, we first check if there are any scene or navigation requests and fulfill those first.
        if (hasRequests()) {
+           std::cout << "Fulfilling requests.\n";
+           // we give priority to scenes, so if gameplay is 'on' but the menu is opened, then a still animation
+           // should play until some user action occurs
            handleRequests();
-           startGameplay = true;
        } else {
-           if (!startGameplay) {
-               handleEvents();
-           } else {
-               // PUT THIS INTO A NEW METHOD INSTEAD
-               SDL_Event event;
-               while( SDL_PollEvent(&event) )
-               {
-                   switch( event.type ) {
-                       case SDL_EVENT_QUIT:
-                           exitGame = true;
-                           break;
-                   }
+           SDL_Event event;
+           while( SDL_PollEvent(&event) )
+           {
+               handleWithoutMainSprite(event);
+               switch( event.type ) {
+                   case SDL_EVENT_QUIT:
+                       inGameplay = false;
+                       exitGame = true;
+                       break;
                }
-               // TODO: MAIN GAMEPLAY NEEDS TO BE CALLED HERE!
-               // handleInput(event);
-               handleInput(event);
-               update();
-               drawWithFPS();
            }
-           // TODO:
-           // HAVE DIFFERENT CALLS - THIS FOR NORMAL SCREENS W/O gameplay
-           // FOR GAMEPLAY, WE NEED CONTINUOUS CALLS BASICALLY
-          
+           if (inGameplay) {
+               handleMainSprite(event);
+           }
+           update();
+           drawWithFPS();
        }
         
-        getModel()->destroyBoxes();
-        
-        if (getModel()->getScore() >= 5 and !endScreenDisplay) {
-            Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
-            replayButtonPtr->setState(IDLE);
-            addRequest(new SceneRequest(STILL, -1));
-            endScreenDisplay = true;
+        // we are in gameplay if we are on the right screen and the point goal hasn't been achieved
+        if (screenNav->getMainScreen()->screenType() == GAMEPLAY_SCREEN) {
+            if (getModel()->getScore() < pointGoal) {
+                inGameplay = true;
+                getModel()->generateBox();  // randomly generate boxes
+                getModel()->destroyBoxes(); // destroy boxes if they are in contact with the player or floor
+            } else {
+                inGameplay = false;
+                Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
+                if (replayButtonPtr->getState() != IDLE) {
+                    std::cout << "Reached score goal and adding replay still scene request. \n";
+                    replayButtonPtr->setState(IDLE);
+                    addRequest(new SceneRequest(STILL, -1)); // until we hit replay or exit out
+                }
+            }
+        } else { // on wrong screen, can't be generating boxes on the start screen!
+            inGameplay = false;
         }
         
         // adjust fps
@@ -85,13 +85,12 @@ void CatcherController::startGame() {
 }
 
 void CatcherController::reset() {
-    // reset score
+    /*
+        Reset score, keep winnie in the same location, hide replay button again,
+        delete all of the boxes.
+     */
     getModel()->setScore(0);
-    // delete all of the boxes
     getModel()->clearBoxesQueue();
-    // keep winnie in her location
-    // hide replay button again
     Sprite* replayButtonPtr = getModel()->getNameSpriteMap()->getSprite(REPLAY_BUTTON);
     replayButtonPtr->setState(NONE);
-    endScreenDisplay = false;
 }

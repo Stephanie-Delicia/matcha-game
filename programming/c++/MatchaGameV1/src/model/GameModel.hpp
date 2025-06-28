@@ -49,6 +49,8 @@ public:
     // for the controller to use
     void update();                                             // calls on an transformation updates for the active screen
     void handleInput(const SDL_Event &event);                  // calls on state updates for the active screen
+    void handleWithoutMainSprite(const SDL_Event &event);      // calls on state updates for the active screen
+    void handleMainSprite(const SDL_Event &event);             // calls on state updates for the active screen
     void delayFrameTimes(float gameDelay, float timeElapsed);  // calls on active screen to delay sprite frame times accordingly
     void updateUI();
     void handleInputForUI(const SDL_Event &event);

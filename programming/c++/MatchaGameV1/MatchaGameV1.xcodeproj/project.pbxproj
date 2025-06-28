@@ -54,6 +54,16 @@
 		C2747FA52E0A052500B26996 /* MainSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FA22E0A052500B26996 /* MainSprite.cpp */; };
 		C2747FA82E0A08A500B26996 /* MainCatcherState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */; };
 		C2747FA92E0A08A500B26996 /* MainCatcherState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */; };
+		C2747FAC2E0B37C600B26996 /* MenuButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */; };
+		C2747FAD2E0B37C600B26996 /* MenuButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */; };
+		C2747FB02E0B959200B26996 /* IdleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FAE2E0B959200B26996 /* IdleState.cpp */; };
+		C2747FB12E0B959200B26996 /* IdleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FAE2E0B959200B26996 /* IdleState.cpp */; };
+		C2747FB42E0BAC1400B26996 /* ExitButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */; };
+		C2747FB52E0BAC1400B26996 /* ExitButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */; };
+		C2747FB82E0BAC4900B26996 /* ReturnButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */; };
+		C2747FB92E0BAC4900B26996 /* ReturnButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */; };
+		C2747FBC2E0BAC6400B26996 /* InstructionsButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */; };
+		C2747FBD2E0BAC6400B26996 /* InstructionsButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */; };
 		C2EC16152DC5443900BDC470 /* GameViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC16142DC5443900BDC470 /* GameViewTest.cpp */; };
 		C2EC16172DC5444B00BDC470 /* GameControllerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC16162DC5444B00BDC470 /* GameControllerTest.cpp */; };
 		C2F78E932DBBEC5E00B7B8F9 /* SpriteTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20003242DB967FC0074364D /* SpriteTest.cpp */; };
@@ -188,6 +198,16 @@
 		C2747FA32E0A052500B26996 /* MainSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainSprite.hpp; sourceTree = "<group>"; };
 		C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainCatcherState.cpp; sourceTree = "<group>"; };
 		C2747FA72E0A08A500B26996 /* MainCatcherState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainCatcherState.hpp; sourceTree = "<group>"; };
+		C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuButtonState.cpp; sourceTree = "<group>"; };
+		C2747FAB2E0B37C500B26996 /* MenuButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuButtonState.hpp; sourceTree = "<group>"; };
+		C2747FAE2E0B959200B26996 /* IdleState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleState.cpp; sourceTree = "<group>"; };
+		C2747FAF2E0B959200B26996 /* IdleState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IdleState.hpp; sourceTree = "<group>"; };
+		C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExitButtonState.cpp; sourceTree = "<group>"; };
+		C2747FB32E0BAC1400B26996 /* ExitButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ExitButtonState.hpp; sourceTree = "<group>"; };
+		C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReturnButtonState.cpp; sourceTree = "<group>"; };
+		C2747FB72E0BAC4900B26996 /* ReturnButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReturnButtonState.hpp; sourceTree = "<group>"; };
+		C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InstructionsButtonState.cpp; sourceTree = "<group>"; };
+		C2747FBB2E0BAC6400B26996 /* InstructionsButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstructionsButtonState.hpp; sourceTree = "<group>"; };
 		C2A313B02D95C89A004173D5 /* MatchaGameV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchaGameV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A313BD2D95C8A7004173D5 /* MatchaGameV1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatchaGameV1.entitlements; sourceTree = "<group>"; };
 		C2A313C42D95C8E8004173D5 /* SDL3.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDL3.xcframework; path = ../../../../../../../../Library/Frameworks/SDL3.xcframework; sourceTree = "<group>"; };
@@ -505,9 +525,19 @@
 				C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */,
 				C21498F82E00A69F004B8E3A /* ReplayButtonState.hpp */,
 				C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */,
-				C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */,
 				C2747FA72E0A08A500B26996 /* MainCatcherState.hpp */,
+				C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */,
+				C2747FAB2E0B37C500B26996 /* MenuButtonState.hpp */,
+				C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */,
+				C2747FAF2E0B959200B26996 /* IdleState.hpp */,
+				C2747FAE2E0B959200B26996 /* IdleState.cpp */,
 				C2F78EBF2DC0533500B7B8F9 /* commands */,
+				C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */,
+				C2747FB32E0BAC1400B26996 /* ExitButtonState.hpp */,
+				C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */,
+				C2747FB72E0BAC4900B26996 /* ReturnButtonState.hpp */,
+				C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */,
+				C2747FBB2E0BAC6400B26996 /* InstructionsButtonState.hpp */,
 			);
 			path = states;
 			sourceTree = "<group>";
@@ -699,6 +729,7 @@
 				C26E71022D95CDA900DE5378 /* Posn.cpp in Sources */,
 				C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */,
 				C2492C8A2DC7CA610020F8E6 /* GameView.cpp in Sources */,
+				C2747FBC2E0BAC6400B26996 /* InstructionsButtonState.cpp in Sources */,
 				C20AD74E2DEA38F10007622F /* TranslateCommand.cpp in Sources */,
 				C2FB01212DFBE2C900C2AEEB /* Request.cpp in Sources */,
 				C20AD7522DEA39DA0007622F /* BoxToCatchState.cpp in Sources */,
@@ -710,11 +741,15 @@
 				C2492C952DC927150020F8E6 /* SpriteStruct.cpp in Sources */,
 				C2492C902DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
 				C25E93C42DEF7D1900930EFB /* NavButtonState.cpp in Sources */,
+				C2747FB02E0B959200B26996 /* IdleState.cpp in Sources */,
 				C2747FA42E0A052500B26996 /* MainSprite.cpp in Sources */,
 				C2F78ED82DC32B4700B7B8F9 /* ScreenModel.cpp in Sources */,
 				C2F78EAF2DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,
 				C2F78EBD2DC006BF00B7B8F9 /* IdleCommand.cpp in Sources */,
 				C2F78EDE2DC3F08B00B7B8F9 /* ScreenNavigator.cpp in Sources */,
+				C2747FB42E0BAC1400B26996 /* ExitButtonState.cpp in Sources */,
+				C2747FB82E0BAC4900B26996 /* ReturnButtonState.cpp in Sources */,
+				C2747FAC2E0B37C600B26996 /* MenuButtonState.cpp in Sources */,
 				C2080E942DCD35A2009F2411 /* Timer.cpp in Sources */,
 				C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */,
 				C2080E8F2DCBF57B009F2411 /* main.cpp in Sources */,
@@ -740,7 +775,9 @@
 				C2492C912DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
 				C2492C9B2DC9D4CB0020F8E6 /* ScreenNavigatorTest.cpp in Sources */,
 				C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */,
+				C2747FB92E0BAC4900B26996 /* ReturnButtonState.cpp in Sources */,
 				C2F78E992DBBEC7A00B7B8F9 /* SpriteSheet.cpp in Sources */,
+				C2747FAD2E0B37C600B26996 /* MenuButtonState.cpp in Sources */,
 				C2F78E952DBBEC6500B7B8F9 /* SpriteSheetTest.cpp in Sources */,
 				C2EC16172DC5444B00BDC470 /* GameControllerTest.cpp in Sources */,
 				C2FB01272DFBE2F500C2AEEB /* NavRequest.cpp in Sources */,
@@ -759,6 +796,7 @@
 				C2F78E962DBBEC6E00B7B8F9 /* main.cpp in Sources */,
 				C20AD7572DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */,
 				C2F78EE32DC3FE3000B7B8F9 /* GameModelTest.cpp in Sources */,
+				C2747FBD2E0BAC6400B26996 /* InstructionsButtonState.cpp in Sources */,
 				C20AD7532DEA39DA0007622F /* BoxToCatchState.cpp in Sources */,
 				C2492C9C2DC9D4D00020F8E6 /* ScreenModelTest.cpp in Sources */,
 				C2FDF2A82DCA941F00C9916F /* NameSpriteMapTest.cpp in Sources */,
@@ -771,7 +809,9 @@
 				C2F78EA52DBD5E4C00B7B8F9 /* PosnTest.cpp in Sources */,
 				C20AD74F2DEA38F10007622F /* TranslateCommand.cpp in Sources */,
 				C2747FA92E0A08A500B26996 /* MainCatcherState.cpp in Sources */,
+				C2747FB12E0B959200B26996 /* IdleState.cpp in Sources */,
 				C2F78EA12DBBF2D700B7B8F9 /* NameStateSheetMapTest.cpp in Sources */,
+				C2747FB52E0BAC1400B26996 /* ExitButtonState.cpp in Sources */,
 				C2F78EB02DBFF9DE00B7B8F9 /* WalkingCommand.cpp in Sources */,
 				C2F78E9F2DBBEFF100B7B8F9 /* NameStateSheetMap.cpp in Sources */,
 			);

@@ -49,7 +49,15 @@ public:
                                                {"start_screen_test", START_SCREEN_TEST},
                                                {"start_button_test", START_BUTTON_TEST},
                                                {"replay_button",     REPLAY_BUTTON},
-                                               {"black_screen",      BLACK_SCREEN} };
+                                               {"black_screen",      BLACK_SCREEN},
+                                               {"menu_box", MENU_BOX},
+                                                {"menu_button", MENU_BUTTON},
+                                                {"return_button", RETURN_BUTTON},
+                                                {"back_to_start_scrn_btn", BACK_TO_START_SCRN_BTN},
+                                                {"exit_button", EXIT_BUTTON},
+                                                {"instructions_btn", INSTRUCTIONS_BTN},
+                                                {"instructions_box", INSTRUCTIONS_BOX}
+    };
     
     std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},
                                                     {"gameplay", GAMEPLAY_SCREEN} };

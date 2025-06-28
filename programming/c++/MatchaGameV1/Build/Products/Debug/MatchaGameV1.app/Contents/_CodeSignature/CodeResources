@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/res/data/test/nameSpriteData.json</key>
 		<data>
-		7/5l+IcBoCX9s243xJWB1h6+8z8=
+		gUQbzTG+LHGFW7I9hinKNBJckW4=
 		</data>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<data>
-		4SWueSG+i+13fZZS30K5ccHUo5o=
+		5Sq9N9rzrsS/gh2CypHj5Hbyez0=
 		</data>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Resources/res/data/test/testScreenNavData2.json</key>
 		<data>
-		qJtGH9yDYLF7kFRHhi2vAog5bpk=
+		ticnKn7JHZwbDLM6F75MBLmPOXk=
 		</data>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<data>
-		yXBri/LEMGOxQHkUVi2yoL335Gk=
+		fnP7v+K/5pY8YyMbSB5V4bi+ml4=
 		</data>
 		<key>Resources/res/textures/background/back_btn.png</key>
 		<data>
@@ -79,6 +79,14 @@
 		<key>Resources/res/textures/background/menu_box.png</key>
 		<data>
 		bUs3y98phDNgRYs+MnpYtv+VO8I=
+		</data>
+		<key>Resources/res/textures/background/menu_btn.png</key>
+		<data>
+		+uBfMR6MPIKhh8TDyU0x87T8Wcc=
+		</data>
+		<key>Resources/res/textures/background/menu_btn_hover.png</key>
+		<data>
+		AdqEY8lIvqtjZHIf8xdkw+Mzz1Q=
 		</data>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>
 		<data>
@@ -148,14 +156,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YKOCemqVB/sRX1TDkFz91lEFNpl3u4Kg5ldgByYmz6U=
+			jrIvSmzmsEJ0nS8Z8oHK87n7vxucJGy0HEkPhZEfSg8=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/7oE1Yo51X93OM2JTgfkowyCDemE7W3IsS+rfybHwRg=
+			2GFaXqdzJlj2nhqNFBzZhCyCH/yZGXfVx22Lxt1emGc=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
@@ -169,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yHoL9KYzZDbIZWwwVEJEioT+kdHkuQGkR3n4eCgRhvs=
+			TCpRRyrcSpKKxaPqfUTIaSehtxAI14v9lnNmajFTks4=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EddhCjzNA7pLpraO3ZJAqkazolwo8n44WwsgZ9PeLvs=
+			joydugt0ORDB+3m5bSlx3QH3EnIv+7v8FqOh87E4dUI=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/back_btn.png</key>
@@ -268,6 +276,20 @@
 			<key>hash2</key>
 			<data>
 			bit7C3IGrlZ6nZVP9XWmCL9p7+GwKEwBAafvklqpEpg=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/menu_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KsqLOnqVJGtxU14vDUHBCP54gwBB98nVwKl0pMBNG7Y=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/menu_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lEnRkjCvsyLhkqJrrL2UjL0jHhIWKVQ6sbYigKM5fmM=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/pleasant_sky.png</key>

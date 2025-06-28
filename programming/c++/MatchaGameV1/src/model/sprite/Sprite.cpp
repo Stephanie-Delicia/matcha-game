@@ -44,6 +44,7 @@ void Sprite::setCurrFrameTime(float time) {
 }
 
 SpriteSheet* Sprite::getSheet(STATE s) {
+    // std::cout << "Sprite: " << getName() << ", and state: " << s << " [Sprite]. \n";
     return sheetMap->getSpriteSheet(name, s);
 }
 

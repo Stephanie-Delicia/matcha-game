@@ -23,8 +23,10 @@ public:
     int getBoxesSize() { return boxes.size(); };
     int getScore() { return score; };
     int getBoxLimit() { return boxNumLimit; };
+    int getScoreGoal() { return scoreGoal; };
     std::deque<Sprite*> getBoxes() { return boxes; };
     // setter
+    void setScoreGoal(int goal) {scoreGoal = goal;};
     void setScore(int newScore) { score = newScore; };
     void setBoxNumLimit(int lim) { boxNumLimit = lim; };
     void setBoxChance(double chance) { boxChance = chance; };
@@ -38,6 +40,7 @@ public:
     void clearBoxesQueue(); // recurs thru each box, removes them from the queue, and deletes them (for replaying)
     
 private:
+    int scoreGoal = 5;
     int score = 0;
     int boxNumLimit = 100;
     std::deque<Sprite*> boxes;

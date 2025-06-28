@@ -64,6 +64,15 @@ void GameModel::handleInput(const SDL_Event &event) {
     nav->getMainScreen()->handleInput(event);
 }
 
+void GameModel::handleWithoutMainSprite(const SDL_Event &event) {
+    ScreenNavigator* nav = getNavigator();
+    nav->getMainScreen()->handleWithoutMainSprite(event, getMainPlayer());
+}
+
+void GameModel::handleMainSprite(const SDL_Event &event) {
+    getMainPlayer()->handleInput(event);
+}
+
 void GameModel::handleInputForUI(const SDL_Event &event) {
     ScreenNavigator* nav = getNavigator();
     nav->getMainScreen()->handleInputForUI(event);

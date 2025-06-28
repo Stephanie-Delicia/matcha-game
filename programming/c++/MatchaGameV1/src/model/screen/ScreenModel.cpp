@@ -91,7 +91,7 @@ void ScreenModel::addToMain(Sprite *sprite) {
 }
 
 void ScreenModel::addToBG(Sprite* sprite) {
-    bgQueue.push_front(sprite);
+    bgQueue.push_back(sprite);
 }
 
 void ScreenModel::removeUpdate(Sprite* sprite) {
@@ -163,13 +163,15 @@ SDL_Surface* ScreenModel::createSurface(std::deque<Sprite*> spriteQueue) {
 
 void ScreenModel::delayFrameTimes(float gameDelay, float timeElapsed) {
     for (Sprite* sprite : updateQueue) {
-        float currFrameTime = sprite->getCurrFrameTime();
-        int fpsGoal = sprite->getSheet(sprite->getState())->getFPSGoal();
-        float spriteDelay = (1000 / fpsGoal) - timeElapsed - gameDelay;
-        if (currFrameTime <= 0.0) {
-            sprite->setCurrFrameTime(spriteDelay);
-        } else {
-            sprite->setCurrFrameTime(currFrameTime - timeElapsed);
+        if (sprite->getState() != NONE) {
+            float currFrameTime = sprite->getCurrFrameTime();
+            int fpsGoal = sprite->getSheet(sprite->getState())->getFPSGoal();
+            float spriteDelay = (1000 / fpsGoal) - timeElapsed - gameDelay;
+            if (currFrameTime <= 0.0) {
+                sprite->setCurrFrameTime(spriteDelay);
+            } else {
+                sprite->setCurrFrameTime(currFrameTime - timeElapsed);
+            }
         }
     }
 }
@@ -182,6 +184,16 @@ void ScreenModel::removeUI(Sprite* sprite) {
     auto find_iterator = std::find(UiQueue.begin(), UiQueue.end(), sprite);
     if (find_iterator != UiQueue.end()) {
         UiQueue.erase(find_iterator);
+    }
+}
+
+void ScreenModel::handleWithoutMainSprite(const SDL_Event &event, Sprite *mainSprite) {
+    // recurs thru update queue to apply state updates
+    // to every sprite in the queue
+    for (Sprite* sprite : updateQueue) {
+        if (sprite != mainSprite) {
+            sprite->handleInput(event);
+        }
     }
 }
 
