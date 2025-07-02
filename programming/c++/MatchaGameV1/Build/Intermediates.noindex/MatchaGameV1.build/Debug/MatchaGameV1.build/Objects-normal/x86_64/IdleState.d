@@ -84,5 +84,6 @@ dependencies: \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/Build/Products/Debug/SDL3_ttf.framework/Headers/SDL_ttf.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/IdleCommand.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/StateCommand.hpp \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/model/states/commands/TranslateCommand.hpp \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/utils/sdl_util/sdl_rect_utils.h \
   /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/src/controller/request/NavRequest.hpp

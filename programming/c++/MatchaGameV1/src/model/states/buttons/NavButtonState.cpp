@@ -72,6 +72,7 @@ void NavButtonState::update(Sprite* sprite) {
                 break;
             }
             case TRANSLATE: {
+                transC.update(sprite);
                 break;
             }
             case PRESSED: {

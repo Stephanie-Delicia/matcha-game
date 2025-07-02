@@ -44,7 +44,13 @@ public:
             {"back_to_start_scrn_btn", BACK_TO_START_SCRN_BTN},
             {"exit_button", EXIT_BUTTON},
             {"instructions_btn", INSTRUCTIONS_BTN},
-            {"instructions_box", INSTRUCTIONS_BOX}
+            {"instructions_box", INSTRUCTIONS_BOX},
+            {"beta_matcha", BETA_MATCHA},
+            {"how_to_play_start_btn", HOW_TO_PLAY_START_BTN},
+            {"small_exit_btn", SMALL_EXIT_BUTTON},
+            {"resume_btn", RESUME_BUTTON},
+            {"beta_title_card", BETA_TITLE_CARD},
+            {"winnie_drinking", WINNIE_DRINKING}
         };
         stateStrMap = {
             {"walking", WALKING},

@@ -12,6 +12,7 @@
 #include "ScreenModel.hpp"
 #include "GameController.hpp"
 #include "IdleCommand.hpp"
+#include "TranslateCommand.hpp"
 
 
 class NavButtonState : public SpriteState {
@@ -28,4 +29,5 @@ protected:
     GameController* gameController; // to send scene requests to if needed.
     IdleCommand idleC = IdleCommand();
     ScreenModel* screenToNavTo;
+    TranslateCommand transC = TranslateCommand();
 };

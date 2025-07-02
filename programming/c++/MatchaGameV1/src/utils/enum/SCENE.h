@@ -7,5 +7,6 @@ enum SCENE {
     STILL,               // just keep drawing the current state of the game w/o updates or input handling
     ONLY_PLAY_UI,        // screen paused, but user can still use buttons on the screen (like the replay button)
     REMOVE_BLACK_SCREEN,
-    ADD_BLACK_SCREEN
+    ADD_BLACK_SCREEN,
+    NO_INPUT_HANDLING
 };

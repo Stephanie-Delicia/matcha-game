@@ -19,7 +19,38 @@ void IdleState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void IdleState::update(Sprite* sprite) {
-    // Nothing!
+    // delegates to command
+    STATE currState = sprite->getState();
+    switch (currState) {
+        case IDLE: {
+            break;
+        }
+        case WALKING: {
+            break;
+        }
+        case BLINKING: {
+            break;
+        }
+        case RUNNING: {
+            break;
+        }
+        case DRINKING: {
+            break;
+        }
+        case TRANSLATE: {
+            transC.update(sprite);
+            break;
+        }
+        case PRESSED: {
+            break;
+        }
+        case HOVER: {
+            break;
+        }
+        case NONE: {
+            break;
+        }
+    }
 }
 
 void IdleState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {

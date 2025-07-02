@@ -165,6 +165,8 @@ void ScreenModel::delayFrameTimes(float gameDelay, float timeElapsed) {
     for (Sprite* sprite : updateQueue) {
         if (sprite->getState() != NONE) {
             float currFrameTime = sprite->getCurrFrameTime();
+//            std::cout<< "Sprite: " << sprite->getName() << ". [ScreenModel::delayFrameTimes]\n";
+//            std::cout<< "Sprite state without sheet: " << sprite->getState() << ". [ScreenModel::delayFrameTimes]\n";
             int fpsGoal = sprite->getSheet(sprite->getState())->getFPSGoal();
             float spriteDelay = (1000 / fpsGoal) - timeElapsed - gameDelay;
             if (currFrameTime <= 0.0) {

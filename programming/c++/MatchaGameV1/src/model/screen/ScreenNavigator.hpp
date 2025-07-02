@@ -44,19 +44,25 @@ public:
     ScreenModel* startScreen = nullptr;
     NameSpriteMap* nameSpriteMap;             // NAME to Sprite* map
     std::map<ScreenModel*, bool> screenMap;   // indicates if screen is active and stores screens
-    std::map<std::string, NAME> strNameMap = { {"winnie",            WINNIE},
-                                               {"pleasant_sky",      PLEASANT_SKY},
-                                               {"start_screen_test", START_SCREEN_TEST},
-                                               {"start_button_test", START_BUTTON_TEST},
-                                               {"replay_button",     REPLAY_BUTTON},
-                                               {"black_screen",      BLACK_SCREEN},
-                                               {"menu_box", MENU_BOX},
+    std::map<std::string, NAME> strNameMap = {  {"winnie",            WINNIE},
+                                                {"pleasant_sky",      PLEASANT_SKY},
+                                                {"start_screen_test", START_SCREEN_TEST},
+                                                {"start_button_test", START_BUTTON_TEST},
+                                                {"replay_button",     REPLAY_BUTTON},
+                                                {"black_screen",      BLACK_SCREEN},
+                                                {"menu_box", MENU_BOX},
                                                 {"menu_button", MENU_BUTTON},
                                                 {"return_button", RETURN_BUTTON},
                                                 {"back_to_start_scrn_btn", BACK_TO_START_SCRN_BTN},
                                                 {"exit_button", EXIT_BUTTON},
                                                 {"instructions_btn", INSTRUCTIONS_BTN},
-                                                {"instructions_box", INSTRUCTIONS_BOX}
+                                                {"instructions_box", INSTRUCTIONS_BOX},
+                                                {"beta_matcha", BETA_MATCHA},
+                                                {"how_to_play_start_btn", HOW_TO_PLAY_START_BTN},
+                                                {"small_exit_btn", SMALL_EXIT_BUTTON},
+                                                {"resume_btn", RESUME_BUTTON},
+                                                {"beta_title_card", BETA_TITLE_CARD},
+                                                {"winnie_drinking", WINNIE_DRINKING}
     };
     
     std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},

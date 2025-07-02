@@ -92,6 +92,7 @@ void Sprite::handleInput(SDL_Event const &event) {
 }
 
 void Sprite::draw(SDL_Surface *windowSrfc) {
+//    std::cout << "Sprite id: " << this->name << ". [Sprite]\n";
     stateHandler->draw(this, windowSrfc);
 }
 

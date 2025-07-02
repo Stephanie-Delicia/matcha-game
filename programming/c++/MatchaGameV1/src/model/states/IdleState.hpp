@@ -8,6 +8,7 @@
 #include "SpriteState.hpp"
 #include "GameController.hpp"
 #include "IdleCommand.hpp"
+#include "TranslateCommand.hpp"
 
 
 class IdleState : public SpriteState {
@@ -22,4 +23,5 @@ public:
 protected:
     GameController* gameController; // to send scene requests to if needed.
     IdleCommand idleC = IdleCommand();
+    TranslateCommand transC = TranslateCommand();
 };

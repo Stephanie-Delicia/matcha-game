@@ -3,7 +3,13 @@
 #pragma once
 #include "Timer.hpp"
 #include "SCENE.h"
+#include "STATE.h"
+#include "DIRECTION.h"
 #include <string>
+#include <map>
+#include <tuple>
+#include "Sprite.hpp"
+#include <deque>
 #include "Request.hpp"
 #include "ScreenModel.hpp"
 
@@ -25,13 +31,25 @@ public:
     // setters
     void setTimeDuration(float time) { timeDuration = time; };
     void setSceneType(enum SCENE type) { sceneType = type; };
+    void setAnimMap(std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> animMap) { animMapQueue = animMap; };
     
     // getters
     float getTimeDuration() { return timeDuration; };
     enum SCENE getSceneType() { return sceneType; };
     ScreenModel* getScreenToSetup() { return screenToSetup; };
+    std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> getAnimMap() { return animMapQueue; };
     
 protected:
+    // We got here a bit of a pickle
+    // So for animation sequences, I could multiple actions for one sprite alone
+    // So we have a map that has, first, the sprite as a key, then
+    // that gives us the queue of different animation sequences of that sprite
+    // We basically want to go over a list of the keys
+    // For each key we want to fulfill the list of tuples
+    // When the deque is empty, remove the key
+    // We terminate the entire sequence when the list of keys is 0
+    // the 2nd tuple float param is the time duration for the anim, 1st if the sheet speed
+    std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> animMapQueue;
     ScreenModel* screenToSetup;
     enum SCENE sceneType;
     float timeDuration; // this is the time duration for a still scene or the fade time.

@@ -35,6 +35,16 @@ public:
     
     // neither handleinput or update are called. Truly a still scene.
     void drawStillScene(SceneRequest* request);
+    // So sprites will continue updating according to their states of when this method is called,
+    // but no inputs will be handled to update states
+    void drawNoInputAnimations(SceneRequest* request);
+    // issue with the other impl: the sprites move differently in spite of the same request params.
+    // This is due to the system I believe
+    // Instead, we need to ensure that, MAYBE 
+    void drawNoInputAnimationsV2(SceneRequest* request);
+    // yup, yup, the other thing didnt work either which i predicted
+    // we should just clamp to a specific posn, this SHOULD be the fix
+    void drawNoInputAnimationsV3(SceneRequest* request);
     // draws a new rectangle over the screen, initially transparent but soon fades to black
     void drawFadeToBlack(SceneRequest* request);
     // draws a rectangle over the screen, but it eventually becomes transparent and deleted

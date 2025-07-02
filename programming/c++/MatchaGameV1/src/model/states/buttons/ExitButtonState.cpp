@@ -70,6 +70,7 @@ void ExitButtonState::update(Sprite* sprite) {
             break;
         }
         case TRANSLATE: {
+            transC.update(sprite);
             break;
         }
         case PRESSED: {

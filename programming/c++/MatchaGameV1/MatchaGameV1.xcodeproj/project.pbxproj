@@ -24,6 +24,8 @@
 		C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */; };
 		C21498F92E00A69F004B8E3A /* ReplayButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */; };
 		C21498FA2E00A69F004B8E3A /* ReplayButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */; };
+		C21B9BD92E13719C00DA9EE9 /* InstrOnStartScrnState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B9BD72E13719C00DA9EE9 /* InstrOnStartScrnState.cpp */; };
+		C21B9BDA2E13719C00DA9EE9 /* InstrOnStartScrnState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21B9BD72E13719C00DA9EE9 /* InstrOnStartScrnState.cpp */; };
 		C2446A4D2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
 		C2446A4E2DF53653009B960B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2446A4B2DF53653009B960B /* SceneController.cpp */; };
 		C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2492C862DC7C70B0020F8E6 /* GameController.cpp */; };
@@ -163,6 +165,8 @@
 		C21498F42DFF111F004B8E3A /* catcher_game_setup.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catcher_game_setup.hpp; sourceTree = "<group>"; };
 		C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReplayButtonState.cpp; sourceTree = "<group>"; };
 		C21498F82E00A69F004B8E3A /* ReplayButtonState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReplayButtonState.hpp; sourceTree = "<group>"; };
+		C21B9BD72E13719C00DA9EE9 /* InstrOnStartScrnState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InstrOnStartScrnState.cpp; sourceTree = "<group>"; };
+		C21B9BD82E13719C00DA9EE9 /* InstrOnStartScrnState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstrOnStartScrnState.hpp; sourceTree = "<group>"; };
 		C2446A4B2DF53653009B960B /* SceneController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneController.cpp; sourceTree = "<group>"; };
 		C2446A4C2DF53653009B960B /* SceneController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneController.hpp; sourceTree = "<group>"; };
 		C2446A512DF75970009B960B /* SceneRequest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SceneRequest.hpp; sourceTree = "<group>"; };
@@ -308,6 +312,27 @@
 				C21498F42DFF111F004B8E3A /* catcher_game_setup.hpp */,
 			);
 			path = gamestyles_setup;
+			sourceTree = "<group>";
+		};
+		C21B9BD62E13712900DA9EE9 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C21498F82E00A69F004B8E3A /* ReplayButtonState.hpp */,
+				C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */,
+				C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */,
+				C2747FB32E0BAC1400B26996 /* ExitButtonState.hpp */,
+				C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */,
+				C2747FB72E0BAC4900B26996 /* ReturnButtonState.hpp */,
+				C2747FAB2E0B37C500B26996 /* MenuButtonState.hpp */,
+				C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */,
+				C25E93C32DEF7D1900930EFB /* NavButtonState.hpp */,
+				C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */,
+				C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */,
+				C2747FBB2E0BAC6400B26996 /* InstructionsButtonState.hpp */,
+				C21B9BD72E13719C00DA9EE9 /* InstrOnStartScrnState.cpp */,
+				C21B9BD82E13719C00DA9EE9 /* InstrOnStartScrnState.hpp */,
+			);
+			path = buttons;
 			sourceTree = "<group>";
 		};
 		C2446A4F2DF53663009B960B /* gamestyles */ = {
@@ -521,23 +546,12 @@
 				C2F78EB62DC0059F00B7B8F9 /* CharacterState.cpp */,
 				C20AD7512DEA39DA0007622F /* BoxToCatchState.hpp */,
 				C20AD7502DEA39DA0007622F /* BoxToCatchState.cpp */,
-				C25E93C32DEF7D1900930EFB /* NavButtonState.hpp */,
-				C25E93C22DEF7D1900930EFB /* NavButtonState.cpp */,
-				C21498F82E00A69F004B8E3A /* ReplayButtonState.hpp */,
-				C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */,
 				C2747FA72E0A08A500B26996 /* MainCatcherState.hpp */,
 				C2747FA62E0A08A500B26996 /* MainCatcherState.cpp */,
-				C2747FAB2E0B37C500B26996 /* MenuButtonState.hpp */,
-				C2747FAA2E0B37C500B26996 /* MenuButtonState.cpp */,
 				C2747FAF2E0B959200B26996 /* IdleState.hpp */,
 				C2747FAE2E0B959200B26996 /* IdleState.cpp */,
+				C21B9BD62E13712900DA9EE9 /* buttons */,
 				C2F78EBF2DC0533500B7B8F9 /* commands */,
-				C2747FB22E0BAC1400B26996 /* ExitButtonState.cpp */,
-				C2747FB32E0BAC1400B26996 /* ExitButtonState.hpp */,
-				C2747FB62E0BAC4900B26996 /* ReturnButtonState.cpp */,
-				C2747FB72E0BAC4900B26996 /* ReturnButtonState.hpp */,
-				C2747FBA2E0BAC6400B26996 /* InstructionsButtonState.cpp */,
-				C2747FBB2E0BAC6400B26996 /* InstructionsButtonState.hpp */,
 			);
 			path = states;
 			sourceTree = "<group>";
@@ -759,6 +773,7 @@
 				C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */,
 				C2F78EB82DC0059F00B7B8F9 /* CharacterState.cpp in Sources */,
 				C25E93C02DEB9F7800930EFB /* CatcherController.cpp in Sources */,
+				C21B9BD92E13719C00DA9EE9 /* InstrOnStartScrnState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +790,7 @@
 				C2492C912DC877F80020F8E6 /* sdl_rect_utils.cpp in Sources */,
 				C2492C9B2DC9D4CB0020F8E6 /* ScreenNavigatorTest.cpp in Sources */,
 				C2F78ECC2DC0895600B7B8F9 /* CommandTest.cpp in Sources */,
+				C21B9BDA2E13719C00DA9EE9 /* InstrOnStartScrnState.cpp in Sources */,
 				C2747FB92E0BAC4900B26996 /* ReturnButtonState.cpp in Sources */,
 				C2F78E992DBBEC7A00B7B8F9 /* SpriteSheet.cpp in Sources */,
 				C2747FAD2E0B37C600B26996 /* MenuButtonState.cpp in Sources */,

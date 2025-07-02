@@ -13,6 +13,8 @@
 #include "MainCatcherState.hpp"
 #include "NameSpriteMap.hpp"
 #include "MenuButtonState.hpp"
+#include "InstrOnStartScrnState.hpp"
+#include "BoxToCatchState.hpp"
 #include "ExitButtonState.hpp"
 #include "ReturnButtonState.hpp"
 #include "InstructionsButtonState.hpp"
@@ -85,6 +87,7 @@ int main(int argc, char* argv[]) {
     ReturnButtonState returnButtonHandler = ReturnButtonState();
     ExitButtonState exitButtonStateHandler = ExitButtonState();
     InstructionsButtonState instructionsButtonStateHandler = InstructionsButtonState();
+    InstrOnStartScrnState instrBtnOnStartScrnStateHandler = InstrOnStartScrnState();
     
     Sprite* replay_btn = spriteMap.getSprite(REPLAY_BUTTON);
     replay_btn->setStateHandler(&replayButtonHandler);
@@ -107,7 +110,7 @@ int main(int argc, char* argv[]) {
     
     start_button->setStateHandler(&navButtonHandler);
     start_button->setState(IDLE);
-    start_button->setPosn(260, 220.00);
+    start_button->setPosn(264, 190.00);
     
     model.setMainPlayer(player);
     
@@ -207,6 +210,66 @@ int main(int argc, char* argv[]) {
     instructions_btn->setSheetMap(&sheetMap);
     instructions_box->setSheetMap(&sheetMap);
     
+    /*
+     Adding new start screen elements
+     */
+    
+    Sprite* resume_btn = spriteMap.getSprite(RESUME_BUTTON);
+    Sprite* small_exit_btn = spriteMap.getSprite(SMALL_EXIT_BUTTON);
+    Sprite* winnie_drinking_ptr = spriteMap.getSprite(WINNIE_DRINKING);
+    Sprite* beta_matcha_ptr = spriteMap.getSprite(BETA_MATCHA);
+    Sprite* how_to_play_start_btn = spriteMap.getSprite(HOW_TO_PLAY_START_BTN);
+    Sprite* title_card_ptr = spriteMap.getSprite(BETA_TITLE_CARD);
+    
+    resume_btn->setStateHandler(&idleStateHandler); // resume btn
+    resume_btn->setState(NONE);
+    resume_btn->setDir(LEFT);
+    resume_btn->setPosn(20, 20);
+    // screenNav.getScreen(START_SCREEN)->addToUpdate(resume_btn);
+    screenNav.getScreen(START_SCREEN)->addToUI(resume_btn);
+    
+    small_exit_btn->setStateHandler(&exitButtonStateHandler); // resume btn
+    small_exit_btn->setState(IDLE);
+    small_exit_btn->setDir(LEFT);
+    small_exit_btn->setPosn(284, 260);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(small_exit_btn);
+    screenNav.getScreen(START_SCREEN)->addToUI(small_exit_btn);
+    
+    winnie_drinking_ptr->setStateHandler(&idleStateHandler); // resume btn
+    winnie_drinking_ptr->setState(IDLE);
+    winnie_drinking_ptr->setDir(LEFT);
+    winnie_drinking_ptr->setPosn(180, 200);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(winnie_drinking_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(winnie_drinking_ptr);
+    
+//    beta_matcha_ptr->setStateHandler(&idleStateHandler); // resume btn
+//    beta_matcha_ptr->setState(NONE);
+//    beta_matcha_ptr->setDir(LEFT);
+//    beta_matcha_ptr->setPosn(80, 80);
+//    // screenNav.getScreen(START_SCREEN)->addToUpdate(resume_btn);
+//    screenNav.getScreen(START_SCREEN)->addToUI(beta_matcha_ptr);
+    
+    how_to_play_start_btn->setStateHandler(&instrBtnOnStartScrnStateHandler); // resume btn
+    how_to_play_start_btn->setState(IDLE);
+    how_to_play_start_btn->setDir(LEFT);
+    how_to_play_start_btn->setPosn(284, 230);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(how_to_play_start_btn);
+    screenNav.getScreen(START_SCREEN)->addToUI(how_to_play_start_btn);
+    
+    title_card_ptr->setStateHandler(&idleStateHandler); // resume btn
+    title_card_ptr->setState(IDLE);
+    title_card_ptr->setDir(LEFT);
+    title_card_ptr->setPosn(112, 105);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(title_card_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(title_card_ptr);
+    
+    std::cout << "resume_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(resume_btn) << ". \n";
+    std::cout << "small_exit_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(small_exit_btn) << ". \n";
+    std::cout << "winnie_drinking_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(winnie_drinking_ptr) << ". \n";
+    std::cout << "beta_matcha_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(beta_matcha_ptr) << ". \n";
+    std::cout << "how_to_play_start_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(how_to_play_start_btn) << ". \n";
+    std::cout << "title_card_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(title_card_ptr) << ". \n";
+    
     // end
     
     CatcherController controller = CatcherController(&model, &view);
@@ -222,6 +285,7 @@ int main(int argc, char* argv[]) {
     returnButtonHandler.setGameController(&controller);
     exitButtonStateHandler.setGameController(&controller);
     instructionsButtonStateHandler.setGameController(&controller);
+    instrBtnOnStartScrnStateHandler.setGameController(&controller);
     
     // begin gameplay
     controller.startGame();

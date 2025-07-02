@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/res/data/test/nameSpriteData.json</key>
 		<data>
-		gUQbzTG+LHGFW7I9hinKNBJckW4=
+		R9tzxcqLT2Pw62WK/+YILRem9T8=
 		</data>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<data>
-		5Sq9N9rzrsS/gh2CypHj5Hbyez0=
+		HPuaHKHLxpygOGUOjVPJZYeNP4M=
 		</data>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Resources/res/data/test/testScreenNavData2.json</key>
 		<data>
-		ticnKn7JHZwbDLM6F75MBLmPOXk=
+		MBGzjngvhuCCiHFkHl2Tq/swquQ=
 		</data>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<data>
-		fnP7v+K/5pY8YyMbSB5V4bi+ml4=
+		rI1V/PFSSdcPxd9696HE1wPUDbM=
 		</data>
 		<key>Resources/res/textures/background/back_btn.png</key>
 		<data>
@@ -52,6 +52,14 @@
 		<data>
 		qhQOLDFDKIyCTa3t4PsNFVcSab4=
 		</data>
+		<key>Resources/res/textures/background/exit_game_btn_small.png</key>
+		<data>
+		i6OW64ewueRDQJ6SuGnr77ZO+14=
+		</data>
+		<key>Resources/res/textures/background/exit_game_btn_small_hover.png</key>
+		<data>
+		YxCQdJPMjuK91YwO8nr/5HMaezI=
+		</data>
 		<key>Resources/res/textures/background/go_to_start_screen_btn.png</key>
 		<data>
 		nKKLy7cI5yeDoqnusrQqYaNBAkY=
@@ -76,6 +84,14 @@
 		<data>
 		gX7mJ4HkG2vQFNNDbCDVHH45Z/k=
 		</data>
+		<key>Resources/res/textures/background/how_to_play_btn_start.png</key>
+		<data>
+		mvVO89qRgdkqSp3cm5UXm20g0Sc=
+		</data>
+		<key>Resources/res/textures/background/how_to_play_btn_start_hover.png</key>
+		<data>
+		oYiAHFuVAyZaRMvAXdydQwB231k=
+		</data>
 		<key>Resources/res/textures/background/menu_box.png</key>
 		<data>
 		bUs3y98phDNgRYs+MnpYtv+VO8I=
@@ -96,17 +112,33 @@
 		<data>
 		L9mG6prafnGfDYe5Gh7tmNdP0eM=
 		</data>
+		<key>Resources/res/textures/background/resume_btn.png</key>
+		<data>
+		yczsumMNEYgsykfJJ1MlXpYQgqE=
+		</data>
+		<key>Resources/res/textures/background/resume_btn_hover.png</key>
+		<data>
+		QZjJxmtUycc1SYi6QEpVurvLx/8=
+		</data>
 		<key>Resources/res/textures/background/start_button_test.png</key>
 		<data>
 		t6JCpriQz6rP11CGQQTbxpRemVc=
 		</data>
 		<key>Resources/res/textures/background/start_screen_test.png</key>
 		<data>
+		y6/JsK7wYILAtSg8T3hnzW0s+7U=
+		</data>
+		<key>Resources/res/textures/background/start_screen_test2.png</key>
+		<data>
 		SgE/f5cvZcg+kDv68bqroAHn7sE=
 		</data>
 		<key>Resources/res/textures/background/test_box.png</key>
 		<data>
 		CwkaiCjRC7tykP02PFIQKJnN7OM=
+		</data>
+		<key>Resources/res/textures/background/title_card.png</key>
+		<data>
+		+7K2ZguiDsl8gYBuxjv+EUd+IX4=
 		</data>
 		<key>Resources/res/textures/chars/idle_left.png</key>
 		<data>
@@ -116,6 +148,10 @@
 		<data>
 		KQNlL0LCH5vr95ZBJY9jwonrhtk=
 		</data>
+		<key>Resources/res/textures/chars/winnie_drinking_matcha.png</key>
+		<data>
+		GsUFHaJzxmPnoGhIwmhsR+q4jtc=
+		</data>
 		<key>Resources/res/textures/chars/winnie_walk_left.png</key>
 		<data>
 		0CaxWLW/mmQeeLwyxmdoOMQM4BY=
@@ -123,6 +159,10 @@
 		<key>Resources/res/textures/chars/winnie_walk_right.png</key>
 		<data>
 		p+JMDp/WR4Vn1HW7fQlewHywS10=
+		</data>
+		<key>Resources/res/textures/drinks/beta_matcha.png</key>
+		<data>
+		nu9xHQb/2fkz+XssgjNWoQCXsN4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -156,14 +196,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jrIvSmzmsEJ0nS8Z8oHK87n7vxucJGy0HEkPhZEfSg8=
+			pJKSIJg+AE9YP2AQfYUBLExCQooh6oh8CW5F+TgW7+s=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2GFaXqdzJlj2nhqNFBzZhCyCH/yZGXfVx22Lxt1emGc=
+			S+F/bghL54viE/Elvu1tF6DzKUXMGrXWpD7dENElMZQ=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
@@ -177,14 +217,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TCpRRyrcSpKKxaPqfUTIaSehtxAI14v9lnNmajFTks4=
+			avnK4Fry2ZTwvuQaqbbtwgMqcWvhsxfeU63bbDU9wD4=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			joydugt0ORDB+3m5bSlx3QH3EnIv+7v8FqOh87E4dUI=
+			j+Sxd8rGnI3yR0f9w5pGOTbc0pLVMFilHgxTgdqE49o=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/back_btn.png</key>
@@ -229,6 +269,20 @@
 			1EY7Q/LxVvmDijpXwhJGvq3Wb6DREbgkMmtyYc7GtEA=
 			</data>
 		</dict>
+		<key>Resources/res/textures/background/exit_game_btn_small.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			R1sCeBmFm6dIBxAhQViZnBV8zu2dx5OsM1YLD46U+Q8=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/exit_game_btn_small_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EgKEu+rCvZxawMv1gYn3g1Jm5Yj7N5Wm7BPjqETjuME=
+			</data>
+		</dict>
 		<key>Resources/res/textures/background/go_to_start_screen_btn.png</key>
 		<dict>
 			<key>hash2</key>
@@ -271,6 +325,20 @@
 			4So9QKmTVInpWxA2wIoivLtScVcGfK/m0kAVWmPnVi4=
 			</data>
 		</dict>
+		<key>Resources/res/textures/background/how_to_play_btn_start.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dp2fOns9F+3o4FPJ9MEgGH/fA6+Rm/dCsFdaTGYvskg=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/how_to_play_btn_start_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2YrqPEKymMG5rqV4jzld08dypzZfIlrBddUpa9zMem8=
+			</data>
+		</dict>
 		<key>Resources/res/textures/background/menu_box.png</key>
 		<dict>
 			<key>hash2</key>
@@ -306,6 +374,20 @@
 			t1mi1loo+CyUR5ijERbgCDw1XLHhO9Liqp3TCYl5lPM=
 			</data>
 		</dict>
+		<key>Resources/res/textures/background/resume_btn.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xpPSD1OMq1HkWOAKPn0BESeqEcm0O+l5xvzusdIUxKM=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/resume_btn_hover.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dtWkQic5w1JPe9jw61pQC6JFlnj0kSzHzpAAP53+Nvo=
+			</data>
+		</dict>
 		<key>Resources/res/textures/background/start_button_test.png</key>
 		<dict>
 			<key>hash2</key>
@@ -317,6 +399,13 @@
 		<dict>
 			<key>hash2</key>
 			<data>
+			GWNbPErpX39VR4vA2dJn0TGkGPw2ydtBUPGQdL+iTH4=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/start_screen_test2.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
 			sDfMeC1vBFJaOyuQfTbe+KJHBipmR3lTKF5BfTdtonE=
 			</data>
 		</dict>
@@ -325,6 +414,13 @@
 			<key>hash2</key>
 			<data>
 			csB7jIhmhYH+ppG4fCds5Rv3nXi+8TSBAtnqz2cV3VQ=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/title_card.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			DYJJdOYT7BUBtWllU4Mq9bIwgwUi+wqzPnEwV31vmAY=
 			</data>
 		</dict>
 		<key>Resources/res/textures/chars/idle_left.png</key>
@@ -341,6 +437,13 @@
 			Xx7upFaJp95LxTekvRwOLcj78g1BEiFguj8oVcUtQyc=
 			</data>
 		</dict>
+		<key>Resources/res/textures/chars/winnie_drinking_matcha.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6kCA8ilhN0Tb0Rs4szsIhq3e7Rftk3Ryy9TJrADuVog=
+			</data>
+		</dict>
 		<key>Resources/res/textures/chars/winnie_walk_left.png</key>
 		<dict>
 			<key>hash2</key>
@@ -353,6 +456,13 @@
 			<key>hash2</key>
 			<data>
 			sM+zbaQkxWx79F0I8NEzMtCbgLhAxC45pKWGdnRisA8=
+			</data>
+		</dict>
+		<key>Resources/res/textures/drinks/beta_matcha.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qAfyL86ch3ip+Y6aju40sZJKPBnHVkIKNW7ppuaFgxo=
 			</data>
 		</dict>
 	</dict>

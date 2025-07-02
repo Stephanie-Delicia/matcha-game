@@ -23,7 +23,7 @@ void CatcherGameModel::generateBox() {
             Posn randPosn = Posn(randX, 0);
             // NEW is called here - so ensure this new box gets destroyed sometime down the line;
             // boxes should be constantly moving down AND there is a box number limit, so this shouldn't leak.
-            Sprite* newBox = new Sprite(TEST_BOX, randPosn, DOWN, TRANSLATE, nameStateSheetMap);
+            Sprite* newBox = new Sprite(BETA_MATCHA, randPosn, DOWN, TRANSLATE, nameStateSheetMap);
             newBox->setStateHandler(boxStateHandler);
             // add to box deque and to main and update queue on the active screen.
             addBox(newBox);

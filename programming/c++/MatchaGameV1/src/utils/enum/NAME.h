@@ -30,5 +30,11 @@ enum NAME {
     INSTRUCTIONS_BTN,       // 20
     INSTRUCTIONS_BOX,       // 21
     EXIT_BUTTON,            // 22
-    MENU_BUTTON             // 23
+    MENU_BUTTON,            // 23
+    BETA_MATCHA,            // 24
+    HOW_TO_PLAY_START_BTN,  // 25
+    SMALL_EXIT_BUTTON,      // 26
+    RESUME_BUTTON,          // 27
+    BETA_TITLE_CARD,        // 28
+    WINNIE_DRINKING         // 29
 };
