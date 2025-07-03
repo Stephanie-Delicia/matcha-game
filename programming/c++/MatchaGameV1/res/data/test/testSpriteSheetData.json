@@ -231,10 +231,26 @@
             "TotalFrames": 1,
             "Width": 496.00,
             "Height": 238.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
+            "TotalFrames": 1,
+            "Width": 496.00,
+            "Height": 238.00
         }
     ],
     "return_button":
     [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
+            "TotalFrames": 1,
+            "Width": 40.00,
+            "Height": 10.00
+        },
         {
             "State": "idle",
             "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",

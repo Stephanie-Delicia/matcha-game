@@ -168,6 +168,8 @@ int main(int argc, char* argv[]) {
     return_btn->setPosn(420, 80);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(return_btn);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(return_btn);
+    screenNav.getScreen(START_SCREEN)->addToUI(return_btn);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(return_btn);
 //
     Sprite* back_to_start_scrn_btn = spriteMap.getSprite(BACK_TO_START_SCRN_BTN);
     back_to_start_scrn_btn->setStateHandler(&navButtonHandlerMenu);
@@ -201,6 +203,8 @@ int main(int argc, char* argv[]) {
     instructions_box->setPosn(72, 111);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(instructions_box);
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(instructions_box);
+    screenNav.getScreen(START_SCREEN)->addToUI(instructions_box);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(instructions_box);
 
     menu_btn->setSheetMap(&sheetMap);
     menu_box->setSheetMap(&sheetMap);

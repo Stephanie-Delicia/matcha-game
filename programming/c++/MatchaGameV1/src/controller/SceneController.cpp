@@ -447,6 +447,8 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
                 Posn spritePosn = currSprite->getPosn();
                 std::cout << "Sprite id: " << currSprite->getName() << ". \n";
                 std::cout << "Curr posn: " << spritePosn.getX() << ", " << spritePosn.getY() << ". \n";
+                std::cout << "Curr state: " << currSprite->getState() << ". \n";
+                std::cout << "Curr speed: " << currSprite->getFrameSpeed() << ". \n";
                 std::cout << "xGoal: " << xGoal << ". \n";
                 
                 float newX;

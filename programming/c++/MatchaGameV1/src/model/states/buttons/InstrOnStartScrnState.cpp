@@ -86,22 +86,25 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
             Sprite* start_button = nameSpriteMap->getSprite(START_BUTTON_TEST);
             Sprite* sm_exit_btn = nameSpriteMap->getSprite(SMALL_EXIT_BUTTON);
             Sprite* start_instr_btn = nameSpriteMap->getSprite(HOW_TO_PLAY_START_BTN);
+            Sprite* instr_box = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
+            Sprite* return_btn = nameSpriteMap->getSprite(RETURN_BUTTON);
             
+            instr_box->setPosn(-528, 61);
+            return_btn->setPosn(-100, 71);
+            // 320 - 248 = 72
+            // eh, lets say 472
+            // 472 - 600 = 128
             /*
              Need to make the map D:
              */
-            std::tuple<STATE, DIRECTION, float, float, float> exitBtnAnim(TRANSLATE, RIGHT, 15, 884, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> winnieAnim(TRANSLATE, RIGHT, 15, 780, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> howToBtnAnim(TRANSLATE, RIGHT, 15, 884, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> titleCardAnim(TRANSLATE, RIGHT, 15, 712, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> startBtnAnim(TRANSLATE, RIGHT, 15, 864, 0);
             
-            // to go back
-            std::tuple<STATE, DIRECTION, float, float, float> exitBtnAnim2(TRANSLATE, LEFT, 15, 284, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> winnieAnim2(TRANSLATE, LEFT, 15, 180, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> howToBtnAnim2(TRANSLATE, LEFT, 15, 284, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> titleCardAnim2(TRANSLATE, LEFT, 15, 112, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> startBtnAnim2(TRANSLATE, LEFT, 15, 264, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> exitBtnAnim(TRANSLATE, RIGHT, 18, 884, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> winnieAnim(TRANSLATE, RIGHT, 18, 780, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> howToBtnAnim(TRANSLATE, RIGHT, 18, 884, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> titleCardAnim(TRANSLATE, RIGHT, 18, 712, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> startBtnAnim(TRANSLATE, RIGHT, 18, 864, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> instr_boxBtnAnim(TRANSLATE, RIGHT, 18, 72, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> returnBtnAnim(TRANSLATE, RIGHT, 18, 500, 0);
             
             // to set their states back to idle
             std::tuple<STATE, DIRECTION, float, float, float> idleReset(IDLE, LEFT, 2, 0, 0);
@@ -112,14 +115,9 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
                 {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{winnieAnim}},
                 {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim}},
                 {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{exitBtnAnim}},
-                {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{howToBtnAnim}}
-            };
-            std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> spriteAnimMap2 = {
-                {title_card,      std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{titleCardAnim2}},
-                {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{winnieAnim2}},
-                {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim2}},
-                {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{exitBtnAnim2}},
-                {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{howToBtnAnim2}}
+                {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{howToBtnAnim}},
+                {instr_box, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{instr_boxBtnAnim}},
+                {return_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{returnBtnAnim}}
             };
             
             std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> idleAnimeMap = {
@@ -133,10 +131,6 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
             SceneRequest* moveScreenElemsForInstrIdle = new SceneRequest(NO_INPUT_HANDLING, 0.0);
             moveScreenElemsForInstrIdle->setAnimMap(idleAnimeMap);
             gameController->addRequest(moveScreenElemsForInstrIdle);
-            
-            SceneRequest* moveScreenElemsForInstr2 = new SceneRequest(NO_INPUT_HANDLING, 0.0);
-            moveScreenElemsForInstr2->setAnimMap(spriteAnimMap2);
-            gameController->addRequest(moveScreenElemsForInstr2);
             
             SceneRequest* moveScreenElemsForInstr1 = new SceneRequest(NO_INPUT_HANDLING, 0.0);
             moveScreenElemsForInstr1->setAnimMap(spriteAnimMap);

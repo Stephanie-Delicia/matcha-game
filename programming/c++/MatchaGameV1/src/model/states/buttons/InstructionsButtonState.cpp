@@ -85,6 +85,8 @@ void InstructionsButtonState::update(Sprite* sprite) {
             Sprite* instructionsBox = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
 
             // set all of them to idle to display
+            //  420, 80,72, 111
+            instructionsBox->setPosn(72, 111);
             instructionsBox->setState(IDLE);
             menuBox->setState(NONE);
             returnToStartBtn->setState(NONE);
