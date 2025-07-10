@@ -36,5 +36,9 @@ enum NAME {
     SMALL_EXIT_BUTTON,      // 26
     RESUME_BUTTON,          // 27
     BETA_TITLE_CARD,        // 28
-    WINNIE_DRINKING         // 29
+    WINNIE_DRINKING,        // 29
+    START_BANNER1,          // 30
+    START_BANNER2,          // 31
+    BANNER1_BKG,            // 32
+    BANNER2_BKG             // 33
 };

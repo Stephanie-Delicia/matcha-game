@@ -1,4 +1,4 @@
 {
     "ls": [{"active": false, "width": 640.00, "height": 360.00, "bgQueue": ["pleasant_sky"], "mQueue": ["winnie", "replay_button", "menu_box", "menu_button", "return_button", "back_to_start_scrn_btn", "exit_button", "instructions_btn", "instructions_box"], "type": "gameplay"},
-        {"active": true, "width": 640.00, "height": 360.00, "bgQueue": ["start_screen_test"], "mQueue": ["start_button_test", "how_to_play_start_btn", "small_exit_btn", "resume_btn", "beta_title_card", "winnie_drinking", "instructions_box", "return_button"], "type": "start"}]
+        {"active": true, "width": 640.00, "height": 360.00, "bgQueue": ["start_screen_test"], "mQueue": ["banner1_bkg", "banner2_bkg", "start_banner1", "start_banner2", "start_button_test", "how_to_play_start_btn", "small_exit_btn", "resume_btn", "beta_title_card", "winnie_drinking", "instructions_box", "return_button"], "type": "start"}]
 }

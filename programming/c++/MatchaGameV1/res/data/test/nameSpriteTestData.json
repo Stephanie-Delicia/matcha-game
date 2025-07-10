@@ -17,6 +17,10 @@
         {"name": "small_exit_btn", "posnX": 72, "posnY": 61, "state": "idle",  "dir": "left"},
         {"name": "resume_btn", "posnX": 72, "posnY": 61, "state": "idle",  "dir": "left"},
         {"name": "beta_title_card", "posnX": 72, "posnY": 61, "state": "idle",  "dir": "left"},
-        {"name": "winnie_drinking", "posnX": 72, "posnY": 61, "state": "idle",  "dir": "left"},
+        {"name": "start_banner1", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "start_banner2", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "banner1_bkg", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "banner2_bkg", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"}
+       
     ]
 }

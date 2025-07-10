@@ -28,6 +28,7 @@ STATE Sprite::getState() {
 }
 
 Posn Sprite::getPosn() {
+    
     return posn;
 }
 

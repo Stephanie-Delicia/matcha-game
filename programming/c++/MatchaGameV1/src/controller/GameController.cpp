@@ -160,7 +160,7 @@ void GameController::handleRequests() {
     std::deque<Request*> reqsToDelete;
     // recur thru requests in the event queue
     for (Request* req : requests) {
-        std::cout << "req type." << req->getReqType() << ". [GameController, handleRequests()]\n";
+//        std::cout << "req type." << req->getReqType() << ". [GameController, handleRequests()]\n";
         // add to list of requests to de;ete
         switch (req->getReqType()) {
             case SCENE: {

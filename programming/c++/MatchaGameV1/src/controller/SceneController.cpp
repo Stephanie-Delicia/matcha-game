@@ -369,8 +369,6 @@ void SceneController::drawNoInputAnimationsV2(SceneRequest *request) {
                 Posn spritePosn = currSprite->getPosn();
                 
                 float diff = xChange - speed;
-                float newX;
-                float clamp = xChange;
                 
                 if (diff <= 0) {
                     // remove this anim from deque and clamp to goal
@@ -445,11 +443,11 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
                 currSprite->setDir(dir);
                 currSprite->setFrameSpeed(speed);
                 Posn spritePosn = currSprite->getPosn();
-                std::cout << "Sprite id: " << currSprite->getName() << ". \n";
-                std::cout << "Curr posn: " << spritePosn.getX() << ", " << spritePosn.getY() << ". \n";
-                std::cout << "Curr state: " << currSprite->getState() << ". \n";
-                std::cout << "Curr speed: " << currSprite->getFrameSpeed() << ". \n";
-                std::cout << "xGoal: " << xGoal << ". \n";
+//                std::cout << "Sprite id: " << currSprite->getName() << ". \n";
+//                std::cout << "Curr posn: " << spritePosn.getX() << ", " << spritePosn.getY() << ". \n";
+//                std::cout << "Curr state: " << currSprite->getState() << ". \n";
+//                std::cout << "Curr speed: " << currSprite->getFrameSpeed() << ". \n";
+//                std::cout << "xGoal: " << xGoal << ". \n";
                 
                 float newX;
                 float setX;
@@ -464,7 +462,7 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
                     reachedGoal = (newX <= xGoal);
                 }
                 
-                std::cout << "reachedGoal: " << reachedGoal << ". \n";
+                // std::cout << "reachedGoal: " << reachedGoal << ". \n";
                 
                 if (state == TRANSLATE) {
                     if (reachedGoal) {

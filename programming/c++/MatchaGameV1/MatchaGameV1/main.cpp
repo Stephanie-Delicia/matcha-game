@@ -113,6 +113,7 @@ int main(int argc, char* argv[]) {
     start_button->setPosn(264, 190.00);
     
     model.setMainPlayer(player);
+    model.setUpStartScreenMatchas();
     
     bg->setStateHandler(&charStateHandler);
     start_bg->setStateHandler(&charStateHandler);
@@ -266,13 +267,38 @@ int main(int argc, char* argv[]) {
     title_card_ptr->setPosn(112, 105);
     screenNav.getScreen(START_SCREEN)->addToUpdate(title_card_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(title_card_ptr);
+
     
-    std::cout << "resume_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(resume_btn) << ". \n";
-    std::cout << "small_exit_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(small_exit_btn) << ". \n";
-    std::cout << "winnie_drinking_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(winnie_drinking_ptr) << ". \n";
-    std::cout << "beta_matcha_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(beta_matcha_ptr) << ". \n";
-    std::cout << "how_to_play_start_btn: " << screenNav.getScreen(START_SCREEN)->onScreen(how_to_play_start_btn) << ". \n";
-    std::cout << "title_card_ptr: " << screenNav.getScreen(START_SCREEN)->onScreen(title_card_ptr) << ". \n";
+    // BANNERS FOR START SCREEN
+    Sprite* banner1 = spriteMap.getSprite(START_BANNER1);
+    Sprite* banner2 = spriteMap.getSprite(START_BANNER2);
+    Sprite* banner1_bkg = spriteMap.getSprite(BANNER1_BKG);
+    Sprite* banner2_bkg = spriteMap.getSprite(BANNER2_BKG);
+    
+    banner1->setStateHandler(&idleStateHandler); // resume btn
+    banner1->setState(SCROLLING_BANNER);
+    banner1->setDir(LEFT);
+    banner1->setPosn(0, 0);
+    banner1->setFrameSpeed(0.5);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(banner1);
+    
+    banner1_bkg->setStateHandler(&idleStateHandler); // resume btn
+    banner1_bkg->setState(IDLE);
+    banner1_bkg->setDir(LEFT);
+    banner1_bkg->setPosn(0, 0);
+    
+    banner2->setStateHandler(&idleStateHandler); // resume btn
+    banner2->setState(SCROLLING_BANNER);
+    banner2->setDir(LEFT);
+    banner2->setPosn(0, 312);
+    banner2->setFrameSpeed(0.5);
+    // screenNav.getScreen(START_SCREEN)->addToUI(banner2);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(banner2);
+    
+    banner2_bkg->setStateHandler(&idleStateHandler); // resume btn
+    banner2_bkg->setState(IDLE);
+    banner2_bkg->setDir(LEFT);
+    banner2_bkg->setPosn(0, 305);
     
     // end
     

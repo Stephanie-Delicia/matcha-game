@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/res/data/test/nameSpriteData.json</key>
 		<data>
-		R9tzxcqLT2Pw62WK/+YILRem9T8=
+		npwVZiBafyibauBT83XrTiPZSGc=
 		</data>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<data>
-		HPuaHKHLxpygOGUOjVPJZYeNP4M=
+		9dt8/I4s//3bkciljSHg4YjS1nQ=
 		</data>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Resources/res/data/test/testScreenNavData2.json</key>
 		<data>
-		xyN5GIv6asSjZdN3e7CJinN4E8A=
+		fyaoCAJT76gTk0tWaql5nHIq8GE=
 		</data>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<data>
-		cVEjvvBwOYJnjdOzqu7jiCDspfY=
+		VnF2A/nnKncLliJXihQ+YMH3b+Q=
 		</data>
 		<key>Resources/res/textures/background/back_btn.png</key>
 		<data>
@@ -35,6 +35,22 @@
 		<key>Resources/res/textures/background/back_btn_hover.png</key>
 		<data>
 		AeVyaS6Eto8hfzg9Z8T0CcT55JE=
+		</data>
+		<key>Resources/res/textures/background/banner1_bkg.png</key>
+		<data>
+		JJ/NCnHwDyMMrBMo5ZFhxabLTWA=
+		</data>
+		<key>Resources/res/textures/background/banner1_start.png</key>
+		<data>
+		zLbxySy/1bTazouFzG3+C64/n5Y=
+		</data>
+		<key>Resources/res/textures/background/banner2_bkg.png</key>
+		<data>
+		74moA+Kvlnuu0NKL8VvgWexfsgU=
+		</data>
+		<key>Resources/res/textures/background/banner2_start.png</key>
+		<data>
+		3RtUy7xnUz7FfAi4gxdgWEQTOno=
 		</data>
 		<key>Resources/res/textures/background/black_screen.png</key>
 		<data>
@@ -126,7 +142,7 @@
 		</data>
 		<key>Resources/res/textures/background/start_screen_test.png</key>
 		<data>
-		y6/JsK7wYILAtSg8T3hnzW0s+7U=
+		exDIZgRb3lvTnifPmIDzcF9fP4Y=
 		</data>
 		<key>Resources/res/textures/background/start_screen_test2.png</key>
 		<data>
@@ -196,14 +212,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pJKSIJg+AE9YP2AQfYUBLExCQooh6oh8CW5F+TgW7+s=
+			Mt8TATosOtpk8Rvhu36lKl7B8udQ/eqpwiGwUuK2FIU=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/nameSpriteTestData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S+F/bghL54viE/Elvu1tF6DzKUXMGrXWpD7dENElMZQ=
+			UVFZrFDxO0bdDHcx0bldKNEc1Qs0qyTp/Bjw12Hx6P0=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testScreenNavData.json</key>
@@ -217,14 +233,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PkuY9hQGBApoLGtWhexcGwRQPbzIzBgwi21lRuSSGzw=
+			jEuj8ptb2ZxUdyTf4KoqjqyXcVbeQMTYomXMdvm/Qqw=
 			</data>
 		</dict>
 		<key>Resources/res/data/test/testSpriteSheetData.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+/WZUl7DpcIEdrndYMSKjyeQFv2qSJHtC+focFMZWy4=
+			FkNPR+cwWhaTnm9mWtl12X/6qAW4Or0R6x1qn12+tEs=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/back_btn.png</key>
@@ -239,6 +255,34 @@
 			<key>hash2</key>
 			<data>
 			gTLVq5HbFCrxw/OBMDF8HalMKmg46T94MOAPSNyAVHg=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/banner1_bkg.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Cn9LABtmDwZOjrMBvYJ/9lxutxxpEcu4X+Fp13Wdu58=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/banner1_start.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			aZo3TBpVcl4espna5Q16GvrcrmKM80xL/SJdxSz6/LA=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/banner2_bkg.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			j6LtRA5Wydz1qKTQ5Z6espURygQ9/sTTU34nMOXw7Qw=
+			</data>
+		</dict>
+		<key>Resources/res/textures/background/banner2_start.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nSOfAo0HrG/ZIlQ4M+hgZ83379Qkylylxy6h/Ie0DAQ=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/black_screen.png</key>
@@ -399,7 +443,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GWNbPErpX39VR4vA2dJn0TGkGPw2ydtBUPGQdL+iTH4=
+			ck4rWOXV9FSvEwa1jr/VDnVCn9J2qMrSmxxIw0wfFCs=
 			</data>
 		</dict>
 		<key>Resources/res/textures/background/start_screen_test2.png</key>

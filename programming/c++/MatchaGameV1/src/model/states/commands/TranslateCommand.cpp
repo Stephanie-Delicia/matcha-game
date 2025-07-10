@@ -21,7 +21,7 @@ void TranslateCommand::update(Sprite* sprite) {
         case DIRECTION::LEFT: {
             sprite->setPosn(x - frameSpeed, y);    // update sprite posn
             if (currFrameTime <= 0.0) {            // if enough time passed to get to the next frame
-                sprite->updateSheet(TRANSLATE, 1); // go to next frame by incrementing frame #
+                sprite->updateSheet(sprite->getState(), 1); // go to next frame by incrementing frame #
             }
             break;
         }
@@ -29,21 +29,21 @@ void TranslateCommand::update(Sprite* sprite) {
         case DIRECTION::RIGHT: {
             sprite->setPosn(x + frameSpeed, y);
             if (currFrameTime <= 0.0) {
-                sprite->updateSheet(TRANSLATE, 1);
+                sprite->updateSheet(sprite->getState(), 1);
             }
             break;
         }
         case UP: {
             sprite->setPosn(x, y - frameSpeed);
             if (currFrameTime <= 0.0) {
-                sprite->updateSheet(TRANSLATE, 1);
+                sprite->updateSheet(sprite->getState(), 1);
             }
             break;
         }
         case DOWN: {
             sprite->setPosn(x, y + frameSpeed);
             if (currFrameTime <= 0.0) {
-                sprite->updateSheet(TRANSLATE, 1);
+                sprite->updateSheet(sprite->getState(), 1);
             }
             break;
         }

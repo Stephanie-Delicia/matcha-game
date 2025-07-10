@@ -5,6 +5,7 @@
 #include <deque>
 #include <string>
 #include "BoxToCatchState.hpp"
+#include "IdleState.hpp"
 #include <iostream>
 #include <SDL3/SDL.h>
 #include "SCREEN.h"
@@ -26,13 +27,19 @@ public:
     int getScoreGoal() { return scoreGoal; };
     std::deque<Sprite*> getBoxes() { return boxes; };
     // setter
-    void setScoreGoal(int goal) {scoreGoal = goal;};
+    void setScoreGoal(int goal) { scoreGoal = goal; };
     void setScore(int newScore) { score = newScore; };
     void setBoxNumLimit(int lim) { boxNumLimit = lim; };
     void setBoxChance(double chance) { boxChance = chance; };
     void setBoxYLimit(float y) { boxYLimit = y; };
     
     // gameplay
+    void update() override {
+        screenNav->getMainScreen()->update();
+        loopStartScreenMatchas();
+    };
+    void setUpStartScreenMatchas();
+    void loopStartScreenMatchas();
     void addBox(Sprite* box);
     void generateBox(); // on some chance, generate a box, add to box list, and give to the active screen
     void removeBox(Sprite* box);
@@ -40,11 +47,16 @@ public:
     void clearBoxesQueue(); // recurs thru each box, removes them from the queue, and deletes them (for replaying)
     
 private:
+    // row and col were selected based on having each drink on the start screen be in a square
+    int numRowMatchas = 9; // 0 to 9
+    int numColMatchas = 16; // 0 to 6
     int scoreGoal = 5;
     int score = 0;
     int boxNumLimit = 100;
     std::deque<Sprite*> boxes;
-    double boxChance = 0.05;    // Have a 30% chance of generating a box each game loop
+    std::deque<Sprite*> matchas_start_screen; // does not change once set
+    double boxChance = 0.05;  // Have a 30% chance of generating a box each game loop
     float boxYLimit = 336.00; // where does the box land? it should be destroyed after hitting the floor.
     BoxToCatchState* boxStateHandler = new BoxToCatchState();
+    IdleState* idleStateHandler = new IdleState();
 };

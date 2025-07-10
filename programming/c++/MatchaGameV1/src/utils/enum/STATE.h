@@ -12,5 +12,7 @@ enum STATE {
     PRESSED,   // texture was clicked on
     HOVER,     // mouse is over the texture
     JUMPING,
+    SCROLLING_BANNER, // sprite will scroll along its own width
+    DIAGONAL_BANNER, // sprite will scroll along a diagonal line
     NONE // sprite is not on window
 };

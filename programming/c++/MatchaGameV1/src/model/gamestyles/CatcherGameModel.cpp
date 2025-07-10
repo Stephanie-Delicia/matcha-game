@@ -3,6 +3,7 @@
  */
 #include <random>
 #include "CatcherGameModel.hpp"
+#include <cmath>
 
 void CatcherGameModel::addBox(Sprite* box) {
     boxes.push_front(box);
@@ -108,12 +109,126 @@ void CatcherGameModel::clearBoxesQueue() {
     }
 }
 
-/*
- DEBUGGING:
- std::cout << "box to remove: " << box << " [CatcherGameModel, removeBox()]\n";
- std::cout << "boxes size before removal: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
- std::cout << "boxes size after: " << boxes.size() << " [CatcherGameModel, removeBox()]\n";
- //        std::cout << "sprite ptr: " << sprite << "[CatcherGameModel, destroyBoxes()]\n";
- //        std::cout << "box state: " << bState << "\n";
- //        std::cout << "box name: " << sprite->getName() << "\n";
- */
+void CatcherGameModel::loopStartScreenMatchas() {
+    // check each matcha drink,
+    // if the drink is a full box outside of the screen, set its new position
+    int rows = 0;
+    int cols = 0;
+    int numDrink = 0;
+    
+    float miniScrnWidth = 250;
+    float miniScrnHeight = 200;
+    float padding = 0;
+    
+    float squareWidth = screenWidth / numColMatchas;
+    float squareHeight = screenHeight / numRowMatchas;
+    
+    padding = squareHeight;
+    
+//    std::cout << "squareWidth: " << squareWidth << ".\n";
+//    std::cout << "squareHeight: " << squareHeight << ".\n";
+    
+    float drinkWidth = nameStateSheetMap->getSpriteSheet(BETA_MATCHA, IDLE)->getWidth();
+    float drinkHeight = nameStateSheetMap->getSpriteSheet(BETA_MATCHA, IDLE)->getHeight();
+    
+    float maxX = ((numColMatchas + 1) * squareWidth) + (squareWidth / 2) - (drinkWidth / 2) - (2*squareWidth) + padding;
+    float maxY = ((numRowMatchas + 1) * squareHeight) + (squareHeight / 2) - (drinkHeight / 2) - (2*squareHeight) + padding;
+    
+    
+//    std::cout << "squareWidth: " << squareWidth << ".\n";
+//    std::cout << "squareHeight: " << squareHeight << ".\n";
+//
+//    std::cout << "maxX: " << maxX << ".\n";
+//    std::cout << "maxY: " << maxY << ".\n";
+    
+    for (Sprite* drink : matchas_start_screen) {
+            Posn drinkPosn = drink->getPosn();
+            // if outside the screen by a full box!
+            if ((drinkPosn.getX() >= maxX)  or (drinkPosn.getY() >= maxY)) {
+                // estimate row and col coordinate
+                // float xPosn = (cols * squareWidth) + (squareWidth / 2) - (drinkWidth / 2) - squareWidth + padding;
+                int appCol = std::round((drinkPosn.getX() - (squareWidth / 2) + (drinkWidth / 2) + (2*squareWidth) - padding) / squareWidth);
+                int appRow = std::round((drinkPosn.getY() - (squareHeight / 2) +  (drinkHeight / 2) + (2*squareHeight) - padding) / squareHeight);
+                
+//                std::cout << "appRow: " << appRow << ".\n";
+//                std::cout << "appCol: " << appCol << ".\n";
+                
+                float newRow;
+                float newCol;
+                if (appRow > appCol) {
+                    newRow = std::abs(appRow - appCol);
+                    newCol = 0;
+                } else if (appRow < appCol) {
+                    newRow = 0;
+                    newCol = std::abs(appCol - appRow);
+                } else {
+                    newRow = 0;
+                    newCol = 0;
+                }
+                
+//                std::cout << "newRow: " << newRow << ".\n";
+//                std::cout << "newCol: " << newCol << ".\n";
+        
+                float newX = (newCol * squareWidth ) + (squareWidth / 2) - (drinkWidth / 2) - (2*squareWidth) + padding;
+                float newY = (newRow * squareHeight) + (squareHeight / 2) - (drinkHeight / 2) - (2*squareHeight) + padding;
+//
+//                std::cout << "newX : " << newX << ".\n";
+//                std::cout << "newY : " << newY << ".\n";
+                
+                drink->setPosn(newX, newY);
+            }
+            numDrink++;
+        }
+}
+
+void CatcherGameModel::setUpStartScreenMatchas() {
+    int rows = 0;
+    int cols = 0;
+    
+    float miniScrnWidth = 250;
+    float miniScrnHeight = 200;
+    float padding = 0;
+    
+    float squareWidth = screenWidth / numColMatchas; // 640 % 16 = 40
+    float squareHeight = screenHeight / numRowMatchas; // 360 % 9 = 40
+    
+//    std::cout << "squareWidth: " << squareWidth << ".\n";
+//    std::cout << "squareHeight: " << squareHeight << ".\n";
+    
+    padding = squareHeight;
+    float angle = std::atan((squareHeight/squareWidth));
+    
+    float drinkWidth = nameStateSheetMap->getSpriteSheet(BETA_MATCHA, IDLE)->getWidth();
+    float drinkHeight = nameStateSheetMap->getSpriteSheet(BETA_MATCHA, IDLE)->getHeight();
+    
+    while (rows < numRowMatchas + 2) {
+        while (cols < numColMatchas + 2) {
+            if (!(rows == 0 and cols == numColMatchas + 1) and
+                !(rows == 1 and cols == numColMatchas + 1) and
+                !(rows == 0 and cols == numColMatchas) and
+                !(rows == numRowMatchas and cols == 0)     and
+                !(rows == numRowMatchas + 1 and cols == 0) and
+                !(rows == numRowMatchas + 1 and cols == 1) and
+                !(rows == numRowMatchas + 1) and
+                !(cols == numColMatchas + 1)) {
+
+                float xPosn = std::round((cols * squareWidth) + (squareWidth / 2) - (drinkWidth / 2) - (2*squareWidth) + padding);
+                float yPosn = std::round((rows * squareHeight) + (squareHeight / 2) - (drinkHeight / 2) - (2*squareHeight) + padding);
+
+                std::cout << "Posn for start screen drink: (" << xPosn << ", " << yPosn << "). And coordinates: " << "(" <<rows << ", " << cols << ") " << "\n";
+                    // create matcha drink sprite
+                Sprite* newDrink = new Sprite(BETA_MATCHA, Posn(xPosn, yPosn), LEFT, DIAGONAL_BANNER, nameStateSheetMap);
+                newDrink->setFrameSpeed(0.75);
+                newDrink->setAngle(angle);
+                newDrink->setAlpha(0.15);
+                newDrink->setStateHandler(idleStateHandler);
+                matchas_start_screen.push_back(newDrink);
+                getActiveScreen()->addToBG(newDrink);
+                getActiveScreen()->addToUpdate(newDrink);
+                }
+            cols++;
+        }
+        cols = 0;
+        rows++;
+    }
+}

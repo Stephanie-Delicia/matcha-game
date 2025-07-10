@@ -323,6 +323,22 @@
             "TotalFrames": 1,
             "Width": 12,
             "Height": 24
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/drinks/beta_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/drinks/beta_matcha.png",
+            "TotalFrames": 1,
+            "Width": 12,
+            "Height": 24
+        },
+        {
+            "State": "diagonal_scrolling",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/drinks/beta_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/drinks/beta_matcha.png",
+            "TotalFrames": 1,
+            "Width": 12,
+            "Height": 24
         }
     ],
     "winnie_drinking":
@@ -466,6 +482,66 @@
             "TotalFrames": 1,
             "Width": 417,
             "Height": 39
+        }
+    ],
+    "start_banner1":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 44
+        },
+        {
+            "State": "scrolling_banner",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 44
+        }
+    ],
+    "banner1_bkg":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_bkg.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_bkg.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 55
+        }
+    ],
+    "start_banner2":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 44
+        },
+        {
+            "State": "scrolling_banner",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 44
+        }
+    ],
+    "banner2_bkg":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_bkg.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_bkg.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 55
         }
     ]
 }

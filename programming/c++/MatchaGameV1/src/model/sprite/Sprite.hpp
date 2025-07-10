@@ -40,6 +40,8 @@ public:
     };
     
     // getters
+    float getAlpha() {return alpha;};
+    float getAngle() { return angle; };
     NAME getName();
     Posn getPosn();
     STATE getState();
@@ -52,6 +54,8 @@ public:
     std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest(); // get source and destination rectangles for blitzing
     
     // setters
+    void setAlpha(float new_alpha) {alpha = new_alpha;};
+    void setAngle(float degrees) { angle = degrees; };
     void setState(STATE newState);
     void setSheetMap(NameStateSheetMap* map);
     void setDir(DIRECTION newDir);
@@ -78,11 +82,13 @@ public:
     std::deque<STATE> getStates() { return statesToProcess; } ;
 
 private:
+    float angle = 0;       // in degrees
+    float alpha = 1;       // 1 = fully opaque, 0 = fully transparent
     std::deque<STATE> statesToProcess;
     NAME name;                           // unique sprite name
     Posn posn;                           // (x,y). defaults to (0,0)
     STATE state = NONE;                  // whatever state sprite is in
-    float frameSpeed = 2;             // rate of change in sprite posn
+    float frameSpeed = 2;                // rate of change in sprite posn
     DIRECTION stateDir = LEFT;           // direction that sprite faces
     NameStateSheetMap* sheetMap;         // map for accessing sheets
     float currFrameTime = -1.0;          // time for the current frame to continue be drawn, negative when you want to be stuck on the current frame

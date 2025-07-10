@@ -62,7 +62,11 @@ public:
                                                 {"small_exit_btn", SMALL_EXIT_BUTTON},
                                                 {"resume_btn", RESUME_BUTTON},
                                                 {"beta_title_card", BETA_TITLE_CARD},
-                                                {"winnie_drinking", WINNIE_DRINKING}
+                                                {"winnie_drinking", WINNIE_DRINKING},
+                                                {"start_banner1", START_BANNER1},
+                                                {"start_banner2", START_BANNER2},
+                                                {"banner1_bkg", BANNER1_BKG},
+                                                {"banner2_bkg", BANNER2_BKG}
     };
     
     std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},
