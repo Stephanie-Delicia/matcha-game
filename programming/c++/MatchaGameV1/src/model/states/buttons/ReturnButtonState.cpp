@@ -133,7 +133,7 @@ void ReturnButtonState::update(Sprite* sprite) {
                 SceneRequest* moveScreenElemsForInstr2 = new SceneRequest(NO_INPUT_HANDLING, 0.0);
                 moveScreenElemsForInstr2->setAnimMap(spriteAnimMap2);
                 gameController->addRequest(moveScreenElemsForInstr2);
-            } else {
+            } else { // we are on the gameplay screen
                 if (menuBtn->getState() == NONE) {
                     menuBtn->setState(IDLE);
                 }

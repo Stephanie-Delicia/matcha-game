@@ -11,8 +11,17 @@
 #include <deque>
 
 void SceneController::drawStillScene(SceneRequest* request) {
-    std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
-    float startTime = fpsTimer->getTicks();
+    // std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
+//    if (sceneTimer->isPaused()) {
+//        sceneTimer->unpause();
+//    }
+//
+//    if (!fpsTimer->isPaused()) {
+//        fpsTimer->pause();
+//    }
+    
+    float gStartTime = fpsTimer->getTicks();
+    float startTime;
     float timeDuration = request->getTimeDuration();
     
     if (timeDuration <= -1) {
@@ -20,8 +29,8 @@ void SceneController::drawStillScene(SceneRequest* request) {
     }
     
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
-        std::cout << "End scene bool: " << mainController->getEndScene() << ". [drawStillScene()]\n";
+    while ((fpsTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = fpsTimer->getTicks();
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )
@@ -40,6 +49,7 @@ void SceneController::drawStillScene(SceneRequest* request) {
 
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
+        // std::cout << "timeElapsed: " << timeElapsed << ". [drawStillScene()]\n";
         mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
         mainController->frameCountAdd(1);
     }
@@ -76,12 +86,14 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
         getModel()->getActiveScreen()->addToMain(blackScreenPtr);
     }
     
-    float startTime = fpsTimer->getTicks();
+    float gStartTime = fpsTimer->getTicks();
+    float startTime;
     float timeDuration = request->getTimeDuration();
     
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
-        SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), ((fpsTimer->getTicks() - startTime)/timeDuration) * 255.00);
+    while ((fpsTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = fpsTimer->getTicks();
+        SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), ((fpsTimer->getTicks() - gStartTime)/timeDuration) * 255.00);
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )
@@ -154,12 +166,14 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
         getModel()->getActiveScreen()->addToMain(blackScreenPtr);
     }
     
-    float startTime = fpsTimer->getTicks();
+    float gStartTime = fpsTimer->getTicks();
+    float startTime;
     float timeDuration = request->getTimeDuration();
     
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - startTime <= timeDuration) and !mainController->getEndScene()) {
-        SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), (1 - ((fpsTimer->getTicks() - startTime)/timeDuration)) * 255.00);
+    while ((fpsTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = fpsTimer->getTicks();
+        SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), (1 - ((fpsTimer->getTicks() - gStartTime)/timeDuration)) * 255.00);
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )
@@ -178,6 +192,7 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
         mainController->gameDelay(timeElapsed);
         mainController->frameCountAdd(1);
     }
+    SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 0);
     mainController->setEndScene(false);
     request->setTimeDuration(0);
 }
@@ -422,9 +437,7 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
                     break;
             }
         }
-        // get time elapsed
-        float endTime = fpsTimer->getTicks();
-        float timeElapsed = endTime - startTime;
+
         std::deque<Sprite*> keysToRemove; // remove keys to be removed AFTERWARDS
         
         for (auto& spriteAnim : animMap) {
@@ -487,8 +500,12 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
         }
         
         drawWithText("TEST 3", Posn(200, 170));
-        
         update();
+        
+        // get time elapsed
+        float endTime = fpsTimer->getTicks();
+        float timeElapsed = endTime - startTime;
+        std::cout << "timeElapsed: " << timeElapsed << ". [drawNoInputAnimationsV3()]\n";
         
         mainController->gameDelay(timeElapsed);
         mainController->frameCountAdd(1);

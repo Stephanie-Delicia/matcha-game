@@ -6,7 +6,7 @@
 #include "SceneController.hpp"
 
 void CatcherController::startGame() {
-    fpsGoal = 55;
+    fpsGoal = 60;
     bool inGameplay = false;
     Posn scorePosn = Posn(10.00, 15.00);
     Posn fpsPosn = Posn(500.00, 15.00);
@@ -35,6 +35,7 @@ void CatcherController::startGame() {
            // we give priority to scenes, so if gameplay is 'on' but the menu is opened, then a still animation
            // should play until some user action occurs
            handleRequests();
+           startTime = fpsTimer->getTicks();
        } else {
            SDL_Event event;
            while( SDL_PollEvent(&event) )
@@ -74,6 +75,7 @@ void CatcherController::startGame() {
         }
         
         // adjust fps
+        // I need a global timer and frame counter and one each for pausing
         endTime = fpsTimer->getTicks();
         timeElapsed = endTime - startTime;
         gameDelay(timeElapsed);

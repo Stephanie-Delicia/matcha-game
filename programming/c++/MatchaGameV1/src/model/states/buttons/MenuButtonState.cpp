@@ -93,6 +93,8 @@ void MenuButtonState::update(Sprite* sprite) {
             returnToStartBtn->setState(IDLE);
             exitBtn->setState(IDLE);
             instructionsBtn->setState(IDLE);
+            std::cout << "Return btn posn" << menuReturnBtn->getPosn().getX() << ", " << menuReturnBtn->getPosn().getY() << ". [menu btn state()]\n";
+            menuReturnBtn->setPosn(420, 80);
             menuReturnBtn->setState(IDLE);
             
             // button goes to normal now

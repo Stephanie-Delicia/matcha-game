@@ -67,7 +67,6 @@ void GameController::handleWithoutMainSprite(const SDL_Event &event) {
     getModel()->handleWithoutMainSprite(event);
 }
 
-
 void GameController::handleInputForUI(SDL_Event const &event) {
     getModel()->handleInputForUI(event);
 }
@@ -139,6 +138,7 @@ void GameController::setSceneController() {
     sceneController = new SceneController(getModel(), view, this);
     // The scene controller uses the same timer for performing scenes
     sceneController->setTimer(fpsTimer);
+    sceneController->getSceneTimer()->start();
 }
 
 void GameController::addRequest(Request* request) {

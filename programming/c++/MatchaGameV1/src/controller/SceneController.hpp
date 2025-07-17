@@ -21,6 +21,7 @@ public:
     };
     // overriding model
     GameModel* getModel() override { return sceneModel; };
+    Timer* getSceneTimer() { return sceneTimer; };
     GameModel* sceneModel;
     
     // setter
@@ -32,7 +33,6 @@ public:
     
     // info
     bool hasRequests();
-    
     // neither handleinput or update are called. Truly a still scene.
     void drawStillScene(SceneRequest* request);
     // So sprites will continue updating according to their states of when this method is called,
@@ -56,6 +56,7 @@ public:
     void fulfillRequests();
     
 protected:
+    Timer* sceneTimer = new Timer();
     GameController* mainController; // this is a SEPARATE controller, use only to send game exit requests
     std::deque<SceneRequest*> sceneRequests;
 };

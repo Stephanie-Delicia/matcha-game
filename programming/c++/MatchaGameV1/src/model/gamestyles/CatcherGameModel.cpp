@@ -218,7 +218,7 @@ void CatcherGameModel::setUpStartScreenMatchas() {
                 std::cout << "Posn for start screen drink: (" << xPosn << ", " << yPosn << "). And coordinates: " << "(" <<rows << ", " << cols << ") " << "\n";
                     // create matcha drink sprite
                 Sprite* newDrink = new Sprite(BETA_MATCHA, Posn(xPosn, yPosn), LEFT, DIAGONAL_BANNER, nameStateSheetMap);
-                newDrink->setFrameSpeed(0.75);
+                newDrink->setFrameSpeed(2);
                 newDrink->setAngle(angle);
                 newDrink->setAlpha(0.15);
                 newDrink->setStateHandler(idleStateHandler);
