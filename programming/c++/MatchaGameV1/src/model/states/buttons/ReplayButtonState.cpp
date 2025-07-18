@@ -86,6 +86,9 @@ void ReplayButtonState::update(Sprite* sprite) {
         case NONE: {
             break;
         }
+        default: {
+            break;
+        }
     }
 }
 

@@ -21,6 +21,8 @@
 		C20AD7572DEA3FBF0007622F /* CatcherGameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */; };
 		C20B32922DF8A66A003AFA91 /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */; };
 		C20B32932DF8A66A003AFA91 /* SceneRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */; };
+		C20B71032E2984FA000075C3 /* CatcherLevelStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B71012E2984F9000075C3 /* CatcherLevelStruct.cpp */; };
+		C20B71042E2984FA000075C3 /* CatcherLevelStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20B71012E2984F9000075C3 /* CatcherLevelStruct.cpp */; };
 		C21498F52DFF111F004B8E3A /* catcher_game_setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */; };
 		C21498F92E00A69F004B8E3A /* ReplayButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */; };
 		C21498FA2E00A69F004B8E3A /* ReplayButtonState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */; };
@@ -161,6 +163,8 @@
 		C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CatcherGameModel.cpp; sourceTree = "<group>"; };
 		C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CatcherGameModel.hpp; sourceTree = "<group>"; };
 		C20B32912DF8A66A003AFA91 /* SceneRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneRequest.cpp; sourceTree = "<group>"; };
+		C20B71012E2984F9000075C3 /* CatcherLevelStruct.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CatcherLevelStruct.cpp; sourceTree = "<group>"; };
+		C20B71022E2984F9000075C3 /* CatcherLevelStruct.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CatcherLevelStruct.hpp; sourceTree = "<group>"; };
 		C21498F32DFF111F004B8E3A /* catcher_game_setup.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = catcher_game_setup.cpp; sourceTree = "<group>"; };
 		C21498F42DFF111F004B8E3A /* catcher_game_setup.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catcher_game_setup.hpp; sourceTree = "<group>"; };
 		C21498F72E00A69F004B8E3A /* ReplayButtonState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReplayButtonState.cpp; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 			children = (
 				C20AD7552DEA3FBE0007622F /* CatcherGameModel.hpp */,
 				C20AD7542DEA3FBE0007622F /* CatcherGameModel.cpp */,
+				C20B71012E2984F9000075C3 /* CatcherLevelStruct.cpp */,
+				C20B71022E2984F9000075C3 /* CatcherLevelStruct.hpp */,
 			);
 			path = gamestyles;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				C20B32922DF8A66A003AFA91 /* SceneRequest.cpp in Sources */,
 				C2492CA22DCA74CB0020F8E6 /* NameSpriteMap.cpp in Sources */,
 				C26E71022D95CDA900DE5378 /* Posn.cpp in Sources */,
+				C20B71032E2984FA000075C3 /* CatcherLevelStruct.cpp in Sources */,
 				C2492C872DC7C70B0020F8E6 /* GameController.cpp in Sources */,
 				C2492C8A2DC7CA610020F8E6 /* GameView.cpp in Sources */,
 				C2747FBC2E0BAC6400B26996 /* InstructionsButtonState.cpp in Sources */,
@@ -781,6 +788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20B71042E2984FA000075C3 /* CatcherLevelStruct.cpp in Sources */,
 				C2F78E9D2DBBECAD00B7B8F9 /* Posn.cpp in Sources */,
 				C2492C8E2DC7CC460020F8E6 /* GameModel.cpp in Sources */,
 				C2492C962DC927150020F8E6 /* SpriteStruct.cpp in Sources */,

@@ -16,13 +16,12 @@ void JumpingCommand::update(Sprite* sprite) {
     DIRECTION stateDir = sprite->getStateDir();
     Posn posn = sprite->getPosn();
     float currFrameTime = sprite->getCurrFrameTime();
-    float frameSpeed = sprite->getFrameSpeed();
     float x = posn.getX();
     float y = posn.getY();
     
     // get sheet width
-    SpriteSheet* sheet = sprite->getSheet(sprite->getState());
-    float width = sheet->getWidth() / sheet->getTotalFr();
+//    SpriteSheet* sheet = sprite->getSheet(sprite->getState());
+//    float width = sheet->getWidth() / sheet->getTotalFr();
     
     timeElapsed = (timer->getTicks() - startTime) / 1000; // convert ms to s
     

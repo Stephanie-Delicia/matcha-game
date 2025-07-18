@@ -35,9 +35,11 @@ public:
     virtual bool isGameBeaten() { return false; };
     bool getEndScene() { return endScene; };
     Timer* getTimer() {return fpsTimer;};
+    int getFrameCount() { return countedFrames; };
     
     // setter
     void setEndScene(bool b) { endScene = b; };
+    void setFrameCount(int num) { countedFrames = num; };
     
     // start
     virtual void startGame(); // to be overwritten by more complex games
@@ -93,7 +95,7 @@ protected:
     
     // To measure fps
     Timer* fpsTimer;
-    int fpsGoal = 58;
+    int fpsGoal = 55;
     int countedFrames = 0;
     std::string fpsText;
     float measureFPS();

@@ -22,6 +22,7 @@ public:
     bool isGameBeaten() override { return (getModel()->getScore() >= pointGoal); };
     void reset() override;
     CatcherGameModel* getModel() override { return catcherModel; };
+    
     CatcherGameModel* catcherModel;
     bool inGameplay = false;
     int pointGoal = 5;

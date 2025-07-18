@@ -112,12 +112,9 @@ void CatcherGameModel::clearBoxesQueue() {
 void CatcherGameModel::loopStartScreenMatchas() {
     // check each matcha drink,
     // if the drink is a full box outside of the screen, set its new position
-    int rows = 0;
-    int cols = 0;
     int numDrink = 0;
-    
-    float miniScrnWidth = 250;
-    float miniScrnHeight = 200;
+//    float miniScrnWidth = 250;
+//    float miniScrnHeight = 200;
     float padding = 0;
     
     float squareWidth = screenWidth / numColMatchas;
@@ -185,8 +182,8 @@ void CatcherGameModel::setUpStartScreenMatchas() {
     int rows = 0;
     int cols = 0;
     
-    float miniScrnWidth = 250;
-    float miniScrnHeight = 200;
+//    float miniScrnWidth = 250;
+//    float miniScrnHeight = 200;
     float padding = 0;
     
     float squareWidth = screenWidth / numColMatchas; // 640 % 16 = 40

@@ -2,11 +2,12 @@
     Extends the GameController class to include calls for generating boxes for the player to catch.
  */
 #include <vector>
+#include <cmath>
 #include "CatcherController.hpp"
 #include "SceneController.hpp"
 
 void CatcherController::startGame() {
-    fpsGoal = 60;
+    fpsGoal = 55;
     bool inGameplay = false;
     Posn scorePosn = Posn(10.00, 15.00);
     Posn fpsPosn = Posn(500.00, 15.00);
@@ -14,6 +15,10 @@ void CatcherController::startGame() {
     float gStartTime;
     float endTime;
     float avgFPS;
+    float gameTime;
+    std::string timeText;
+    
+    std::string pointsText;
     float timeElapsed = 0.0;
     
     fpsTimer = new Timer();
@@ -52,7 +57,11 @@ void CatcherController::startGame() {
                handleMainSprite(event);
            }
            update();
-           drawWithFPS();
+           pointsText = "Score: " + std::to_string(getModel()->getScore());
+           gameTime = fpsTimer->getTicks() / 1000;
+           timeText = std::to_string(gameTime);
+           // Posn(10, 15.00)
+           drawWithTexts(std::vector<std::string>{fpsText, pointsText, "Time: " + timeText.substr(0,4)},  std::vector<Posn>{Posn(10, 15.00), Posn(10, 35.00), Posn(10, 55.00)});
        }
         
         // we are in gameplay if we are on the right screen and the point goal hasn't been achieved

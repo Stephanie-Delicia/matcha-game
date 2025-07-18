@@ -116,6 +116,9 @@ void MenuButtonState::update(Sprite* sprite) {
         case NONE: {
             break;
         }
+        default: {
+            break;
+        }
     }
 }
 

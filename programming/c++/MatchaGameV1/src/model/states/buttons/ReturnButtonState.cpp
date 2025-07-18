@@ -164,6 +164,9 @@ void ReturnButtonState::update(Sprite* sprite) {
         case NONE: {
             break;
         }
+        default: {
+            break;
+        }
     }
 }
 

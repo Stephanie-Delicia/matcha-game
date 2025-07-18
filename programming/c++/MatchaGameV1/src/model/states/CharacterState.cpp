@@ -112,6 +112,9 @@ void CharacterState::update(Sprite* sprite) {
         case NONE: {
             break;
         }
+        default: {
+            break;
+        }
     }
 }
 

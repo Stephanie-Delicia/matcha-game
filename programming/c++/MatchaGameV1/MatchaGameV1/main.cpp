@@ -31,6 +31,7 @@
 #include "GameController.hpp"
 #include "CatcherGameModel.hpp"
 #include "CatcherController.hpp"
+#include "CatcherLevelStruct.hpp"
 
 int main(int argc, char* argv[]) {
     // Sheet map
@@ -222,7 +223,7 @@ int main(int argc, char* argv[]) {
     Sprite* resume_btn = spriteMap.getSprite(RESUME_BUTTON);
     Sprite* small_exit_btn = spriteMap.getSprite(SMALL_EXIT_BUTTON);
     Sprite* winnie_drinking_ptr = spriteMap.getSprite(WINNIE_DRINKING);
-    Sprite* beta_matcha_ptr = spriteMap.getSprite(BETA_MATCHA);
+//    Sprite* beta_matcha_ptr = spriteMap.getSprite(BETA_MATCHA);
     Sprite* how_to_play_start_btn = spriteMap.getSprite(HOW_TO_PLAY_START_BTN);
     Sprite* title_card_ptr = spriteMap.getSprite(BETA_TITLE_CARD);
     
@@ -300,17 +301,22 @@ int main(int argc, char* argv[]) {
     banner2_bkg->setDir(LEFT);
     banner2_bkg->setPosn(0, 305);
     
+    // creating level struct list
+    CatcherLevelStruct levelOne = {0, 20, 30000, ICED_MATCHA_LATTE};
+    model.addLevel(levelOne);
     // end
+    
+    //
     
     CatcherController controller = CatcherController(&model, &view);
     controller.setScreenNav(&screenNav);
     std::cout << "Instantiated MVC. (yay!) [main]\n";
     navButtonHandler.setGameController(&controller);
+    idleStateHandler.setGameController(&controller);
     replayButtonHandler.setGameController(&controller);
     charStateHandler.setGameController(&controller);
     catcherStateHandler.setGameController(&controller);
     menuButtonHandler.setGameController(&controller);
-    idleStateHandler.setGameController(&controller);
     navButtonHandlerMenu.setGameController(&controller);
     returnButtonHandler.setGameController(&controller);
     exitButtonStateHandler.setGameController(&controller);

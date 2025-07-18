@@ -12,15 +12,16 @@
 
 void SceneController::drawStillScene(SceneRequest* request) {
     // std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
-//    if (sceneTimer->isPaused()) {
-//        sceneTimer->unpause();
-//    }
-//
-//    if (!fpsTimer->isPaused()) {
-//        fpsTimer->pause();
-//    }
+    if (sceneTimer->isPaused()) {
+        sceneTimer->unpause();
+    }
+
+    if (!fpsTimer->isPaused()) {
+        fpsTimer->pause();
+    }
     
-    float gStartTime = fpsTimer->getTicks();
+    int origFrameCount = mainController->getFrameCount();
+    float gStartTime = sceneTimer->getTicks();
     float startTime;
     float timeDuration = request->getTimeDuration();
     
@@ -29,8 +30,8 @@ void SceneController::drawStillScene(SceneRequest* request) {
     }
     
     // neither handleinput or update are called. Truly a still scene.
-    while ((fpsTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
-        startTime = fpsTimer->getTicks();
+    while ((sceneTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = sceneTimer->getTicks();
         // game step
         SDL_Event event;
         while( SDL_PollEvent(&event) )
@@ -44,16 +45,23 @@ void SceneController::drawStillScene(SceneRequest* request) {
             }
         }
         
-        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
+        drawWithText(" ", Posn(200, 170));
         updateUI();
 
-        float endTime = fpsTimer->getTicks();
+        float endTime = sceneTimer->getTicks();
         float timeElapsed = endTime - startTime;
         // std::cout << "timeElapsed: " << timeElapsed << ". [drawStillScene()]\n";
         mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
         mainController->frameCountAdd(1);
     }
+    if (fpsTimer->isPaused()) {
+        fpsTimer->unpause();
+    }
+    if (!sceneTimer->isPaused()) {
+        sceneTimer->pause();
+    }
     mainController->setEndScene(false);
+    mainController->setFrameCount(origFrameCount);
     request->setTimeDuration(0);
 }
 
@@ -105,7 +113,7 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
                     break;
             }
         }
-        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
+        drawWithText(" ", Posn(200, 170));
         
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
@@ -185,7 +193,7 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
                     break;
             }
         }
-        drawWithText("Collect 5 boxes to win, bish!", Posn(200, 170));
+        drawWithText(" ", Posn(200, 170));
         
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
@@ -499,7 +507,7 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
             animMap.erase(sprite);
         }
         
-        drawWithText("TEST 3", Posn(200, 170));
+        drawWithText(" ", Posn(200, 170));
         update();
         
         // get time elapsed
