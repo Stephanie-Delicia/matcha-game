@@ -1,6 +1,6 @@
 /*
     Enum. class to use to reference specific sprites.
-    Shorthands:
+    Shorthand spellings:
     - BTN = BUTTON
     - SCRN = SCREEN
  */
@@ -16,8 +16,8 @@ enum NAME {
     PLEASANT_SKY,           // 6
     BRICK_GROUND,           // 7
     ICED_MATCHA_LATTE,      // 8
-    HOT_MATCHA_LATTE,       // 9
-    TRADITIONAL_MATCHA,     // 10
+    STRAWBERRY_MATCHA,      // 9
+    KOICHA,                 // 10
     TEST_BOX,               // 11
     START_SCREEN_TEST,      // 12
     START_BUTTON_TEST,      // 13
@@ -40,5 +40,13 @@ enum NAME {
     START_BANNER1,          // 30
     START_BANNER2,          // 31
     BANNER1_BKG,            // 32
-    BANNER2_BKG             // 33
+    BANNER2_BKG,            // 33
+    CLEAR_BLUE_SKY,         // 34
+    TRY_AGAIN_BTN,          // 35
+    NEXT_LVL_BTN,           // 36
+    RESUME_GAME_BTN,        // 37
+    MINI_INSTR_BOX,         // 38
+    WHITE_RESUME_BTN,       // 39
+    STRAWBERRY_MOCHI,       // 40
+    MATCHA_MOCHI            // 41
 };

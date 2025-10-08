@@ -158,5 +158,5 @@ void GameView::clearRender() {
 }
 
 void GameView::setFont() {
-    genevaFont = TTF_OpenFont("/System/Library/Fonts/Geneva.ttf", 15);
+    genevaFont = TTF_OpenFont("/Users/stephaniemartinez/Downloads/matcha_game/git/matcha-game/programming/c++/MatchaGameV1/res/fonts/Pixellari.ttf", 16);
 }

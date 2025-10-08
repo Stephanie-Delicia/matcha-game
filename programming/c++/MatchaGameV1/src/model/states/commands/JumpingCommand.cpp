@@ -20,18 +20,32 @@ void JumpingCommand::update(Sprite* sprite) {
     float y = posn.getY();
     
     // get sheet width
-//    SpriteSheet* sheet = sprite->getSheet(sprite->getState());
-//    float width = sheet->getWidth() / sheet->getTotalFr();
+    SpriteSheet* sheet = sprite->getSheet(sprite->getState());
     
     timeElapsed = (timer->getTicks() - startTime) / 1000; // convert ms to s
     
-//    std::cout << "timeElapsed: " << timeElapsed << ". [JumpingCommand, checking for jumping.]\n";
-//    std::cout << "startTime: " << startTime << ". [JumpingCommand, checking for jumping.]\n";
+    // 0 = (V * t) + (G / 2) * (t)^2
+    // WOW, THAT FORMULA
+    // ITS BEEN YEARS!
+    // -b +- sqrt(b^2 - 4ac)/2a
+    // -b + sqrt(b^2 - 4ac)
+    // --------------------
+    // 2a
+    // a = 1, b = V, c = G/2
     
+    float totalTime = (((SDL_sqrtf(initV * initV - (4 * 1 * accDueToG * 0.5))) - initV)/2)/ 100;
+    float timePerFrame = (totalTime / sheet->getTotalFr());
+    float thisFrameTime = ((sheet->getCurrFr() + 1) * timePerFrame);
+   
     switch (stateDir)
     {
         case DIRECTION::LEFT: {
-            float newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
+            // this is just the formula for the
+            float newY = y;
+            if (!timer->isPaused()) {
+                newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
+            }
+            
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
@@ -41,14 +55,19 @@ void JumpingCommand::update(Sprite* sprite) {
             } else {
                 sprite->setPosn(x, newY);  // update sprite posn
             }
-            if (currFrameTime <= 0.0) { // if enough time passed to get to the next frame
+            if (timeElapsed >= thisFrameTime) {
+
                 sprite->updateSheet(JUMPING, 1); // update sheet frame
             }
             break;
         }
             
         case DIRECTION::RIGHT: {
-            float newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
+            float newY = y;
+            if (!timer->isPaused()) {
+                newY = y + (initV * timeElapsed) + (accDueToG / 2) * (timeElapsed) * timeElapsed;
+            }
+            
             if (newY > screenFloor) {
                 sprite->setPosn(x, screenFloor);
                 sprite->setState(IDLE);
@@ -58,7 +77,7 @@ void JumpingCommand::update(Sprite* sprite) {
             } else {
                 sprite->setPosn(x, newY);  // update sprite posn
             }
-            if (currFrameTime <= 0.0) {
+            if (timeElapsed >= thisFrameTime) {
                 sprite->updateSheet(JUMPING, 1); // update sheet frame
             }
             break;

@@ -82,17 +82,20 @@ void InstructionsButtonState::update(Sprite* sprite) {
             Sprite* exitBtn = nameSpriteMap->getSprite(EXIT_BUTTON);
             Sprite* instructionsBtn = nameSpriteMap->getSprite(INSTRUCTIONS_BTN);
             Sprite* menuReturnBtn = nameSpriteMap->getSprite(RETURN_BUTTON);
-            Sprite* instructionsBox = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
+            Sprite* instructionsBox = nameSpriteMap->getSprite(MINI_INSTR_BOX);
+            Sprite* white_return_btn = nameSpriteMap->getSprite(WHITE_RESUME_BTN);
 
             // set all of them to idle to display
             //  420, 80,72, 111
-            instructionsBox->setPosn(72, 111);
+            instructionsBox->setPosn(179, 76);
             instructionsBox->setState(IDLE);
             menuBox->setState(NONE);
             returnToStartBtn->setState(NONE);
+            white_return_btn->setState(IDLE);
+            white_return_btn->setPosn(414, 84);
             exitBtn->setState(NONE);
             instructionsBtn->setState(NONE);
-            menuReturnBtn->setPosn(520, 120);  // set to new posn
+            menuReturnBtn->setState(NONE);  // set to new posn
             break;
         }
         case HOVER: {

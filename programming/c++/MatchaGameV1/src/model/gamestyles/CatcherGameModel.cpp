@@ -1,48 +1,149 @@
-/*
-   
- */
+#include <cmath>
+#include <memory>
 #include <random>
 #include "CatcherGameModel.hpp"
-#include <cmath>
+#include "CatcherLevelStruct.hpp"
 
-void CatcherGameModel::addBox(Sprite* box) {
-    boxes.push_front(box);
+bool CatcherGameModel::didPlayerWinLvl() {
+    // get the current level
+    // compare level goal with current score
+    // if equal, game should pause and a "proceed button" should appear, but this should be done at the controller
+    CatcherLevelStruct currLvl = getCurrentLvl();
+    if (currLvl.pointGoal <= score) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
+bool CatcherGameModel::didPlayerLoseLvl(float time) {
+    // compares times
+    CatcherLevelStruct currLvl = getCurrentLvl();
+//    std::cout << "currLvl.timeLimit: " << currLvl.timeLimit << "[didPlayerLoseLvl]\n";
+//    std::cout << "time: " << time << "[didPlayerLoseLvl]\n";
+    if (currLvl.timeLimit <= time) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void CatcherGameModel::goToNextLvl() {
+    currentLevel = (currentLevel + 1) % numLevels;
+}
+
+void CatcherGameModel::addMatcha(Sprite* box) {
+    matchas.push_front(box);
+}
+
+void CatcherGameModel::addMochi(Sprite* box) {
+    mochis.push_front(box);
+}
+
+std::deque<Sprite*> CatcherGameModel::getAllBoxes() {
+    std::deque<Sprite*> boxes;
+    for (Sprite* sprite : matchas) {
+        boxes.push_back(sprite);
+    }
+    for (Sprite* sprite : mochis) {
+        boxes.push_back(sprite);
+    }
+    return boxes;
+}
+
+void CatcherGameModel::generateMatcha(Posn posn) {
+    if (matchas.size() < matchaNumLimit) {
+        Posn randPosn = posn;
+        NAME matchaType = getCurrentLvl().drinkName;
+        // NEW is called here - so ensure this new box gets destroyed sometime down the line;
+        // boxes should be constantly moving down AND there is a box number limit, so this shouldn't leak.
+        // add to box deque and to main and update queue on the active screen.
+        Sprite* newBox = new Sprite(matchaType, randPosn, DOWN, TRANSLATE, nameStateSheetMap);
+        boxStateHandler->setCommandTimers(gameplayTimer);
+        newBox->setStateHandler(boxStateHandler);
+        addMatcha(newBox);
+        getActiveScreen()->addToMain(newBox);
+        getActiveScreen()->addToUpdate(newBox);
+    }
+}
+
+
+void CatcherGameModel::generateMochi(Posn posn) {
+    std::random_device randSeed;  // a seed source for the random number engine
+    std::mt19937 genMochiType(randSeed()); // mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<double> realDistr1(0.0, 1.0);
+    double typeProb = realDistr1(genMochiType);
+    
+    if (mochis.size() < mochiNumLimit) {
+        NAME mochiType;
+        if (typeProb <= 0.5) {
+            mochiType = STRAWBERRY_MOCHI;
+        } else {
+            mochiType = MATCHA_MOCHI;
+        }
+        Posn randPosn = posn;
+        Sprite* newBox = new Sprite(mochiType, randPosn, DOWN, TRANSLATE, nameStateSheetMap);
+        
+        BoxToCatchState* newBoxState = new BoxToCatchState();
+        newBoxState->setCommandTimers(gameplayTimer);
+        SpriteState* newState = newBoxState;
+        
+        // need a unique state due to different timer generations
+        newBox->setStateHandler(newState);
+        
+        SDL_SetSurfaceAlphaMod(newBox->getSheet(newBox->getState())->getSrfcL(), 255);
+        SDL_SetSurfaceAlphaMod(newBox->getSheet(newBox->getState())->getSrfcR(), 255);
+        addMochi(newBox);
+        getActiveScreen()->addToMain(newBox);
+        getActiveScreen()->addToUpdate(newBox);
+        newBox->addState(X_WAVE);
+        newBox->setFrameSpeed(4);
+    }
+}
+
+
 void CatcherGameModel::generateBox() {
-    if (boxes.size() < boxNumLimit) {
-        // create new posn within screen limits
-        std::random_device rd;  // a seed source for the random number engine
-        std::mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
-        std::uniform_real_distribution<double> realDistr(0.0, 1.0);
-        std::uniform_int_distribution<> intDistr(0, static_cast<int>(screenWidth - 20));
-        
-        double randNum = realDistr(gen);
-        
-        if (randNum <= boxChance) { // create a new box sprite
-            int randX = intDistr(gen);
-            Posn randPosn = Posn(randX, 0);
-            // NEW is called here - so ensure this new box gets destroyed sometime down the line;
-            // boxes should be constantly moving down AND there is a box number limit, so this shouldn't leak.
-            Sprite* newBox = new Sprite(BETA_MATCHA, randPosn, DOWN, TRANSLATE, nameStateSheetMap);
-            newBox->setStateHandler(boxStateHandler);
-            // add to box deque and to main and update queue on the active screen.
-            addBox(newBox);
-            getActiveScreen()->addToMain(newBox);
-            getActiveScreen()->addToUpdate(newBox);
+    // so, this will actually generate EITHER a matcha or a MOCHI
+    std::random_device randSeed;  // a seed source for the random number engine
+    std::mt19937 genMochiOrMatcha(randSeed()); // mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<double> realDistr1(0.0, 1.0);
+    double boxTypeProb = realDistr1(genMochiOrMatcha); // for choosing a matcha or mochi
+    
+    // create new posn within screen limits
+    std::random_device rd;  // a seed source for the random number engine
+    std::mt19937 gen(rd()); // mersenne_twister_engine seeded with rd()
+    std::uniform_real_distribution<double> realDistr(0.0, 1.0);
+    std::uniform_int_distribution<> intDistr(40, static_cast<int>(screenWidth - 40));
+    double boxProb = realDistr(gen);
+    int randX = intDistr(gen);
+    
+    // Do we generate a box by chance?
+    if (boxProb <= boxChance) {
+        // Do we generate a mochi or box?
+        if (boxTypeProb <= matchaMochiSplitChance) {
+            generateMatcha(Posn(randX, -30));
+        } else {
+            generateMochi(Posn(randX, -30));
         }
     }
 }
 
-void CatcherGameModel::removeBox(Sprite* box) {
-    auto find_iterator = std::find(boxes.begin(), boxes.end(), box);
-    if (find_iterator != boxes.end()) {
-        boxes.erase(find_iterator);
+void CatcherGameModel::removeMatcha(Sprite* box) {
+    auto find_iterator = std::find(matchas.begin(), matchas.end(), box);
+    if (find_iterator != matchas.end()) {
+        matchas.erase(find_iterator);
+    }
+}
+
+void CatcherGameModel::removeMochi(Sprite* box) {
+    auto find_iterator = std::find(mochis.begin(), mochis.end(), box);
+    if (find_iterator != mochis.end()) {
+        mochis.erase(find_iterator);
     }
 }
 
 void CatcherGameModel::destroyBoxes() {
-    // grab the posn and dims of the main char
+    // grab the posn and dims of the main char, then compare with box posn to determine if they make contact
     // get floor level
     Sprite* mainChar = getMainPlayer();
     Posn mPosn = mainChar->getPosn();
@@ -54,7 +155,9 @@ void CatcherGameModel::destroyBoxes() {
     // have a list of boxes to delete.
     std::deque<Sprite*> boxesToDelete;
     
-    for (Sprite* sprite : boxes) {
+    std::deque<Sprite*> allBoxes = getAllBoxes();
+    
+    for (Sprite* sprite : allBoxes) {
         Posn bPosn = sprite->getPosn();
         STATE bState = sprite->getState();
 
@@ -75,7 +178,18 @@ void CatcherGameModel::destroyBoxes() {
         // for either both checks
         if (bPosn.getY() + bHeight >= boxYLimit || mainOnBoxOverlap || boxOnMainOverlap) {
             if (mainOnBoxOverlap || boxOnMainOverlap) {
-                score += 1;
+                // if a mochi, then add SPEED_BOOST state to main char, else just increment score
+                if (sprite->getName() == STRAWBERRY_MOCHI || sprite->getName() == MATCHA_MOCHI) {
+//                    std::cout << "Adding a speed boost from the mochi. [CatcherModel]\n";
+                    std::deque<STATE> stateQueue = getMainPlayer()->getStates();
+                    auto find_iterator4 = std::find(stateQueue.begin(), stateQueue.end(), SPEED_BOOST);
+                    bool has_speed_boost = (find_iterator4 != stateQueue.end());
+                    if (!has_speed_boost) {
+                        getMainPlayer()->addState(SPEED_BOOST);
+                    }
+                } else {
+                    score += 1;
+                }
             }
             // add to delete queue
             boxesToDelete.push_front(sprite);
@@ -85,7 +199,12 @@ void CatcherGameModel::destroyBoxes() {
     // delete boxes
     for (Sprite* box : boxesToDelete) {
         // remove from the boxes list, active screen's active deque and update deque
-        removeBox(box);
+        if (box->getName() == STRAWBERRY_MOCHI || box->getName() == MATCHA_MOCHI) {
+            removeMochi(box);
+        } else {
+            removeMatcha(box);
+        }
+        
         getActiveScreen()->removeMain(box);
         getActiveScreen()->removeUpdate(box);
         // THEN delete the sprite from existence
@@ -96,9 +215,14 @@ void CatcherGameModel::destroyBoxes() {
 
 void CatcherGameModel::clearBoxesQueue() {
     std::deque<Sprite*> boxesToDelete;
-    for (Sprite* box : boxes) {
+    std::deque<Sprite*> allBoxes = getAllBoxes();
+    for (Sprite* box : allBoxes) {
         boxesToDelete.push_front(box);
-        removeBox(box);
+        if (box->getName() == STRAWBERRY_MOCHI || box->getName() == MATCHA_MOCHI) {
+            removeMochi(box);
+        } else {
+            removeMatcha(box);
+        }
     }
     
     for (Sprite* box : boxesToDelete) {

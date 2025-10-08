@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-// Represents possible directions an active sprite can move
+// Represents the different kinds of screens that may be possible to access in a game
 enum SCREEN {
     START_SCREEN,
     GAMEPLAY_SCREEN,

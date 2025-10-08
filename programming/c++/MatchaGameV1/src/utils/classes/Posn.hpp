@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 
-// A class representing a postion, (x, y). Mutable.
+// A class representing a postion, (x, y)
 
 class Posn {
 public:

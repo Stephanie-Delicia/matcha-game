@@ -8,6 +8,7 @@
 #include <string>
 #include <map>
 #include <tuple>
+#include <vector>
 #include "Sprite.hpp"
 #include <deque>
 #include "Request.hpp"
@@ -21,11 +22,27 @@ public:
         setReqType(SCENE);
     };
     
+    SceneRequest(enum SCENE scene, float time, std::vector<std::string> strLs, std::vector<Posn> strPosnLs) {
+        sceneType = scene;
+        timeDuration = time;
+        setReqType(SCENE);
+        textLs = strLs;
+        textPosnLs = strPosnLs;
+    };
+    
     SceneRequest(enum SCENE scene, ScreenModel* screen) {
         screenToSetup = screen;
         sceneType = scene;
         timeDuration = 0.0;
         setReqType(SCENE);
+    };
+    
+    SceneRequest(enum SCENE scene, std::deque<Sprite*> sprites, float time) {
+        // constructor to be used for fading out a list of sprites
+        sceneType = scene;
+        timeDuration = time;
+        setReqType(SCENE);
+        spritesToDraw = sprites;
     };
     
     // setters
@@ -36,8 +53,14 @@ public:
     // getters
     float getTimeDuration() { return timeDuration; };
     enum SCENE getSceneType() { return sceneType; };
+    std::deque<Sprite*> getSpritesToFadeOut() { return spritesToDraw; };
     ScreenModel* getScreenToSetup() { return screenToSetup; };
     std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> getAnimMap() { return animMapQueue; };
+    std::vector<std::string> getTextLs() { return textLs; };
+    std::vector<Posn> getTextPosnLs() { return textPosnLs; };
+    
+    // bool
+    bool hasText() { return textLs.size() > 0; };
     
 protected:
     // We got here a bit of a pickle
@@ -50,7 +73,11 @@ protected:
     // We terminate the entire sequence when the list of keys is 0
     // the 2nd tuple float param is the time duration for the anim, 1st if the sheet speed
     std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> animMapQueue;
+    // a sprite list
+    std::deque<Sprite*> spritesToDraw;
     ScreenModel* screenToSetup;
     enum SCENE sceneType;
     float timeDuration; // this is the time duration for a still scene or the fade time.
+    std::vector<std::string> textLs;
+    std::vector<Posn> textPosnLs;
 };

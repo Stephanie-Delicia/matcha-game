@@ -81,20 +81,28 @@ void ReturnButtonState::update(Sprite* sprite) {
             Sprite* exitBtn = nameSpriteMap->getSprite(EXIT_BUTTON);
             Sprite* instructionsBtn = nameSpriteMap->getSprite(INSTRUCTIONS_BTN);
             Sprite* menuReturnBtn = nameSpriteMap->getSprite(RETURN_BUTTON);
+            Sprite* white_return_btn = nameSpriteMap->getSprite(WHITE_RESUME_BTN);
             Sprite* instructionsBox = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
+            Sprite* mini_instr_box = nameSpriteMap->getSprite(MINI_INSTR_BOX);
             Sprite* menuBtn = nameSpriteMap->getSprite(MENU_BUTTON);
-            
-
             
             if (gameController->getModel()->getActiveScreen()->screenType() == START_SCREEN) {
                 // roll back
                 Sprite* title_card = nameSpriteMap->getSprite(BETA_TITLE_CARD);
                 Sprite* winnie_drinking = nameSpriteMap->getSprite(WINNIE_DRINKING);
-                Sprite* start_button = nameSpriteMap->getSprite(START_BUTTON_TEST);
+                Sprite* go_back_to_gameplay_btn;
                 Sprite* sm_exit_btn = nameSpriteMap->getSprite(SMALL_EXIT_BUTTON);
                 Sprite* start_instr_btn = nameSpriteMap->getSprite(HOW_TO_PLAY_START_BTN);
                 Sprite* instr_box = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
-                Sprite* return_btn = nameSpriteMap->getSprite(RETURN_BUTTON);
+                Sprite* return_btn = nameSpriteMap->getSprite(WHITE_RESUME_BTN);
+                
+                
+                if (gameController->didGameStart()) {
+                    // if game started, assign to resume button, otherwise,no
+                    go_back_to_gameplay_btn = nameSpriteMap->getSprite(RESUME_GAME_BTN);
+                } else {
+                    go_back_to_gameplay_btn = nameSpriteMap->getSprite(START_BUTTON_TEST);
+                }
                 
                 std::tuple<STATE, DIRECTION, float, float, float> exitBtnAnim2(TRANSLATE, LEFT, 18, 284, 0);
                 std::tuple<STATE, DIRECTION, float, float, float> winnieAnim2(TRANSLATE, LEFT, 18, 180, 0);
@@ -109,7 +117,7 @@ void ReturnButtonState::update(Sprite* sprite) {
                 std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> spriteAnimMap2 = {
                     {title_card,      std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{titleCardAnim2}},
                     {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{winnieAnim2}},
-                    {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim2}},
+                    {go_back_to_gameplay_btn,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim2}},
                     {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{exitBtnAnim2}},
                     {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{howToBtnAnim2}},
                     {instr_box, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{instr_boxBtnAnim}},
@@ -119,7 +127,7 @@ void ReturnButtonState::update(Sprite* sprite) {
                 std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> idleAnimeMap = {
                     {title_card,      std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                     {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
-                    {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
+                    {go_back_to_gameplay_btn,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                     {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                     {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                     {instr_box, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
@@ -139,21 +147,26 @@ void ReturnButtonState::update(Sprite* sprite) {
                 }
                 
                 // Check if the menu box or the instructions box is open
-                if (menuBox->getState() != NONE) {
+                if (menuBox->getState() != NONE) { // displayed
                     menuBox->setState(NONE);
+                    instructionsBtn->setState(NONE);
                     returnToStartBtn->setState(NONE);
                     exitBtn->setState(NONE);
-                    instructionsBtn->setState(NONE);
+                    mini_instr_box->setState(NONE);
                     menuReturnBtn->setState(NONE);
                 } else { // instructions box is open
                     menuReturnBtn->setState(NONE);
                     menuReturnBtn->setPosn(420, 80); // set to original posn
-                    instructionsBox->setState(NONE);
+                    mini_instr_box->setState(NONE);
+                    white_return_btn->setState(NONE);
                 }
                 
-                if (!gameController->isGameBeaten()) {
+                if (!gameController->getPauseGameBool()) {
+                    // if the game is paused, then do NOT end scene
                     gameController->setEndScene(true);
                 }
+                
+                gameController->getGameplayTimer()->unpause();
             }
             
             break;

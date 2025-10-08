@@ -74,6 +74,7 @@ void MenuButtonState::update(Sprite* sprite) {
             break;
         }
         case PRESSED: {
+            gameController->getGameplayTimer()->pause();
             // reset the game
             // Pause the game and have the UI for the menu present
             NameSpriteMap* nameSpriteMap = gameController->getModel()->getNameSpriteMap();
@@ -82,6 +83,8 @@ void MenuButtonState::update(Sprite* sprite) {
             Sprite* exitBtn = nameSpriteMap->getSprite(EXIT_BUTTON);
             Sprite* instructionsBtn = nameSpriteMap->getSprite(INSTRUCTIONS_BTN);
             Sprite* menuReturnBtn = nameSpriteMap->getSprite(RETURN_BUTTON);
+            Sprite* tryAgainBtn = nameSpriteMap->getSprite(TRY_AGAIN_BTN);
+            Sprite* nextLvlBtn = nameSpriteMap->getSprite(NEXT_LVL_BTN);
 
             if (sprite->getState() != NONE) {
                 sprite->setState(NONE);
@@ -97,12 +100,9 @@ void MenuButtonState::update(Sprite* sprite) {
             menuReturnBtn->setPosn(420, 80);
             menuReturnBtn->setState(IDLE);
             
-            // button goes to normal now
-            // TODO: a conditional here for if the game has been beaten yet.
-            // If so, then do not add this request, otherwise, do add it to pause the game.
-            // Add or statement for if there is a scene playing?!
-            // Because say I press the menu button a bunch of times, now it has so many eternal still requests!
-            if (!gameController->isGameBeaten()) {
+            // So, if the game is NOT beaten
+            if (!gameController->isGameBeaten() and tryAgainBtn->getState() == NONE and nextLvlBtn->getState() == NONE) {
+                std::cout << "Added still scene with inf time duration. [menu btn state]\n";
                 gameController->addRequest(new SceneRequest(STILL, -1));
             } else { // game is beaten, don't add a new request please!
                 

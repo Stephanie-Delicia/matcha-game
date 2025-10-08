@@ -11,12 +11,12 @@
 #include <deque>
 
 void SceneController::drawStillScene(SceneRequest* request) {
-    // std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
+//    std::cout << "At drawStillScene" << ". [drawStillScene()]\n";
     if (sceneTimer->isPaused()) {
         sceneTimer->unpause();
     }
-
     if (!fpsTimer->isPaused()) {
+        getGameplayTimer()->pause();
         fpsTimer->pause();
     }
     
@@ -45,16 +45,21 @@ void SceneController::drawStillScene(SceneRequest* request) {
             }
         }
         
-        drawWithText(" ", Posn(200, 170));
+        if (request->hasText()) {
+            drawWithTexts(request->getTextLs(), request->getTextPosnLs());
+        } else {
+            drawWithText(" ", Posn(200, 170));
+        }
+        
         updateUI();
 
         float endTime = sceneTimer->getTicks();
         float timeElapsed = endTime - startTime;
-        // std::cout << "timeElapsed: " << timeElapsed << ". [drawStillScene()]\n";
-        mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
+        mainController->gameDelay(timeElapsed);
         mainController->frameCountAdd(1);
     }
     if (fpsTimer->isPaused()) {
+        getGameplayTimer()->unpause();
         fpsTimer->unpause();
     }
     if (!sceneTimer->isPaused()) {
@@ -65,8 +70,8 @@ void SceneController::drawStillScene(SceneRequest* request) {
     request->setTimeDuration(0);
 }
 
-// TODO: I think I need to add a sprite name map to the function call
 void SceneController::drawFadeToBlack(SceneRequest* request) {
+//    std::cout << "At drawFadeToBlack" << ". [drawFadeToBlack()]\n";
     // we have a designated, preloaded rectangle for this. get the sprite
     NameStateSheetMap* stateSheetMap = getModel()->getNameToSheetMap();
     NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
@@ -92,6 +97,10 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
     
     if (!inQueue) {
         getModel()->getActiveScreen()->addToMain(blackScreenPtr);
+    }
+    
+    if (!getGameplayTimer()->isPaused()) {
+        getGameplayTimer()->pause();
     }
     
     float gStartTime = fpsTimer->getTicks();
@@ -120,11 +129,15 @@ void SceneController::drawFadeToBlack(SceneRequest* request) {
         mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
         mainController->frameCountAdd(1);
     }
+    if (getGameplayTimer()->isPaused()) {
+        getGameplayTimer()->unpause();
+    }
     mainController->setEndScene(false);
     request->setTimeDuration(0);
 }
 
 void SceneController::removeBlackScreen() {
+//    std::cout << "At removeBlackScreen" << ". [removeBlackScreen()]\n";
     NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
     Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
     bool inQueue = getModel()->getActiveScreen()->onScreen(blackScreenPtr);
@@ -135,6 +148,7 @@ void SceneController::removeBlackScreen() {
 }
 
 void SceneController::addBlackScreen(ScreenModel* screenToSetup) {
+//    std::cout << "At addBlackScreen" << ". [addBlackScreen()]\n";
     NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
     Sprite* blackScreenPtr = nameSpriteMap->getSprite(BLACK_SCREEN);
     bool inQueue = screenToSetup->onScreen(blackScreenPtr);
@@ -150,6 +164,7 @@ void SceneController::addBlackScreen(ScreenModel* screenToSetup) {
 }
 
 void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
+//    std::cout << "At drawFadeOutOfBlack" << ". [drawFadeOutOfBlack()]\n";
     NameStateSheetMap* stateSheetMap = getModel()->getNameToSheetMap();
     NameSpriteMap* nameSpriteMap = getModel()->getNameSpriteMap();
     SpriteSheet* blackScreenSheet = stateSheetMap->getSpriteSheet(BLACK_SCREEN, IDLE);
@@ -174,6 +189,9 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
         getModel()->getActiveScreen()->addToMain(blackScreenPtr);
     }
     
+    if (!getGameplayTimer()->isPaused()) {
+        getGameplayTimer()->pause();
+    }
     float gStartTime = fpsTimer->getTicks();
     float startTime;
     float timeDuration = request->getTimeDuration();
@@ -200,6 +218,9 @@ void SceneController::drawFadeOutOfBlack(SceneRequest* request) {
         mainController->gameDelay(timeElapsed);
         mainController->frameCountAdd(1);
     }
+    if (getGameplayTimer()->isPaused()) {
+        getGameplayTimer()->unpause();
+    }
     SDL_SetSurfaceAlphaMod(blackScreenSheet->getSrfcL(), 0);
     mainController->setEndScene(false);
     request->setTimeDuration(0);
@@ -224,6 +245,11 @@ void SceneController::fulfillRequests() {
                 break;
             }
                 
+            case NO_INPUT_HANDLING_JUST_TRANSLATION: {
+                drawWOInput(req);
+                break;
+            }
+                
             case FADE: {
                 drawFadeToBlack(req);
                 break;
@@ -231,6 +257,11 @@ void SceneController::fulfillRequests() {
                 
             case UNFADE: {
                 drawFadeOutOfBlack(req);
+                break;
+            }
+                
+            case FADE_OUT_GIVEN_SPRITES: {
+                drawFadeOutSprites(req);
                 break;
             }
                 
@@ -272,7 +303,7 @@ void SceneController::addRequest(SceneRequest* req) {
 }
 
 void SceneController::drawNoInputAnimations(SceneRequest *request) {
-    std::cout << "At drawNoInputAnimations" << ". [drawNoInputAnimations()]\n";
+//    std::cout << "At drawNoInputAnimations" << ". [drawNoInputAnimations()]\n";
     float startTime = fpsTimer->getTicks();
     // we want to keep repeating this until the map key list is empty
     std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> animMap = request->getAnimMap();
@@ -427,8 +458,9 @@ void SceneController::drawNoInputAnimationsV2(SceneRequest *request) {
 }
 
 void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
-    std::cout << "At drawNoInputAnimationsV3" << ". [drawNoInputAnimationsV3()]\n";
+//    std::cout << "At drawNoInputAnimationsV3" << ". [drawNoInputAnimationsV3()]\n";
     // different system, the three floats in order are: speed, x goal
+    // the last float is not used actually
     float startTime = fpsTimer->getTicks();
     std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> animMap = request->getAnimMap();
 
@@ -513,12 +545,130 @@ void SceneController::drawNoInputAnimationsV3(SceneRequest *request) {
         // get time elapsed
         float endTime = fpsTimer->getTicks();
         float timeElapsed = endTime - startTime;
-        std::cout << "timeElapsed: " << timeElapsed << ". [drawNoInputAnimationsV3()]\n";
+//        std::cout << "timeElapsed: " << timeElapsed << ". [drawNoInputAnimationsV3()]\n";
         
         mainController->gameDelay(timeElapsed);
         mainController->frameCountAdd(1);
     }
     mainController->setEndScene(false);
     request->setTimeDuration(0);
-    std::cout << "End of anim request. \n";
+//    std::cout << "End of anim request. \n";
+}
+
+void SceneController::drawWOInput(SceneRequest* request) {
+//     std::cout << "At drawWOInput" << ". [drawWOInput()]\n";
+    if (sceneTimer->isPaused()) {
+        sceneTimer->unpause();
+    }
+    
+    int origFrameCount = mainController->getFrameCount();
+    float gStartTime = sceneTimer->getTicks();
+    float startTime;
+    float timeDuration = request->getTimeDuration();
+    
+    if (timeDuration <= -1) {
+        timeDuration = std::numeric_limits<float>::infinity();
+    }
+    
+    // neither handleinput or update are called. Truly a still scene.
+    while ((sceneTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = sceneTimer->getTicks();
+        // game step
+        SDL_Event event;
+        while( SDL_PollEvent(&event) )
+        {
+            switch( event.type ) {
+                case SDL_EVENT_QUIT:
+                    mainController->endGame();
+                    mainController->setEndScene(true);
+                    break;
+            }
+        }
+        
+        if (request->hasText()) {
+            drawWithTexts(request->getTextLs(), request->getTextPosnLs());
+        } else {
+            drawWithText(" ", Posn(200, 170));
+        }
+        
+        update();
+
+        float endTime = sceneTimer->getTicks();
+        float timeElapsed = endTime - startTime;
+        mainController->gameDelay(timeElapsed); // TODO: I dont think this is running properly?
+        mainController->frameCountAdd(1);
+    }
+
+    if (!sceneTimer->isPaused()) {
+        sceneTimer->pause();
+    }
+    mainController->setEndScene(false);
+    mainController->setFrameCount(origFrameCount);
+    request->setTimeDuration(0);
+}
+
+void SceneController::drawFadeOutSprites(SceneRequest* request) {
+    // SceneRequest(enum SCENE scene, std::deque<Sprite*> sprites, float time)
+//    std::cout << "At drawFadeOutSprites(). [sceneController]\n";
+    std::deque<Sprite*> spritesToRecur = request->getSpritesToFadeOut();
+
+    if (sceneTimer->isPaused()) {
+        sceneTimer->unpause();
+    }
+    
+    float gStartTime = sceneTimer->getTicks();
+    float startTime;
+    float timeDuration = request->getTimeDuration();
+    // neither handleinput or update are called. Truly a still scene.
+    while ((sceneTimer->getTicks() - gStartTime <= timeDuration) and !mainController->getEndScene()) {
+        startTime = sceneTimer->getTicks();
+        // recur thru all sprites
+        for (Sprite* spritePtr : spritesToRecur) {
+            SDL_Surface* srfcToDraw;
+            
+            // get correct surface
+            if (spritePtr->getStateDir() == LEFT) {
+                srfcToDraw = spritePtr->getSheet(spritePtr->getState())->getSrfcL();
+            } else {
+                srfcToDraw = spritePtr->getSheet(spritePtr->getState())->getSrfcR();
+            }
+           
+            SDL_SetSurfaceAlphaMod(srfcToDraw, (1 - ((sceneTimer->getTicks() - gStartTime) / timeDuration)) * 255.00);
+        }
+
+        // game step
+        SDL_Event event;
+        while( SDL_PollEvent(&event) )
+        {
+            switch( event.type ) {
+                case SDL_EVENT_QUIT:
+                    mainController->endGame();
+                    mainController->setEndScene(true);
+                    break;
+            }
+        }
+        drawWithText(" ", Posn(200, 170));
+        update();
+        
+        float endTime = sceneTimer->getTicks();
+        float timeElapsed = endTime - startTime;
+        mainController->gameDelay(timeElapsed);
+        mainController->frameCountAdd(1);
+    }
+    
+    for (Sprite* spritePtr : spritesToRecur) {
+        SDL_Surface* srfcToDraw;
+        if (spritePtr->getStateDir() == LEFT) {
+            srfcToDraw = spritePtr->getSheet(spritePtr->getState())->getSrfcL();
+        } else {
+            srfcToDraw = spritePtr->getSheet(spritePtr->getState())->getSrfcR();
+        }
+        SDL_SetSurfaceAlphaMod(srfcToDraw, 0);
+    }
+    
+    if (!sceneTimer->isPaused()) {
+        sceneTimer->pause();
+    }
+    mainController->setEndScene(false);
+    request->setTimeDuration(0);
 }

@@ -52,6 +52,7 @@ public:
     SpriteSheet* getSheet(STATE s);
     NameStateSheetMap* getSheetMap();
     std::tuple<SDL_Rect, SDL_Rect> getSrcAndDest(); // get source and destination rectangles for blitzing
+    SpriteState* getStateHandler() {return stateHandler;};
     
     // setters
     void setAlpha(float new_alpha) {alpha = new_alpha;};

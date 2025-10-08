@@ -153,13 +153,3 @@ void CharacterState::draw(Sprite* sprite, SDL_Surface* windowSrfc) {
         }
     }
 }
-
-/*
- For debugging:
- 
- // std::cout << "frameRect: x=" << frameRect.x << ", y=" << frameRect.y << ", w=" << frameRect.w << ", h=" << frameRect.h << "\n";
- // std::cout << "current state in charState for update: " << currState << "\n";
- // std::cout << "handleInput call. [CharacterState]" <<  "\n";
- // std::cout << "input type for handleInput: " << input.type << "\n";
- // std::cout << "keys[SDL_SCANCODE_LEFT]: " << keys[SDL_SCANCODE_LEFT] << "\n";
- */

@@ -54,18 +54,32 @@ public:
             {"start_banner1", START_BANNER1},
             {"start_banner2", START_BANNER2},
             {"banner1_bkg", BANNER1_BKG},
-            {"banner2_bkg", BANNER2_BKG}
+            {"banner2_bkg", BANNER2_BKG},
+            {"clear_blue_sky", CLEAR_BLUE_SKY},
+            {"try_again_btn", TRY_AGAIN_BTN},
+            {"next_lvl_btn", NEXT_LVL_BTN},
+            {"resume_game_btn", RESUME_GAME_BTN},
+            {"mini_instructions_box", MINI_INSTR_BOX},
+            {"white_resume_btn", WHITE_RESUME_BTN},
+            {"strawberry_matcha", STRAWBERRY_MATCHA},
+            {"koicha", KOICHA},
+            {"strawberry_mochi", STRAWBERRY_MOCHI},
+            {"matcha_mochi", MATCHA_MOCHI}
         };
         stateStrMap = {
             {"walking", WALKING},
+            {"running", RUNNING},
             {"jumping", JUMPING},
             {"idle", IDLE},
             {"translate", TRANSLATE},
             {"pressed", PRESSED},
+            {"victory-pose", VICTORY_POSE},
+            {"lose-pose", LOSE_POSE},
             {"hover", HOVER},
             {"none", NONE},
             {"scrolling_banner", SCROLLING_BANNER},
-            {"diagonal_scrolling", DIAGONAL_BANNER}
+            {"diagonal_scrolling", DIAGONAL_BANNER},
+            {"x_wave", X_WAVE}
         };
     };
     

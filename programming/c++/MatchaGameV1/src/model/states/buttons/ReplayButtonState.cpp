@@ -14,80 +14,84 @@
 #include "NavRequest.hpp"
 
 void ReplayButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
-    // get mouse posn
-    float mouse_x, mouse_y;
-    SDL_MouseButtonFlags mouse_state;
-
-    // Get the mouse state
-    mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
-
-    if (sprite->getState() != NONE) {
-        if (SDL_EVENT_MOUSE_BUTTON_DOWN == input.type and sprite->getState() != PRESSED) { // mouse down click
-            // get sprite rectangle
-            Posn posn = Posn(input.button.x, input.button.y);
-            Posn spritePosn = sprite->getPosn();
-            SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
-            float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
-            SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
-            // if the click posn is within the sprite rect, set the state
-            if (isPosnOverRect(posn, spriteRect)) {
-                sprite->setState(STATE::PRESSED);
-            }
-        } else // NO MOUSE CLICK OR RESET FOR THE LONG PRESS CASE
-        {
-            // check if the mouse is hovering over a button
-            Posn posn = Posn(mouse_x, mouse_y);
-            Posn spritePosn = sprite->getPosn();
-            SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
-            float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
-            SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
-            // if the click posn is within the sprite rect, set the state to hover
-            if (isPosnOverRect(posn, spriteRect)) {
-                sprite->setState(STATE::HOVER);
-            } else {
-                sprite->setState(STATE::IDLE);
+        if (sprite->getState() != NONE) {
+            // get mouse posn
+            float mouse_x, mouse_y;
+            SDL_MouseButtonFlags mouse_state;
+            
+            // Get the mouse state
+            mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
+            
+            
+            if (SDL_EVENT_MOUSE_BUTTON_DOWN == input.type and sprite->getState() != PRESSED) { // mouse down click
+                // get sprite rectangle
+                Posn posn = Posn(input.button.x, input.button.y);
+                Posn spritePosn = sprite->getPosn();
+                SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
+                float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
+                SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
+                // if the click posn is within the sprite rect, set the state
+                if (isPosnOverRect(posn, spriteRect)) {
+                    sprite->setState(STATE::PRESSED);
+                }
+            } else // NO MOUSE CLICK OR RESET FOR THE LONG PRESS CASE
+            {
+                // check if the mouse is hovering over a button
+                Posn posn = Posn(mouse_x, mouse_y);
+                Posn spritePosn = sprite->getPosn();
+                SpriteSheet* spriteSheet = sprite->getSheet(sprite->getState());
+                float sheetWidth = spriteSheet->getWidth() / spriteSheet->getTotalFr();
+                SDL_FRect spriteRect = {spritePosn.getX(), spritePosn.getY(), sheetWidth + 5, spriteSheet->getHeight() + 5};
+                // if the click posn is within the sprite rect, set the state to hover
+                if (isPosnOverRect(posn, spriteRect)) {
+                    sprite->setState(STATE::HOVER);
+                } else {
+                    sprite->setState(STATE::IDLE);
+                }
             }
         }
-    }
 }
 
 void ReplayButtonState::update(Sprite* sprite) {
-    // delegates to command
-    STATE currState = sprite->getState();
-    switch (currState) {
-        case IDLE: {
-            break;
-        }
-        case WALKING: {
-            break;
-        }
-        case BLINKING: {
-            break;
-        }
-        case RUNNING: {
-            break;
-        }
-        case DRINKING: {
-            break;
-        }
-        case TRANSLATE: {
-            break;
-        }
-        case PRESSED: {
-            // reset the game
-            gameController->setEndScene(true);
-            gameController->reset();
-            sprite->setState(STATE::NONE);
-            break;
-        }
-        case HOVER: {
-            break;
-        }
-        case NONE: {
-            break;
-        }
-        default: {
-            break;
+    if (sprite->getState() != NONE) {
+        // delegates to command
+        STATE currState = sprite->getState();
+        switch (currState) {
+            case IDLE: {
+                break;
+            }
+            case WALKING: {
+                break;
+            }
+            case BLINKING: {
+                break;
+            }
+            case RUNNING: {
+                break;
+            }
+            case DRINKING: {
+                break;
+            }
+            case TRANSLATE: {
+                break;
+            }
+            case PRESSED: {
+                std::cout << "Pressed a replay button. \n";
+                // reset the game
+                gameController->setEndScene(true);
+                gameController->reset();
+                sprite->setState(STATE::NONE);
+                break;
+            }
+            case HOVER: {
+                break;
+            }
+            case NONE: {
+                break;
+            }
+            default: {
+                break;
+            }
         }
     }
 }

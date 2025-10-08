@@ -76,7 +76,7 @@ void NavButtonState::update(Sprite* sprite) {
                 break;
             }
             case PRESSED: {
-                std::cout << "Pressed nav button for sprite: " << sprite->getName() << ". [Nav Button State.]\n";
+//                std::cout << "Pressed nav button for sprite: " << sprite->getName() << ". [Nav Button State.]\n";
                 NameSpriteMap* nameSpriteMap = gameController->getModel()->getNameSpriteMap();
                 Sprite* menuBox = nameSpriteMap->getSprite(MENU_BOX);
                 Sprite* returnToStartBtn = nameSpriteMap->getSprite(BACK_TO_START_SCRN_BTN);
@@ -85,28 +85,40 @@ void NavButtonState::update(Sprite* sprite) {
                 Sprite* menuReturnBtn = nameSpriteMap->getSprite(RETURN_BUTTON);
                 Sprite* instructionsBox = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
                 Sprite* menuBtn = nameSpriteMap->getSprite(MENU_BUTTON);
-                Sprite* replayBtn = nameSpriteMap->getSprite(REPLAY_BUTTON);
+                Sprite* resumeBtn = nameSpriteMap->getSprite(RESUME_GAME_BTN);
+                Sprite* startBtn = nameSpriteMap->getSprite(START_BUTTON_TEST);
+//                ScreenNavigator* screenNav = gameController->getModel()->getNavigator();
                 
+                gameController->setPauseGameBool(true);
+//                std::cout << "Paused game. [Nav Button State.]\n";
+                
+                // if I am on the gameplay screen, then setup
                 if (gameController->getModel()->getActiveScreen()->screenType() == GAMEPLAY_SCREEN) {
-                    menuBtn->setState(IDLE);
-                    sprite->setState(STATE::NONE);
-                    gameController->setEndScene(true);
-                } else {
+//                    std::cout << "Pressed nav button on gaemplay screen. [nav button]\n";
+                    gameController->getGameplayTimer()->pause();
+                    menuBtn->setState(IDLE); // for some reason?
+                    sprite->setState(NONE);
+                    instructionsBtn->setState(NONE);
+                    instructionsBox->setState(NONE);
+                    menuBox->setState(NONE);
+                    returnToStartBtn->setState(NONE);
+                    exitBtn->setState(NONE);
+                    menuReturnBtn->setState(NONE);
+                    // screenNav->setMainScreen(screenNav->getScreen(START_SCREEN));
+                    gameController->setEndScene(true); // end pause when you nav to start screen
+                } else if  (gameController->getModel()->getActiveScreen()->screenType() == START_SCREEN) { // on start screen
+//                    std::cout << "Pressed nav button on start screen. [nav button]\n";
                     sprite->setState(IDLE);
-                    
-                    // if the replay button is on, then pause the game
-                    if (replayBtn->getState() == IDLE) {
+                    startBtn->setState(NONE);
+                    resumeBtn->setState(IDLE);
+                    gameController->startGameBool();
+                    // I need to somehow access if the player lost
+                    if (gameController->didPlayerLose() or gameController->isGameBeaten()) {
+//                        std::cout << "Added still scene with inf time duration. [menu btn state]\n";
                         gameController->addRequest(new SceneRequest(STILL, -1));
                     }
+                    // TODO: for some reason navigating back when a game is finished replays it when it shouldn't
                 }
-
-                // set all of them to idle to display
-                instructionsBtn->setState(NONE);
-                instructionsBox->setState(NONE);
-                menuBox->setState(NONE);
-                returnToStartBtn->setState(NONE);
-                exitBtn->setState(NONE);
-                menuReturnBtn->setState(NONE);
                 
                 // make a transition draw request
                 std::cout << "Still req." << ". [Nav Button State.]\n";

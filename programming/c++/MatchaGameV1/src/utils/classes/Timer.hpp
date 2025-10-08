@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 // A class for a timer for a game. Time is in seconds.
-// Written using https://lazyfoo.net/tutorials/SDL/23_advanced_timers/index.php
+// Written based on tutorial: https://lazyfoo.net/tutorials/SDL/23_advanced_timers/index.php
 
 class Timer {
 public:
@@ -16,6 +16,10 @@ public:
     void stop();
     void pause();
     void unpause();
+    void reset() { // sets time to 0
+        startTime = 0;
+        pausedTime = 0;
+    };
     
     // get time
     float getTicks();

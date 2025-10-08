@@ -31,15 +31,23 @@ public:
         exitGame = false;
     };
     // getter
+    void pauseGameplayTimer() { gameplayTimer->pause(); };
+    void unpauseGameplayTimer() { gameplayTimer->unpause(); };
+    bool getPauseGameBool() { return pauseGame; };
     virtual GameModel* getModel() { return model; };
     virtual bool isGameBeaten() { return false; };
+    virtual bool didPlayerLose() { return false; };
     bool getEndScene() { return endScene; };
-    Timer* getTimer() {return fpsTimer;};
+    Timer* getTimer() { return fpsTimer; };
+    Timer* getGameplayTimer() { return gameplayTimer; };
     int getFrameCount() { return countedFrames; };
+    bool didGameStart() { return gameStartedBool; };
     
     // setter
+    void setPauseGameBool(bool pause) { pauseGame = pause; };
     void setEndScene(bool b) { endScene = b; };
     void setFrameCount(int num) { countedFrames = num; };
+    void startGameBool() { gameStartedBool = true; };
     
     // start
     virtual void startGame(); // to be overwritten by more complex games
@@ -59,6 +67,7 @@ public:
     
 protected:
     bool endScene = false;
+    bool gameStartedBool = false;
     bool exitGame;
     GameView* view;
     GameModel* model;
@@ -92,9 +101,12 @@ protected:
     void setSceneController();
     void setFPS(int fps) { fpsGoal = fps; };
     void setTimer(Timer* timer) {fpsTimer = timer;};
+    void setGameplayTimer(Timer* timer) {gameplayTimer = timer;};
     
     // To measure fps
+    bool               pauseGame = false;
     Timer* fpsTimer;
+    Timer* gameplayTimer = new Timer();
     int fpsGoal = 55;
     int countedFrames = 0;
     std::string fpsText;

@@ -30,11 +30,11 @@ public:
     
 protected:
     // VELOCITY HERE IS REFERRING TO THE Y-VELOCITY, X-VELOCITY SHOULD STAY CONSTANT AND IS
-    // SPRITE CLASS INFO
+    // SPRITE CLASS INFO.
     bool isDone = false;
-    float initV = -80.00;
-    float currV = -80.00;
-    float accDueToG = 400; // acceleration due to gravity, i'll have this be something that can be changed
+    float initV = -75.00;
+    float currV = -75.00;
+    float accDueToG = 300; // acceleration due to gravity, i'll have this be something that can be changed
     float screenWidth;
     float screenFloor = 267.00;
     Timer* timer;

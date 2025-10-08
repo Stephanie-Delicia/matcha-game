@@ -13,6 +13,7 @@
 #include "GameController.hpp"
 #include "SceneController.hpp"
 #include "SceneRequest.hpp"
+#include "TimerRequest.hpp"
 #include "NavRequest.hpp"
 #include "../utils/enum/REQUEST.h"
 
@@ -169,6 +170,7 @@ void GameController::handleRequests() {
                 // dynamically allocated, so I wonder if dynamic_cast does the same for such an object.
                 SceneRequest* sceneReq = dynamic_cast<SceneRequest*>(req);
                 sceneController->addRequest(sceneReq);
+//                std::cout << "SceneReq time duration: " << sceneReq->getTimeDuration() << " . [GameController::handleRequests()]\n";
                 // Fulfill the draw request, then delete it HERE
                 sceneController->fulfillRequests();
                 reqsToDelete.push_front(req);
@@ -176,7 +178,19 @@ void GameController::handleRequests() {
             }
             case NAVIGATE: {
                 NavRequest* navReq = dynamic_cast<NavRequest*>(req);
+//                std::cout << "Set new main screen to: " << navReq->getScreenModel()->screenType() << " . [GameController::handleRequests()]\n";
                 screenNav->setMainScreen(navReq->getScreenModel());
+                reqsToDelete.push_front(req);
+                break;
+            }
+            case TIMER: {
+                TimerRequest* timerReq = dynamic_cast<TimerRequest*>(req);
+//                std::cout << "Handling a timer request. [GameController::handleRequests()]\n";
+                if (timerReq->getPause()) {
+                    gameplayTimer->pause();
+                } else {
+                    gameplayTimer->unpause();
+                }
                 reqsToDelete.push_front(req);
                 break;
             }

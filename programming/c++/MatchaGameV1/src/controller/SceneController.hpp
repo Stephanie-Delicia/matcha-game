@@ -22,6 +22,7 @@ public:
     // overriding model
     GameModel* getModel() override { return sceneModel; };
     Timer* getSceneTimer() { return sceneTimer; };
+    Timer* getGameplayTimer() { return mainController->getGameplayTimer(); };
     GameModel* sceneModel;
     
     // setter
@@ -45,6 +46,8 @@ public:
     // yup, yup, the other thing didnt work either which i predicted
     // we should just clamp to a specific posn, this SHOULD be the fix
     void drawNoInputAnimationsV3(SceneRequest* request);
+    // this will draw without handling input calls
+    void drawWOInput(SceneRequest* request);
     // draws a new rectangle over the screen, initially transparent but soon fades to black
     void drawFadeToBlack(SceneRequest* request);
     // draws a rectangle over the screen, but it eventually becomes transparent and deleted
@@ -52,6 +55,8 @@ public:
     // remove the black screen
     void removeBlackScreen(); // remove black screen
     void addBlackScreen(ScreenModel* screenToSetup);    // add the black screen
+    // fades out every sprite in a given list in scene request
+    void drawFadeOutSprites(SceneRequest* request);
 
     void fulfillRequests();
     

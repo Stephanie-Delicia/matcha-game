@@ -19,9 +19,15 @@ void IdleState::handleInput(Sprite* sprite, const SDL_Event &input) {
 }
 
 void IdleState::update(Sprite* sprite) {
-    // delegates to command
+    float currFrameTime = sprite->getCurrFrameTime();
     STATE currState = sprite->getState();
     switch (currState) {
+        case VICTORY_POSE: {
+            if (currFrameTime <= 0.0) { // if enough time passed to get to the next frame
+                sprite->updateSheet(sprite->getState(), 1); // go to next frame by incrementing frame #
+            }
+            break;
+        }
         case IDLE: {
             break;
         }

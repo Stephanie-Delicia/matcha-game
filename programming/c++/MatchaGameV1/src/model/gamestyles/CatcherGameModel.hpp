@@ -9,6 +9,7 @@
 #include <iostream>
 #include <SDL3/SDL.h>
 #include "SCREEN.h"
+#include "Timer.hpp"
 #include "Sprite.hpp"
 #include "ScreenModel.hpp"
 #include "NameSpriteMap.hpp"
@@ -23,57 +24,91 @@ public:
     using GameModel::GameModel;
     // getter
     int getScore()                             { return score; };
-    int getBoxLimit()                          { return boxNumLimit; };
-    int getBoxesSize()                         { return static_cast<int>(boxes.size()); };
-    int getScoreGoal()                         { return scoreGoal; };
-    std::deque<Sprite*> getBoxes()             { return boxes; };
+    int getBoxLimit()                          { return matchaNumLimit; };
+    int getScoreGoal()                         { return getCurrentLvl().pointGoal; };
+    int getMochisSize()                        { return static_cast<int>(mochis.size()); };
+    int getMatchasSize()                       { return static_cast<int>(matchas.size()); };
+    
+    std::deque<Sprite*> getMochis()            { return mochis; };
+    std::deque<Sprite*> getMatchas()           { return matchas; };
+    std::deque<Sprite*> getAllBoxes();
+    CatcherLevelStruct getCurrentLvl()         { return levels[currentLevel]; };
     std::deque<CatcherLevelStruct> getLevels() { return levels; };
+    
     // setter
-    void setBoxYLimit(float y)                          { boxYLimit = y; };
-    void setScoreGoal(int goal)                         { scoreGoal = goal; };
-    void setScore(int newScore)                         { score = newScore; };
-    void setBoxNumLimit(int lim)                        { boxNumLimit = lim; };
-    void setBoxChance(double chance)                    { boxChance = chance; };
-    void addLevel(CatcherLevelStruct lvl)              { levels.push_back(lvl); };
-    void setLevels(std::deque<CatcherLevelStruct> lvls) { levels = lvls; };
+    void setBoxYLimit(float y)            { boxYLimit = y; };
+    void setScore(int newScore)           { score = newScore; };
+    void setScoreGoal(int goal)           { scoreGoal = goal; };
+    void setBoxChance(double chance)      { boxChance = chance; };
+    void setMochiNumLimit(int lim)        { mochiNumLimit = lim; };
+    void setMatchaNumLimit(int lim)       { matchaNumLimit = lim; };
+    void addLevel(CatcherLevelStruct lvl) {
+        numLevels++;
+        levels.push_back(lvl);
+    };
+    void setLevels(std::deque<CatcherLevelStruct> lvls) {
+        // there should be no issue here since there should never be such a big number of levels
+        numLevels = static_cast<int>(lvls.size());
+        levels = lvls;
+    };
     
     // gameplay
     void update() override {
+        // updates sprites and also start screen matchas
         screenNav->getMainScreen()->update();
         loopStartScreenMatchas();
     };
-    void clearBoxesQueue(); // recurs thru each box, removes them from the queue, and deletes them (for replaying)
-    void addBox(Sprite* box);
-    void removeBox(Sprite* box);
+    void clearBoxesQueue();
+    void addMochi(Sprite* box);
+    void addMatcha(Sprite* box);
+    void removeMatcha(Sprite* box);
+    void removeMochi(Sprite* box);
     void setUpStartScreenMatchas();
 
     // checks for gameplay
-    void generateBox();     // on some chance, generate a box, add to box list, and give to the active screen
+    
+    void generateBox(); // a box is either a matcha or mochi that is falling during gameplay
+    void generateMatcha(Posn posn);
+    void generateMochi(Posn posn);
     void goToNextLvl();
-    void destroyBoxes();    // recur thru each box and, if the box is on a player or at floor, destroy the box.
+    void destroyBoxes();
     bool didPlayerWinLvl();
-    void loopStartScreenMatchas();
+    bool didPlayerLoseLvl(float time);
+    void loopStartScreenMatchas(); // updates start screen matchas which are just there for visuals
+    
+    void setGamePlayTimer(Timer* timer) {gameplayTimer = timer;};
     
 private:
     // row and col were selected based on having each drink on the start screen be in a square
     int score         = 0;
     int scoreGoal     = 5;
-    int boxNumLimit   = 100;
+    int matchaNumLimit = 100;
+    int mochiNumLimit = 1;
     int totalLevels   = 3;
-    float boxYLimit   = 336.00; // where does the box land? it should be destroyed after hitting the floor.
-    double boxChance  = 0.05;  // Have a 30% chance of generating a box each game loop
-    int currentLevel  = 0; // 0 = level 1
-    int numRowMatchas = 9; // 0 to 9
-    int numColMatchas = 16; // 0 to 6
+    float boxYLimit   = 336.00; // y-posn of the "floor" during gameplay. a falling matcha should be deleted once hitting it
+    double boxChance  = 0.06;   // Have a chance of generating a box each game step/loop
+    double matchaMochiSplitChance = 0.9;   // 90% of the time when a box is generated, it will be a matcha
+    int currentLevel  = 0;      // 0 = level 1
+    int numLevels     = 0;
+    int maxNumBoostImages = 4;
+    float boostDuration   = 10000; // 10 sec
     
-    // lists/deques
-    std::deque<Sprite*> boxes;
-    std::deque<Sprite*> matchas_start_screen; // does not change once set
+    // drawing the matchas on the start screen
+    int numRowMatchas = 9;      // 0 to 9
+    int numColMatchas = 16;     // 0 to 6
+    
+    // lists/deques for boxes/levels
+    std::deque<Sprite*> matchas;
+    std::deque<Sprite*> mochis; // TODO: Need to separate matchas and mochis into separate lists rather than the one above
+    std::deque<Sprite*> matchas_start_screen;   // does not change once set
+    std::deque<Posn> winnieBoostImagePosns; // will have a max of four posn
     // the list index corresponds to the level. (E.g., index 0 = level 1, index 1 = level 2, ...)
-    std::deque<CatcherLevelStruct> levels = {}; // when a level is finished, remove here and add to completedLevels
-    std::deque<CatcherLevelStruct> completedLevels = {};
+    std::deque<CatcherLevelStruct> levels = {}; // when a level is finished, update currentLevel
 
-    // state handlers
+    // state handlers, used mainly for start screen matcha display
     IdleState* idleStateHandler = new IdleState();
     BoxToCatchState* boxStateHandler = new BoxToCatchState();
+    
+    // Timer
+    Timer* gameplayTimer;
 };

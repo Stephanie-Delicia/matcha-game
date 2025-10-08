@@ -83,19 +83,31 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
             NameSpriteMap* nameSpriteMap = gameController->getModel()->getNameSpriteMap();
             Sprite* title_card = nameSpriteMap->getSprite(BETA_TITLE_CARD);
             Sprite* winnie_drinking = nameSpriteMap->getSprite(WINNIE_DRINKING);
-            Sprite* start_button = nameSpriteMap->getSprite(START_BUTTON_TEST);
+            Sprite* go_back_to_gameplay_btn;
+            if (gameController->didGameStart()) {
+                // if game started, assign to resume button, otherwise,no
+                go_back_to_gameplay_btn = nameSpriteMap->getSprite(RESUME_GAME_BTN);
+            } else {
+                go_back_to_gameplay_btn = nameSpriteMap->getSprite(START_BUTTON_TEST);
+            }
             Sprite* sm_exit_btn = nameSpriteMap->getSprite(SMALL_EXIT_BUTTON);
             Sprite* start_instr_btn = nameSpriteMap->getSprite(HOW_TO_PLAY_START_BTN);
             Sprite* instr_box = nameSpriteMap->getSprite(INSTRUCTIONS_BOX);
             Sprite* return_btn = nameSpriteMap->getSprite(RETURN_BUTTON);
+            Sprite* white_return_btn = nameSpriteMap->getSprite(WHITE_RESUME_BTN);
             
             instr_box->setPosn(-528, 61);
-            return_btn->setPosn(-100, 71);
-            // 320 - 248 = 72
-            // eh, lets say 472
-            // 472 - 600 = 128
+            white_return_btn->setPosn(-66, 63);
             /*
-             Need to make the map D:
+              instr_box -> -528 + 72 = -456
+              box has width 500
+             so right corner is at x = -28
+             so the return btn is -38 from the right corner
+             want the return btn at the right corner
+
+             the boxes new posn should be -456
+             the right corner is at 44
+             so, the new btn pos should be 6
              */
             
             std::tuple<STATE, DIRECTION, float, float, float> exitBtnAnim(TRANSLATE, RIGHT, 18, 884, 0);
@@ -104,7 +116,7 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
             std::tuple<STATE, DIRECTION, float, float, float> titleCardAnim(TRANSLATE, RIGHT, 18, 712, 0);
             std::tuple<STATE, DIRECTION, float, float, float> startBtnAnim(TRANSLATE, RIGHT, 18, 864, 0);
             std::tuple<STATE, DIRECTION, float, float, float> instr_boxBtnAnim(TRANSLATE, RIGHT, 18, 72, 0);
-            std::tuple<STATE, DIRECTION, float, float, float> returnBtnAnim(TRANSLATE, RIGHT, 18, 500, 0);
+            std::tuple<STATE, DIRECTION, float, float, float> returnBtnAnim(TRANSLATE, RIGHT, 18, 536, 0);
             
             // to set their states back to idle
             std::tuple<STATE, DIRECTION, float, float, float> idleReset(IDLE, LEFT, 2, 0, 0);
@@ -113,25 +125,27 @@ void InstrOnStartScrnState::update(Sprite* sprite) {
             std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> spriteAnimMap = {
                 {title_card,      std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{titleCardAnim}},
                 {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{winnieAnim}},
-                {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim}},
+                {go_back_to_gameplay_btn,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{startBtnAnim}},
                 {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{exitBtnAnim}},
                 {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{howToBtnAnim}},
                 {instr_box, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{instr_boxBtnAnim}},
-                {return_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{returnBtnAnim}}
+                {white_return_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{returnBtnAnim}}
             };
             
             std::map<Sprite*, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>> idleAnimeMap = {
                 {title_card,      std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                 {winnie_drinking, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
-                {start_button,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
+                {go_back_to_gameplay_btn,    std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                 {sm_exit_btn,     std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}},
                 {start_instr_btn, std::deque<std::tuple<STATE, DIRECTION, float, float, float>>{idleReset}}
             };
             
+            // set elements to an idle state
             SceneRequest* moveScreenElemsForInstrIdle = new SceneRequest(NO_INPUT_HANDLING, 0.0);
             moveScreenElemsForInstrIdle->setAnimMap(idleAnimeMap);
             gameController->addRequest(moveScreenElemsForInstrIdle);
             
+            // send in anim request to slide elements
             SceneRequest* moveScreenElemsForInstr1 = new SceneRequest(NO_INPUT_HANDLING, 0.0);
             moveScreenElemsForInstr1->setAnimMap(spriteAnimMap);
             gameController->addRequest(moveScreenElemsForInstr1);

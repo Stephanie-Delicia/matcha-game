@@ -27,6 +27,7 @@ public:
     GameModel(float w, float h, std::string name, Sprite* mainSprite, NameStateSheetMap* map, ScreenNavigator* nav);
     
     // getters
+
     float              getWidth();
     float              getHeight();
     std::string        getGameName();
@@ -37,6 +38,7 @@ public:
     NameSpriteMap*     getNameSpriteMap();
     
     // setters
+
     void setWidth(float w);
     void setHeight(float h);
     void setGameName(std::string name);
@@ -47,7 +49,7 @@ public:
     void setNameToSpriteMap(NameSpriteMap* map);
     
     // for the controller to use
-    virtual void update();                               // calls on an transformation updates for the active screen
+    virtual void update();                                  // calls on an transformation updates for the active screen
     void handleInput(const SDL_Event &event);                  // calls on state updates for the active screen
     void handleWithoutMainSprite(const SDL_Event &event);      // calls on state updates for the active screen
     void handleMainSprite(const SDL_Event &event);             // calls on state updates for the active screen
