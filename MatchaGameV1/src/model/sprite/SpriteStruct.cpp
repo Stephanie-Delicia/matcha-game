@@ -1,0 +1,6 @@
+#include "SpriteStruct.hpp"
+#include "NAME.h"
+#include "STATE.h"
+#include "DIRECTION.h"
+#include "Posn.hpp"
+#include "SpriteSheet.hpp"
