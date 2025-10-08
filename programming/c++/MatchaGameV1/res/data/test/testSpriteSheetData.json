@@ -10,11 +10,35 @@
             "Height": 70.00
         },
         {
-            "State": "jumping",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/winnie_walk_left.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/chars/winnie_walk_right.png",
+            "State": "victory-pose",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/victory_pose_sheet_left.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/victory_pose_sheet_right.png",
             "TotalFrames": 8,
-            "Width": 432.00,
+            "Width": 480.00,
+            "Height": 70.00
+        },
+        {
+            "State": "lose-pose",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/lose_sheet_left.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/lose_sheet_right.png",
+            "TotalFrames": 10,
+            "Width": 740,
+            "Height": 70.00
+        },
+        {
+            "State": "running",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/run_folder/winnie_run_beta_left.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/run_folder/winnie_run_beta_right.png",
+            "TotalFrames": 8,
+            "Width": 448,
+            "Height": 70.00
+        },
+        {
+            "State": "jumping",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/jump_test5_left.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/chars/animations/winnie/jump_test5_right.png",
+            "TotalFrames": 9,
+            "Width": 522,
             "Height": 70.00
         },
         {
@@ -25,6 +49,17 @@
             "Width": 54.00,
             "Height": 70.00
             
+        }
+    ],
+    "clear_blue_sky":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/clear_blue_sky.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/clear_blue_sky.png",
+            "TotalFrames": 1,
+            "Width": 640.00,
+            "Height": 360.00
         }
     ],
     "pleasant_sky":
@@ -64,35 +99,35 @@
     [
         {
         "State": "translate",
-        "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
-        "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+        "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
+        "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
         "TotalFrames": 1,
-        "Width": 107.00,
-        "Height": 28.00
+        "Width": 102,
+        "Height": 25
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
             "TotalFrames": 1,
-            "Width": 107.00,
-            "Height": 28.00
+            "Width": 102,
+            "Height": 25
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/start_button_test.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn.png",
             "TotalFrames": 1,
-            "Width": 107.00,
-            "Height": 28.00
+            "Width": 102,
+            "Height": 25
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_button_test.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_button_test.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/start_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 107.00,
-            "Height": 28.00
+            "Width": 102,
+            "Height": 25
         }
     ],
     "black_screen":
@@ -110,169 +145,204 @@
     [
         {
             "State": "none",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
             "TotalFrames": 1,
-            "Width": 120.00,
-            "Height": 30.00
+            "Width": 174,
+            "Height": 18
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
             "TotalFrames": 1,
-            "Width": 120.00,
-            "Height": 30.00
+            "Width": 174,
+            "Height": 18
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/replay_button.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
             "TotalFrames": 1,
-            "Width": 120.00,
-            "Height": 30.00
+            "Width": 174,
+            "Height": 18
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_replay_button.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/hover_replay_button.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 120.00,
-            "Height": 30.00
+            "Width": 174,
+            "Height": 18
         }
     ],
     "back_to_start_scrn_btn":
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 139,
+            "Height": 14.00
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 139,
+            "Height": 14.00
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/go_to_start_screen_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/go_to_start_screen_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 139,
+            "Height": 14.00
         }
     ],
     "exit_button":
     [
         {
-            "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn.png",
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 70,
+            "Height": 16
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "TotalFrames": 1,
+            "Width": 70,
+            "Height": 16
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 70,
+            "Height": 16
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 70,
+            "Height": 16
         }
     ],
     "instructions_btn":
     [
         {
+        "State": "translate",
+        "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+        "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+        "TotalFrames": 1,
+        "Width": 86,
+        "Height": 16
+        },
+        {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 86,
+            "Height": 16
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 86,
+            "Height": 16
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/help_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start_hover.png",
             "TotalFrames": 1,
-            "Width": 163.00,
-            "Height": 40.00
+            "Width": 86,
+            "Height": 16
         }
     ],
     "instructions_box":
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/controls_desc_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/controls_desc_box.png",
             "TotalFrames": 1,
-            "Width": 496.00,
-            "Height": 238.00
+            "Width": 500,
+            "Height": 240
         },
         {
             "State": "translate",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/controls_desc_box.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/controls_desc_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/controls_desc_box.png",
             "TotalFrames": 1,
-            "Width": 496.00,
-            "Height": 238.00
+            "Width": 500,
+            "Height": 240
+        }
+    ],
+    "mini_instructions_box":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mini_controls_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mini_controls_box.png",
+            "TotalFrames": 1,
+            "Width": 500,
+            "Height": 240
+        },
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mini_controls_box.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mini_controls_box.png",
+            "TotalFrames": 1,
+            "Width": 500,
+            "Height": 240
         }
     ],
     "return_button":
     [
         {
             "State": "translate",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 40.00,
+            "Width": 36,
             "Height": 10.00
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 40.00,
+            "Width": 36,
             "Height": 10.00
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 40.00,
+            "Width": 36,
             "Height": 10.00
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/back_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 40.00,
+            "Width": 36,
             "Height": 10.00
         }
     ],
@@ -291,27 +361,151 @@
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn.png",
             "TotalFrames": 1,
-            "Width": 88.00,
-            "Height": 28.00
+            "Width": 51,
+            "Height": 17.00
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn.png",
             "TotalFrames": 1,
-            "Width": 88.00,
-            "Height": 28.00
+            "Width": 51,
+            "Height": 17.00
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/menu_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/menu_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 88.00,
-            "Height": 28.00
+            "Width": 51,
+            "Height": 17.00
+        }
+    ],
+    "koicha":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "TotalFrames": 1,
+            "Width": 22,
+            "Height": 18
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "TotalFrames": 1,
+            "Width": 22,
+            "Height": 18
+        },
+        {
+            "State": "diagonal_scrolling",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/traditional_koicha.png",
+            "TotalFrames": 1,
+            "Width": 22,
+            "Height": 18
+        }
+        ],
+    "strawberry_mochi":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        },
+        {
+            "State": "diagonal_scrolling",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        }
+        ],
+    "matcha_mochi":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/matcha_mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/matcha_mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        },
+        {
+            "State": "x_wave",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 29
+        },
+        {
+            "State": "diagonal_scrolling",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/lose_animation/mochi.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 11
+        }
+        ],
+    "strawberry_matcha":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 29
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 29
+        },
+        {
+            "State": "x_wave",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 29
+        },
+        {
+            "State": "diagonal_scrolling",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/strawberry_matcha.png",
+            "TotalFrames": 1,
+            "Width": 14,
+            "Height": 29
         }
     ],
     "beta_matcha":
@@ -364,143 +558,283 @@
     [
         {
         "State": "translate",
-        "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
+        "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+        "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
         "TotalFrames": 1,
-        "Width": 72,
-        "Height": 18
+        "Width": 86,
+        "Height": 16
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
             "TotalFrames": 1,
-            "Width": 72,
-            "Height": 18
+            "Width": 86,
+            "Height": 16
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start.png",
             "TotalFrames": 1,
-            "Width": 72,
-            "Height": 18
+            "Width": 86,
+            "Height": 16
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/how_to_play_btn_start_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/how_to_play_btn_start_hover.png",
             "TotalFrames": 1,
-            "Width": 72,
-            "Height": 18
+            "Width": 86,
+            "Height": 16
         }
     ],
     "small_exit_btn":
     [
         {
             "State": "translate",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
             "TotalFrames": 1,
-            "Width": 72,
+            "Width": 70,
+            "Height": 16
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "TotalFrames": 1,
+            "Width": 70,
+            "Height": 16
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn.png",
+            "TotalFrames": 1,
+            "Width": 70,
+            "Height": 16
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/exit_btn_hover.png",
+            "TotalFrames": 1,
+            "Width": 70,
+            "Height": 16
+        }
+    ],
+    "try_again_btn":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "TotalFrames": 1,
+            "Width": 109,
+            "Height": 22
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "TotalFrames": 1,
+            "Width": 109,
+            "Height": 22
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn.png",
+            "TotalFrames": 1,
+            "Width": 109,
+            "Height": 22
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/try_again_btn_hover.png",
+            "TotalFrames": 1,
+            "Width": 109,
+            "Height": 22
+        }
+    ],
+    "next_lvl_btn":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "TotalFrames": 1,
+            "Width": 174,
             "Height": 18
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
             "TotalFrames": 1,
-            "Width": 72,
+            "Width": 174,
             "Height": 18
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn.png",
             "TotalFrames": 1,
-            "Width": 72,
+            "Width": 174,
             "Height": 18
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/exit_game_btn_small_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/to_the_next_level_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 72,
+            "Width": 174,
             "Height": 18
+        }
+    ],
+    "resume_game_btn":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "TotalFrames": 1,
+            "Width": 123,
+            "Height": 23
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "TotalFrames": 1,
+            "Width": 123,
+            "Height": 23
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn.png",
+            "TotalFrames": 1,
+            "Width": 123,
+            "Height": 23
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/resume_btn_hover.png",
+            "TotalFrames": 1,
+            "Width": 123,
+            "Height": 23
         }
     ],
     "resume_btn":
     [
         {
             "State": "translate",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 107,
-            "Height": 28
+            "Width": 36,
+            "Height": 10
         },
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 107,
-            "Height": 28
+            "Width": 36,
+            "Height": 10
         },
         {
             "State": "pressed",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn.png",
             "TotalFrames": 1,
-            "Width": 107,
-            "Height": 28
+            "Width": 36,
+            "Height": 10
         },
         {
             "State": "hover",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn_hover.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/resume_btn_hover.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
             "TotalFrames": 1,
-            "Width": 107,
-            "Height": 28
+            "Width": 36,
+            "Height": 10
+        }
+    ],
+    "white_resume_btn":
+    [
+        {
+            "State": "translate",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "TotalFrames": 1,
+            "Width": 36,
+            "Height": 10
+        },
+        {
+            "State": "idle",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "TotalFrames": 1,
+            "Width": 36,
+            "Height": 10
+        },
+        {
+            "State": "pressed",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_white.png",
+            "TotalFrames": 1,
+            "Width": 36,
+            "Height": 10
+        },
+        {
+            "State": "hover",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/return_btn_hover.png",
+            "TotalFrames": 1,
+            "Width": 36,
+            "Height": 10
         }
     ],
     "beta_title_card":
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/git/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/git/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
             "TotalFrames": 1,
-            "Width": 417,
-            "Height": 39
+            "Width": 368,
+            "Height": 78
         },
         {
             "State": "translate",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/git/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/git/matcha-game/programming/c++/MatchaGameV1/res/textures/background/title_card.png",
             "TotalFrames": 1,
-            "Width": 417,
-            "Height": 39
+            "Width": 368,
+            "Height": 78
         }
     ],
     "start_banner1":
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
             "TotalFrames": 1,
             "Width": 640,
-            "Height": 44
+            "Height": 35
         },
         {
             "State": "scrolling_banner",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner1_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
             "TotalFrames": 1,
             "Width": 640,
-            "Height": 44
+            "Height": 35
         }
     ],
     "banner1_bkg":
@@ -518,19 +852,19 @@
     [
         {
             "State": "idle",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
             "TotalFrames": 1,
             "Width": 640,
-            "Height": 44
+            "Height": 35
         },
         {
             "State": "scrolling_banner",
-            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
-            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/textures/background/banner2_start.png",
+            "FilePathL": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
+            "FilePathR": "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/textures/backgrounds/flower_banner.png",
             "TotalFrames": 1,
             "Width": 640,
-            "Height": 44
+            "Height": 35
         }
     ],
     "banner2_bkg":

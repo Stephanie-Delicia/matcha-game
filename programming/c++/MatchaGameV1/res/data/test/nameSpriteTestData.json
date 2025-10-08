@@ -20,7 +20,14 @@
         {"name": "start_banner1", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "start_banner2", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
         {"name": "banner1_bkg", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
-        {"name": "banner2_bkg", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"}
-       
+        {"name": "banner2_bkg", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "clear_blue_sky", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "try_again_btn", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "next_lvl_btn", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "resume_game_btn", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "mini_instructions_box", "posnX": 0, "posnY": 316, "state": "idle",  "dir": "left"},
+        {"name": "white_resume_btn", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "strawberry_matcha", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "koicha", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
     ]
 }

@@ -18,7 +18,6 @@
 #include "ExitButtonState.hpp"
 #include "ReturnButtonState.hpp"
 #include "InstructionsButtonState.hpp"
-#include "MainSprite.hpp"
 #include "CharacterState.hpp"
 #include "NavButtonState.hpp"
 #include "ReplayButtonState.hpp"
@@ -43,6 +42,7 @@ int main(int argc, char* argv[]) {
     NameSpriteMap spriteMap;
     spriteMap.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/nameSpriteData.json");
     spriteMap.setSheetMapAll(&sheetMap);
+    
     std::cout << "Loaded NameSpriteMap. [main]\n";
     
     // Screen navigator
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
     
     // ensure view, model, and controller are instantiated with everything they need.
     GameView view;
-    CatcherGameModel model = CatcherGameModel(640, 360, "Catch the matcha!");
+    CatcherGameModel model = CatcherGameModel(640, 360, " ");
     // load model with data
     model.setScreenNav(&screenNav);
     model.setNameToSheetMap(&sheetMap);
@@ -70,7 +70,11 @@ int main(int argc, char* argv[]) {
     IdleState idleStateHandler = IdleState();
     
     Sprite* player = spriteMap.getSprite(WINNIE);
+    
     Sprite* start_button = spriteMap.getSprite(START_BUTTON_TEST);
+    sheetMap.getSpriteSheet(WINNIE, WALKING)->setFPSGoal(25);
+    sheetMap.getSpriteSheet(WINNIE, LOSE_POSE)->setFPSGoal(24);
+    sheetMap.getSpriteSheet(WINNIE, RUNNING)->setFPSGoal(30);
     
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(player);
     screenNav.getScreen(START_SCREEN)->addToUpdate(start_button);
@@ -94,24 +98,20 @@ int main(int argc, char* argv[]) {
     replay_btn->setStateHandler(&replayButtonHandler);
     replay_btn->setState(NONE);
     replay_btn->setDir(LEFT);
-    replay_btn->setPosn(495, 50);
-    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
-    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(replay_btn);
-    
-    std::cout << "Checking that all sprites were loaded into gameplay's main properly: [main]\n";
-    std::cout << "replay button: " << screenNav.getScreen(GAMEPLAY_SCREEN)->onScreen(replay_btn) << ". \n";
+    replay_btn->setPosn(-100, 50);
+//    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
+//    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(replay_btn);
     
     player->setStateHandler(&catcherStateHandler);
-//    player->setStateHandler(&charStateHandler); // old
     player->setState(IDLE);
     player->setDir(RIGHT);
     player->setPosn(0, 267.00);
     
-    std::cout << "player sprite: " << screenNav.getScreen(GAMEPLAY_SCREEN)->onScreen(player) << ". \n";
+//    std::cout << "player sprite: " << screenNav.getScreen(GAMEPLAY_SCREEN)->onScreen(player) << ". \n";
     
     start_button->setStateHandler(&navButtonHandler);
     start_button->setState(IDLE);
-    start_button->setPosn(264, 190.00);
+    start_button->setPosn(269, 190.00);
     
     model.setMainPlayer(player);
     model.setUpStartScreenMatchas();
@@ -223,7 +223,6 @@ int main(int argc, char* argv[]) {
     Sprite* resume_btn = spriteMap.getSprite(RESUME_BUTTON);
     Sprite* small_exit_btn = spriteMap.getSprite(SMALL_EXIT_BUTTON);
     Sprite* winnie_drinking_ptr = spriteMap.getSprite(WINNIE_DRINKING);
-//    Sprite* beta_matcha_ptr = spriteMap.getSprite(BETA_MATCHA);
     Sprite* how_to_play_start_btn = spriteMap.getSprite(HOW_TO_PLAY_START_BTN);
     Sprite* title_card_ptr = spriteMap.getSprite(BETA_TITLE_CARD);
     
@@ -231,8 +230,8 @@ int main(int argc, char* argv[]) {
     resume_btn->setState(NONE);
     resume_btn->setDir(LEFT);
     resume_btn->setPosn(20, 20);
-    // screenNav.getScreen(START_SCREEN)->addToUpdate(resume_btn);
     screenNav.getScreen(START_SCREEN)->addToUI(resume_btn);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(resume_btn);
     
     small_exit_btn->setStateHandler(&exitButtonStateHandler); // resume btn
     small_exit_btn->setState(IDLE);
@@ -248,13 +247,6 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(START_SCREEN)->addToUpdate(winnie_drinking_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(winnie_drinking_ptr);
     
-//    beta_matcha_ptr->setStateHandler(&idleStateHandler); // resume btn
-//    beta_matcha_ptr->setState(NONE);
-//    beta_matcha_ptr->setDir(LEFT);
-//    beta_matcha_ptr->setPosn(80, 80);
-//    // screenNav.getScreen(START_SCREEN)->addToUpdate(resume_btn);
-//    screenNav.getScreen(START_SCREEN)->addToUI(beta_matcha_ptr);
-    
     how_to_play_start_btn->setStateHandler(&instrBtnOnStartScrnStateHandler); // resume btn
     how_to_play_start_btn->setState(IDLE);
     how_to_play_start_btn->setDir(LEFT);
@@ -262,10 +254,16 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(START_SCREEN)->addToUpdate(how_to_play_start_btn);
     screenNav.getScreen(START_SCREEN)->addToUI(how_to_play_start_btn);
     
+    Sprite* blue_sky_ptr = spriteMap.getSprite(CLEAR_BLUE_SKY);
+    blue_sky_ptr->setStateHandler(&idleStateHandler);
+    blue_sky_ptr->setState(IDLE);
+    blue_sky_ptr->setDir(LEFT);
+    blue_sky_ptr->setPosn(0, 0);
+    
     title_card_ptr->setStateHandler(&idleStateHandler); // resume btn
     title_card_ptr->setState(IDLE);
     title_card_ptr->setDir(LEFT);
-    title_card_ptr->setPosn(112, 105);
+    title_card_ptr->setPosn(136, 90);
     screenNav.getScreen(START_SCREEN)->addToUpdate(title_card_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(title_card_ptr);
 
@@ -286,12 +284,12 @@ int main(int argc, char* argv[]) {
     banner1_bkg->setStateHandler(&idleStateHandler); // resume btn
     banner1_bkg->setState(IDLE);
     banner1_bkg->setDir(LEFT);
-    banner1_bkg->setPosn(0, 0);
+    banner1_bkg->setPosn(0, -10);
     
     banner2->setStateHandler(&idleStateHandler); // resume btn
     banner2->setState(SCROLLING_BANNER);
     banner2->setDir(LEFT);
-    banner2->setPosn(0, 312);
+    banner2->setPosn(0, 322);
     banner2->setFrameSpeed(0.5);
     // screenNav.getScreen(START_SCREEN)->addToUI(banner2);
     screenNav.getScreen(START_SCREEN)->addToUpdate(banner2);
@@ -299,11 +297,67 @@ int main(int argc, char* argv[]) {
     banner2_bkg->setStateHandler(&idleStateHandler); // resume btn
     banner2_bkg->setState(IDLE);
     banner2_bkg->setDir(LEFT);
-    banner2_bkg->setPosn(0, 305);
+    banner2_bkg->setPosn(0, 315);
     
     // creating level struct list
-    CatcherLevelStruct levelOne = {0, 20, 30000, ICED_MATCHA_LATTE};
+    
+    CatcherLevelStruct levelOne = {0, 10, 30000, BETA_MATCHA};
+    CatcherLevelStruct levelTwo = {0, 10, 20000, STRAWBERRY_MATCHA};
+    CatcherLevelStruct levelThree = {0, 10, 10000, KOICHA};
     model.addLevel(levelOne);
+    model.addLevel(levelTwo);
+    model.addLevel(levelThree);
+    
+    // new buttons/textures
+    Sprite* resume_game_btn = spriteMap.getSprite(RESUME_GAME_BTN);
+    Sprite* go_to_next_lvl_btn = spriteMap.getSprite(NEXT_LVL_BTN);
+    Sprite* try_again_btn = spriteMap.getSprite(TRY_AGAIN_BTN);
+    Sprite* mini_how_to_play_box = spriteMap.getSprite(MINI_INSTR_BOX);
+    Sprite* white_return_btn = spriteMap.getSprite(WHITE_RESUME_BTN);
+    
+    white_return_btn->setStateHandler(&returnButtonHandler); // resume btn
+    white_return_btn->setState(NONE);
+    white_return_btn->setDir(LEFT);
+    white_return_btn->setPosn(-100, 0);
+    screenNav.getScreen(START_SCREEN)->addToUI(white_return_btn);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(white_return_btn);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(white_return_btn);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(white_return_btn);
+    
+    resume_game_btn->setStateHandler(&navButtonHandler); // resume btn
+    resume_game_btn->setState(NONE);
+    resume_game_btn->setDir(LEFT);
+    resume_game_btn->setPosn(269, 190.00);
+    screenNav.getScreen(START_SCREEN)->addToUI(resume_game_btn);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(resume_game_btn);
+    
+    go_to_next_lvl_btn->setStateHandler(&replayButtonHandler); // resume btn
+    go_to_next_lvl_btn->setState(NONE);
+    go_to_next_lvl_btn->setDir(LEFT);
+    go_to_next_lvl_btn->setPosn(495, 50);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(go_to_next_lvl_btn);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(go_to_next_lvl_btn);
+    
+    try_again_btn->setStateHandler(&replayButtonHandler); // resume btn
+    try_again_btn->setState(NONE);
+    try_again_btn->setDir(LEFT);
+    try_again_btn->setPosn(495, 50);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(try_again_btn);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(try_again_btn);
+    
+    mini_how_to_play_box->setStateHandler(&idleStateHandler); // resume btn
+    mini_how_to_play_box->setState(NONE);
+    mini_how_to_play_box->setDir(LEFT);
+    mini_how_to_play_box->setPosn(0, 0);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(mini_how_to_play_box);
+    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(mini_how_to_play_box);
+    
+    resume_game_btn->setSheetMap(&sheetMap);
+    go_to_next_lvl_btn->setSheetMap(&sheetMap);
+    try_again_btn->setSheetMap(&sheetMap);
+    mini_how_to_play_box->setSheetMap(&sheetMap);
+    white_return_btn->setSheetMap(&sheetMap);
+    
     // end
     
     //
@@ -324,6 +378,7 @@ int main(int argc, char* argv[]) {
     instrBtnOnStartScrnStateHandler.setGameController(&controller);
     
     // begin gameplay
+    model.setGamePlayTimer(controller.getGameplayTimer());
     controller.startGame();
     std::cout << "Game closed. [main]\n";
 }
