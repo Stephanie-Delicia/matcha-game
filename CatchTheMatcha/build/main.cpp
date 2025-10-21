@@ -1,14 +1,9 @@
 /*
-    In this latest update, we have a catcher game. The player must move the sprite around using
-    key arrows.
- 
-    Additionally, I plan to add a start screen (not finalized design-wise) in which the player can click the
-    "START" button to navigate to the gameplay screen.
- 
-    You can't go back after this lol, just exit the window
+    This main file loads game data for sprites, sprite sheets, and the game's screen navigator. This game is called "Catch the matcha" where the goal is to catch enough matcha within a time limit.
  */
 #include <stdio.h>
 #include <iostream>
+#include "SDL.h"
 #include "NameStateSheetMap.hpp"
 #include "MainCatcherState.hpp"
 #include "NameSpriteMap.hpp"
@@ -34,25 +29,31 @@
 #include "ScreenModel.hpp"
 
 int main(int argc, char* argv[]) {
+    const char* execPath = SDL_GetBasePath();
+    std::string execPathStr = execPath;
+    std::string spriteSheetDataPath = execPathStr + "/../../res/data/test/testSpriteSheetData.json";
+    std::string nameSpriteDataPath = execPathStr + "/../../res/data/test/nameSpriteData.json";
+    std::string navigatorDataPath = execPathStr + "/../../res/data/test/testScreenNavData2.json";
+    
     // Sheet map
     NameStateSheetMap sheetMap;
-    sheetMap.readJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testSpriteSheetData.json");
-    std::cout << "Loaded NameStateSheetMap. [main]\n";
+    sheetMap.readJSON(spriteSheetDataPath);
+    std::cout << "Loaded NameStateSheetMap data structure. [main]\n";
     
     // Sprite map
     NameSpriteMap spriteMap;
-    spriteMap.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/nameSpriteData.json");
+    spriteMap.loadJSON(nameSpriteDataPath);
     spriteMap.setSheetMapAll(&sheetMap);
     
-    std::cout << "Loaded NameSpriteMap. [main]\n";
+    std::cout << "Loaded NameSpriteMap data structure. [main]\n";
     
     // Screen navigator
     ScreenNavigator screenNav = ScreenNavigator();
     screenNav.setNameSpriteMap(&spriteMap);
     
-    // TODO: nav should through an error if you attemot loadJSON without setting SpriteMap.
-    screenNav.loadJSON("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/data/test/testScreenNavData2.json");
-    std::cout << "Loaded ScreenNavigator. [main]\n";
+    // TODO: nav should through an error if you attempt loadJSON without setting SpriteMap.
+    screenNav.loadJSON(navigatorDataPath);
+    std::cout << "Loaded ScreenNavigator data structure. [main]\n";
     
     // ensure view, model, and controller are instantiated with everything they need.
     GameView view;

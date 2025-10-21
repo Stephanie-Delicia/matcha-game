@@ -158,6 +158,13 @@ void GameView::clearRender() {
 }
 
 void GameView::setFont() {
-    std::cout << "Base path: " << SDL_GetBasePath() << ".\n;";
-    genevaFont = TTF_OpenFont("/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/MatchaGameV1/res/fonts/Pixellari.ttf", 16);
+    const char* execPath = SDL_GetBasePath();
+    const char* fontPath = "../../res/fonts/Pixellari.ttf";
+    
+    std::string finalPath = execPath;
+    finalPath += fontPath;
+    
+    std::cout << "Final path: " << finalPath << ".\n;";
+    
+    genevaFont = TTF_OpenFont(finalPath.c_str(), 16);
 }

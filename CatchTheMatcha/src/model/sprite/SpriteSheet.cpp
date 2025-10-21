@@ -11,8 +11,14 @@ SpriteSheet::SpriteSheet(std::string filePathL,
                          int frames,
                          float width,
                          float height) {
-    srfcL = IMG_Load(filePathL.c_str());
-    srfcR = IMG_Load(filePathR.c_str());
+    
+    const char* execPath = SDL_GetBasePath();
+    std::string finalPath = execPath;
+    std::string finalPathL = finalPath + filePathL;
+    std::string finalPathR = finalPath + filePathR;
+    std::cout << "finalPathL path: " << finalPathL << ".\n;";
+    srfcL = IMG_Load(finalPathL.c_str());
+    srfcR = IMG_Load(finalPathR.c_str());
     currFrame = 0;
     totalFrames = frames;
     w = width;
