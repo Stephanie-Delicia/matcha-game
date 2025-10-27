@@ -417,6 +417,8 @@ CMakeFiles/TestProject.dir/test.cpp.o: /Users/stephaniemartinez/Downloads/matcha
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stdint.h \
+  /Library/Frameworks/SDL3_image.framework/Headers/SDL_image.h \
+  /Library/Frameworks/SDL3_ttf.framework/Headers/SDL_ttf.h \
   /usr/local/include/SDL3/SDL.h \
   /usr/local/include/SDL3/SDL_assert.h \
   /usr/local/include/SDL3/SDL_asyncio.h \
@@ -544,6 +546,8 @@ CMakeFiles/TestProject.dir/test.cpp.o: /Users/stephaniemartinez/Downloads/matcha
 
 /usr/local/include/SDL3/SDL_audio.h:
 
+/Library/Frameworks/SDL3_ttf.framework/Headers/SDL_ttf.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/stdint.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/14.0.0/include/__stddef_max_align_t.h:
@@ -669,6 +673,8 @@ CMakeFiles/TestProject.dir/test.cpp.o: /Users/stephaniemartinez/Downloads/matcha
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
+
+/Library/Frameworks/SDL3_image.framework/Headers/SDL_image.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ucontext.h:
 

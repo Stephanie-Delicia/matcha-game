@@ -61,25 +61,17 @@ endif()
 # now that cmake can find these libraries, we need to tell it how to also build them! With add_subdirectory().
 # specifically, this tells cmake to look into a sepcific directory for another CMakeLists.txt.
 
-# We will set SDLTTF_VENDORED to ON which is what the .txt for SDL_ttf looks
-# for. This makes it so that when ttf builds, it will also build ITS
-# dependencies. Usually many systems already have these dependencies available
-# but this is done just in case.
 
-# Specify that we want to build SDL_TTF's dependencies
-set(SDLTTF_VENDORED ON) 
+find_package(SDL3 PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3.framework" CONFIG REQUIRED)
 
-# Set a variable for our vendor directory
-set(VENDOR_DIR "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3")
+find_package(SDL3_image PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_image.framework" CONFIG REQUIRED)
 
-find_package(SDL3 REQUIRED PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3.framework" REQUIRED)
+find_package(SDL3_ttf PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_ttf.framework" CONFIG REQUIRED)
 
-find_package(SDL3_image REQUIRED PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_image.framework" REQUIRED)
-
-find_package(SDL3_ttf REQUIRED PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_ttf.framework" REQUIRED)
-
-if(SDL3_FOUND)
-    message(STATUS "Found SDL3.")
+if(SDL3_ttf_FOUND)
+    message(STATUS "Found SDL3_ttf.")
+    message(STATUS "SDL3_ttf_LIBRARIES: ${SDL3_ttf_LIBRARIES}")
+    message(STATUS "SDL3_image_LIBRARIES: ${SDL3_image_LIBRARIES}")
     # Proceed with using SDL3
 else()
     message(FATAL_ERROR "Could not locate SDL3.")
@@ -88,8 +80,8 @@ endif()
 # Now, we can link our executable target to the sdl libraries! 
 # target to link against
 # library targets
-target_link_libraries(TestProject 
-  SDL3::SDL3
-  SDL3_image::SDL3_image
-  SDL3_ttf::SDL3_ttf
+target_link_libraries(TestProject
+  PRIVATE SDL3::SDL3
+  PRIVATE SDL3_image::SDL3_image
+  PRIVATE ${SDL3_ttf_LIBRARIES}
 )

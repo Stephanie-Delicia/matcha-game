@@ -97,7 +97,6 @@ TestProject: CMakeFiles/TestProject.dir/test.cpp.o
 TestProject: CMakeFiles/TestProject.dir/build.make
 TestProject: /Library/Frameworks/SDL3.framework/SDL3
 TestProject: /Library/Frameworks/SDL3_image.framework/SDL3_image
-TestProject: /SDL3_ttf
 TestProject: CMakeFiles/TestProject.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/build/cmake/test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TestProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestProject.dir/link.txt --verbose=$(VERBOSE)

@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -iframework /Library/Frameworks
 
-CXX_FLAGS = -std=gnu++20 -F/  -F /Library/Frameworks
+CXX_FLAGS = -std=gnu++20 -F /Library/Frameworks
 
