@@ -81,7 +81,9 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(player);
     screenNav.getScreen(START_SCREEN)->addToUpdate(start_button);
     
+    Sprite* brick_ground = spriteMap.getSprite(BRICK_GROUND);
     Sprite* bg = spriteMap.getSprite(PLEASANT_SKY);
+    Sprite* orange_bg = spriteMap.getSprite(ORANGE_SKY);
     Sprite* start_bg = spriteMap.getSprite(START_SCREEN_TEST);
     
     Sprite* black_screen = spriteMap.getSprite(BLACK_SCREEN);
@@ -119,17 +121,25 @@ int main(int argc, char* argv[]) {
     model.setUpStartScreenMatchas();
     
     bg->setStateHandler(&charStateHandler);
+    brick_ground->setStateHandler(&charStateHandler);
+    orange_bg->setStateHandler(&charStateHandler);
     start_bg->setStateHandler(&charStateHandler);
     bg->setState(IDLE);
+    brick_ground->setState(IDLE);
+    orange_bg->setState(IDLE);
     start_bg->setState(IDLE);
     bg->setPosn(0, 0);
+    brick_ground->setPosn(0, 344);
+    orange_bg->setPosn(0, 0);
     start_bg->setPosn(0, 0);
     
     player->setSheetMap(&sheetMap);
     start_button->setSheetMap(&sheetMap);
     replay_btn->setSheetMap(&sheetMap);
     bg->setSheetMap(&sheetMap);
+    brick_ground->setSheetMap(&sheetMap);
     start_bg->setSheetMap(&sheetMap);
+    orange_bg->setSheetMap(&sheetMap);
     
     /*
      Adding the menu button and box
@@ -245,7 +255,7 @@ int main(int argc, char* argv[]) {
     winnie_drinking_ptr->setStateHandler(&idleStateHandler); // resume btn
     winnie_drinking_ptr->setState(IDLE);
     winnie_drinking_ptr->setDir(LEFT);
-    winnie_drinking_ptr->setPosn(180, 200);
+    winnie_drinking_ptr->setPosn(180, 279);
     screenNav.getScreen(START_SCREEN)->addToUpdate(winnie_drinking_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(winnie_drinking_ptr);
     
@@ -289,7 +299,7 @@ int main(int argc, char* argv[]) {
     banner1_bkg->setPosn(0, -10);
     
     banner2->setStateHandler(&idleStateHandler); // resume btn
-    banner2->setState(SCROLLING_BANNER);
+    banner2->setState(NONE);
     banner2->setDir(LEFT);
     banner2->setPosn(0, 322);
     banner2->setFrameSpeed(0.5);
@@ -297,9 +307,9 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(START_SCREEN)->addToUpdate(banner2);
     
     banner2_bkg->setStateHandler(&idleStateHandler); // resume btn
-    banner2_bkg->setState(IDLE);
+    banner2_bkg->setState(NONE);
     banner2_bkg->setDir(LEFT);
-    banner2_bkg->setPosn(0, 315);
+    banner2_bkg->setPosn(50, 315);
     
     // creating level struct list
     

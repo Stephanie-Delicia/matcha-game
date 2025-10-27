@@ -61,6 +61,17 @@
             "Height": 360.00
         }
     ],
+    "orange_sky":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "../../res/textures/background/orange_bg.png",
+            "FilePathR": "../../res/textures/background/orange_bg.png",
+            "TotalFrames": 1,
+            "Width": 640.00,
+            "Height": 360.00
+        }
+    ],
     "pleasant_sky":
     [
         {
@@ -98,35 +109,35 @@
     [
         {
             "State": "translate",
-            "FilePathL": "../../res/textures/background/start_btn.png",
-            "FilePathR": "../../res/textures/background/start_btn.png",
+            "FilePathL": "../../res/textures/background/start_button.png",
+            "FilePathR": "../../res/textures/background/start_button.png",
             "TotalFrames": 1,
-            "Width": 102,
-            "Height": 25
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "idle",
-            "FilePathL": "../../res/textures/background/start_btn.png",
-            "FilePathR": "../../res/textures/background/start_btn.png",
+            "FilePathL": "../../res/textures/background/start_button.png",
+            "FilePathR": "../../res/textures/background/start_button.png",
             "TotalFrames": 1,
-            "Width": 102,
-            "Height": 25
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "pressed",
-            "FilePathL": "../../res/textures/background/start_btn.png",
-            "FilePathR": "../../res/textures/background/start_btn.png",
+            "FilePathL": "../../res/textures/background/start_button.png",
+            "FilePathR": "../../res/textures/background/start_button.png",
             "TotalFrames": 1,
-            "Width": 102,
-            "Height": 25
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "hover",
-            "FilePathL": "../../res/textures/background/start_btn_hover.png",
-            "FilePathR": "../../res/textures/background/start_btn_hover.png",
+            "FilePathL": "../../res/textures/background/start_button_hover.png",
+            "FilePathR": "../../res/textures/background/start_button_hover.png",
             "TotalFrames": 1,
-            "Width": 102,
-            "Height": 25
+            "Width": 131,
+            "Height": 24
         }
     ],
     "black_screen":
@@ -206,70 +217,70 @@
     [
         {
             "State": "translate",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "idle",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "pressed",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "hover",
-            "FilePathL": "../../res/textures/background/exit_btn_hover.png",
-            "FilePathR": "../../res/textures/background/exit_btn_hover.png",
+            "FilePathL": "../../res/textures/background/start_exit_button_hover.png",
+            "FilePathR": "../../res/textures/background/start_exit_button_hover.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         }
     ],
     "instructions_btn":
     [
         {
-        "State": "translate",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
-        "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+            "State": "translate",
+            "FilePathL": "../../res/textures/background/start_how_to_button.png",
+            "FilePathR": "../../res/textures/background/start_how_to_button.png",
+            "TotalFrames": 1,
+            "Width": 106,
+            "Height": 20
         },
         {
-        "State": "idle",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
-        "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+            "State": "idle",
+            "FilePathL": "../../res/textures/background/start_how_to_button.png",
+            "FilePathR": "../../res/textures/background/start_how_to_button.png",
+            "TotalFrames": 1,
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "pressed",
-            "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-            "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
+            "FilePathL": "../../res/textures/background/start_how_to_button.png",
+            "FilePathR": "../../res/textures/background/start_how_to_button.png",
             "TotalFrames": 1,
-            "Width": 86,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "hover",
-            "FilePathL": "../../res/textures/background/how_to_play_btn_start_hover.png",
-            "FilePathR": "../../res/textures/background/how_to_play_btn_start_hover.png",
+            "FilePathL": "../../res/textures/background/start_how_to_button_hover.png",
+            "FilePathR": "../../res/textures/background/start_how_to_button_hover.png",
             "TotalFrames": 1,
-            "Width": 86,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         }
     ],
     "instructions_box":
@@ -557,70 +568,70 @@
     [
         {
         "State": "translate",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
+        "FilePathL": "../../res/textures/background/start_how_to_button.png",
+        "FilePathR": "../../res/textures/background/start_how_to_button.png",
         "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+        "Width": 106,
+        "Height": 20
         },
         {
         "State": "idle",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
+        "FilePathL": "../../res/textures/background/start_how_to_button.png",
+        "FilePathR": "../../res/textures/background/start_how_to_button.png",
         "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+        "Width": 106,
+        "Height": 20
         },
         {
         "State": "pressed",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start.png",
+        "FilePathL": "../../res/textures/background/start_how_to_button.png",
+        "FilePathR": "../../res/textures/background/start_how_to_button.png",
         "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+        "Width": 106,
+        "Height": 20
         },
         {
         "State": "hover",
-        "FilePathL": "../../res/textures/background/how_to_play_btn_start_hover.png",
-        "FilePathR": "../../res/textures/background/how_to_play_btn_start_hover.png",
+        "FilePathL": "../../res/textures/background/start_how_to_button_hover.png",
+        "FilePathR": "../../res/textures/background/start_how_to_button_hover.png",
         "TotalFrames": 1,
-        "Width": 86,
-        "Height": 16
+        "Width": 106,
+        "Height": 20
         }
     ],
     "small_exit_btn":
     [
         {
             "State": "translate",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "idle",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "pressed",
-            "FilePathL": "../../res/textures/background/exit_btn.png",
-            "FilePathR": "../../res/textures/background/exit_btn.png",
+            "FilePathL": "../../res/textures/background/start_exit_button.png",
+            "FilePathR": "../../res/textures/background/start_exit_button.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         },
         {
             "State": "hover",
-            "FilePathL": "../../res/textures/background/exit_btn_hover.png",
-            "FilePathR": "../../res/textures/background/exit_btn_hover.png",
+            "FilePathL": "../../res/textures/background/start_exit_button_hover.png",
+            "FilePathR": "../../res/textures/background/start_exit_button_hover.png",
             "TotalFrames": 1,
-            "Width": 70,
-            "Height": 16
+            "Width": 106,
+            "Height": 20
         }
     ],
     "try_again_btn":
@@ -697,35 +708,35 @@
     [
         {
             "State": "translate",
-            "FilePathL": "../../res/textures/background/resume_btn.png",
-            "FilePathR": "../../res/textures/background/resume_btn.png",
+            "FilePathL": "../../res/textures/background/resume_button.png",
+            "FilePathR": "../../res/textures/background/resume_button.png",
             "TotalFrames": 1,
-            "Width": 123,
-            "Height": 23
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "idle",
-            "FilePathL": "../../res/textures/background/resume_btn.png",
-            "FilePathR": "../../res/textures/background/resume_btn.png",
+            "FilePathL": "../../res/textures/background/resume_button.png",
+            "FilePathR": "../../res/textures/background/resume_button.png",
             "TotalFrames": 1,
-            "Width": 123,
-            "Height": 23
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "pressed",
-            "FilePathL": "../../res/textures/background/resume_btn.png",
-            "FilePathR": "../../res/textures/background/resume_btn.png",
+            "FilePathL": "../../res/textures/background/resume_button.png",
+            "FilePathR": "../../res/textures/background/resume_button.png",
             "TotalFrames": 1,
-            "Width": 123,
-            "Height": 23
+            "Width": 131,
+            "Height": 24
         },
         {
             "State": "hover",
-            "FilePathL": "../../res/textures/background/resume_btn_hover.png",
-            "FilePathR": "../../res/textures/background/resume_btn_hover.png",
+            "FilePathL": "../../res/textures/background/resume_button_hover.png",
+            "FilePathR": "../../res/textures/background/resume_button_hover.png",
             "TotalFrames": 1,
-            "Width": 123,
-            "Height": 23
+            "Width": 131,
+            "Height": 24
         }
     ],
     "resume_btn":
@@ -802,19 +813,19 @@
     [
         {
             "State": "idle",
-            "FilePathL": "../../res/textures/background/title_card.png",
-            "FilePathR": "../../res/textures/background/title_card.png",
+            "FilePathL": "../../res/textures/background/title_card_beta2.png",
+            "FilePathR": "../../res/textures/background/title_card_beta2.png",
             "TotalFrames": 1,
-            "Width": 368,
-            "Height": 78
+            "Width": 385,
+            "Height": 83
         },
         {
             "State": "translate",
-            "FilePathL": "../../res/textures/background/title_card.png",
-            "FilePathR": "../../res/textures/background/title_card.png",
+            "FilePathL": "../../res/textures/background/title_card_beta2.png",
+            "FilePathR": "../../res/textures/background/title_card_beta2.png",
             "TotalFrames": 1,
-            "Width": 368,
-            "Height": 78
+            "Width": 385,
+            "Height": 83
         }
     ],
     "start_banner1":
@@ -834,6 +845,17 @@
             "TotalFrames": 1,
             "Width": 640,
             "Height": 35
+        }
+    ],
+    "brick_ground":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "../../res/textures/background/brick_ground.png",
+            "FilePathR": "../../res/textures/background/brick_ground.png",
+            "TotalFrames": 1,
+            "Width": 640,
+            "Height": 16
         }
     ],
     "banner1_bkg":

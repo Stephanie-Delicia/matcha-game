@@ -76,7 +76,9 @@ public:
                                                 {"strawberry_matcha", STRAWBERRY_MATCHA},
                                                 {"koicha", KOICHA},
                                                 {"strawberry_mochi", STRAWBERRY_MOCHI},
-                                                {"matcha_mochi", MATCHA_MOCHI}
+                                                {"matcha_mochi", MATCHA_MOCHI},
+        {"orange_sky", ORANGE_SKY},
+        {"brick_ground", BRICK_GROUND}
     };
     
     std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},
