@@ -159,7 +159,7 @@ void GameView::clearRender() {
 
 void GameView::setFont() {
     const char* execPath = SDL_GetBasePath();
-    const char* fontPath = "../../res/fonts/Pixellari.ttf";
+    const char* fontPath = "../../data/fonts/Pixellari.ttf";
     
     std::string finalPath = execPath;
     finalPath += fontPath;
