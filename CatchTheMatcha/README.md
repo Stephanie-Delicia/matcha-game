@@ -11,3 +11,37 @@ After this is done, I want to continue adding game features. The goals I current
 3. Level design. The levels are currently super short and easy, so I want the game to be more engaging. I can give falling objects alternative paths and speeds.
 
 4. More interactive how-to-play box on the start screen. I want to add tabs to this box for overview/game-controls/about/etc...
+
+5. I don't think THIS game project needs it, but I'd love to implement dialogue boxes at some point. 
+
+Current project structure below. Not all folders/files are listed, but at the top levels this is it.
+
+CatchTheMatcha/
+--------------- 
+├── CMakeLists.txt
+|── src/
+|   |── main.cpp
+|   |── model/
+|   |── view/
+|   |── controller/
+|   └── utils/ 
+|── data/
+|   |── textures/
+|   |── json/
+|   └── fonts/ 
+|── tests/
+|── docs/
+|── external/
+|   |── sdl3/
+|   |── json/
+|   └── catch2/ 
+|── build/
+|   |── clang/
+|   └── cmake/ 
+
+src/      : the main classes needed for the game
+data/     : textures, json files, etc.
+tests/    : tests of the main classes using Catch2 library
+docs/     : info on how to compile game
+external/ : third-party libraries (not written by me, everything else, YES)
+build/    : for my personal use in compiling/running executables of the game using different compilers
