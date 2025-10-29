@@ -16,32 +16,32 @@ After this is done, I want to continue adding game features. The goals I current
 
 Current project structure below. Not all folders/files are listed, but at the top levels this is it.
 
-CatchTheMatcha/
---------------- 
-├── CMakeLists.txt
-|── src/
-|   |── main.cpp
-|   |── model/
-|   |── view/
-|   |── controller/
-|   └── utils/ 
-|── data/
-|   |── textures/
-|   |── json/
-|   └── fonts/ 
-|── tests/
-|── docs/
-|── external/
-|   |── sdl3/
-|   |── json/
-|   └── catch2/ 
-|── build/
-|   |── clang/
-|   └── cmake/ 
+CatchTheMatcha/  
+---------------  
+├── CMakeLists.txt  
+|── src/  
+|   |── main.cpp  
+|   |── model/  
+|   |── view/  
+|   |── controller/  
+|   └── utils/  
+|── data/  
+|   |── textures/  
+|   |── json/  
+|   └── fonts/  
+|── tests/  
+|── docs/  
+|── external/  
+|   |── sdl3/  
+|   |── json/  
+|   └── catch2/  
+|── build/  
+|   |── clang/  
+|   └── cmake/   
 
-src/      : the main classes needed for the game
-data/     : textures, json files, etc.
-tests/    : tests of the main classes using Catch2 library
-docs/     : info on how to compile game
-external/ : third-party libraries (not written by me, everything else, YES)
-build/    : for my personal use in compiling/running executables of the game using different compilers
+src/      : the main classes needed for the game  
+data/     : textures, json files, etc.  
+tests/    : tests of the main classes using Catch2 library  
+docs/     : info on how to compile game  
+external/ : third-party libraries (not written by me, everything else, YES)  
+build/    : for my personal use in compiling/running executables of the game using different compilers  
