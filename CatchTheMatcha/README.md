@@ -16,6 +16,7 @@ After this is done, I want to continue adding game features. The goals I current
 
 Current project structure below. Not all folders/files are listed, but at the top levels this is it.
 
+```
 CatchTheMatcha/  
 ---------------  
 ├── CMakeLists.txt  
@@ -45,3 +46,4 @@ tests/    : tests of the main classes using Catch2 library
 docs/     : info on how to compile game  
 external/ : third-party libraries (not written by me, everything else, YES)  
 build/    : for my personal use in compiling/running executables of the game using different compilers  
+```
