@@ -3,12 +3,6 @@
     black.
  */
 #include "SceneController.hpp"
-#include "Timer.hpp"
-#include "NAME.h"
-#include "REQUEST.h"
-#include <limits>
-#include <tuple>
-#include <deque>
 
 void SceneController::drawStillScene(SceneRequest* request) {
 //    std::cout << "At drawStillScene" << ". [drawStillScene()]\n";

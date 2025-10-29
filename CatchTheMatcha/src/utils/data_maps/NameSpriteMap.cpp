@@ -1,17 +1,11 @@
-#include <stdio.h>
-#include "NAME.h"
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "DIRECTION.h"
-#include "SpriteSheet.hpp"
 #include <map>
+#include <stdio.h>
 #include <fstream>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "json.hpp"
 #include "NameSpriteMap.hpp"
-
+#include "../../../external/json/json.hpp"
 // A mapping data structure. Given a NAME, maps to a sprite in the game. For reading in JSON's, the format should be:
 /*
  "Name_1": {sprite_1 parameters},

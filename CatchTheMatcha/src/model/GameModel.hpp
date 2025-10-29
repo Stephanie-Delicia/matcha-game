@@ -10,14 +10,16 @@
 #pragma once
 #include <map>
 #include <string>
+#include <deque>
 #include <iostream>
 #include <SDL3/SDL.h>
-#include "SCREEN.h"
-#include "Sprite.hpp"
-#include "ScreenModel.hpp"
-#include "NameSpriteMap.hpp"
-#include "ScreenNavigator.hpp"
-#include "NameStateSheetMap.hpp"
+#include "../utils/enums/SCREEN.h"
+#include "../utils/Timer.hpp"
+#include "sprite/Sprite.hpp"
+#include "screen/ScreenModel.hpp"
+#include "../utils/data_maps/NameSpriteMap.hpp"
+#include "screen/ScreenNavigator.hpp"
+#include "../utils/data_maps/NameStateSheetMap.hpp"
 
 class GameModel {
 public:

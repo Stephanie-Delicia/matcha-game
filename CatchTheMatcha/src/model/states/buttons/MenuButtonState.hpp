@@ -2,12 +2,7 @@
  A concrete class that handles the states of a button that displays the menu when pressed.
  */
 #pragma once
-#include <SDL3/SDL.h>
-#include "Sprite.hpp"
-#include "SpriteState.hpp"
-#include "GameController.hpp"
-#include "IdleCommand.hpp"
-
+#include "../SpriteState.hpp"
 
 class MenuButtonState : public SpriteState {
 public:

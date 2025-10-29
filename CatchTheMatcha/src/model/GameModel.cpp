@@ -1,5 +1,4 @@
 #include "GameModel.hpp"
-#include <string>
 
 GameModel::GameModel() {
 }

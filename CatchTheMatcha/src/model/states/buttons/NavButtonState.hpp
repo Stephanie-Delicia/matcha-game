@@ -3,17 +3,7 @@
  After instantiation, the navigator and screen to navigate to MUST BE SET.
  */
 #pragma once
-#include "Posn.hpp"
-#include <SDL3/SDL.h>
-#include "Sprite.hpp"
-#include "SpriteState.hpp"
-#include "TranslateCommand.hpp"
-#include "ScreenNavigator.hpp"
-#include "ScreenModel.hpp"
-#include "GameController.hpp"
-#include "IdleCommand.hpp"
-#include "TranslateCommand.hpp"
-
+#include "../SpriteState.hpp"
 
 class NavButtonState : public SpriteState {
 public:

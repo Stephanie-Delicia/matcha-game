@@ -1,11 +1,7 @@
 /*
     Extends the GameController class to include calls for generating boxes for the player to catch.
  */
-#include <vector>
-#include <cmath>
 #include "CatcherController.hpp"
-#include "SceneController.hpp"
-#include "TimerRequest.hpp"
 
 void CatcherController::startGame() {
     fpsGoal = 55;

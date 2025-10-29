@@ -12,16 +12,11 @@
  */
 #include <map>
 #include <string>
-#include <deque>
 #include <iostream>
 #include <algorithm>
 #include "SDL.h"
 #include "SDL_image.h"
-#include "SCREEN.h"
-#include "Sprite.hpp"
 #include "ScreenModel.hpp"
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
 
 std::deque<Sprite*> ScreenModel::getMainQ() {
     return mQueue;

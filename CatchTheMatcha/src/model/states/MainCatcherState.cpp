@@ -1,13 +1,4 @@
-#include <cmath>
-#include <iostream>
-#include <SDL3/SDL.h>
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "SpriteSheet.hpp"
-#include "DIRECTION.h"
-#include "SpriteStruct.hpp"
 #include "MainCatcherState.hpp"
-#include "sdl_rect_utils.h"
 /*
  A class representing the command for handling the walking state for a sprite.
  Rather than by input.type, use the key states for switch statements instead.

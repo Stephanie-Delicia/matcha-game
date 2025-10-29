@@ -2,16 +2,18 @@
 #include <map>
 #include <tuple>
 #include <deque>
+#include <iostream>
 #include <SDL3/SDL.h>
-#include "NAME.h"
-#include "DIRECTION.h"
-#include "STATE.h"
-#include "Posn.hpp"
-#include "SpriteStruct.hpp"
 #include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
+#include "SpriteStruct.hpp"
+#include "../../utils/Posn.hpp"
+#include "../../utils/enums/NAME.h"
+#include "../../utils/enums/STATE.h"
+#include "../../utils/enums/DIRECTION.h"
+#include "../../utils/sdl_utils/sdl_rect_utils.h"
+#include "../../utils/data_maps/NameStateSheetMap.hpp"
 
-// use a forward declaration instead
+// use a forward declaration here instead. A sprite state takes a sprite as input
 class SpriteState;
 
 /*

@@ -2,20 +2,9 @@
     Extends the GameModel class and now includes a field for score tracking.
  */
 #pragma once
-#include <deque>
-#include <string>
-#include "BoxToCatchState.hpp"
-#include "IdleState.hpp"
-#include <iostream>
-#include <SDL3/SDL.h>
-#include "SCREEN.h"
-#include "Timer.hpp"
-#include "Sprite.hpp"
-#include "ScreenModel.hpp"
-#include "NameSpriteMap.hpp"
-#include "ScreenNavigator.hpp"
-#include "NameStateSheetMap.hpp"
-#include "GameModel.hpp"
+#include "../GameModel.hpp"
+#include "../states/BoxToCatchState.hpp"
+#include "../states/IdleState.hpp"
 #include "CatcherLevelStruct.hpp"
 
 class CatcherGameModel : public GameModel {

@@ -12,9 +12,11 @@
  */
 #pragma once
 #include <deque>
-#include "SCREEN.h"
 #include <SDL3/SDL.h>
-#include "Sprite.hpp"
+#include "../sprite/Sprite.hpp"
+#include "../sprite/SpriteSheet.hpp"
+#include "../../utils/enums/SCREEN.h"
+#include "../../utils/data_maps/NameStateSheetMap.hpp"
 
 class ScreenModel {
 public:

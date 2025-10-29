@@ -2,11 +2,16 @@
     Extends the GameController class to include calls for generating boxes for the player to catch.
  */
 #pragma once
+#include <cmath>
+#include <vector>
 #include <SDL3/SDL.h>
-#include "GameView.hpp"
-#include "CatcherGameModel.hpp"
-#include "GameController.hpp"
-#include "Timer.hpp"
+#include "../../view/GameView.hpp"
+#include "../../model/gamestyles/CatcherGameModel.hpp"
+#include "../GameController.hpp"
+#include "../SceneController.hpp"
+#include "../../utils/Timer.hpp"
+#include "requests/TimerRequest.hpp"
+
 class CatcherController : public GameController {
 public:
     // constructor

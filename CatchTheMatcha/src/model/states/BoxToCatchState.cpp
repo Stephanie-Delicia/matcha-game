@@ -3,15 +3,7 @@
  main sprite or player. If the object overlaps with the player, it should disappear and
  some sort of score tracker should be updated.
  */
-#include <iostream>
-#include <SDL3/SDL.h>
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "SpriteSheet.hpp"
-#include "DIRECTION.h"
-#include "SpriteStruct.hpp"
 #include "BoxToCatchState.hpp"
-#include "sdl_rect_utils.h"
 
 void BoxToCatchState::handleInput(Sprite* sprite, const SDL_Event &input) {
     // the box to catch should not respond to input

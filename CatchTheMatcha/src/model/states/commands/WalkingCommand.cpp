@@ -2,11 +2,6 @@
  A class representing the command for handling the walking state for a sprite.
  */
 #include "WalkingCommand.hpp"
-#include "Posn.hpp"
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
-#include "StateCommand.hpp"
-#include "Sprite.hpp"
 
 void WalkingCommand::update(Sprite* sprite) {
     DIRECTION stateDir = sprite->getStateDir();

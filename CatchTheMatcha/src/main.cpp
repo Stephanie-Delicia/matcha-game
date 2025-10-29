@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <iostream>
 #include "SDL.h"
-#include "NameStateSheetMap.hpp"
+#include "utils/data_maps/NameStateSheetMap.hpp"
 #include "MainCatcherState.hpp"
-#include "NameSpriteMap.hpp"
+#include "utils/data_maps/NameSpriteMap.hpp"
 #include "MenuButtonState.hpp"
 #include "InstrOnStartScrnState.hpp"
 #include "BoxToCatchState.hpp"
@@ -31,9 +31,9 @@
 int main(int argc, char* argv[]) {
     const char* execPath = SDL_GetBasePath();
     std::string execPathStr = execPath;
-    std::string spriteSheetDataPath = execPathStr + "/../../res/data/test/testSpriteSheetData.json";
-    std::string nameSpriteDataPath = execPathStr + "/../../res/data/test/nameSpriteData.json";
-    std::string navigatorDataPath = execPathStr + "/../../res/data/test/testScreenNavData2.json";
+    std::string spriteSheetDataPath = execPathStr + "/../../data/json/testSpriteSheetData.json";
+    std::string nameSpriteDataPath = execPathStr + "/../../data/json/nameSpriteData.json";
+    std::string navigatorDataPath = execPathStr + "/../../data/json/testScreenNavData2.json";
     
     // Sheet map
     NameStateSheetMap sheetMap;

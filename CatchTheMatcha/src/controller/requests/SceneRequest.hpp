@@ -1,18 +1,7 @@
 /*
  */
 #pragma once
-#include "Timer.hpp"
-#include "SCENE.h"
-#include "STATE.h"
-#include "DIRECTION.h"
-#include <string>
-#include <map>
-#include <tuple>
-#include <vector>
-#include "Sprite.hpp"
-#include <deque>
 #include "Request.hpp"
-#include "ScreenModel.hpp"
 
 class SceneRequest : public Request {
 public:

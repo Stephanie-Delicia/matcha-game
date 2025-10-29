@@ -1,13 +1,14 @@
 #pragma once
-#include "StateCommand.hpp"
-#include "Sprite.hpp"
-#include "Posn.hpp"
 #include <deque>
 #include <tuple>
-#include "STATE.h"
-#include "Timer.hpp"
-#include "DIRECTION.h"
-
+#include "StateCommand.hpp"
+#include "../../sprite/Sprite.hpp"
+#include "../../../utils/Posn.hpp"
+#include "../../../utils/Timer.hpp"
+#include "../../sprite/SpriteSheet.hpp"
+#include "../../../utils/enums/STATE.h"
+#include "../../../utils/enums/DIRECTION.h"
+#include "../../../utils/data_maps/NameStateSheetMap.hpp"
 /*
  A class representing the command for handling the walking state for a sprite.
  */

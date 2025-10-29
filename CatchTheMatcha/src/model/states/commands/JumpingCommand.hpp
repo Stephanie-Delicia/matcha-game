@@ -1,8 +1,5 @@
 #pragma once
-#include "Sprite.hpp"
-#include "Timer.hpp"
 #include "StateCommand.hpp"
-
 /*
  A class representing the command for handling the jumpinh state for a sprite.
  Need to know the floor to know when the command ends.

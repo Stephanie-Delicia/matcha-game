@@ -3,6 +3,8 @@
  */
 #pragma once
 #include <deque>
+#include <cmath>
+#include <iostream>
 #include <SDL3/SDL.h>
 #include "Sprite.hpp"
 #include "SpriteState.hpp"
@@ -10,6 +12,12 @@
 #include "IdleCommand.hpp"
 #include "GameController.hpp"
 #include "JumpingCommand.hpp"
+#include "../sprite/Sprite.hpp"
+#include "../sprite/SpriteSheet.hpp"
+#include "../sprite/SpriteStruct.hpp"
+#include "../../utils/enums/STATE.h"
+#include "../../utils/enums/DIRECTION.h"
+#include "../../utils/sdl_utils/sdl_rect_utils.h"
 
 class CharacterState : public SpriteState {
 public:

@@ -4,10 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "SDL.h"
 #include "GameView.hpp"
-#include "SDL_ttf.h"
-#include "SDL_image.h"
 
 GameView::GameView() {
 }
@@ -158,6 +155,7 @@ void GameView::clearRender() {
 }
 
 void GameView::setFont() {
+    std::cout << "Here.\n;";
     const char* execPath = SDL_GetBasePath();
     const char* fontPath = "../../data/fonts/Pixellari.ttf";
     

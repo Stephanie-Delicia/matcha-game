@@ -1,11 +1,11 @@
 #pragma once
-#include <stdio.h>
-#include "NAME.h"
-#include "STATE.h"
-#include "DIRECTION.h"
-#include "SpriteSheet.hpp"
 #include <map>
 #include <string>
+#include <stdio.h>
+#include "../enums/NAME.h"
+#include "../enums/STATE.h"
+#include "../enums/DIRECTION.h"
+#include "../../model/sprite/SpriteSheet.hpp"
 
 // A nested mapping data structure that refers to Name, then state, then finally Map.
 // For JSON reading, the JSON format should be in the form:

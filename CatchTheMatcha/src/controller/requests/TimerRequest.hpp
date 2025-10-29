@@ -1,5 +1,4 @@
 #pragma once
-#include "TIMER.h"
 #include "Request.hpp"
 
 class TimerRequest : public Request {

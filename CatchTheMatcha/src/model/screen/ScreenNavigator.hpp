@@ -2,10 +2,12 @@
 #include <map>
 #include <string>
 #include <SDL3/SDL.h>
-#include "Sprite.hpp"
-#include "SCREEN.h"
 #include "ScreenModel.hpp"
-#include "NameSpriteMap.hpp"
+#include "../sprite/Sprite.hpp"
+#include "../sprite/SpriteSheet.hpp"
+#include "../../utils/enums/SCREEN.h"
+#include "../../utils/data_maps/NameSpriteMap.hpp"
+#include "../../utils/data_maps/NameStateSheetMap.hpp"
 
 /*
  A class that contains all screens for a game model. Only one screen can be active at a time!

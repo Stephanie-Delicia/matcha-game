@@ -2,11 +2,6 @@
  A class representing the command for handling the walking state for a sprite.
  */
 #include "VictoryCommand.hpp"
-#include "Posn.hpp"
-#include <iostream>
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
-#include "Sprite.hpp"
 
 void VictoryCommand::update(Sprite* sprite) {
     if (startTime == 0) {

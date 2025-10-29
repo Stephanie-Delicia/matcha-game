@@ -2,14 +2,23 @@
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
 #pragma once
+#include <cmath>
+#include <vector>
+#include <iostream>
 #include <deque>
-#include "Posn.hpp"
 #include <string>
 #include <SDL3/SDL.h>
-#include "Timer.hpp"
-#include "GameModel.hpp"
-#include "GameView.hpp"
-#include "request/Request.hpp"
+#include "SDL_ttf.h"
+#include "../utils/Posn.hpp"
+#include "../utils/Timer.hpp"
+#include "requests/Request.hpp"
+#include "../model/GameModel.hpp"
+#include "../view/GameView.hpp"
+#include "../utils/enums/REQUEST.h"
+#include "requests/NavRequest.hpp"
+#include "requests/SceneRequest.hpp"
+#include "requests/TimerRequest.hpp"
+
 
 class SceneController; // forward declaration
 class SceneRequest;

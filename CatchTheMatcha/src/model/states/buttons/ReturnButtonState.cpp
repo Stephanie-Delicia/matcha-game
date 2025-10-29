@@ -1,17 +1,4 @@
-/*
- */
-#include <cmath>
-#include <iostream>
-#include <SDL3/SDL.h>
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "SceneRequest.hpp"
-#include "SpriteSheet.hpp"
-#include "DIRECTION.h"
-#include "SpriteStruct.hpp"
 #include "ReturnButtonState.hpp"
-#include "sdl_rect_utils.h"
-#include "NavRequest.hpp"
 
 void ReturnButtonState::handleInput(Sprite* sprite, const SDL_Event &input) {
     if (sprite->getState() != NONE) {

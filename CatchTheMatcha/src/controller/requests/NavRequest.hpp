@@ -1,7 +1,5 @@
 #pragma once
-#include "SCENE.h"
 #include "Request.hpp"
-#include "ScreenModel.hpp"
 
 class NavRequest : public Request {
 public:

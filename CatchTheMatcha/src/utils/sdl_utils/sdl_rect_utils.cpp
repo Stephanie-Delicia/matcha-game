@@ -1,6 +1,3 @@
-#include <cmath>
-#include "Posn.hpp"
-#include <SDL3/SDL.h>
 #include "sdl_rect_utils.h"
 
 SDL_Rect roundRect(SDL_FRect fRect) {

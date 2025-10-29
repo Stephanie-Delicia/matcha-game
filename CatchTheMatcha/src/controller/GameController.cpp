@@ -1,21 +1,9 @@
 /*
     Represents a game controller which: starts a game and calls on the game model and view to process updates.
  */
-#include <cmath>
-#include <vector>
-#include <string>
-#include <iostream>
-#include "SDL.h"
-#include "SDL_ttf.h"
-#include "Timer.hpp"
-#include "GameView.hpp"
-#include "GameModel.hpp"
 #include "GameController.hpp"
 #include "SceneController.hpp"
-#include "SceneRequest.hpp"
-#include "TimerRequest.hpp"
-#include "NavRequest.hpp"
-#include "../utils/enum/REQUEST.h"
+
 
 void GameController::startGame() {
     float startTime;

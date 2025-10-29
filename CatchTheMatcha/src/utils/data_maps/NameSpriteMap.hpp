@@ -1,14 +1,12 @@
 #pragma once
-#include <stdio.h>
-#include "NAME.h"
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "DIRECTION.h"
-#include "SpriteSheet.hpp"
 #include <map>
 #include <string>
-#include "NameStateSheetMap.hpp"
-
+#include <stdio.h>
+#include "../enums/NAME.h"
+#include "../enums/STATE.h"
+#include "../enums/DIRECTION.h"
+#include "../../model/sprite/Sprite.hpp"
+#include "../../model/sprite/SpriteSheet.hpp"
 // A mapping data structure. Given a NAME, maps to a sprite in the game. For reading in JSON's, the format should be:
 /*
  "Name_1": {sprite_1 parameters},

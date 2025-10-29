@@ -3,13 +3,7 @@
  The sprite should be hidden if its state is NONE.
  */
 #pragma once
-#include "SDL.h"
-#include "Sprite.hpp"
 #include "SpriteState.hpp"
-#include "GameController.hpp"
-#include "IdleCommand.hpp"
-#include "TranslateCommand.hpp"
-
 
 class IdleState : public SpriteState {
 public:

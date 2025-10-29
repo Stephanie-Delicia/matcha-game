@@ -1,7 +1,5 @@
 #pragma once
 #include "StateCommand.hpp"
-#include "Sprite.hpp"
-#include "Timer.hpp"
 
 /*
  A class representing the command for handling the walking state for a sprite.

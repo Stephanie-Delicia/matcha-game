@@ -1,17 +1,11 @@
 // A mapping data structure that refers to Name, then state, then finally the sheet pointer value.
-
-#include "NameStateSheetMap.hpp"
-#include <stdio.h>
-#include "NAME.h"
-#include "STATE.h"
-#include "DIRECTION.h"
-#include "SpriteSheet.hpp"
 #include <map>
+#include <stdio.h>
+#include <string>
 #include <fstream>
 #include <iostream>
-#include <fstream>
-#include <string>
-#include "json.hpp"
+#include "NameStateSheetMap.hpp"
+#include "../../../external/json/json.hpp"
 
 void NameStateSheetMap::addSpriteSheet(NAME name, STATE state, SpriteSheet* sheet) {
     nameStateSheetMap[name][state] = sheet;

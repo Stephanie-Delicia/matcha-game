@@ -1,5 +1,7 @@
 #pragma once
-#include "Posn.hpp"
+#include <cmath>
+#include <SDL3/SDL.h>
+#include "../Posn.hpp"
 
 // some useful methods for dealing with Posn and SDL data types
 

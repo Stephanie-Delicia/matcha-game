@@ -2,11 +2,6 @@
  A class representing the command for translating a sprite in the x or y direction.
  */
 #include "TranslateCommand.hpp"
-#include "Posn.hpp"
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
-#include "StateCommand.hpp"
-#include "Sprite.hpp"
 
 void TranslateCommand::update(Sprite* sprite) {
     DIRECTION stateDir  = sprite->getStateDir();

@@ -3,13 +3,17 @@
     be called for certain cutscenes.
  */
 #pragma once
+#include <tuple>
 #include <deque>
+#include <limits>
 #include <SDL3/SDL.h>
-#include "GameView.hpp"
-#include "Timer.hpp"
-#include "SceneRequest.hpp"
 #include "GameController.hpp"
-#include "ScreenModel.hpp"
+#include "../view/GameView.hpp"
+#include "../utils/Timer.hpp"
+#include "../utils/enums/NAME.h"
+#include "../utils/enums/REQUEST.h"
+#include "requests/SceneRequest.hpp"
+#include "../model/screen/ScreenModel.hpp"
 
 class SceneController : public GameController {
 public:

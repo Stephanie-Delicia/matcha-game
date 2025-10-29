@@ -1,7 +1,12 @@
 #pragma once
 #include <map>
+#include <iostream>
 #include <SDL3/SDL.h>
-#include "Sprite.hpp"
+#include "../../sprite/Sprite.hpp"
+#include "../../sprite/SpriteSheet.hpp"
+#include "../../../utils/Timer.hpp"
+#include "../../../utils/data_maps/NameStateSheetMap.hpp"
+#include "../../../utils/Posn.hpp"
 
 // A StateCommand functions as an abstract class for creating commands that update sprites based on their states.
 // An instance of StateCommand cannot be created, but classes that inherit from it can.

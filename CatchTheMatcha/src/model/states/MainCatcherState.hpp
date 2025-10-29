@@ -2,18 +2,6 @@
  A concrete class that handles the states of a character sprite (one that can be moved with keyboard arrows).
  */
 #pragma once
-#include <deque>
-#include <SDL3/SDL.h>
-#include "Sprite.hpp"
-#include "SpriteState.hpp"
-#include "WalkingCommand.hpp"
-#include "RunningCommand.hpp"
-#include "SpeedBoostCommand.hpp"
-#include "IdleCommand.hpp"
-#include "GameController.hpp"
-#include "JumpingCommand.hpp"
-#include "VictoryCommand.hpp"
-#include "LoseCommand.hpp"
 #include "CharacterState.hpp"
 
 class MainCatcherState : public CharacterState {

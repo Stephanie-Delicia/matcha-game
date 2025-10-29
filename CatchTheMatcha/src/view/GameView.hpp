@@ -3,12 +3,13 @@
  */
 #pragma once
 #include <vector>
-#include "Posn.hpp"
 #include <string>
 #include <SDL.h>
+#include <SDL_image.h>
 #include <SDL_ttf.h>
-#include "Sprite.hpp"
-#include "ScreenModel.hpp"
+#include "../utils/Posn.hpp"
+#include "../model/sprite/Sprite.hpp"
+#include "../model/screen/ScreenModel.hpp"
 
 class GameView {
 public:

@@ -1,20 +1,7 @@
 /*
  */
-#include <cmath>
-#include <iostream>
-#include <tuple>
-#include <deque>
-#include <map>
-#include <SDL3/SDL.h>
-#include "STATE.h"
-#include "Sprite.hpp"
-#include "SceneRequest.hpp"
-#include "SpriteSheet.hpp"
-#include "DIRECTION.h"
-#include "SpriteStruct.hpp"
+
 #include "InstrOnStartScrnState.hpp"
-#include "sdl_rect_utils.h"
-#include "NavRequest.hpp"
 
 void InstrOnStartScrnState::handleInput(Sprite* sprite, const SDL_Event &input) {
     if (sprite->getState() != NONE) {

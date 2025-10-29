@@ -2,10 +2,13 @@
  A class representing the command for translating a sprite in the x or y direction.
  */
 #pragma once
-#include "StateCommand.hpp"
-#include "Sprite.hpp"
-#include "Timer.hpp"
 #include <cmath>
+#include "StateCommand.hpp"
+#include "../../sprite/Sprite.hpp"
+#include "../../sprite/SpriteSheet.hpp"
+#include "../../../utils/Posn.hpp"
+#include "../../../utils/Timer.hpp"
+#include "../../../utils/data_maps/NameStateSheetMap.hpp"
 
 class TranslateCommand : public StateCommand {
     

@@ -4,15 +4,10 @@
 #include <string>
 #include <queue>
 #include <SDL3/SDL.h>
-#include "json.hpp"
 #include <fstream>
 #include <iostream>
 #include <fstream>
-#include "Sprite.hpp"
-#include "SCREEN.h"
-#include "SpriteSheet.hpp"
-#include "ScreenModel.hpp"
-#include "NameStateSheetMap.hpp"
+#include "../../../external/json/json.hpp"
 
 ScreenNavigator::ScreenNavigator(ScreenModel* mainScreen) {
     mScreen = mainScreen;

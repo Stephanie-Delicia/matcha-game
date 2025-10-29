@@ -2,11 +2,6 @@
  A class representing the command for handling the walking state for a sprite.
  */
 #include "SpeedBoostCommand.hpp"
-#include "Posn.hpp"
-#include <iostream>
-#include "SpriteSheet.hpp"
-#include "NameStateSheetMap.hpp"
-#include "Sprite.hpp"
 
 void SpeedBoostCommand::addTuple(Sprite *sprite) {
     if (images.size() < maxNumImages) {

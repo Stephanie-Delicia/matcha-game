@@ -1,16 +1,5 @@
 #include "Sprite.hpp"
-#include <map>
-#include <iostream>
-#include "SDL.h"
-#include "NAME.h"
-#include "DIRECTION.h"
-#include "STATE.h"
-#include "Posn.hpp"
-#include "SpriteStruct.hpp"
-#include "SpriteSheet.hpp"
-#include "sdl_rect_utils.h"
-#include "CharacterState.hpp"
-
+#include "../states/SpriteState.hpp"
 /*
  A class representing a sprite (char, background texture, etc) in the game. Contains information such as name, location, and states such as direction the char is facing.
  */

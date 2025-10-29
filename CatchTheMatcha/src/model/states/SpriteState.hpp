@@ -1,7 +1,26 @@
 #pragma once
+#include <deque>
+#include <cmath>
+#include <iostream>
 #include <SDL3/SDL.h>
-#include "Sprite.hpp"
-
+#include "commands/WalkingCommand.hpp"
+#include "commands/RunningCommand.hpp"
+#include "commands/SpeedBoostCommand.hpp"
+#include "commands/IdleCommand.hpp"
+#include "commands/TranslateCommand.hpp"
+#include "commands/JumpingCommand.hpp"
+#include "commands/VictoryCommand.hpp"
+#include "commands/LoseCommand.hpp"
+#include "../sprite/Sprite.hpp"
+#include "../sprite/SpriteSheet.hpp"
+#include "../sprite/SpriteStruct.hpp"
+#include "../../controller/GameController.hpp"
+#include "../../utils/sdl_utils/sdl_rect_utils.h"
+#include "../../utils/enums/DIRECTION.h"
+#include "../../utils/enums/STATE.h"
+#include "../../utils/Posn.hpp"
+#include "../../controller/requests/NavRequest.hpp"
+#include "../../controller/requests/SceneRequest.hpp"
 /*
  An abstract class that handles the sprite states. Has abstract method to implement, such as updating the sprite,
  drawing it, and handling game event inputs.

@@ -3,13 +3,8 @@
     specifics on what restarting entails.
  */
 #pragma once
-#include "SDL.h"
-#include "Sprite.hpp"
-#include "SpriteState.hpp"
-#include "GameController.hpp"
-#include "IdleCommand.hpp"
-
-
+#include "../SpriteState.hpp"
+// #include "../../sprite/Sprite.hpp"
 class ReplayButtonState : public SpriteState {
 public:
     ReplayButtonState() {};

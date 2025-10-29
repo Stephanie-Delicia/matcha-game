@@ -1,10 +1,10 @@
 #pragma once
-#include "SpriteStruct.hpp"
-#include "NAME.h"
-#include "STATE.h"
-#include "DIRECTION.h"
-#include "Posn.hpp"
 #include "SpriteSheet.hpp"
+#include "SpriteStruct.hpp"
+#include "../../utils/Posn.hpp"
+#include "../../utils/enums/NAME.h"
+#include "../../utils/enums/STATE.h"
+#include "../../utils/enums/DIRECTION.h"
 
 typedef struct SpriteStruct {
     NAME name;          // unique sprite name

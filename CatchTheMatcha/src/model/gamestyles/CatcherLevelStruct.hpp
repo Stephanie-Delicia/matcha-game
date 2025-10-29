@@ -1,5 +1,5 @@
 #pragma once
-#include "NAME.h"
+#include "../../utils/enums/NAME.h"
 
 typedef struct CatcherLevelStruct {
     int level; // starts from 0
