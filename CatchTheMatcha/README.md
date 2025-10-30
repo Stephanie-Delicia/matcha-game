@@ -47,3 +47,4 @@ docs/     : info on how to compile game
 external/ : third-party libraries (not written by me, everything else, YES)  
 build/    : for my personal use in compiling/running executables of the game using different compilers  
 ```
+data/textures/chars/pearl/new_pearl_outfit.png
