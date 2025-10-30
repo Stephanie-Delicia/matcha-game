@@ -86,8 +86,4 @@ Goals
 - Implement method to do "cutscenes"
 - Design chasen and bowl
 
-![](CatchTheMatcha/data/textures/background/all_chars.png)
-
-
-
-
+![Alt text for the image](CatchTheMatcha/data/textures/background/all_chars.png)
