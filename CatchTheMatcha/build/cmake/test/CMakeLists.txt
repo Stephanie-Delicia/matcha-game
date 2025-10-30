@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.23)
 # optional desc.
 # languages
 project(
-TestProject 
+TestProject
 VERSION 1.0
 DESCRIPTION "Test for using cmake for macOS."
 LANGUAGES CXX
@@ -38,7 +38,7 @@ add_executable(TestProject test.cpp)
 
 if(APPLE)
   set_target_properties(TestProject PROPERTIES
-    INSTALL_RPATH "@executable_path;@loader_path;/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3"
+    INSTALL_RPATH "@executable_path;@loader_path;/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3"
     BUILD_WITH_INSTALL_RPATH TRUE
     MACOSX_RPATH TRUE
   )
@@ -61,27 +61,46 @@ endif()
 # now that cmake can find these libraries, we need to tell it how to also build them! With add_subdirectory().
 # specifically, this tells cmake to look into a sepcific directory for another CMakeLists.txt.
 
+# path to library folder within project
+set(sdl_lib_PATH "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3")
 
-find_package(SDL3 PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3.framework" CONFIG REQUIRED)
+# package name
+# config
+# cmake will not compile if package is not found
+# makes sure that a path is given priority to find specific version of sdl package
+find_package(SDL3
+    PATHS "${sdl_lib_PATH}/SDL3.framework/Versions/A/Resources/CMake"
+    CONFIG
+    REQUIRED
+    HINTS "${sdl_lib_PATH}")
 
-find_package(SDL3_image PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_image.framework" CONFIG REQUIRED)
+find_package(SDL3_image
+    PATHS "${sdl_lib_PATH}/SDL3_image.framework/Versions/A/Resources/CMake"
+    CONFIG
+    REQUIRED
+    HINTS "${sdl_lib_PATH}")
 
-find_package(SDL3_ttf PATHS "/Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/lib/sdl3/SDL3_ttf.framework" CONFIG REQUIRED)
+find_package(SDL3_ttf
+    PATHS "${sdl_lib_PATH}/SDL3_ttf.framework/Versions/A/Resources/CMake"
+    CONFIG
+    REQUIRED
+    HINTS "${sdl_lib_PATH}")
 
-if(SDL3_ttf_FOUND)
-    message(STATUS "Found SDL3_ttf.")
-    message(STATUS "SDL3_ttf_LIBRARIES: ${SDL3_ttf_LIBRARIES}")
-    message(STATUS "SDL3_image_LIBRARIES: ${SDL3_image_LIBRARIES}")
+if(SDL3_ttf_FOUND AND SDL3_image_FOUND AND SDL3_FOUND)
+    message(STATUS "Found all SDL3 libraries.")
+    message(STATUS "SDL3_LIBRARIES: ${SDL3_DIR}")
+    message(STATUS "SDL3_ttf_LIBRARIES: ${SDL3_ttf_DIR}")
+    message(STATUS "SDL3_image_LIBRARIES: ${SDL3_image_DIR}")
     # Proceed with using SDL3
 else()
-    message(FATAL_ERROR "Could not locate SDL3.")
+    message(FATAL_ERROR "Could not locate ALL SDL3 libraries.")
 endif()
 
-# Now, we can link our executable target to the sdl libraries! 
+# Now, we can link our executable target to the sdl libraries!
 # target to link against
 # library targets
 target_link_libraries(TestProject
-  PRIVATE SDL3::SDL3
   PRIVATE SDL3_image::SDL3_image
   PRIVATE ${SDL3_ttf_LIBRARIES}
+  PRIVATE SDL3::SDL3
 )

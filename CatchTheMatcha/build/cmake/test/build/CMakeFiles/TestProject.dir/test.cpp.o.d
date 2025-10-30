@@ -127,8 +127,8 @@ CMakeFiles/TestProject.dir/test.cpp.o: \
   /usr/local/include/SDL3/SDL_tray.h \
   /usr/local/include/SDL3/SDL_version.h \
   /usr/local/include/SDL3/SDL_oldnames.h \
-  /Library/Frameworks/SDL3_ttf.framework/Headers/SDL_ttf.h \
-  /Library/Frameworks/SDL3_image.framework/Headers/SDL_image.h \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3/SDL3_ttf.framework/Headers/SDL_ttf.h \
+  /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3/SDL3_image.framework/Headers/SDL_image.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale \

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -iframework /Library/Frameworks
+CXX_INCLUDES = -iframework /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3
 
-CXX_FLAGS = -std=gnu++20 -F /Library/Frameworks
+CXX_FLAGS = -std=gnu++20 -F /Users/stephaniemartinez/Downloads/matcha_game/matcha-game/programming/c++/CatchTheMatcha/external/sdl3
 
