@@ -30,6 +30,11 @@
         {"name": "white_resume_btn", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "strawberry_matcha", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
         {"name": "koicha", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
-        {"name": "brick_ground", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
+        {"name": "brick_ground", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "nina_w_drinks", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "soma", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "pearl", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "zaira", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"},
+        {"name": "nina", "posnX": 0, "posnY": 0, "state": "idle",  "dir": "left"}
     ]
 }

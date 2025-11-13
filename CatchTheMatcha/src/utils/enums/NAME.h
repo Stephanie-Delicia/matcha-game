@@ -43,11 +43,14 @@ enum NAME {
     BANNER2_BKG,            // 33
     CLEAR_BLUE_SKY,         // 34
     ORANGE_SKY,             // 35
-    TRY_AGAIN_BTN,          // 35
-    NEXT_LVL_BTN,           // 36
-    RESUME_GAME_BTN,        // 37
-    MINI_INSTR_BOX,         // 38
-    WHITE_RESUME_BTN,       // 39
-    STRAWBERRY_MOCHI,       // 40
-    MATCHA_MOCHI            // 41
+    TRY_AGAIN_BTN,          // 36
+    NEXT_LVL_BTN,           // 37
+    RESUME_GAME_BTN,        // 38
+    MINI_INSTR_BOX,         // 39
+    WHITE_RESUME_BTN,       // 40
+    STRAWBERRY_MOCHI,       // 41
+    MATCHA_MOCHI,           // 42
+    NINA_W_DRINKS,          // 43
+    ZAIRA,
+    NINA
 };

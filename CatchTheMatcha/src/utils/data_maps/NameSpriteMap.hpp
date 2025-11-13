@@ -79,6 +79,11 @@ private:
         {"strawberry_mochi", STRAWBERRY_MOCHI},
         {"matcha_mochi", MATCHA_MOCHI},
         {"orange_sky", ORANGE_SKY},
-        {"brick_ground", BRICK_GROUND}
+        {"brick_ground", BRICK_GROUND},
+        {"nina_w_drinks", NINA_W_DRINKS},
+        {"nina", NINA},
+        {"soma", SOMA},
+        {"pearl", PEARL},
+        {"zaira", ZAIRA}
     };
 };

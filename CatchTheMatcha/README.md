@@ -32,13 +32,12 @@ CatchTheMatcha/
 |   └── fonts/  
 |── tests/  
 |── docs/  
+|   |── clang/  
+|   └── cmake/  
 |── external/  
 |   |── sdl3/  
 |   |── json/  
-|   └── catch2/  
-|── build/  
-|   |── clang/  
-|   └── cmake/   
+|   └── catch2/   
 
 src/      : the main classes needed for the game  
 data/     : textures, json files, etc.  

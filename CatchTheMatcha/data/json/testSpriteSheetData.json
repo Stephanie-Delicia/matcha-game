@@ -1,12 +1,11 @@
-{
-    "winnie":
+{    "winnie":
     [
         {
             "State": "walking",
             "FilePathL": "../../data/textures/chars/winnie/winnie_walk_left.png",
             "FilePathR": "../../data/textures/chars/winnie/winnie_walk_right.png",
             "TotalFrames": 8,
-            "Width": 432.00,
+            "Width": 432,
             "Height": 70.00
         },
         {
@@ -46,8 +45,143 @@
             "FilePathL": "../../data/textures/chars/winnie/idle_left.png",
             "FilePathR": "../../data/textures/chars/winnie/idle_right.png",
             "TotalFrames": 1,
-            "Width": 54.00,
+            "Width": 48,
             "Height": 70.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/winnie/idle_left.png",
+            "FilePathR": "../../data/textures/chars/winnie/idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        }
+    ],
+    "pearl":
+    [
+        {
+            "State": "walking",
+            "FilePathL": "../../data/textures/chars/pearl/pearl_walking_sheet_left.png",
+            "FilePathR": "../../data/textures/chars/pearl/pearl_walking_sheet_right.png",
+            "TotalFrames": 8,
+            "Width": 384,
+            "Height": 70.00
+        },
+        {
+            "State": "idle",
+            "FilePathL": "../../data/textures/chars/pearl/pearl_idle_left.png",
+            "FilePathR": "../../data/textures/chars/pearl/pearl_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/pearl/pearl_idle_left.png",
+            "FilePathR": "../../data/textures/chars/pearl/pearl_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        }
+    ],
+    "zaira":
+    [
+        {
+            "State": "walking",
+            "FilePathL": "../../data/textures/chars/zaira/zaira_walking_left.png",
+            "FilePathR": "../../data/textures/chars/zaira/zaira_walking_right.png",
+            "TotalFrames": 8,
+            "Width": 384,
+            "Height": 70.00
+        },
+        {
+            "State": "idle",
+            "FilePathL": "../../data/textures/chars/zaira/zaira_idle_left.png",
+            "FilePathR": "../../data/textures/chars/zaira/zaira_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/zaira/zaira_idle_left.png",
+            "FilePathR": "../../data/textures/chars/zaira/zaira_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        }
+    ],
+    "soma":
+    [
+        {
+            "State": "walking",
+            "FilePathL": "../../data/textures/chars/soma/soma_walking_left.png",
+            "FilePathR": "../../data/textures/chars/soma/soma_walking_right.png",
+            "TotalFrames": 8,
+            "Width": 384,
+            "Height": 70.00
+        },
+        {
+            "State": "idle",
+            "FilePathL": "../../data/textures/chars/soma/soma_idle_left.png",
+            "FilePathR": "../../data/textures/chars/soma/soma_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/soma/soma_idle_left.png",
+            "FilePathR": "../../data/textures/chars/soma/soma_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        }
+    ],
+    "nina":
+    [
+        {
+            "State": "walking",
+            "FilePathL": "../../data/textures/chars/nina/nina_walking_left.png",
+            "FilePathR": "../../data/textures/chars/nina/nina_walking_right.png",
+            "TotalFrames": 8,
+            "Width": 384,
+            "Height": 70.00
+        },
+        {
+            "State": "idle",
+            "FilePathL": "../../data/textures/chars/nina/nina_idle_left.png",
+            "FilePathR": "../../data/textures/chars/nina/nina_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/nina/nina_idle_left.png",
+            "FilePathR": "../../data/textures/chars/nina/nina_idle_right.png",
+            "TotalFrames": 1,
+            "Width": 48,
+            "Height": 70.00
+        }
+    ],
+    "nina_w_drinks":
+    [
+        {
+            "State": "idle",
+            "FilePathL": "../../data/textures/chars/nina/nina_with_drinks.png",
+            "FilePathR": "../../data/textures/chars/nina/nina_with_drinks.png",
+            "TotalFrames": 1,
+            "Width": 52,
+            "Height": 62
+        },
+        {
+            "State": "translate",
+            "FilePathL": "../../data/textures/chars/nina/nina_with_drinks.png",
+            "FilePathR": "../../data/textures/chars/nina/nina_with_drinks.png",
+            "TotalFrames": 1,
+            "Width": 52,
+            "Height": 62
         }
     ],
     "clear_blue_sky":

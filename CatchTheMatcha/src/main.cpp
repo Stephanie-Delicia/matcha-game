@@ -103,15 +103,11 @@ int main(int argc, char* argv[]) {
     replay_btn->setState(NONE);
     replay_btn->setDir(LEFT);
     replay_btn->setPosn(-100, 50);
-//    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUpdate(replay_btn);
-//    screenNav.getScreen(GAMEPLAY_SCREEN)->addToUI(replay_btn);
     
     player->setStateHandler(&catcherStateHandler);
     player->setState(IDLE);
     player->setDir(RIGHT);
     player->setPosn(0, 267.00);
-    
-//    std::cout << "player sprite: " << screenNav.getScreen(GAMEPLAY_SCREEN)->onScreen(player) << ". \n";
     
     start_button->setStateHandler(&navButtonHandler);
     start_button->setState(IDLE);
@@ -235,6 +231,10 @@ int main(int argc, char* argv[]) {
     Sprite* resume_btn = spriteMap.getSprite(RESUME_BUTTON);
     Sprite* small_exit_btn = spriteMap.getSprite(SMALL_EXIT_BUTTON);
     Sprite* winnie_drinking_ptr = spriteMap.getSprite(WINNIE_DRINKING);
+    Sprite* pearl_ptr = spriteMap.getSprite(PEARL);
+    Sprite* soma_ptr = spriteMap.getSprite(SOMA);
+    Sprite* zaira_ptr = spriteMap.getSprite(ZAIRA);
+    Sprite* nina_w_drinks_ptr = spriteMap.getSprite(NINA);
     Sprite* how_to_play_start_btn = spriteMap.getSprite(HOW_TO_PLAY_START_BTN);
     Sprite* title_card_ptr = spriteMap.getSprite(BETA_TITLE_CARD);
     
@@ -259,6 +259,35 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(START_SCREEN)->addToUpdate(winnie_drinking_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(winnie_drinking_ptr);
     
+    zaira_ptr->setStateHandler(&idleStateHandler); // resume btn
+    zaira_ptr->setState(IDLE);
+    zaira_ptr->setDir(LEFT);
+    zaira_ptr->setPosn(460, 274);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(zaira_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(zaira_ptr);
+    
+    nina_w_drinks_ptr->setStateHandler(&idleStateHandler); // resume btn
+    nina_w_drinks_ptr->setState(IDLE);
+    nina_w_drinks_ptr->setDir(LEFT);
+    nina_w_drinks_ptr->setPosn(240, 274);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(nina_w_drinks_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(nina_w_drinks_ptr);
+    
+    pearl_ptr->setStateHandler(&idleStateHandler); // resume btn
+    pearl_ptr->setState(IDLE);
+    pearl_ptr->setDir(LEFT);
+    pearl_ptr->setPosn(320, 274);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(pearl_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(pearl_ptr);
+    
+    soma_ptr->setStateHandler(&idleStateHandler); // resume btn
+    soma_ptr->setState(IDLE);
+    soma_ptr->setDir(LEFT);
+    soma_ptr->setPosn(380, 274);
+    screenNav.getScreen(START_SCREEN)->addToUpdate(soma_ptr);
+    screenNav.getScreen(START_SCREEN)->addToUI(soma_ptr);
+
+
     how_to_play_start_btn->setStateHandler(&instrBtnOnStartScrnStateHandler); // resume btn
     how_to_play_start_btn->setState(IDLE);
     how_to_play_start_btn->setDir(LEFT);

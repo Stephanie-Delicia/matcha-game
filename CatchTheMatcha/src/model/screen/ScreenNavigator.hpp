@@ -80,7 +80,12 @@ public:
                                                 {"strawberry_mochi", STRAWBERRY_MOCHI},
                                                 {"matcha_mochi", MATCHA_MOCHI},
         {"orange_sky", ORANGE_SKY},
-        {"brick_ground", BRICK_GROUND}
+        {"brick_ground", BRICK_GROUND},
+        {"nina_w_drinks", NINA_W_DRINKS},
+        {"soma", SOMA},
+        {"pearl", PEARL},
+        {"zaira", ZAIRA},
+        {"nina", NINA}
     };
     
     std::map<std::string, SCREEN> screenTypeMap = { {"start",    START_SCREEN},
