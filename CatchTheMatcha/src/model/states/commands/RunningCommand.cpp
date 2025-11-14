@@ -12,19 +12,16 @@ void RunningCommand::update(Sprite* sprite) {
     float y = posn.getY();
     
     // get sheet width
-
     SpriteSheet* sheet = sprite->getSheet(sprite->getState());
     float width = sheet->getWidth() / sheet->getTotalFr();
-    
-//    std::cout << "Frame speed: " << frameSpeed << ", and currFrameTime: " << currFrameTime << ". Frame width: " << width << ". Curr frame #: " << sheet->getCurrFr() << ". [RunCmd]\n";
-//
-//    std::cout << "Screen width: " << screenWidth << ". [RunCmd]\n";
     
     switch (stateDir)
     {
         case DIRECTION::LEFT: {
-            if (x - frameSpeed + 6 >= 0) {
+            if (x >= -width) {
                 sprite->setPosn(x - frameSpeed, y);  // update sprite posn
+            } else if (x <= - width) {
+                sprite->setPosn(screenWidth, y);
             }
             if (currFrameTime <= 0.0) {          // if enough time passed to get to the next frame
                 sprite->updateSheet(RUNNING, 1); // update sheet frame
@@ -33,9 +30,10 @@ void RunningCommand::update(Sprite* sprite) {
         }
             
         case DIRECTION::RIGHT: {
-            // if ((x + width + frameSpeed) <= screenWidth) {
-            if ((x + width - 4) <= screenWidth) {
+            if (x <= screenWidth) {
                 sprite->setPosn(x + frameSpeed, y);
+            } else if (x >= screenWidth) {
+                sprite->setPosn(0 - width, y);
             }
             if (currFrameTime <= 0.0) {
                 sprite->updateSheet(RUNNING, 1); // update sheet frame

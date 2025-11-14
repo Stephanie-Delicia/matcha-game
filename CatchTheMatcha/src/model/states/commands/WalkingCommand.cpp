@@ -1,5 +1,6 @@
 /*
- A class representing the command for handling the walking state for a sprite.
+ A command for handling the walking animation of a character sprite.
+ When walking, making it so they loop the screen if they get out of bounds.
  */
 #include "WalkingCommand.hpp"
 
@@ -17,30 +18,29 @@ void WalkingCommand::update(Sprite* sprite) {
     
     switch (stateDir)
     {
-        case DIRECTION::LEFT: {
-            if (x - frameSpeed + 6 >= 0) {
+        case DIRECTION::LEFT: { // left bound = - sprite width
+            if (x >= -width) {
                 sprite->setPosn(x - frameSpeed, y);  // update sprite posn
+            } else if (x <= - width) {
+                sprite->setPosn(screenWidth, y);
             }
             if (currFrameTime <= 0.0) {          // if enough time passed to get to the next frame
                 sprite->updateSheet(WALKING, 1); // update sheet frame
             }
             break;
         }
-            
-        case DIRECTION::RIGHT: {
-            // if ((x + width + frameSpeed) <= screenWidth) {
-            if ((x + width - 4) <= screenWidth) {
+        case DIRECTION::RIGHT: { // right bound = screen width
+            if (x <= screenWidth) {
                 sprite->setPosn(x + frameSpeed, y);
+            } else if (x >= screenWidth) {
+                sprite->setPosn(0 - width, y);
             }
             if (currFrameTime <= 0.0) {
                 sprite->updateSheet(WALKING, 1); // update sheet frame
             }
             break;
         }
-        case UP: {
-            break;
-        }
-        case DOWN: {
+        default: {
             break;
         }
     }

@@ -262,7 +262,7 @@ int main(int argc, char* argv[]) {
     zaira_ptr->setStateHandler(&charStateHandler); // resume btn
     zaira_ptr->setState(WALKING);
     zaira_ptr->getSheet(WALKING)->setFPSGoal(20);
-    zaira_ptr->setFrameSpeed(1);
+    zaira_ptr->setFrameSpeed(0.5);
     zaira_ptr->setDir(RIGHT);
     zaira_ptr->setPosn(460, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(zaira_ptr);
@@ -281,7 +281,7 @@ int main(int argc, char* argv[]) {
     pearl_ptr->setState(WALKING);
     pearl_ptr->setDir(RIGHT);
     pearl_ptr->getSheet(WALKING)->setFPSGoal(20);
-    pearl_ptr->setFrameSpeed(1);
+    pearl_ptr->setFrameSpeed(0.5);
     pearl_ptr->setPosn(320, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(pearl_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(pearl_ptr);
@@ -290,7 +290,7 @@ int main(int argc, char* argv[]) {
     soma_ptr->setState(WALKING);
     soma_ptr->setDir(RIGHT);
     soma_ptr->getSheet(WALKING)->setFPSGoal(20);
-    soma_ptr->setFrameSpeed(1);
+    soma_ptr->setFrameSpeed(0.5);
     soma_ptr->setPosn(380, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(soma_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(soma_ptr);
