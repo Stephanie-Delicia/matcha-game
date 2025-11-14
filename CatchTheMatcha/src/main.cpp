@@ -259,30 +259,38 @@ int main(int argc, char* argv[]) {
     screenNav.getScreen(START_SCREEN)->addToUpdate(winnie_drinking_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(winnie_drinking_ptr);
     
-    zaira_ptr->setStateHandler(&idleStateHandler); // resume btn
-    zaira_ptr->setState(IDLE);
-    zaira_ptr->setDir(LEFT);
+    zaira_ptr->setStateHandler(&charStateHandler); // resume btn
+    zaira_ptr->setState(WALKING);
+    zaira_ptr->getSheet(WALKING)->setFPSGoal(20);
+    zaira_ptr->setFrameSpeed(1);
+    zaira_ptr->setDir(RIGHT);
     zaira_ptr->setPosn(460, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(zaira_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(zaira_ptr);
     
-    nina_w_drinks_ptr->setStateHandler(&idleStateHandler); // resume btn
-    nina_w_drinks_ptr->setState(IDLE);
-    nina_w_drinks_ptr->setDir(LEFT);
+    nina_w_drinks_ptr->setStateHandler(&charStateHandler); // resume btn
+    nina_w_drinks_ptr->setState(WALKING);
+    nina_w_drinks_ptr->setDir(RIGHT);
+    nina_w_drinks_ptr->getSheet(WALKING)->setFPSGoal(20);
+    nina_w_drinks_ptr->setFrameSpeed(0.5);
     nina_w_drinks_ptr->setPosn(240, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(nina_w_drinks_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(nina_w_drinks_ptr);
     
-    pearl_ptr->setStateHandler(&idleStateHandler); // resume btn
-    pearl_ptr->setState(IDLE);
-    pearl_ptr->setDir(LEFT);
+    pearl_ptr->setStateHandler(&charStateHandler); // resume btn
+    pearl_ptr->setState(WALKING);
+    pearl_ptr->setDir(RIGHT);
+    pearl_ptr->getSheet(WALKING)->setFPSGoal(20);
+    pearl_ptr->setFrameSpeed(1);
     pearl_ptr->setPosn(320, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(pearl_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(pearl_ptr);
     
-    soma_ptr->setStateHandler(&idleStateHandler); // resume btn
-    soma_ptr->setState(IDLE);
-    soma_ptr->setDir(LEFT);
+    soma_ptr->setStateHandler(&charStateHandler); // resume btn
+    soma_ptr->setState(WALKING);
+    soma_ptr->setDir(RIGHT);
+    soma_ptr->getSheet(WALKING)->setFPSGoal(20);
+    soma_ptr->setFrameSpeed(1);
     soma_ptr->setPosn(380, 274);
     screenNav.getScreen(START_SCREEN)->addToUpdate(soma_ptr);
     screenNav.getScreen(START_SCREEN)->addToUI(soma_ptr);

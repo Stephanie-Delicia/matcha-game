@@ -30,9 +30,6 @@ public:
     void draw(Sprite* sprite, SDL_Surface *windowSrfc) override;
     void handleInput(Sprite* sprite, const SDL_Event &input) override;
     void setWidth(float width)   { screenWidth  = width; };
-    void setJumpingCommand() {
-        jumpingC.setTimer(gameController->getTimer());
-    };
     void setHeight(float height) { screenHeight = height; };
     void setGameController(GameController* controller) { gameController = controller; } ;
     
